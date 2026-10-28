@@ -1,98 +1,100 @@
 ---
-title: "![](/docs-img/duik/icons/constraints.svg) Transform Constraints"
+title: "变换约束"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/constraints.svg) Transform Constraints
+# <img src="/docs-img/duik/icons/constraints.svg" style={{width: '1em'}}/> 变换约束
 
-Transform constraints can constrain (i.e. link) the position and rotation of a layer to follow the location and orientation of other layers and Bézier paths.
+变换约束可以约束（也就是链接）一个图层的位置与旋转，让它跟随其他图层和 Bézier 路径的位置与朝向。
 
-They're very useful to rig all kinds of machines, cogs, or also cloths, for example when used with puppet pins or Bézier paths and [Duik pins](pins.md)&nbsp;[^1], constrained to the orientation or location of the limbs and joints.
+在绑定各种机械、齿轮，或是布料时，它们非常好用——例如配合木偶图钉、Bézier 路径和 [Duik 图钉](pins)&nbsp;[^1]，把它们约束到肢体与关节的朝向或位置上。
 
 ![](/docs-img/illustration/Elementary_treatise_on_the_finishing_of_white,_dyed,_and_printed_cotton_goods_(1889)_(14597187638).png)  
-*Elementary treatise on the finishing of white, dyed, and printed cotton goods  
-Joseph Depierre, 1889  
-Public domain.*
+*《白色、染色与印花棉布整理基础论》  
+Joseph Depierre，1889  
+公有领域。*
 
-Most of the time, the same effect can be obtained with the connector, but with un-bounded values. Using constraints is also easier when there are multiple master layers.
+大多数时候，同样的效果也能用连接器实现，但连接器给出的是不受限的数值。而当存在多个主控图层时，使用约束也更方便。
 
-Select the layers to constrain then click the **![](/docs-img/duik/icons/constraints.svg) *Transform...*** button to select the constraint to apply to the selection.
+选中要约束的图层，然后点击 **![](/docs-img/duik/icons/constraints.svg) 变换（Transform）…** 按钮，选择要应用到选区的约束。
 
 ![](/docs-img/duik/constraints/transform.png)
 
 <Callout type="success">
-    When a layer is constrained, its rotation and position are not locked; you can still edit and animate them manually and offset the constrained value.
+    图层被约束后，它的旋转和位置并不会被锁定；你仍然可以手动编辑并制作动画，从而偏移约束值。
 </Callout>
 
-# ![](/docs-img/duik/icons/move.svg) Position Constraint
+## <img src="/docs-img/duik/icons/move.svg" style={{width: '1em'}}/> 位置约束
 
-You can constrain the position of a layer to the location of other layers; that means the constrained layer will translate according to the absolute location of the other layers, taking all parent translations into account. The weight[*](../../misc/glossary) acts as a multiplier of the constraint and can be animated.  
-For example, if a layer is constrained to two other layers with both weights at `50 %`, it stays in the center of the segment joining the two other layers. That also works with three layers and `33.3 %`, to attach the layer to the center of mass of the layers. Of course you can adjust the weights to change the "*mass*" of the master layers.
+你可以把一个图层的位置约束到其他图层的位置上；这意味着被约束图层会根据其他图层的绝对位置进行平移，并把所有父级的平移都考虑在内。权重[*](../../misc/glossary)作为约束的乘数，可以被做成动画。  
+例如，如果一个图层以各 `50 %` 的权重被约束到另外两个图层上，它就会停在连接这两个图层线段的中点。三个图层、各 `33.3 %` 时也同样有效，可以把图层附着到这些图层的质心上。当然，你可以调整权重来改变主控图层的“质量”。
 
-You can use the effect to adjust and animate the position constraint.
+你可以用效果来调整并制作位置约束的动画。
 
 ![](/docs-img/duik/constraints/position-constraint-effect.png)
 
-Just select the layer to constrain to, and set or animate its weight. To constrain to multiple layers, you can duplicate the effect.
+只需选择要约束到的图层，并设置或动画化它的权重即可。要约束到多个图层，可以复制这个效果。
 
 <Callout type="info">
-    Because this constraint depends on the specific location of the layers at the beginning of the composition, you won't see the effect of the position constraint until there's an actual animation (using keyframes or expressions) on the master layers, and at the very first frame of the composition.
+    由于这个约束依赖图层在合成开始时的具体位置，只有当主控图层上确实存在动画（关键帧或表达式）、并且在合成的第一帧时，你才会看到位置约束的效果。
 </Callout>
 
-## ![](/docs-img/duik/icons/rotate.svg) Orientation Constraint
+## <img src="/docs-img/duik/icons/rotate.svg" style={{width: '1em'}}/> 方向约束
 
-You can constrain the rotation of a layer to the orientation of other layers; that means the constrained layer will rotate according to the absolute orientation of the other layers, taking all parent rotations into account. The weight[*](../../misc/glossary) acts as a multiplier of the constraint and can be animated.
+你可以把一个图层的旋转约束到其他图层的朝向上；这意味着被约束图层会根据其他图层的绝对朝向进行旋转，并把所有父级的旋转都考虑在内。权重[*](../../misc/glossary)作为约束的乘数，可以被做成动画。
 
 ![](/docs-img/examples/ferriswheel.gif)  
 *Léa Saint-Raymond  
-All rights reserved.*
+保留所有权利。*
 
-This is a very useful tool when you need a layer to stay always aligned with another layer, without translating with it.  
-You can also use this constraint to link the orientation of a controller to the orientation of any layer in the rig, this is a quick and easy way to control rotations in a rig, without parenting.
+当你需要一个图层始终与另一个图层保持对齐、但不随它平移时，这是个非常实用的工具。  
+你也可以用这个约束，把某个控制器的朝向链接到绑定中任意图层的朝向上；这是一种在不使用父子关系的情况下控制绑定旋转的快捷方式。
 
-You can use the effect to adjust and animate the orientation constraint.
+你可以用效果来调整并制作方向约束的动画。
 
 ![](/docs-img/duik/constraints/orientation-constraint-effect.png)
 
-Just select the layer to constrain to, and set or animate its weight. To constrain to multiple layers, you can duplicate the effect.
+只需选择要约束到的图层，并设置或动画化它的权重即可。要约束到多个图层，可以复制这个效果。
 
 <Callout type="success">
-    When all orientation constraints are set to `0 %`, the constrained layer keeps its own orientation no matter what, even if it has a parent. That's an easy way to rig the gondolas of a ferris wheel for example, or the pedal of a bicycle.
+    当所有方向约束都设为 `0 %` 时，无论如何被约束的图层都保持自己的朝向，即使它有父级也是如此。举例来说，这就能很方便地给摩天轮的座舱或自行车的脚踏做绑定。
 </Callout>
 
-## ![](/docs-img/duik/icons/bezier.svg) Path Constraint
+## <img src="/docs-img/duik/icons/bezier.svg" style={{width: '1em'}}/> 路径约束
 
-To make a layer follow a Bézier path (and stay aligned with it), you can use the path constraint. It constrains both the position and the rotation of the layer.
+要让一个图层沿 Bézier 路径移动（并与路径保持对齐），可以使用路径约束。它同时约束图层的位置和旋转。
 
 ![](/docs-img/illustration/Elementary_treatise_on_the_finishing_of_white,_dyed,_and_printed_cotton_goods_(1889)_(14597187638)_2.png)  
-*Elementary treatise on the finishing of white, dyed, and printed cotton goods  
-Joseph Depierre, 1889  
-Public domain.*
+*《白色、染色与印花棉布整理基础论》  
+Joseph Depierre，1889  
+公有领域。*
 
-1. Click the ![](/docs-img/duik/icons/bezier.svg) ***Path Constraint*** button.  
+1. 点击 **![](/docs-img/duik/icons/bezier.svg) 路径约束** 按钮。  
     ![](/docs-img/duik/constraints/path.png)
-2. **Select the path** property (be careful not to select the group containing the path, but the actual path property).
-3. **Click the ![](/docs-img/duik/icons/eye_dropper.svg) eye dropper** button.  
+2. **选择路径**属性（注意不要选包含路径的组，而要选实际的路径属性）。
+3. **点击 ![](/docs-img/duik/icons/eye_dropper.svg) 吸管**按钮。  
     ![](/docs-img/duik/constraints/path-picked.png)
-4. **Select the layer** to constrain.
-5.  **Click the ![](/docs-img/duik/icons/check.svg) Path constraint** button.  
-    You can `[Alt] + [Click]` to automatically move the constrained layer to the first point of the path.
+4. **选择要约束的图层**。
+5. **点击 ![](/docs-img/duik/icons/check.svg) 路径约束**按钮。  
+    你可以 `[Alt] + [Click]`，把被约束图层自动移动到路径的第一个点。
 
-You can use the effect to adjust and animate the path constraint.
+你可以用效果来调整并制作路径约束的动画。
 
 ![](/docs-img/duik/constraints/path-constraint-effect.png)
 
-- You can **move the layer along the path** with the first percent value; you can easily loop the animation as this value is not limited to `0 - 100 %`.
-- You can offset the layer away from the path, along the normal at the corresponding percent along path, with the **Path Offset** property.
-- By default, the layer is rotated to stay tangent to the path. Uncheck the **Orientation** option to disable this.
+- 你可以用第一个百分比值**让图层沿路径移动**；由于这个值不限于 `0 - 100 %`，你可以轻松地让动画循环。
+- 你可以用**路径偏移（Path Offset）**属性，沿路径上对应百分比处的法线方向，让图层偏离路径。
+- 默认情况下，图层会旋转到与路径相切。取消勾选**朝向（Orientation）**选项即可关闭此行为。
 
 <Callout type="success">
-    If the path itself is animated, the constrained layer will follow the animation of the path, even when the *percent along path* is animated.
+    如果路径本身被做成了动画，被约束图层会跟随路径的动画，即使“沿路径百分比”也在动画中也是如此。
 </Callout>
 
 ![](/docs-img/illustration/Elementary_treatise_on_the_finishing_of_white,_dyed,_and_printed_cotton_goods_(1889)_(14780753041).png)  
-*Elementary treatise on the finishing of white, dyed, and printed cotton goods  
-Joseph Depierre, 1889  
-Public domain.*
+*《白色、染色与印花棉布整理基础论》  
+Joseph Depierre，1889  
+公有领域。*
 
-[^1]: *cf.* *[Constraints](index.md) / [Pins](pins.md)*.
-
+[^1]: *参见*[*约束*](index) / [*图钉*](pins)。

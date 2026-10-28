@@ -1,291 +1,286 @@
 ---
-title: "![](/docs-img/duik/icons/ik.svg) Inverse and Forward Kinematics (IK / FK)"
+title: "反向动力学与正向动力学"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/ik.svg) Inverse and Forward Kinematics (IK / FK)
+# <img src="/docs-img/duik/icons/ik.svg" style={{width: '1em'}}/> 反向动力学与正向动力学（IK / FK）
 
-*Kinematics*[*](../../misc/glossary) in rigging and animation describe several methods to control and animate the rotation and location of the joints of limbs (i.e. Kinematic Chains[*](../../misc/glossary)).
+绑定与动画中的*动力学*[*](../../misc/glossary)，描述了控制和动画化肢体关节（也就是动力学链[*](../../misc/glossary)）旋转与位置的几种方法。
 
 ![](/docs-img/illustration/Ambroise_Pare_prosthetics_mechanical_arm_Wellcome_L0043497.png)  
-*Illustration of mechanical arm; Instrumenta chyrurgiae et icones anathomicae  
-Ambroise Paré, 1564  
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en), [Wellcome Library](http://wellcomeimages.org/), London.*
+*机械臂插图；Instrumenta chyrurgiae et icones anathomicae  
+Ambroise Paré，1564  
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)，[Wellcome Library](http://wellcomeimages.org/)，伦敦。*
 
-Usually, the most basic rig for any kind of limb is to parent the layers together, from the tip (child, e.g. hand or foot) to the root (parent, e.g. shoulder or hip) of the limb.  
-In this simple case, that's called ***Forward Kinematics (FK)***[*](../../misc/glossary): you just need to animate the rotation of each joint from the root to the tip to animate the whole limb.  
-This is the easiest way to animate a limb, as rotation are simple values, and you just have a single value per joint to animate. This works as long as there is no interaction and constraint between the tip (e.g. hand or foot) with something else which moves differently (or is just static, like the floor in the case of a foot).
+通常，给任何肢体做最基础的绑定，就是把图层从末端（子级，例如手或脚）到根部（父级，例如肩或髋）父子化在一起。  
+在这个简单情形下，这叫做***正向动力学（FK）***[*](../../misc/glossary)：你只需动画化从根到端每个关节的旋转，就能动画化整条肢体。  
+这是动画化肢体最简单的方式，因为旋转是简单数值，每个关节只有一个值要动。只要末端（例如手或脚）不与其他运动方式不同（或干脆静止，比如脚踩地面）的东西发生交互和约束，它就一直有效。
 
-But if you need to constrain the tip of the limb, or just keep it static while animating the root (e.g. keep the foot still on the ground while moving the hips around), you'll need another method where you can animate both ends of the limb using their position instead of their rotation. That's called ***Inverse Kinematics (IK)***[*](../../misc/glossary), because to the contrary of the FK, you have to animate the end of the limb and the position value is then automatically converted to rotation values in the reversed order, from the tip to the root of the limb. This makes it a bit more difficult to achieve a nice animation, as you'll have to take care of the trajectories of the end of the limb, and handle position properties which are multi-dimensional and more complex than simple rotations.
+但如果你需要约束肢体末端，或者在动画化根部时让末端保持静止（例如移动髋部时让脚仍然踩在地上），那就需要另一种方法——你可以用位置而不是旋转来动画化肢体的两端。这就是***反向动力学（IK）***[*](../../misc/glossary)，因为与 FK 相反，你要动画化肢体末端，然后位置值会按相反顺序、从末端到根部自动转换成旋转值。这让做出漂亮动画稍微难一点，因为你得留意肢体末端的轨迹，还要处理多维、比简单旋转更复杂的位置属性。
 
 ![](/docs-img/examples/IK.gif)  
 *Claude Autret "Jissse"  
-All rights reserved*
+保留所有权利*
 
 <Callout type="info">
-    When animating using IK, you have to set the values of the position keyframe and their temporal interpolation[*](../../misc/glossary), as you would with FK and rotations, but you also have to manage the spatial interpolation and make sure the limb always follows a curved trajectory (and not straight lines)[^1].
+    用 IK 做动画时，你既要像用 FK 做旋转那样设置位置关键帧的值及其时间插值[*](../../misc/glossary)，还得管理空间插值，确保肢体始终沿曲线轨迹运动（而不是直线）[^1]。
 </Callout>
 
-With Duik (and the Auto-rig) you can rig limbs in a way to be able to switch at any time between IK and FK according to your needs at the time you're animating. There are also specific types of IK to ease the animations of longer limbs like horse legs, ant and crab legs or even like hair strands, tails or even spines and long necks.
+借助 Duik（和自动绑定），你可以把肢体绑成能随时根据动画当下的需要在 IK 与 FK 之间切换的形式。还有一些特殊的 IK 类型，用来简化较长肢体的动画，比如马腿、蚂蚁和螃蟹腿，甚至发束、尾巴、脊柱和长脖子。
 
-## IK and FK creation
+## IK 与 FK 的创建
 
-There are two ways to rig After Effects layers with the different types of Duik IK and FK controls:
+用不同类型的 Duik IK 和 FK 控制来绑定 After Effects 图层，有两种方式：
 
-- Using Duik [bones](../bones) and the [Auto-rig](../bones/autorig)&nbsp;[^2].
-- Using the ![](/docs-img/duik/icons/ik.svg) *Kinematics* menu in the *![](/docs-img/duik/icons/constraints.svg) Constraints* panel. Using this method, you'll be able to rig any kind of layer.
+- 使用 Duik [骨骼](../bones)和[自动绑定](../bones/autorig)&nbsp;[^2]。
+- 使用 *![](/docs-img/duik/icons/ik.svg) 动力学（Kinematics）*菜单，位于 *![](/docs-img/duik/icons/constraints.svg) 约束（Constraints）*面板中。用这种方式，你可以绑定任意类型的图层。
 
-Both methods allow you to customize the type of IK/FK controls which are created by Duik.
+两种方式都允许你自定义 Duik 创建的 IK/FK 控制类型。
 
-Duik creates one or several controller layers, according to the type of IK/FK, and adds a few effects on these controllers to adjust the settings and give a more precise control on the limb.
+Duik 会根据 IK/FK 的类型创建一个或多个控制器图层，并在这些控制器上加一些效果，用来调整设置、对肢体做更精确的控制。
 
-### Using the Auto-Rig
+### 使用自动绑定
 
-Although the Auto-Rig is a smart tool and will try to do its best no matter what layer you select, it's better to use it exclusively with Duik bones.
+虽然自动绑定是个聪明的工具，无论你选什么图层它都会尽力而为，但最好只把它和 Duik 骨骼一起使用。
 
-1. Select the bone layers you want to rig.
-2. Click the *![](/docs-img/duik/icons/autorig.svg) Auto-Rig* button. This button is available in the ![](/docs-img/duik/icons/oco.svg) *Meta-Rig*, ![](/docs-img/duik/icons/bone.svg) *Bones* and ![](/docs-img/duik/icons/constraints.svg) *Links and Constraints* panels.
+1. 选中你要绑定的骨骼图层。
+2. 点击 *![](/docs-img/duik/icons/autorig.svg) 自动绑定* 按钮。这个按钮在 ![](/docs-img/duik/icons/oco.svg) *元绑定（Meta-Rig）*、![](/docs-img/duik/icons/bone.svg) *骨骼（Bones）*和 ![](/docs-img/duik/icons/constraints.svg) *链接与约束*面板中都有。
 
-When using custom bones and for other specific long chains like tails or hair strands, you can choose the type of FK or IK control to use. Read the *[Bones and Auto-Rig / Auto-Rig](../bones/autorig)* section for more details.
+使用自定义骨骼时，以及处理尾巴、发束等其他特定长链时，你可以选择要使用的 FK 或 IK 控制类型。详见 *[骨骼与自动绑定 / 自动绑定](../bones/autorig)*一节。
 
-### Using the Kinematics menu
+### 使用动力学菜单
 
-This method works with all layers.
+这种方式适用于所有图层。
 
-1. Parent the layers together, from the tip (child) to the root (parent) of the limb.
-2. Create a controller layer[^3] if you'd like to use a custom controller. This is optional as Duik will create a controller for you if there's no controller already available.
-3. Click the ![](/docs-img/duik/icons/ik.svg) *Kinematics* menu and then click the type of IK or FK Control you'd like to use.
+1. 把图层从肢体末端（子级）到根部（父级）父子化在一起。
+2. 如果你想使用自定义控制器，创建一个控制器图层[^3]。这是可选的；如果还没有可用的控制器，Duik 会替你创建一个。
+3. 点击 ![](/docs-img/duik/icons/ik.svg) *动力学*菜单，然后点击你想使用的 IK 或 FK 控制类型。
 
 ![](/docs-img/duik/constraints/kinematics-menu.png)  
-*Different types of IK and FK controls are available.*
+*提供多种 IK 和 FK 控制类型。*
 
-This menu shows the different types of IK and FK Control:
+这个菜单显示不同类型的 IK 和 FK 控制：
 
-- **Standard IK/FK**  
-    This is suitable for single-layer, 2-layer and 3-layer chains; some options are available specifically for 3-layer chains, read below for more details.
+- **标准 IK/FK**  
+    适用于单层、两层和三层链；三层链还有一些专门选项，详见下文。
 - **Bézier IK**  
-    Although the Bézier IK can be used for any layer chain, it is especially useful for chains longer than 2 layers.
-- **FK** with Overlapping animation
-    This is a very handy FK-only control for chains where you're sure you won't need IK.
+    虽然 Bézier IK 可用于任意图层链，但它对超过两层的链尤其有用。
+- **带重叠动画的 FK**  
+    对于你确定不需要 IK 的链，这是一种非常方便的纯 FK 控制。
 - **Bézier FK**  
-    This is a special control based on the Bézier IK control but rigged in a way you can animate rotations instead of the Bézier IK controllers' positions.
+    这是一种基于 Bézier IK 控制的特殊控制，但绑定方式让你可以动画化旋转，而不是 Bézier IK 控制器的位置。
 
-## Standard IK/FK
+## 标准 IK/FK
 
-The standard IK and FK control can be used with chains consisiting of one to three layers (plus the tip, like the hand or the foot). It can be used for almost all kind of legs and arms.
+标准 IK 和 FK 控制可用于一到三层的链（加上末端，比如手或脚）。它几乎可用于所有种类的腿和手臂。
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E04_Arm__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E04_Arm__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-### Single-layer chain
+### 单层链
 
-When used on a single layer, the rigged layer just automatically rotates to always point towards its controller.
+在单个图层上使用时，被绑定图层会自动旋转，始终指向它的控制器。
 
 ![](/docs-img/duik/constraints/1l-ik_00000.png)
 
-With this type of IK/FK, you can animate either the position of the controller and the position of the rigged layer (or its parent), or the rotation of the layer itself. This means you can animate both using IK or FK as you wish.  
-If there was a tip layer (e.g. hand, foot...) when rigging the layers, it can be rotated using the controller's rotation property.
+用这种 IK/FK，你既可以动画化控制器的位置和被绑定图层（或其父级）的位置，也可以动画化图层自身的旋转。这意味着你可以按意愿用 IK 或 FK 来动画化。  
+如果绑定图层时存在末端图层（例如手、脚……），它可以通过控制器的旋转属性来旋转。
 
-The effect on the controller allows you to customize the control.
+控制器上的效果让你可以自定义这个控制。
 
 ![](/docs-img/duik/constraints/1l-ik-effect.png)
 
-- ***IK***: you can disable the IK if needed; this is animatable.
-- ***Weight***: if you set this to a lower value than `100 %`, the layer will rotate less than needed to point towards the controller.  
-    This is how Duik rigs the automatic rotation of the shoulder when you move the hand for example.
-- ***FK***: use this value to control the rotation of the rigged layer.  
-    This is here for convenience, as you could also just animate the actual rotation of the layer.
-- The ***Limits*** define bounds for the rotation of the layer.  
-    This may be useful to limit the rotation of a shoulder in its natural bounds for example. To help you define these limits, you can use the guides to visualize them.
-- ***Advanced***:  
-    - ***Inherit parent rotation***: if this is checked, the layer will rotate with its parent rotation.  
-        Disabling it makes sure the layer always keeps its own orientation no matter the rotation of its ancestors.
-    - ***Full rotation limit***: at some point when you move the controller around, there will be a 360° jump in the rotation values of the layer.  
-        Check this to set this jump on the other side, 180° above.
-- The ***Data*** section contains some data needed by Duik to compute the Kinematics.
-- ***Display***:  
-    - ***Draw guides***: check this if the controller is a shape layer to show some useful guides to setup the IK.
-        The limits will be shown to help you adjust their values.
+- ***IK***：必要时你可以禁用 IK；它可以被做成动画。
+- ***权重（Weight）***：如果你把它设为低于 `100 %` 的值，图层旋转的角度就会小于指向控制器所需的角度。  
+    举例来说，Duik 就是这样绑定“移动手时肩部自动旋转”的。
+- ***FK***：用这个值来控制被绑定图层的旋转。  
+    放在这里只是为了方便，因为你也可以直接动画化图层实际的旋转。
+- ***限制（Limits）***定义图层旋转的边界。  
+    例如把肩部旋转限制在其自然范围内会很有用。为帮助你定义这些限制，你可以用参考线把它们可视化。
+- ***高级（Advanced）***：  
+    - ***继承父级旋转（Inherit parent rotation）***：勾选后，图层会随其父级旋转。  
+        取消勾选则确保无论祖先如何旋转，图层始终保持自己的朝向。
+    - ***完整旋转限制（Full rotation limit）***：当你绕着移动控制器到某个点时，图层的旋转值会出现一次 360° 跳变。  
+        勾选此项可把这个跳变设到另一侧，即上方 180° 处。
+- ***数据（Data）***区段包含 Duik 计算动力学所需的一些数据。
+- ***显示（Display）***：  
+    - ***绘制参考线（Draw guides）***：如果控制器是形状图层，勾选此项可显示一些设置 IK 用的实用参考线。  
+        会显示限制值，方便你调整。
 
 ![](/docs-img/duik/constraints/1l-ik-guides_00000.png)  
-*The IK Controller with the guides, showing the limits, and the* full rotation limit *in red.*
+*带参考线的 IK 控制器，显示限制值，以及用红色标出的*完整旋转限制*。*
 
-### 2-layer chain
+### 两层链
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E04_Arm__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E04_Arm__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-With two layers, both layer rotations are automated to form a triangle between the two joints and the controller; this is very natural for arms and legs.
+用两个图层时，两层的旋转都会被自动化，在两个关节和控制器之间形成一个三角形；这对手臂和腿来说非常自然。
 
 ![](/docs-img/duik/constraints/2l-ik_00000.png)
 
-When animating the position of the controller or the position of the first layer (or any of its parents), the limb rotates and bends automatically. With this IK setup, Duik also controls the position of the limbs to be able to stretch (or shrink) them, and allow for fore-shortening effects for example.  
-If there was a tip layer (e.g. hand, foot...) when rigging the layers, it can be rotated using the controller's rotation property.
+动画化控制器的位置、或第一层（或其任一父级）的位置时，肢体会自动旋转和弯曲。通过这个 IK 设置，Duik 还控制肢体的位置，让它们能够拉伸（或收缩），从而实现透视缩短效果。  
+如果绑定图层时存在末端图层（例如手、脚……），它可以通过控制器的旋转属性来旋转。
 
-Duik also includes nice automations to help the animation using FK and make it even simpler and quicker, although it's already much simpler than IK animation.
+Duik 还内置了不错的自动化来辅助用 FK 做动画，让它更简单快捷——虽然它本来就已经比 IK 动画简单得多。
 
-All this can be configured and animated in the effect of the controller.
+所有这些都可以在控制器的效果中配置和动画化。
 
 ![](/docs-img/duik/constraints/2l-ik-effect.png)
 
-- ***IK / FK***: you can disable the IK if you need to animate using FK; this is animatable.
-- ***Weight***: this blends the IK and FK animation, allowing for a smooth transition between the two.  
-    Setting `0 %` actually deactivates the IK.
-- ***Side***: the side of the joint (e.g. elbow or knee) can be controlled with this value.  
-    `100 %` is on one side, `-100 %` is the other side. Values in between allow for a smooth transition, to animate a foreshortening or fake 3D rotation of the limb.
-- ***Auto swing*** changes the side automatically according to a specific angle.  
-    To help you set the limit precisely, you can use the guides to visualize it.
-- ***FK***: To animate using FK, you need to disable the IK (or set the weight to `0 %`) first.  
-    You can then animate these rotation values to animate the limb using FK.  
-    - ***Parent rotation***: if this is checked, the limb will rotate with its parent rotation.  
-        Disabling it makes sure the limb always keep its own orientation no matter the rotation of its ancestors.
-    - ***Upper*** is the rotation of the first layer (the root, e.g. the thigh)
-    - ***Lower*** is the rotation of the second layer (e.g. the calf)
-    - ***End*** is the rotation of the layer at the end (e.g. the foot), if any.  
-        This layer is not actually a part of the IK/FK setup, but it's useful to be able to animate it right from this effect.
-- ***FK Overlap***:
-    Instead of animating the two or three FK rotation values manually, this FK with automatic overlapping animation[*](../../misc/glossary) may help you animate the whole limb with a single value.
-    - ***Overlap***: check this to enable the automatic overlapping animation.
-    - ***Animation*** is the property you can animate to automatically animate the whole limb.  
-        This works especially well to animate the arm swinging during a walk cycle for example.
-    - ***Flexibility*** adjusts the quantity of overlapping animation. It is an arbitrary value.
-    - ***Resistance*** adjusts the delay between the rotation of each part of the limb. It is an arbitrary value.
-- ***Stretch***:
-    - ***Auto-Stretch*** makes the limb stretch[*](../../misc/glossary) if it's too short to reach the location of the controller.
-    - ***Stretch*** stretches both the first and second layer of the limb, keeping their relative lengths.
-    - ***Upper stretch*** stretches the first layer (e.g. the thigh).
-    - ***Lower stretch*** stretches the second layer (e.g. the calf).
-- The ***Data*** section contains some data needed by Duik to compute the Kinematics.
-- ***Display***:  
-    - ***Draw guides***: check this if the controller is a shape layer to show some useful guides to setup the IK.
-        The Auto swing limit will be shown to help you adjust its values.
+- ***IK / FK***：如果你需要用 FK 做动画，可以禁用 IK；它可以被做成动画。
+- ***权重（Weight）***：它混合 IK 和 FK 动画，让两者之间平滑过渡。  
+    设为 `0 %` 实际上就是停用 IK。
+- ***侧别（Side）***：关节（例如肘或膝）偏向哪一侧，可以用这个值控制。  
+    `100 %` 在一侧，`-100 %` 在另一侧。中间的值允许平滑过渡，用来动画化肢体的透视缩短或伪 3D 旋转。
+- ***自动摆动（Auto swing）***根据特定角度自动切换侧别。  
+    为帮你精确设定这个界限，你可以用参考线把它可视化。
+- ***FK***：要用 FK 做动画，需要先禁用 IK（或把权重设为 `0 %`）。  
+    然后你就可以动画化这些旋转值，用 FK 来动画化肢体。
+    - ***父级旋转（Parent rotation）***：勾选后，肢体会随其父级旋转。  
+        取消勾选则确保无论祖先如何旋转，肢体始终保持自己的朝向。
+    - ***上部（Upper）***是第一层（根部，例如大腿）的旋转。
+    - ***下部（Lower）***是第二层（例如小腿）的旋转。
+    - ***末端（End）***是末端图层（例如脚）的旋转，如果存在的话。  
+        这个图层其实并不属于 IK/FK 设置的一部分，但能直接在这个效果里动画化它很方便。
+- ***FK 重叠（FK Overlap）***：  
+    与其手动动画化两三个 FK 旋转值，这种带自动重叠动画[*](../../misc/glossary)的 FK 可以帮你用单个值动画化整条肢体。
+    - ***重叠（Overlap）***：勾选此项以启用自动重叠动画。
+    - ***动画（Animation）***是你可以动画化、从而自动动画化整条肢体的属性。  
+        例如走路循环里摆动手臂时，效果尤其好。
+    - ***灵活度（Flexibility）***调整重叠动画的量。它是一个任意值。
+    - ***阻力（Resistance）***调整肢体各部分旋转之间的延迟。它是一个任意值。
+- ***拉伸（Stretch）***：
+    - ***自动拉伸（Auto-Stretch）***在肢体短到够不到控制器位置时拉伸[*](../../misc/glossary)它。
+    - ***拉伸（Stretch）***同时拉伸肢体的第一层和第二层，保持它们的相对长度。
+    - ***上部拉伸（Upper stretch）***拉伸第一层（例如大腿）。
+    - ***下部拉伸（Lower stretch）***拉伸第二层（例如小腿）。
+- ***数据（Data）***区段包含 Duik 计算动力学所需的一些数据。
+- ***显示（Display）***：  
+    - ***绘制参考线（Draw guides）***：如果控制器是形状图层，勾选此项可显示一些设置 IK 用的实用参考线。  
+        会显示自动摆动界限，方便你调整其值。
 
 <Callout type="success">
-    The data section of the effect exposes useful values to write your own expressions or to be used with the connector for an advanced and more customized rig.
+    效果的数据区段会暴露一些有用的值，方便你编写自己的表达式，或与连接器配合使用，做出更高级、更自定义的绑定。
 </Callout>
 
 <Callout type="success">
-    You can easily switch between IK and FK animation using the [IK/FK Switch](../animation/tools/ik-fk-switch)&nbsp;[^4] tool in the [animation panel](../animation).
+    你可以用[动画面板](../animation)中的 [IK/FK 切换](../animation/tools/ik-fk-switch)&nbsp;[^4]工具，在 IK 和 FK 动画之间轻松切换。
 </Callout>
 
 ![](/docs-img/duik/constraints/2l-ik-guides_00000.png)  
-*The IK Controller with the guides, showing the auto swing limit.*
+*带参考线的 IK 控制器，显示自动摆动界限。*
 
-### 3-layer chain
+### 三层链
 
-Rigging a limb with three joints (and more) is more complicated than it seems. In two dimensions with only two joints, there are only two solutions to the equation defining the rotations of each part (the middle joint, the elbow or knee, can only be on one of the two sides of the line passing through the first joint and the controller). But with three joints, there's an infinity of solutions.
+给三个关节（及更多）的肢体做绑定，比看起来要复杂。在二维、只有两个关节时，定义各部分旋转的方程只有两个解（中间关节，即肘或膝，只能位于穿过第一关节和控制器连线的两侧之一）。但有三个关节时，解有无穷多个。
 
-Apart from this difficulty, if we'd use standard IK for the three joints without more details, that'd mean the animator would not be able to manually adjust each joint if needed. Rigging should ease the life of animators, but never restrain their job.
+除了这个困难，如果我们不给更多细节就对三个关节使用标准 IK，就意味着动画师在需要时无法手动调整每个关节。绑定应该让动画师的生活更轻松，而绝不是束缚他们的工作。
 
-These are the reason why Duik does not include true 3-layer IK, but is able to rig 3-layer chains with better controls and accuracy, combining standard 1-layer and 2-layer IK.
+正因如此，Duik 不包含真正的三层 IK，而是用更好的控制和精度来绑定三层链——它把标准的单层和两层 IK 组合起来。
 
-There are two possibilities: rigging the first layer with a 1-layer IK and the next two layers with a standard 2-layer IK, or the opposite, starting with the 2-layer IK for the first two layers. With both methods, Duik creates a single controller for both the IK controls, allowing for a very simple animation with just the position of the controller, and all detailed controls gathered in the effects of the controller.  
-You can choose between the two in the additional panel of the *![](/docs-img/duik/icons/ik.svg) IK* button.
+有两种方案：用单层 IK 绑定第一层、再用标准两层 IK 绑定后两层；或者反过来，前两层先用两层 IK。两种方式下，Duik 都为这两个 IK 控制创建同一个控制器，只需控制器的位置就能非常简单地完成动画，所有细节控制都汇集在控制器的效果里。  
+你可以在 *![](/docs-img/duik/icons/ik.svg) IK* 按钮的附加面板里在两者之间选择。
 
 ![](/docs-img/duik/constraints/3l-ik-options.png)
 
-- ***2+1-layer IK*** creates a single-layer IK on the first layer and 2-layer IK on second and third layers.  
+- ***2+1 层 IK***在第一层创建单层 IK，在第二、三层创建两层 IK。  
     ![](/docs-img/duik/constraints/2+1l-ik_00000.png)  
-    This mode works best with crab legs for example, when the rotation of the last layer must be controlled precisely.  
-    Animate the position of the controller to animate the whole limb, and its rotation to control the orientation of the last layer (in blue).
-- ***1+2-layer IK*** creates a 2-layer IK on the first and second layers and a single-layer IK on the third.  
+    例如螃蟹腿就最适合这种模式——最后一层的旋转必须被精确控制。  
+    动画化控制器的位置来动画化整条肢体，动画化它的旋转来控制最后一层（蓝色）的朝向。
+- ***1+2 层 IK***在第一、二层创建两层 IK，在第三层创建单层 IK。  
     ![](/docs-img/duik/constraints/1+2l-ik_00000.png)  
-    This mode works best with arms and their shoulders for example, where the rotation of the first layer must be controlled separately from the other layers, but can be automated with the 1-layer IK weight.  
-    Animate the position of the controller to animate the whole limb, and use the single-layer IK weight to adjust the automatic rotation of the first layer (in blue), or animate its FK value to rotate it manually.
+    例如带肩部的手臂最适合这种模式——第一层的旋转需要与其他层分开控制，但可以用单层 IK 的权重来自动化。  
+    动画化控制器的位置来动画化整条肢体，用单层 IK 权重来调整第一层（蓝色）的自动旋转，或动画化它的 FK 值来手动旋转。
 
 ![](/docs-img/illustration/Kinematics_of_Machinery_-_Figure_21.svg)  
-*Figure 21 from The Kinematics of Machinery.  
-Franz Reuleaux, 1876  
-Public domain*
+*《机械动力学》图 21。  
+Franz Reuleaux，1876  
+公有领域*
 
 ## Bézier IK
 
-Bone chains with more than two or three bones are usually used to rig flexible limbs, like tails, spines, long necks or hair strands. In this case, the chain is not animated with separated joints, but all at once as a long curve. There are two options to animate this:
+超过两、三节骨骼的骨骼链，通常用来绑定柔软的肢体，比如尾巴、脊柱、长脖子或发束。这种情况下，链不是用分散的关节来动画化，而是作为一条长曲线整体动画化。动画化它有两个选择：
 
-- Using **FK**, which is best if the limb is something just hanging (like hair strands or cloth, and tails), attached only on one side.
-- **Bézier IK**, which is a special kind of IK you can control with several controllers to define the curve of the limb, as you would for a Bézier path using points and tangents.  
-  This is best if the chain is interacting with something else (attached) on both sides, like the spine, the neck, or the tail of the dog stucked in a door. Ouch.
+- 使用 **FK**：如果肢体只是悬挂着（比如发束、布料、尾巴）、只在一侧附着，FK 最好。
+- **Bézier IK**：这是一种特殊的 IK，你可以用多个控制器来定义肢体的曲线，就像用点和切线控制 Bézier 路径那样。  
+    如果链在两侧都与别的东西相连（附着），比如脊柱、脖子，或是那只尾巴夹在门缝里的狗——哎哟——这种最好。
 
 ![](/docs-img/duik/constraints/bezier-ik_00000.png)  
-*Four layers controlled with Bézier IK*
+*用 Bézier IK 控制的四个图层*
 
-Three controllers are available to animate the limb with Bézier IK:
+用 Bézier IK 动画化肢体有三个控制器：
 
-- A *Root* position controller can be used to move the root of the limb.  
-  It is usually parented to the rest of the body (the hips for a tail, the head for hairs, etc.)
-- At the middle, a *Curve* controller helps you animate the curvature of the limb, using its position value.
-- At the end, the actual IK controller, to move the tip of the limb.
+- 一个*根部（Root）*位置控制器，可用来移动肢体根部。  
+    它通常父子化到身体其余部分（尾巴连到髋部，头发连到头，等等）。
+- 中间一个*曲线（Curve）*控制器，用它的位置值帮你动画化肢体的弯曲。
+- 末端是真正的 IK 控制器，用来移动肢体末端。
 
-There are two effects to adjust some details:
+有两个效果用来调整细节：
 
-- On the controller of the end of the limb (the main controller):  
-  ![](/docs-img/duik/constraints/bezier-ik-effect.png)  
-```text
-- By default, the layers are aligned on the virtual curve (tangent to the curve). You can uncheck the ***Auto orient*** option to animate their rotation manually.
-- Use the ***Offset*** to move the layers along the virtual curve. Note that this option is also **availabe on each layer individually**.
-```
-- On the *Curve* controller:  
-  ![](/docs-img/duik/constraints/bezier-ik-curveeffect.png)   
-```text
-- Uncheck the ***Draw guides*** option to hide the dashed line representing the IK.
-- You can check the ***Show handles*** option to display secondary controls to adjust the virtual curve more precisely.
-```
+- 在肢体末端的控制器上（主控制器）：  
+    ![](/docs-img/duik/constraints/bezier-ik-effect.png)
+    - 默认情况下，各图层对齐在虚拟曲线上（与曲线相切）。你可以取消勾选 ***自动定向（Auto orient）***选项，手动动画化它们的旋转。
+    - 用 ***偏移（Offset）***让图层沿虚拟曲线移动。注意这个选项也**可以在每个图层上单独设置**。
+- 在*曲线*控制器上：  
+    ![](/docs-img/duik/constraints/bezier-ik-curveeffect.png)
+    - 取消勾选 ***绘制参考线（Draw guides）***选项，可隐藏代表 IK 的虚线。
+    - 你可以勾选 ***显示手柄（Show handles）***选项，显示次级控制，更精确地调整虚拟曲线。
 
 ![](/docs-img/duik/constraints/bezier-ik-curve_00000.png)  
-*When showning the curve handles, you can adjust the virtual Bézier curve very precisely.  
-Double click on the handle to move it around.*
+*显示曲线手柄时，你可以非常精确地调整虚拟 Bézier 曲线。  
+双击手柄即可四处移动它。*
 
-The optional Bézier handles are actually groups in the shape layer content of the *Curve* controller; to animate them, animate the position of these groups.
+可选的 Bézier 手柄实际上是*曲线*控制器形状图层内容里的组；要动画化它们，就动画化这些组的位置。
 
-## FK with overlapping animation
+## 带重叠动画的 FK
 
-The FK rig is a very simple controller to control all the rotations of a long (or short) chain of bones, either individually or all at once. It was especially made to easily animate tails, cloth, hair strands, scarfs, etc.
+FK 绑定是一种非常简单的控制器，用来控制一长串（或短串）骨骼链的所有旋转，可以单独控制，也可以整体控制。它专门为轻松动画化尾巴、布料、发束、围巾等而做。
 
-When animating the whole limb at once with a single value, Duik can automatically handle the detailed animation for you, with an automatic overlapping animation, completely customizable.
+当你用单个值整体动画化整条肢体时，Duik 可以自动替你处理细致的动画——用一种完全可自定义的自动重叠动画。
 
 ![](/docs-img/examples/carpes-structures.gif)  
 *Claude Autret "Jissse"  
-All rights reserved*  
-*Fish tails are rigged with the FK controls and automatic overlapping animation.*
+保留所有权利*  
+*鱼尾用 FK 控制和自动重叠动画绑定。*
 
 ![](/docs-img/duik/constraints/fk_00000.png)  
-*Four layers controlled at once with the FK control.*
+*用 FK 控制同时控制的四个图层。*
 
-To animate the limb, you can just **animate the rotation of the controller**.
+要动画化肢体，你只需**动画化控制器的旋转**。
 
 <Callout type="success">
-    When adjusting the **start pose of the animation**, **adding the first keyframe on the rotation** of the controller, **you'll also need to adjust the *Angle* value of the second layer** of the chain (in the controller's effects), to fix the pose. That's because of the automatic overlapping animation, which can't control the first pose as it needs animation data to process the angles, and there's no animation before the first keyframe.
+    调整动画的**起始姿势**、在控制器的旋转上**打第一个关键帧**时，你还需要调整链中**第二个图层的 *角度（Angle）*值**（在控制器效果里），来固定这个姿势。这是因为自动重叠动画无法控制第一个姿势——它需要动画数据来处理角度，而第一个关键帧之前没有动画。出于性能原因，Duik 还会忽略所有隐藏在合成开始之前的关键帧。
 </Callout>
 
-    For performance reasons, Duik also ignores all keyframes hidden before the start of the composition.
-
-To adjust the settings of the automatic overlapping animation, an *FK Overlap* effect is available on the controller.
+要调整自动重叠动画的设置，控制器上提供了一个 *FK 重叠（FK Overlap）*效果。
 
 ![](/docs-img/duik/constraints/fk-overlap-effect.png)
 
-- The ***Flexibility*** adjusts the amplitude of the movement of each individual layer in the chain.
-- The ***Resistance*** adjusts the time of the overlap. For example, the value will be higher in the water than in the air.
-- You can use the ***Stretch*** to adjust the length of the limb. This works well if the layers are linked to puppet pins (using [bones](../bones) and/or Duik [pins](pins.md)).
-- Use the ***Curve*** value to adjust the global curvature of the limb. This value should not be animated (use the rotation of the controller for the animation).
-- If the ***Parent rotation*** is checked, the limb will rotate with its parent rotation. Use this for a tail for example.  
-    Disabling it makes sure the limb always keep its own orientation no matter the rotation of its ancestors. You can use this for a scarf or hair strand for example, so it stays vertical no matter the rotation of the head.
-- You can set ***limits*** to bound the rotation of each individual part. This is useful for limbs with a high flexibility or resistance.
+- ***灵活度（Flexibility）***调整链中每个图层运动的幅度。
+- ***阻力（Resistance）***调整重叠的时间。例如在水里，这个值会比在空气里更高。
+- 你可以用 ***拉伸（Stretch）***调整肢体长度。如果图层链接到了木偶图钉上（用[骨骼](../bones)和/或 Duik [图钉](pins)），这就很好用。
+- 用 ***曲线（Curve）***值调整肢体的整体弯曲。这个值不应被做成动画（动画请用控制器的旋转）。
+- 如果勾选了 ***父级旋转（Parent rotation）***，肢体会随其父级旋转。例如尾巴就用这个。  
+    取消勾选则确保无论祖先如何旋转，肢体始终保持自己的朝向。例如围巾或发束就可以用这个，让它无论头怎么转都保持竖直。
+- 你可以设置 ***限制（limits）***来约束每个单独部分的旋转。这对于灵活度或阻力很大的肢体很有用。
 
-Finally, one angle control is added for each layer of the controlled chain to allow you to adjust and animate each part individually, like in all standard FK rig.
+最后，被控制链的每个图层都会添加一个角度控制，让你像所有标准 FK 绑定那样，单独调整和动画化每个部分。
 
 ## Bézier FK
 
-The Bézier FK is a specific setup using the standard Bézier IK as a base and some simple expressions and parenting to be able to animate both using *fake* FK and Bézier IK at the same time. This is very useful to animate spines or necks, or any chain which itself has children (like the head for the neck) and when you may need both FK for most of the animation and IK in specific cases.
+Bézier FK 是一种特殊设置，以标准 Bézier IK 为基础，加上一些简单表达式和父子关系，从而能够同时用*伪* FK 和 Bézier IK 来动画化。它非常适合动画化脊柱或脖子，或是任何自身还带子级的链（比如脖子之于头），以及你可能大部分动画用 FK、但特定情况下需要 IK 的情形。
 
 ![](/docs-img/duik/constraints/bezier-fk_00000.png)  
-*Four layers controlled using Bézier FK*
+*用 Bézier FK 控制的四个图层*
 
-With this Bézier FK, you have **the exact same controls as with Bézier IK** (animate the position of the controllers, controlling the curvature with the controller at the center of the chain), but **you can also animate the rotation of the controllers**, as you would when using standard FK.  
-In this case, Duik moves the *curve* controller automatically, and you can adjust this automation using the ***Auto-Curve*** effect on the controller at the end of the limb.
+用这个 Bézier FK，你拥有**和 Bézier IK 完全一样的控制**（动画化控制器的位置，用链中央的控制器控制弯曲），但**你还可以动画化控制器的旋转**，就像用标准 FK 那样。  
+这种情况下，Duik 会自动移动*曲线*控制器，你可以用肢体末端控制器上的 ***自动曲线（Auto-Curve）***效果来调整这个自动化。
 
-[^1]: As the movement of the hand or the foot are actually the result of the rotation of the elbow and shoulder or the knee and hip, they naturally move following smooth curves. That's not the case by default when animating positions in After Effects, where the trajectory will be a straight line. When animating with IK you'll have to use the pen tool to adjust the spatial Bézier interpolation of the position keyframes if you don't separate the dimensions and handle manually the individual interpolations for each axis.
+[^1]: 由于手或脚的运动实际上是肘和肩、或膝和髋旋转的结果，它们自然地沿平滑曲线运动。而在 After Effects 里动画化位置时，默认轨迹是直线，并非如此。用 IK 做动画时，如果你不分离维度、不手动处理每个轴各自的插值，就得用钢笔工具调整位置关键帧的空间 Bézier 插值。
 
-[^2]: *cf.* *[Bones and Auto-Rig](../bones)*
+[^2]: *参见*[*骨骼与自动绑定*](../bones)。
 
-[^3]: *cf.* *[Controllers](../controllers)*
+[^3]: *参见*[*控制器*](../controllers)。
 
-[^4]: *cf.* *[Animation / Tools / IK/FK Switch](../animation/tools/ik-fk-switch)*
-
-
+[^4]: *参见*[*动画 / 工具 / IK/FK 切换*](../animation/tools/ik-fk-switch)。

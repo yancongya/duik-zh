@@ -1,401 +1,402 @@
 ---
-title: "![](/docs-img/duik/icons/connector.svg) Connector"
+title: "连接器"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/connector.svg) Connector
+# <img src="/docs-img/duik/icons/connector.svg" style={{width: '1em'}}/> 连接器
 
-The connector is a simple yet very powerful tool to automate all kind of cause-and-consequence link between properties. Every time you need the value of any property react to the change of any other property, you should be able to use the connector to build the automation.
+连接器是一种简单却非常强大的工具，用来自动化属性之间各种因果链接。每当你需要让某个属性的值随另一个属性的变化而反应时，都应该能用连接器来搭建这种自动化。
 
-It simply drives a *slave*[^1] property (or several slave properties) according to the values of a master property, a bit like what parenting does with the transformation of layers.
+它根据一个主属性的值，驱动一个*从属*[^1]属性（或多个从属属性），有点像父子关系对图层变换所做的事。
 
-A single master property can control many slave properties, but to the contrary of a standard parenting (or using the native expression pickwhip in After Effects), a single slave property can be driven by several master properties. There are multiple ways to achieve that, explained in the end of this section.
+一个主属性可以控制许多从属属性；但与标准父子关系（或在 After Effects 里用原生的表达式拾取器）不同的是，一个从属属性也可以被多个主属性驱动。实现方式有好几种，在本节末尾会说明。
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_G01A_Connector1__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_G01A_Connector1__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-## Before the connection
+## 连接之前
 
-All the properties which need to be animated together are prepared using keyframes. There are these keyframes which will be controlled by the master property, a bit like a time-remapping would do.
+所有需要一起动画化的属性，都先用关键帧准备好。正是这些关键帧将由主属性来控制，有点像时间重映射所做的那样。
 
-The first step is to animate these slave properties; you can use as many keyframes as you need, and precisely adjust the interpolations[*](../../misc/glossary) if needed. You just have to make sure all the animations of the slave properties have exactly the same duration; if an animation needs to start after or end before the others, just copy and paste the first or last keyframe so that it starts or ends with a still part.
+第一步是动画化这些从属属性；你可以按需要用任意数量的关键帧，并在必要时精确调整插值[*](../../misc/glossary)。你只需确保所有从属属性的动画时长完全相同；如果某个动画需要比别的晚开始、或早结束，就复制粘贴第一个或最后一个关键帧，让它以一段静止部分开始或结束。
 
 ![](/docs-img/duik/constraints/connector-slave.png)  
-*All animations must have the same duration*
+*所有动画必须时长相同*
 
-Any property of any type which can be controlled by an expression can be connected using the Connector!
+任何能被表达式控制的、任意类型的属性，都可以用连接器连接！
 
-## Quick Connector
+## 快速连接器
 
-The quick connector creates a master slider in the effects of the selected layer, and connects all selected slave properties to this new slider.
+快速连接器会在选中图层的效果里创建一个主滑块，并把所有选中的从属属性连接到这个新滑块上。
 
-The movement of the slave properties is controlled by their own keyframes, and can still be adjusted after the connection if needed.
+从属属性的运动由它们自己的关键帧控制，连接之后如有需要仍然可以调整。
 
 ![](/docs-img/duik/constraints/quick-connector.png)  
-*In this simple example, the* connector *effect controls the position and the rotation of the layer.*
+*在这个简单示例中，*连接器*效果控制图层的位置和旋转。*
 
-It can be used to quickly animate many properties at once, and make sure all have the same interpolation. As the slider is a simple percentage, it is very easy to animate and set the ease influences and velocities on the keyframes.
-
-<Callout type="success">
-    For example, it is a great way to animate the scale and position of a layer and having these properties perfectly synced, even when using complex Bézier interpolations with the graph editor. More generally, it is a great way to animate many properties and layers at once, when they need to be synced.
-</Callout>
-
-To use the quick connector, follow these simple steps:
-
-1. **Animate the slave properties**, the properties to be controlled, from their initial to final state. You can add as many keyframes as you need, and adjust interpolations too.
-2. **Select all the properties** you'd like to control together.
-3. **Click** on the ![](/docs-img/duik/icons/connector.svg) *Connector* button.
+它可以用来一次性快速动画化许多属性，并确保它们都有相同的插值。由于滑块只是一个简单的百分比，在关键帧上做动画、设置缓动影响和速度都非常容易。
 
 <Callout type="success">
-    The *connector* slider being a simple percentage value, it is also easy to connect it to something else and use simple expressions with it.
+    举例来说，这是一种让图层的缩放和位置完美同步的好办法，即使用图表编辑器做复杂的 Bézier 插值也是如此。更一般地，当许多属性和图层需要同步时，这是一次性动画化它们的好办法。
 </Callout>
 
-If you need to have the controller in another composition, you can either use the [*Extract controllers*](../controllers/extract) tool from the parent composition, or just copy and paste the controller to the new composition, and link the percentage with an expression, simply using the pickwhip.
+要用快速连接器，按以下简单步骤操作：
 
-Read further to learn how to do more advanced stuff with the connector, using the additionnal panel.
+1. **动画化从属属性**，也就是要被控制的属性，从初始状态到最终状态。你可以按需要添加任意数量的关键帧，也可以调整插值。
+2. **选中所有**你想一起控制的属性。
+3. **点击** ![](/docs-img/duik/icons/connector.svg) *连接器* 按钮。
 
-## Edit already connected properties
+<Callout type="success">
+    由于*连接器*滑块是一个简单的百分比值，也很容易把它连接到别的东西上，并用它写简单的表达式。
+</Callout>
 
-If you need to edit the slave properties after they've been connected, here's what you can do:
+如果你需要把控制器放在另一个合成里，既可以从父合成使用 [*提取控制器*](../controllers/extract)工具，也可以直接把控制器复制粘贴到新合成，再用表达式（直接用拾取器）把百分比链接起来。
 
-1. Deactivate the expressions in the properties you need to edit.
-2. Edit the keyframes; you can also add or remove keyframes or adjust the interpolation.
-3. Reactivate the expressions.
+继续读下去，学习如何用连接器的附加面板做更高级的事情。
 
-## Advanced Connector
+## 编辑已连接的属性
 
-If you need more advanced connections, you can choose one of the many other ways to connect properties and select or create a master controller.  
-The first step is to get to the settings panel of the connector: either click the ![](/docs-img/duik/icons/options.svg) *settings* button or `[Shift] + [Click]` the connector button.  
-This opens the advanced Connector panel.
+如果连接之后你需要编辑从属属性，可以这样做：
+
+1. 停用你要编辑的属性中的表达式。
+2. 编辑关键帧；你也可以添加或删除关键帧，或调整插值。
+3. 重新启用表达式。
+
+## 高级连接器
+
+如果你需要更高级的连接，可以从众多其他连接方式中选一种，来连接属性并选择或创建一个主控制器。  
+第一步是打开连接器的设置面板：要么点击 ![](/docs-img/duik/icons/options.svg) *设置* 按钮，要么 `[Shift] + [Click]` 连接器按钮。  
+这会打开高级连接器面板。
 
 ![](/docs-img/duik/constraints/advanced-connector.png)
 
-The bottom line of buttons, ![](/docs-img/duik/icons/pick_texture.svg) *Pick texture*, ![](/docs-img/duik/icons/pick_audio.svg) *Pick audio*, ![](/docs-img/duik/icons/pick_prop.svg) *Pick control* lets you select an existing layer or property to be used as a master controller for your connection, which you'll connect to all slave properties you'd like to animate together.
+最下面一排按钮——![](/docs-img/duik/icons/pick_texture.svg) *拾取纹理*、![](/docs-img/duik/icons/pick_audio.svg) *拾取音频*、![](/docs-img/duik/icons/pick_prop.svg) *拾取控件*——让你选择一个已有的图层或属性，作为这次连接的主控制器，然后把它连接到所有你想一起动画化的从属属性上。
 
-All other buttons automatically create different types of controllers to be used to control the slave properties.
+其他所有按钮都会自动创建不同类型的控制器，用来控制从属属性。
 
-It is advised to add the needed keyframes on the slave properties first, although this could also be done or modified afterwards. Just animate the slave properties as you need them to change when the master property goes from its minimum to its maximum value.
+建议先在从属属性上添加所需的关键帧，不过之后也可以再做或再改。只需按主属性从最小值到最大值时从属属性应有的变化来动画化它们。
 
-You can then select or create the master property and configure the connection.
+然后你就可以选择或创建主属性，并配置连接。
 
-### Connection modes
+### 连接模式
 
-With this advanced Connector, there will be three ways to connect three different kinds of slave properties you can control using the Connector.
+用这个高级连接器，有三种方式连接三种不同类型、可由连接器控制的从属属性。
 
 ![](/docs-img/duik/constraints/connector-settings-connect.png)
 
-- ![](/docs-img/duik/icons/layers.svg) ***Layer opacities***:  
-    Lets you "select" the layers with the master property, i.e. switch their opacities.  
-    A few keyframes will be added in the opacity of the **selected layers** to let the master property "select and show" the layers, one by one. This is a quick and easy way to set up a selector for a bunch of layers.
-- ![](/docs-img/duik/icons/props.svg) ***Properties***:  
-    Like the *quick connector*, lets you control any kind of property.  
-    It simply connects all the **selected properties**. The movement of these properties will be controlled by their own keyframes, and can still be adjusted after the connection if needed.
-- ![](/docs-img/duik/icons/shape_key.svg) ***Key Morph***:  
-    Lets you control specific *Key Morph* keys, and interpolate between them.
-    It automatically sets up the **selected Key Morph key effects** to control them from the master property. Read the *[Key Morph](key-morph.md)* section for more details.
+- ![](/docs-img/duik/icons/layers.svg) ***图层不透明度（Layer opacities）***：  
+    让你用主属性“选择”图层，也就是切换它们的不透明度。  
+    会在**选中图层**的不透明度上添加几个关键帧，让主属性逐个“选择并显示”图层。这是为一堆图层快速搭建选择器的简便方式。
+- ![](/docs-img/duik/icons/props.svg) ***属性（Properties）***：  
+    像*快速连接器*一样，让你控制任意类型的属性。  
+    它只是把所有**选中的属性**连接起来。这些属性的运动由它们自己的关键帧控制，连接之后如有需要仍然可以调整。
+- ![](/docs-img/duik/icons/shape_key.svg) ***形态关键帧（Key Morph）***：  
+    让你控制特定的*形态关键帧*键，并在它们之间插值。  
+    它会自动设置**选中的形态关键帧键效果**，从主属性来控制它们。详见 *[形态关键帧](key-morph)*一节。
 
-For each mode, the selection you have to make is different: it's either some layers, some properties, or some *Key* effects created by the *[Key Morph](key-morph.md)*.
+每种模式下，你要做的选择都不同：要么是一些图层、一些属性，要么是由 *[形态关键帧](key-morph)* 创建的一些 *Key* 效果。
 
-### Pick control
+### 拾取控件
 
-To use an existing property or layer as a master controller, first select it and then click on the ![](/docs-img/duik/icons/pick_prop.svg) *Pick control* button.
+要使用已有的属性或图层作为主控制器，先选中它，然后点击 ![](/docs-img/duik/icons/pick_prop.svg) *拾取控件* 按钮。
 
-Properties to be used as master controllers with the connector can be:
+可以用作连接器主控制器的属性包括：
 
-- Any numerical property, with 1, 2, or 3 dimensions (rotation, position, opacity...).
-- A color
-- A dropdown menu (except layer dropdown lists)
+- 任意数值属性，一维、二维或三维（旋转、位置、不透明度……）。
+- 一个颜色。
+- 一个下拉菜单（图层下拉列表除外）。
 
 <Callout type="info">
-    All these properties are actually numerical values: a color is a 4-dimensional numerical value (consisting of the red, green, blue and alpha channels), and dropdown menu values are the indices of the items, which are simple integers.
+    所有这些属性实际上都是数值：颜色是一个四维数值（由红、绿、蓝和 Alpha 通道组成），下拉菜单的值是条目的索引，也就是简单的整数。
 </Callout>
 
-There are also special cases handled automatically; you can also select these:
+还有一些特殊情况会被自动处理；你也可以选择这些：
 
-- Duik [IK effects](kinematics.md)
-- Duik [Slider, 2D-slider, Angle controllers](../controllers)
-- Duik [Effectors](../automation/effector)
-- Duik [Expose transform](tools/etm.md) controls
+- Duik [IK 效果](kinematics)
+- Duik [滑块、2D 滑块、角度控制器](../controllers)
+- Duik [Effector](../automation/effector)
+- Duik [暴露变换（Expose transform）](tools/etm)控件
 
-When selecting one of these, the connector can automatically pick the right property for you.
+选中其中之一时，连接器可以自动替你挑对属性。
 
-When you click the ![](/docs-img/duik/icons/pick_prop.svg) *Pick control* button, the connection settings panel is shown.
+点击 ![](/docs-img/duik/icons/pick_prop.svg) *拾取控件* 按钮后，会显示连接设置面板。
 
 ![](/docs-img/duik/constraints/connector-settings.png)  
-*Connector settings when using a position property as the master property*
+*用位置属性作为主属性时的连接器设置*
 
 ![](/docs-img/duik/constraints/connector-settings-ik.png)  
-*Connector settings when using an IK effect as the master control*
+*用 IK 效果作为主控件时的连接器设置*
 
-There you can set a few parameters before finishing the connection.
+在完成连接之前，你可以在这里设置几个参数。
 
-- In some cases, you may have to **select a specific property** as a master property.  
-  For example, when using an IK Effect, you can either use the *IK Length*, the *Upper stretch* or the *Lower stretch* values. This is a nice way to connect the bending or stretching of a limb to secondary animations or adjustments.
-- You can choose to connect using the simple ***Value*** of the master property, or its ***Speed*** (an absolute value) or its ***Velocity*** (similar to the speed, but with a sign to know the direction).
-- For multi-dimensional properties, you have to **select the axis**. You can only connect a single axis at once, but don't forget you can make multiple connections to connect all axis if needed.
-- The **minimum** and **maximum** values define the range in which the master property is going to be animated. Note that the motion of the slave properties is not extrapolated outside of these values.
+- 在某些情况下，你可能必须**选择一个特定属性**作为主属性。  
+    例如使用 IK 效果时，你可以用 *IK 长度（IK Length）*、*上部拉伸（Upper stretch）*或 *下部拉伸（Lower stretch）*的值。这是把肢体的弯曲或拉伸连接到次级动画或调整上的好办法。
+- 你可以选择用主属性简单的 ***值（Value）***来连接，或用它的 ***速度（Speed，绝对值）***或 ***速率（Velocity，与速度类似但带符号以判断方向）***。
+- 对于多维属性，你必须**选择轴**。一次只能连接一个轴，但别忘了如有需要可以做多次连接，把所有轴都连起来。
+- **最小值**和**最大值**定义主属性将要被动画化的范围。注意，从属属性的运动在这些值之外不会被外推。
 
 <Callout type="success">
-    If there's an animation (using keyframes or an existing expression) on the master property at the time you select it, before opening the connection settings, Duik automatically picks the minimum and maximum values of the existing animation. This makes it very quick to set up the connection: just add a couple of keyframes on the master property to quickly define the minimum and maximum values to be used, and only then click on the ![](/docs-img/duik/icons/pick_prop.svg) *Pick control* button. You'll be able to remove these keyframes after the connection's been made.
+    如果你在选中主属性时、打开连接设置之前，它上面已经有动画（关键帧或已有表达式），Duik 会自动拾取现有动画的最小和最大值。这让连接搭建非常快：只需在主属性上打几个关键帧，快速定义要用的最小和最大值，然后再点击 ![](/docs-img/duik/icons/pick_prop.svg) *拾取控件* 按钮。连接做好之后，你可以再删掉这些关键帧。
 </Callout>
 
-Once you're done with these settings, you can finish the connection by clicking one of the three bottom buttons:
+设置完成后，你可以点击最下面三个按钮之一来完成连接：
 
-- ![](/docs-img/duik/icons/layers.svg) ***Layer opacities***: a few keyframes will be added in the opacity of the selected layers to let the master property "select and show" the layers, one by one. This is a quick and easy way to set up a selector for a bunch of layers.
-- ![](/docs-img/duik/icons/props.svg) ***Properties*** simply connects all the slave properties. The movement of these properties will be controlled by their own keyframes, and can still be adjusted after the connection if needed.
-- ![](/docs-img/duik/icons/shape_key.svg) ***Key Morph*** automatically sets up the selected Key Morph keys to control them from the master property. Read the *[Key Morph](key-morph.md)* section for more details.
+- ![](/docs-img/duik/icons/layers.svg) ***图层不透明度***：会在选中图层的不透明度上添加几个关键帧，让主属性逐个“选择并显示”图层。这是为一堆图层快速搭建选择器的简便方式。
+- ![](/docs-img/duik/icons/props.svg) ***属性***：直接连接所有从属属性。这些属性的运动由它们自己的关键帧控制，连接之后如有需要仍然可以调整。
+- ![](/docs-img/duik/icons/shape_key.svg) ***形态关键帧***：自动设置选中的形态关键帧键，从主属性控制它们。详见 *[形态关键帧](key-morph)*一节。
 
-You can now control all slave properties with the master property.
+现在你就能用主属性控制所有从属属性了。
 
-A Connector effect is added on the master layer, to let you change the settings of the connection later if needed.
+主图层上会添加一个连接器效果，方便你之后需要时更改连接设置。
 
 ![](/docs-img/duik/constraints/connector-effect.png)
 
-After the connection, you can still adjust the keyframes and interpolation of any slave property. To ease these adjustments, you can disable this connector effect to temporarilly disable the expressions and adjust the keyframes on the slave properties.
+连接之后，你仍然可以调整任何从属属性的关键帧和插值。为便于调整，你可以停用这个连接器效果，临时关闭表达式，去调整从属属性上的关键帧。
 
 <Callout type="warning">
-    Unfortunately, because of After Effects, disabling the connector effect is not enough in order to be able to adjust the keyframes on slave Bézier path properties, you actually need to deactivate the expression.
+    遗憾的是，受 After Effects 所限，只停用连接器效果还不足以调整从属 Bézier 路径属性上的关键帧，你实际上需要停用表达式。
 </Callout>
 
-### Slider, 2D slider, Angle control
+### 滑块、2D 滑块、角度控制
 
-Click one of the ![](/docs-img/duik/icons/slider.svg) *Slider*, ![](/docs-img/duik/icons/2d_slider.svg) *2D Slider* or ![](/docs-img/duik/icons/angle.svg) *Angle* buttons to create a nice control in the viewport, using shape layers.
+点击 ![](/docs-img/duik/icons/slider.svg) *滑块*、![](/docs-img/duik/icons/2d_slider.svg) *2D 滑块* 或 ![](/docs-img/duik/icons/angle.svg) *角度* 按钮之一，用形状图层在视口里创建一个漂亮的控制器。
 
 ![](/docs-img/duik/controllers/sliders_00000.png)  
-*Viewport sliders and angle controllers created by Duik.*
+*由 Duik 创建的视口滑块和角度控制器。*
 
-Duik automatically populates the connector settings for you, you shouldn't need to change anything.  
-The slider values go from -100&nbsp;% (left or top) to 100&nbsp;% (right or bottom).
+Duik 会自动替你填好连接器设置，你应该不需要改任何东西。  
+滑块值从 `-100 %`（左或上）到 `100 %`（右或下）。
 
 ![](/docs-img/duik/constraints/connector-settings-slider.png)  
-*The settings of the connector when used with a slider.*
+*配合滑块使用时连接器的设置。*
 
-To connect an existing slider or angle control, just select the controller layer (and not any property) and click the ![](/docs-img/duik/icons/pick_prop.svg) *Pick control* button in the connector additional panel.
+要连接一个已有的滑块或角度控制，只需选中控制器图层（而不是任何属性），然后在连接器附加面板中点击 ![](/docs-img/duik/icons/pick_prop.svg) *拾取控件* 按钮。
 
-▷ Read the [*Controllers*](../controllers) section to learn more about these controls.
+▷ 阅读 [*控制器*](../controllers)一节，进一步了解这些控制。
 
-### Expose transform
+### 暴露变换
 
-Click the ![](/docs-img/duik/icons/expose_transform.svg) *Expose transform* button to create an *Expose transform* controller.
+点击 ![](/docs-img/duik/icons/expose_transform.svg) *暴露变换* 按钮，创建一个*暴露变换*控制器。
 
 ![](/docs-img/duik/constraints/etm_00000.png)  
-*An* Expose Transform *measuring angles and distances between two layers.*
+*一个*暴露变换*，测量两个图层之间的角度和距离。*
 
-Duik automatically populates the connector settings for you, you'll just have to choose the property to be used as the master property.  
+Duik 会自动替你填好连接器设置，你只需选择要用哪个属性作为主属性。
 
 ![](/docs-img/duik/constraints/connector-settings-etm.png)  
-*The settings of the connector when used with an expose transform.*
+*配合暴露变换使用时连接器的设置。*
 
-You can select one of the values measured by the *Expose transform* as the master property: 
+你可以选择*暴露变换*测量出的某个值作为主属性：
 
-- 2D Absolute position
-- 2D Relative position
-- 2D Distance
-- 3D Absolute position
-- 3D Relative position
-- 3D Distance
-- Absolute orientation
-- Relative orientation
-- Angle between the layers
+- 2D 绝对位置
+- 2D 相对位置
+- 2D 距离
+- 3D 绝对位置
+- 3D 相对位置
+- 3D 距离
+- 绝对朝向
+- 相对朝向
+- 图层之间的夹角
 
-▷ Read the *[Constraints / Tools / Expose Transform](tools/etm.md)* section to learn more about this tool.
+▷ 阅读 *[约束 / 工具 / 暴露变换](tools/etm)* 一节，进一步了解这个工具。
 
-### Layer list
+### 图层列表
 
-Click the ![](/docs-img/duik/icons/layers.svg) *Layer list* button to create a dropdown menu effect on the selected layer used to toggle other layers opacities.
+点击 ![](/docs-img/duik/icons/layers.svg) *图层列表* 按钮，在选中图层上创建一个下拉菜单效果，用来切换其他图层的不透明度。
 
-1. Select the layer where you want to add the effect (the dropdown menu).
-2. Click the ![](/docs-img/duik/icons/layers.svg) *Layer list* button.
-3. Select the slave layers.
+1. 选中你想添加效果（下拉菜单）的图层。
+2. 点击 ![](/docs-img/duik/icons/layers.svg) *图层列表* 按钮。
+3. 选中从属图层。
 
 ![](/docs-img/duik/constraints/connector-layer-list.png)  
-*A* Layer list *as created by the connector.*
+*由连接器创建的一个*图层列表*。*
 
-The dropdown now controls the display of the slave layers (using an expression in their opacities). This is very useful to rig replacements for parts of the character, for example:
+这个下拉菜单现在控制从属图层的显示（在它们的不透明度上用了表达式）。这对给角色部件做替换绑定非常有用，例如：
 
-- Select the shape of the hands
-- Select the shape of the mouth for lipsync or expressions
-- Select the shape of the eyes, to animate a blink or change the expression
-- Etc.
+- 选择手的形状
+- 选择嘴的形状，用于唇形同步或表情
+- 选择眼睛的形状，用来动画化眨眼或改变表情
+- 等等
 
-Duik automatically populates the dropdown menu using the slave layer names, but you can edit the content later if you wish.
+Duik 会用从属图层名称自动填好下拉菜单，但你之后愿意的话也可以编辑内容。
 
 ### Effector
 
-Click the ![](/docs-img/duik/icons/effector.svg) *Effector* button to create a new spatial [*Effector*](../automation/effector) in the composition.
+点击 ![](/docs-img/duik/icons/effector.svg) *Effector* 按钮，在合成中创建一个新的空间 [*Effector*](../automation/effector)。
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_G01B_Connector2__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_G01B_Connector2__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-1. Select the slave properties to be controlled with the spatial effector.
-2. Click the ![](/docs-img/duik/icons/effector.svg) *Effector* button.
+1. 选中要用空间 Effector 控制的从属属性。
+2. 点击 ![](/docs-img/duik/icons/effector.svg) *Effector* 按钮。
 
 ![](/docs-img/duik/automation/effector_00000.png)  
-*An effector controling layer colors and rotation.*
+*一个控制图层颜色和旋转的 Effector。*
 
-▷ Read the *[Automation / Effector](../automation/effector)* section to learn more about this tool.
+▷ 阅读 *[自动化 / Effector](../automation/effector)* 一节，进一步了解这个工具。
 
-### Texture
+### 纹理
 
-Click the ![](/docs-img/duik/icons/pick_texture.svg) *Pick texture* button to create a new [*Effector map*](../automation/effector-map).
+点击 ![](/docs-img/duik/icons/pick_texture.svg) *拾取纹理* 按钮，创建一个新的 [*Effector 贴图*](../automation/effector-map)。
 
-1. Select the texture layer.
-2. Click the ![](/docs-img/duik/icons/pick_texture.svg) *Pick texture* button.
-3. Select the slave properties and connect.
+1. 选中纹理图层。
+2. 点击 ![](/docs-img/duik/icons/pick_texture.svg) *拾取纹理* 按钮。
+3. 选中从属属性并连接。
 
 ![](/docs-img/duik/automation/effector-map-effect.png)  
-*An* Effector map *effect.*
+*一个* Effector 贴图*效果。*
 
-The texture layer now controls the slave properties; you can choose which channel in the effects of the texture layer.
+纹理图层现在控制从属属性；你可以在纹理图层的效果里选择用哪个通道。
 
-▷ Read the *[Automation / Effector Map](../automation/effector-map)* section to learn more about this tool.
+▷ 阅读 *[自动化 / Effector 贴图](../automation/effector-map)* 一节，进一步了解这个工具。
 
-### Audio
+### 音频
 
-With the connector, you can also use the audio channel of any layer to control slave properties.
+用连接器，你还可以用任意图层的音频通道来控制从属属性。
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_G01C_Connector3__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_G01C_Connector3__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-1. Select the master layer, which has an audio channel.
-2. Click the ![](/docs-img/duik/icons/pick_audio.svg) *Pick audio* button.
-3. Select the slave properties.
-4. Connect.
+1. 选中带有音频通道的主图层。
+2. 点击 ![](/docs-img/duik/icons/pick_audio.svg) *拾取音频* 按钮。
+3. 选中从属属性。
+4. 连接。
 
-The connector creates precomposition containing the audio layer to let you configure precisely how the audio will control the slave properties.
+连接器会创建一个包含音频图层的预合成，让你精确配置音频将如何控制从属属性。
 
 ![](/docs-img/duik/constraints/connector-audio.png)  
-*An audio connector precomposition.*
+*一个音频连接器预合成。*
 
-This composition shows a black-and-white audio spectrum which you can use to select a specific wavelength to control the slave properties.
+这个合成显示一条黑白音频频谱，你可以用它选择特定波长来控制从属属性。
 
-This composition contains four layers:
+这个合成包含四个图层：
 
 ![](/docs-img/duik/constraints/connector-audio-layers.png)  
-*The layers created by the audio connector.*
+*由音频连接器创建的图层。*
 
-From bottom to top:
+从下往上：
 
-- The bottom layer is the original audio layer.
-- The audio spectrum layer is the layer used to display the spectrum in the viewport. You should not change anything in it and keep it locked.
-- The *Ear* controller is the layer you can use to select a specific wavelength and volume from the audio spectrum to make the connection. Move this controller over the column corresponding to the wavelength you'd like to select.
-- The *Audio effector* controller exposes the connector settings in its effects.  
-  You can use these values to adjust the audio spectrum display and precisely tweak the audio connection.
+- 最底层是原始音频图层。
+- 音频频谱层是用来在视口里显示频谱的图层。你不应该改动它，并保持它锁定。
+- *耳朵（Ear）*控制器是你可以用来从音频频谱中选择特定波长和音量以建立连接的图层。把这个控制器移到你想选择的波长对应的列上方。
+- *音频 effector（Audio effector）*控制器在其效果中暴露连接器设置。  
+    你可以用这些值调整音频频谱显示，并精确微调音频连接。
 
 ![](/docs-img/duik/constraints/connector-audio-settings-effect.png)  
-*The audio connector settings.*
+*音频连接器设置。*
 
-When changing these values, you'll adjust how the audio spectrum is displayed, thus how the connection is made using the *Ear* controller location.
-
-<Callout type="success">
-    If you'd like to have multiple connections from the same audio layer, just repeat the process from start, to create another precomposition with a new audio connection.
-</Callout>
-
-## How to connect a single slave property to multiple master properties
-
-Sometimes, you'll need to several master properties to have influence on the same slave property. For example when animating a fake 3D head turn, you'll probably need to connect the position and scale of some parts of the face to both the X and Y axis of a controller.
-
-Depending on the slave property type, there are several ways to connect it to multiple master properties.
-
-### Layer position, rotation or scale properties
-
-In the specific case of transform properties, the easiest way to have multiple connections is to use parenting. Just add a null layer as a parent of the slave layer, and make new connections in the transform properties of this parent layer.
+更改这些值时，你会调整音频频谱的显示方式，从而调整用 *耳朵*控制器位置建立连接的方式。
 
 <Callout type="success">
-    From the [controllers panel](../controllers)&nbsp;[^2], you can quickly insert a null layer in the hierarchy by selecting the controlled layer and `[Ctrl] + [Click]` on the ![](/docs-img/duik/icons/ae_null.svg) *Null* button (or any other controller shape).
+    如果你想从同一个音频图层建立多个连接，只需从头重复整个过程，创建另一个带新音频连接的预合成。
 </Callout>
 
-### Bézier shapes (masks or shape layers)
+## 如何把单个从属属性连接到多个主属性
 
-To rig Bézier shapes, it's usually easier to control them using [*pins*](pins.md)&nbsp;[^3]. As the pins controlling the Bézier shape are standard layers, you can then rig them as any other controller, and make multiple connections with the other methods described here.
+有时，你需要让多个主属性对同一个从属属性产生影响。例如做一个伪 3D 转头时，你很可能需要把脸部某些部位的位置和缩放，同时连接到控制器的 X 轴和 Y 轴上。
 
-### Numerical properties
+根据从属属性的类型，把它连接到多个主属性有好几种方式。
 
-The quickest and easiest way to make multiple connections on any numerical property (angle, position, percent, color...) is to add a [*List*](../automation/tools/list)&nbsp;[^4] on the property; you can then add as many connections as you need, and even other animations, expressions, or Duik automations...
+### 图层位置、旋转或缩放属性
 
-## Examples
+在变换属性这种特定情况下，实现多重连接最简单的方式是用父子关系。只需添加一个空对象图层作为从属图层的父级，然后在这个父级图层的变换属性上做新的连接。
 
-### Adjust the shape of a joint (elbow, knee...) when it bends
+<Callout type="success">
+    在[控制器面板](../controllers)&nbsp;[^2]中，你可以选中被控制图层，然后 `[Ctrl] + [Click]` ![](/docs-img/duik/icons/ae_null.svg) *空对象（Null）* 按钮（或任何其他控制器形状），在层级中快速插入一个空对象图层。
+</Callout>
+
+### Bézier 形状（蒙版或形状图层）
+
+要绑定 Bézier 形状，通常用[*图钉*](pins)&nbsp;[^3]来控制它们更容易。由于控制 Bézier 形状的图钉是标准图层，你随后就能像绑定其他控制器一样绑定它们，并用这里介绍的其他方式做多重连接。
+
+### 数值属性
+
+在任意数值属性（角度、位置、百分比、颜色……）上做多重连接，最快最简单的方式是在属性上添加一个 [*List*](../automation/tools/list)&nbsp;[^4]；然后你就可以按需要添加任意多个连接，甚至再叠加其他动画、表达式或 Duik 自动化……
+
+## 示例
+
+### 调整关节（肘、膝……）弯曲时的形状
 
 ![](/docs-img/duik/constraints/connector-arm-shape.png)
 
-With the connector, it's very easy to automate the animation of the shape of an arm, a leg, or any limb, when it moves and bends, for example to adjust the cloths, animate the muscles, or just fix the design of the joint.
+用连接器，可以很容易地自动化手臂、腿或任何肢体在移动和弯曲时的形状动画，例如调整衣物、动画化肌肉，或只是修正关节的造型。
 
-1. **Animate the controller** of the limb, to make it bend. Note that this is easier done in FK than IK.
-2. **Animate what you need** to automate (the Bézier paths of the shape, the position of some pins, etc.)
-3. **Select the controller** layer (the one with the IK effect)
-4. **Click the ![](/docs-img/duik/icons/pick_prop.svg) *Pick control* button** in the additional panel of the connector.
+1. **动画化肢体的控制器**，让它弯曲。注意用 FK 比 IK 更容易做到这点。
+2. **动画化你需要自动化的东西**（形状的 Bézier 路径、某些图钉的位置，等等）。
+3. **选中控制器**图层（带 IK 效果的那个）。
+4. **在连接器的附加面板中点击 ![](/docs-img/duik/icons/pick_prop.svg) *拾取控件* 按钮**。
 
-The connector settings are automatically set for you, using the *IK Length*, which is the distance between the root and the end of the limb (between the hip and the foot, or the shoulder and the hand for example). This is very handy as it'll work no matter the orientation of the limb, and also takes the stretch into account, so that you can use the same method and the same connection to also adjust the shape of the limb when it is stretched. Despite its name, it also works when animating using *FK*.
+连接器设置会自动替你用 *IK 长度（IK Length）*填好，也就是肢体根部到末端之间的距离（例如髋到脚，或肩到手）。这非常方便，因为无论肢体朝向如何它都有效，并且还把拉伸考虑在内，于是你可以用同样的方法和同一个连接，在肢体被拉伸时也调整它的形状。尽管名字如此，用 *FK* 做动画时它也同样有效。
 
 ![](/docs-img/duik/constraints/connector-settings-ik.png)  
-*Connector settings when using an IK effect as the master control*
+*用 IK 效果作为主控件时的连接器设置*
 
-You can then select the animated slave properties and make the connection.
+然后你就可以选中已动画化的从属属性并建立连接。
 
-### Controlling a head turn
+### 控制转头
 
-1. **Precompose** the head if you can. This is not mandatory but helps a lot organizing the layers.
-2. **Animate the head turn** either horizontally or vertically.
-3. In the additional panel of the connector, either **create a ![](/docs-img/duik/icons/slider.svg) slider**, a ![](/docs-img/duik/icons/2d_slider.svg) 2D slider (if you plan to connect the other axis), or ![](/docs-img/duik/icons/pick_prop.svg) pick an existing property you'd like to use to animate the head turn.
-4. **Select the slave properties** you've just animated.
-5. ![](/docs-img/duik/icons/props.svg) **Connect**.
+1. 如果可以，把头预合成。这不是必须的，但对整理图层很有帮助。
+2. **动画化转头**，水平或垂直方向都行。
+3. 在连接器的附加面板中，要么**创建一个 ![](/docs-img/duik/icons/slider.svg) 滑块**、一个 ![](/docs-img/duik/icons/2d_slider.svg) 2D 滑块（如果你打算连接另一个轴），要么 ![](/docs-img/duik/icons/pick_prop.svg) 拾取一个你想用来动画化转头的已有属性。
+4. **选中你刚动画化的从属属性**。
+5. 点击 ![](/docs-img/duik/icons/props.svg) **连接**。
 
-If you'd like to also connect the other axis for a complete fake 3D turn, these are the additionnal steps:
+如果你还想连接另一个轴，做一个完整的伪 3D 转头，以下是额外步骤：
 
-1. **Animate the other axis** of the turn in the head precomposition. Be careful: **do not** add or replace keyframes on already animated and connected properties. If you need to animate an already connected property, the easiest way is to first **add a [*List*](../automation/tools/list)&nbsp;[^4]**.  
-   Read the section above about multiple connections for more details.
-2. In the additional panel of the connector, either **create a new ![](/docs-img/duik/icons/slider.svg) slider**, select the 2D Slider you've created before, or ![](/docs-img/duik/icons/pick_prop.svg) pick an existing property you'd like to use to animate the head turn.
-3. **Select the slave properties** you've just animated.
-4. **![](/docs-img/duik/icons/props.svg) Connect**.
+1. 在头的预合成中**动画化转头的另一个轴**。小心：**不要**在已经动画化并连接的属性上添加或替换关键帧。如果你需要动画化一个已连接的属性，最简单的办法是先**添加一个 [*List*](../automation/tools/list)&nbsp;[^4]**。  
+    详见上文关于多重连接的一节。
+2. 在连接器的附加面板中，要么**创建一个新的 ![](/docs-img/duik/icons/slider.svg) 滑块**，选中你之前创建的 2D 滑块，要么 ![](/docs-img/duik/icons/pick_prop.svg) 拾取一个你想用来动画化转头的已有属性。
+3. **选中你刚动画化的从属属性**。
+4. 点击 **![](/docs-img/duik/icons/props.svg) 连接**。
 
 <Callout type="success">
-    You can use After Effects keyframe color labels to better identify and select all the keyframes you're connecting.
+    你可以用 After Effects 的关键帧颜色标签，更好地识别并选中你要连接的所有关键帧。
 </Callout>
 
-### Create nice visual selectors for layers: phonemes, hand shapes, eye shapes...
+### 为图层创建漂亮的可视化选择器：音素、手形、眼形……
 
 ![](/docs-img/illustration/mouth-selector.png)
 
-With the connector, it is very easy to create nice visual selectors for layers, to select some limb shapes for example.
+用连接器，可以很容易地为图层创建漂亮的可视化选择器，例如选择某些肢体形状。
 
-#### Single Line
+#### 单行
 
-1. **Create a background** for the selector. It's usually a single layer showing available shapes in line or column, and will be used as a reference for the selector. Cells in the column or line must be perfect squares.
-2. **Create a controller**, which will be moved above the background layer created at the previous step. It can be a border, or a solid color with a reduced opacity or a nice blending mode for example. Make sure the anchor point is centered in this layer.
-3. **Animate the controller**'s position, to make its anchor point go from just before the first cell to just before the last cell.
-4. **Select the position property** of the controller layer.
-5. **Click the ![](/docs-img/duik/icons/pick_prop.svg) *Pick property* button** in the additionnal panel of the connector.
-6. **Select the slave layers**.
-7. **![](/docs-img/duik/icons/layers.svg) Connect to opacities**.
+1. **为选择器创建一个背景**。它通常是单个图层，把可用形状排成一行或一列，作为选择器的参照。行或列里的格子必须是完美的正方形。
+2. **创建一个控制器**，它将在刚才创建的背景图层上方移动。例如可以是一个边框，或一个降低不透明度、带漂亮混合模式的纯色。确保锚点居中在这个图层里。
+3. **动画化控制器的位置**，让它的锚点从第一个格子紧前移到最后一个格子紧前。
+4. **选中控制器图层的位置属性**。
+5. **在连接器的附加面板中点击 ![](/docs-img/duik/icons/pick_prop.svg) *拾取属性* 按钮**。
+6. **选中从属图层**。
+7. 点击 **![](/docs-img/duik/icons/layers.svg) 连接到不透明度**。
 
 ![](/docs-img/duik/constraints/connector-selector-anim.png)  
-*When animating the selector,  
-go from just before the first cell  
-to just after the last cell.*
+*动画化选择器时，  
+从第一个格子紧前，  
+移到最后一个格子紧后。*
 
-#### Grid
+#### 网格
 
-To arrange the available shapes in a grid, the process is almost the same as for a simple line, but using a few precompositions.
+要把可用形状排成网格，过程和单行几乎一样，只是多用几个预合成。
 
-1. **Precompose** (or group if you're in *Photoshop*, *Illustrator*, *Krita*, *The Gimp*...) the available slave layers to group them **by column**. You need one precomposition per column in the controller.
-2. **Create a background** for the selector. It's usually a single layer showing available shapes in a grid. Cells must be perfect squares. Shapes available for each column must correspond to a column precomposition you've made at the previous step.
-3. **Create a controller**, which will be moved above the background layer created at the previous step. It can be a border, or a solid color with a reduced opacity or a nice blending mode for example. Make sure the anchor point is centered in this layer.
-4. **Animate the controller**'s X position, to make its anchor point go from just before the leftmost cell to just before the rightmost cell.
-5. **Select the position property** of the controller layer.
-6. **Click the ![](/docs-img/duik/icons/pick_prop.svg) *Pick property* button** in the additionnal panel of the connector. **Select the X axis** in the panel.
-7. **Select the column precompositions**.
-8. **![](/docs-img/duik/icons/layers.svg) Connect to opacities**. The selector now selects all the shapes from the same column when you move it horizontally. Let's now make the connection to show the right line when you move it vertically.
-9. **Animate the controller**'s Y position, to make its anchor point go from just before the topmost cell to just before the last cell.
-10. If you've closed the additiionnal panel of the connector, **select again the position property** of the controller layer and **Click the ![](/docs-img/duik/icons/pick_prop.svg) *Pick property* button**.
-11. **Select the Y axis** in the additional panel of the connector.
-12. **For each column** precomposition:  
-    1. **Select all the layers** inside the precomposition
-    2. **![](/docs-img/duik/icons/layers.svg) Connect to opacities**.
-    3. **Repeat** for all columns.
+1. **预合成**（如果你在 *Photoshop*、*Illustrator*、*Krita*、*The Gimp* 等软件里，就分组）可用的从属图层，**按列**分组。控制器里每一列都需要一个预合成。
+2. **为选择器创建一个背景**。它通常是单个图层，把可用形状排成网格。格子必须是完美的正方形。每列可用的形状必须对应你在上一步做的某个列预合成。
+3. **创建一个控制器**，它将在刚才创建的背景图层上方移动。例如可以是一个边框，或一个降低不透明度、带漂亮混合模式的纯色。确保锚点居中在这个图层里。
+4. **动画化控制器的 X 位置**，让它的锚点从最左格子紧前移到最右格子紧前。
+5. **选中控制器图层的位置属性**。
+6. **在连接器的附加面板中点击 ![](/docs-img/duik/icons/pick_prop.svg) *拾取属性* 按钮**。在面板中**选择 X 轴**。
+7. **选中各列预合成**。
+8. 点击 **![](/docs-img/duik/icons/layers.svg) 连接到不透明度**。现在你水平移动选择器时，它会选中同一列的所有形状。接下来我们再做连接，让你垂直移动时显示正确的那一行。
+9. **动画化控制器的 Y 位置**，让它的锚点从最顶格子紧前移到最后一个格子紧前。
+10. 如果你已经关闭了连接器的附加面板，**再次选中控制器图层的位置属性**，并**点击 ![](/docs-img/duik/icons/pick_prop.svg) *拾取属性* 按钮**。
+11. **在连接器的附加面板中选择 Y 轴**。
+12. **对每一个列**预合成：  
+    1. **选中预合成内的所有图层**
+    2. 点击 **![](/docs-img/duik/icons/layers.svg) 连接到不透明度**。
+    3. 对所有列**重复**。
 
+[^1]: 在某些文化里，使用*主*和*从属*这种比喻可能显得冒犯；但在编写和开发它的法国并非如此，而且这是我们找到的、用来解释连接器作用的最好语义——我们没有用父子（parent-child）比喻，因为那在 After Effects 里是另一回事。除了关键帧，我们不会“伤害”任何别的东西。
 
-[^1]: In some cultures, using the *master* and *slave* metaphor may seem offending; that's not the case in France where this is written and developped, and this is the best semantics we've found to explain what the connector does, without using the parent-child metaphor which is something different in After Effects. We won't harm anything else than keyframes.
+[^2]: *参见*[*控制器*](../controllers)。
 
-[^2]: *cf.* [*Controllers*](../controllers).
+[^3]: *参见*[*约束 / 图钉*](pins)。
 
-[^3]: *cf.* [*Constraints / Pins*](pins.md).
-
-[^4]: *cf.* [*Automation / Tools / List*](../automation/tools/list).
-
+[^4]: *参见*[*自动化 / 工具 / List*](../automation/tools/list)。

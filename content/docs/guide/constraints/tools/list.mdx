@@ -1,45 +1,46 @@
 ---
-title: "![](/docs-img/duik/icons/list.svg) List"
+title: "列表"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/list.svg) List
+# <img src="/docs-img/duik/icons/list.svg" style={{width: '1em'}}/> 列表
 
-The *List* is a simple tool to combine different animations and expressions in the same property.
+*列表（List）* 是一个简单的工具，可以把不同的动画和表达式叠加到同一个属性上。
 
-To create a list, **select the property** and click on the **![](/docs-img/duik/icons/list.svg) *List*** button.
+要创建列表，**选中该属性**，然后点击 **<img src="/docs-img/duik/icons/list.svg" style={{width: '1em'}}/> *列表*** 按钮。
 
-If an expression was already assigned to the property, it is automatically copied into the first slot of the list, along with the existing keyframes.
+如果该属性原本已经被赋予了表达式，表达式和现有的关键帧会自动被复制到列表的第一个槽位中。
 
-The list is added in the effects of the layer. You can combine up to five animations and expressions, and then duplicate the list if ever you need more slots.
+列表会以效果的形式添加到图层上。你最多可以叠加五个动画和表达式；如果还需要更多槽位，可以再复制这个列表效果。
 
 ![](/docs-img/duik/constraints/list.png)
 
 <Callout type="info">
-    The result of the mix is calculated the following way  (except for colors, where the function depends on the blending mode):
+    混合结果按以下方式计算（颜色除外；颜色的计算函数取决于混合模式）：
 </Callout>
 
-    `value1 * weight1 + value2 * weight2 + value3 * weight3 + value4 * weight4 + value5 * weight5`
+```
+value1 * weight1 + value2 * weight2 + value3 * weight3 + value4 * weight4 + value5 * weight5
+```
 
-You can use the list with **any numerical property[*](../../../misc/glossary), including colors**.
+列表可以用于**任何数值型属性[*](../../misc/glossary)，包括颜色**。
 
 <Callout type="success">
-    To use it with Bézier path properties, you can add [Duik pins](../pins)&nbsp;[^1] to control the path first, then use the list on the position (and rotation) properties of the pins.
+    如果要把它用在 Bézier 路径属性上，可以先添加 [Duik 图钉](../pins)&nbsp;[^1] 来控制路径，然后再对图钉的位置（和旋转）属性使用列表。
 </Callout>
 
-When used with colors, the effect is a bit different:
+用在颜色上时，该效果会略有不同：
 
 ![](/docs-img/duik/constraints/list-color.png)
 
-Each value in the list is blended in the previous slot according to the opacity and blending mode.
+列表中的每一个值，都会按照不透明度和混合模式，混合到上一个槽位中。
 
 <Callout type="success">
-    You can use the list to start and stop any expression, thanks to the animatable weight[*](../../../misc/glossary).  
-    It can also be used to combine different expressions, like a sine function with multiple wiggle functions, etc.
+    借助可设置关键帧的权重[*](../../misc/glossary)，你可以用列表来开启或停止任意表达式；也可以用它来组合不同的表达式，比如把一个正弦函数和多个抖动（wiggle）函数叠加在一起。此外，它还可以通过 *[连接器](../connector)*&nbsp;[^2]，把从属属性同时连接到多个主属性上。
 </Callout>
 
-    It's also used to connect slave properties to multiple master properties using the *[Connector](../connector)*&nbsp;[^2].
+[^1]: 参见 *[约束 / 连接器](../connector)*。
 
-[^1]: *cf.* *[Constraints / Connector](../connector)*.
-
-[^2]: *cf.* *[Constraints / Pins](../pins)*.
-
+[^2]: 参见 *[约束 / 图钉](../pins)*。

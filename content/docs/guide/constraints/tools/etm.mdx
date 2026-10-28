@@ -1,35 +1,37 @@
 ---
-title: "![](/docs-img/duik/icons/expose_transform.svg) Expose Transform"
+title: "暴露变换"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/expose_transform.svg) Expose Transform
+# <img src="/docs-img/duik/icons/expose_transform.svg" style={{width: '1em'}}/> 暴露变换
 
-The “*Expose Transform*” is an object (a controller) which will measure and **expose angles, orientations, coordinates and distances between two layers**, which can be used as a master property with the [*Connector*](../connector)&nbsp;[^1] or in your own expressions.
+*暴露变换（Expose Transform）* 是一个对象（一个控制器），用来测量并**暴露两个图层之间的角度、方向、坐标和距离**；这些数值可以作为主属性，配合 [*连接器*](../connector)&nbsp;[^1] 使用，也可以写进你自己的表达式。
 
 ![](/docs-img/duik/constraints/etm.png)
 
-Like any [*Controller*](../../controllers)&nbsp;[^2], you just have to click on the ![](/docs-img/duik/icons/expose_transform.svg) *Expose Transform* button to create it. If a layer was previously selected, the Expose Transform object will be created at the same location and will get the name of the layer.
+和任何 [*控制器*](../../controllers)&nbsp;[^2] 一样，只需点击 <img src="/docs-img/duik/icons/expose_transform.svg" style={{width: '1em'}}/> *暴露变换* 按钮即可创建它。如果创建前选中了某个图层，暴露变换对象会创建在该图层的同一位置，并以该图层命名。
 
-By default, it will measure the transformations of the selected layer, and any relative coordinate will be measured relatively to the parent of the layer.
+默认情况下，它会测量所选图层的变换；所有相对坐标都相对于该图层的父级图层测量。
 
-Values and measurements are exposed in the effect on the controller layer.
+所有数值和测量结果都会暴露在控制器图层所带的效果中。
 
 ![](/docs-img/duik/constraints/etmEffect.png)
 
-You can change the measured layers with the first parameters of the effect.
+你可以通过效果最前面的几个参数来更换被测量的图层。
 
-- The *Target Layer* is the one which transformations are exposed.
-- You can uncheck the *Use Parent* checkbox to measure relative transformations relatively to a layer other than its parent.
-- The *Reference Layer* is the reference used for all relative transformation measurements.
+- *目标图层（Target Layer）*：其变换被暴露的图层。
+- 取消勾选 *使用父级（Use Parent）*，即可让相对变换不再相对于父级图层测量，而相对于另一个图层测量。
+- *参考图层（Reference Layer）*：所有相对变换测量所依据的参考图层。
 
-The effect exposes all measured values which can be used in expressions or with the [*Connector*](../connector)&nbsp;[^1].
+该效果暴露的所有数值，都可以用在表达式中，或配合 [*连接器*](../connector)&nbsp;[^1] 使用。
 
 ![](/docs-img/illustration/Contact_Goniometer.png)  
-*Contact goniometer of the Carangeot type  
-Alfred Edwin Howard Tutton, 1911  
-Public domain.*
+*Carangeot 型接触式测角仪  
+Alfred Edwin Howard Tutton，1911 年  
+公有领域。*
 
-[^1]: *cf.* [*Constraints*](..) / [*Connector*](../connector).
+[^1]: 参见 [*约束*](..) / [*连接器*](../connector)。
 
-[^2]: *cf.* [*Controllers*](../../controllers).
-
+[^2]: 参见 [*控制器*](../../controllers)。

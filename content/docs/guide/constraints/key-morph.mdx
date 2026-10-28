@@ -1,117 +1,118 @@
 ---
-title: "![](/docs-img/duik/icons/shape_key.svg) Key Morph"
+title: "形态关键帧"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/shape_key.svg) Key Morph
+# <img src="/docs-img/duik/icons/shape_key.svg" style={{width: '1em'}}/> 形态关键帧
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_H01_KeyMorph01__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_H01_KeyMorph01__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-The key morph is simple yet very powerful and versatile interpolation[*](../../misc/glossary) tool. It is able to morph between key poses or blend them together[^3d] using any property in After Effects (as long as it can be controlled by an expression). This is especially useful to control facial expressions (emotions and expressions, head turn, lipsync...), or any other animation based on specific poses (e.g. complex hand shapes).
+形态关键帧是一种简单却非常强大、灵活的插值[*](../../misc/glossary)工具。它能够在关键姿势之间变形，或把它们混合在一起[^3d]，而且可以使用 After Effects 中的任意属性（只要该属性能被表达式控制）。这对于控制面部表情（情绪与表情、转头、唇形同步……）特别有用，也适用于任何基于特定姿势的动画（例如复杂的手部形状）。
 
-[^3d]: This is a very common technique in 3D software. It's called *Shape Keys* in *Blender*, *Pose Morph* in *Cinema 4D*, *Blend Shapes* in *Maya*, *Morpher* in *3DS Max*...
+[^3d]: 这在 3D 软件里是一种非常常见的技术。在 *Blender* 中叫做 *Shape Keys*，在 *Cinema 4D* 中叫 *Pose Morph*，在 *Maya* 中叫 *Blend Shapes*，在 *3DS Max* 中叫 *Morpher*……
 
 ![](/docs-img/illustration/keymorph.gif)
 
-To setup the key morph, the first step is to **create the actual key poses**, by just **adding the needed keyframes on the properties** which make the pose.
+要设置形态关键帧，第一步是**创建真正的关键姿势**，方法就是在构成姿势的属性上**添加所需的关键帧**。
 
-The first keyframe needs to be the *neutral* pose, from which other poses will be interpolated (front facing for a turn, neutral emotion when preparing facial expressions, etc.).
+第一个关键帧必须是*中立*姿势，其他姿势都将从它插值而来（转头时正面朝前；准备面部表情时为中性情绪；等等）。
 
 ![](/docs-img/duik/constraints/keymorph-keys.png)  
-*Keyframes ready to be controlled by the* Key Morph.  
-*Note that the keyframes could spread across multiple layers too.*
+*准备好被*形态关键帧*控制的关键帧。  
+注意，这些关键帧也可以分散在多个图层上。*
 
-All the properties to be controlled need to have the same count of keyframes; you may copy and paste the first keyframe to complete the set of keyframe if needed.
+所有要控制的属性都必须有相同数量的关键帧；必要时你可以复制粘贴第一个关键帧来补全关键帧集合。
 
-From this kind of keyframe set, the key morph adds simple controllers to either interpolate between arbitrary key poses (it is able to interpolate from the first to the fourth without going through the second and third), or blend these key poses together according to an arbitrary ratio you can animate.  
-Just **select all the keyframes** and **click the ![](/docs-img/duik/icons/shape_key.svg) *Key Morph* button**.
+基于这样一组关键帧，形态关键帧会添加简单的控制器，既可以在任意关键姿势之间插值（它能从第一个姿势直接插值到第四个，而不必经过第二、第三个），也可以按照你能做成动画的任意比例，把这些关键姿势混合在一起。  
+只需**选中所有关键帧**，然后**点击 ![](/docs-img/duik/icons/shape_key.svg) *形态关键帧* 按钮**。
 
-Duik adds a bunch of effects on the layer.
+Duik 会在图层上添加一堆效果。
 
 ![](/docs-img/duik/constraints/keymorph-effects.png)  
-*The* Key Morph *effects.*
+***形态关键帧*效果。**
 
-There are two ways of using the keymorph:
+形态关键帧有两种使用方式：
 
-- **Interpolate** between key poses.  
-  For example to animate the mouth during a dialog (that's called lipsyncing). In this case, you just want to select a phoneme at the right time **one after each other**, and interpolate between them but don't need to blend them together.
-- **Blend** different poses.
-  For example to animate facial expressions, you may need to turn the head a bit, open the mouth, show a smile, raise the eyebrows, all **at the same time**.
+- 在关键姿势之间**插值**。  
+    例如在对话过程中给嘴部做动画（这叫做唇形同步）。这种情况下，你只想在正确的时机**一个接一个**地选发音素，并在它们之间插值，而不需要把它们混合在一起。
+- **混合**不同的姿势。  
+    例如做面部表情时，你可能需要同时转头、张开嘴、露出微笑、扬起眉毛，所有这些**同时进行**。
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_H02_KeyMorph02__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_H02_KeyMorph02__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-## Interpolate between key poses
+## 在关键姿势之间插值
 
-You can easily interpolate between key poses with the default setup, using the first *Key Morph* effect:
+用默认设置，你可以很容易地在关键姿势之间插值，使用第一个*形态关键帧*效果：
 
-1. Keep the ***Weights* normalized**.  
-    This makes sure there's no extrapolation and the poses will interpolate smoothly.
-2. __Animate the *Key Selection*__ property.  
-    Each pose is numbered from `1` to the number of poses. Don't use `0`, the first and neutral pose is the number `1`.
+1. 保持 ***权重（Weights）归一化***。  
+    这能确保没有外推，各姿势之间平滑插值。
+2. **动画化 *关键选择（Key Selection）***属性。  
+    每个姿势从 `1` 开始编号，一直到姿势的数量。不要用 `0`；第一个、也就是中立姿势的编号是 `1`。
 
-With a lot of key poses it may be difficult to remember the number associated with each pose (the *index*); in this case you could easily improve a bit the default key morph setup.
+关键姿势很多时，可能很难记住每个姿势对应的数字（即*索引*）；这时你可以稍微改进一下默认的形态关键帧设置。
 
-### Use markers.  
+### 使用标记
 
-You could add a marker for each pose to keep track of what they are, including their index.  
+你可以为每个姿势添加一个标记，记录它们是什么、包括各自的索引。  
 ![](/docs-img/duik/constraints/keymorph-markers.png)
 
-To add a marker, select the layer and press the `[*]` key. You can then double click the new marker to add a comment.
+要添加标记，选中图层并按 `[*]` 键。然后你可以双击新标记来添加注释。
 
-### Use the connector to control the key morph with a better controller
+### 用连接器搭配更好的控制器来控制形态关键帧
 
-#### With a menu
+#### 用菜单
 
-Using a dropdown menu is very handy in most cases.
+在大多数情况下，使用下拉菜单非常方便。
 
-1. Create a Dropdown menu control  
-    Edit it to list the poses.  
+1. 创建一个下拉菜单控件。  
+    编辑它，列出各个姿势。  
     ![](/docs-img/duik/constraints/keymorph-create-dropdown.png)
-2. Connect it to the key poses using the *![](/docs-img/duik/icons/connector.svg) [Connector](connector.md)*&nbsp;[^cnctr]  
-    1. Select the new dropdown effect (the property in the timeline, not the effect itself).  
-    2. In the connector additional panel, click the *![](/docs-img/duik/icons/pick_prop.svg) __Pick Property__* button.  
-    3. Select the *Key* effects to be connected, on the layer with the key morph setup.  
-    4. In the connector additional panel, click the *![](/docs-img/duik/icons/shape_key.svg) __Key Morph__* button.
+2. 用 *![](/docs-img/duik/icons/connector.svg) [连接器](connector)*&nbsp;[^cnctr] 把它链接到关键姿势。  
+    1. 选中新建的下拉效果（时间线里的属性，而不是效果本身）。
+    2. 在连接器附加面板中，点击 *![](/docs-img/duik/icons/pick_prop.svg) **拾取属性（Pick Property）*** 按钮。
+    3. 在带形态关键帧设置的图层上，选中要连接的 *Key* 效果。
+    4. 在连接器附加面板中，点击 *![](/docs-img/duik/icons/shape_key.svg) **形态关键帧（Key Morph）*** 按钮。
 
 ![](/docs-img/duik/constraints/keymorph-dropdown.png)
 
-You can now simply animate this effect to interpolate between the key poses.
+现在你只需动画化这个效果，就能在关键姿势之间插值了。
 
-#### With a slider
+#### 用滑块
 
-You could also create a slider in the viewport for example.
+你也可以在视口里创建一个滑块，举例来说。
 
-1. Create a slider, using the *![](/docs-img/duik/icons/connector.svg) [Connector](connector.md)*&nbsp;[^cnctr] or the *[Controllers](index.md)*[^ctrls] panel.
-2. Select the *Key* effects to be connected, on the layer with the key morph setup.
-3. In the connector panel, click the *![](/docs-img/duik/icons/shape_key.svg) __Key Morph__* button.
+1. 用 *![](/docs-img/duik/icons/connector.svg) [连接器](connector)*&nbsp;[^cnctr] 或 *[控制器](../controllers)*[^ctrls] 面板创建一个滑块。
+2. 在带形态关键帧设置的图层上，选中要连接的 *Key* 效果。
+3. 在连接器面板中，点击 *![](/docs-img/duik/icons/shape_key.svg) **形态关键帧（Key Morph）*** 按钮。
 
-[^cnctr]: *cf. [Links & Constraints](index.md) / [Connector](connector.md)*.
+[^cnctr]: *参见*[*链接与约束*](index) / [*连接器*](connector)。
 
-[^ctrls]: *cf. [Controllers](index.md)*.
+[^ctrls]: *参见*[*控制器*](../controllers)。
 
-## Blend multiple key poses
+## 混合多个关键姿势
 
-To be able to blend multiple key poses, first adjust these settings on the first *Key Morph* effect on the layer:
+要能够混合多个关键姿势，先在图层上第一个*形态关键帧*效果里调整这些设置：
 
-- **Set the *Key Selection* to `0`** to disable it.
-- **Uncheck the *Normalize* checkbox** for the *Weights* to be able to extrapolate and blend multiple poses together.
+- **把 *关键选择（Key Selection）*设为 `0`** 来禁用它。
+- **取消勾选 *权重（Weights）*的 *归一化（Normalize）*复选框**，以便能够外推并把多个姿势混合在一起。
 
-You can now just animate the *Weight* percentage value for each *Key* effect on the layer. Duik will nicely blend the poses together, and you can blend as many poses as you wish.
+现在你只需动画化图层上每个 *Key* 效果的 *权重（Weight）*百分比值。Duik 会漂亮地把这些姿势混合在一起，你想混合多少个都行。
 
 <Callout type="success">
-    The *Weight* value is not bound between `0 %` and `100 %` to let you easily reverse or extrapolate each pose.
+    *权重*值不限制在 `0 %` 到 `100 %` 之间，方便你轻松地反转或外推每个姿势。
 </Callout>
 
 <Callout type="success">
-    You can use expressions or connect the *Weight* properties of the keys to customized controllers, like Duik [Sliders](../controllers) or expression control effects, to control them from another composition and controller layer for example.
+    你可以用表达式，或把各 Key 的 *权重*属性链接到自定义控制器上，比如 Duik [滑块](../controllers)或表达式控制效果，从而在另一个合成和控制器图层上控制它们。
 </Callout>
 
-## Edit Key Poses
+## 编辑关键姿势
 
-After the Key Morph creation, you can still edit, add or remove key poses.
+形态关键帧创建之后，你仍然可以编辑、添加或删除关键姿势。
 
-1. Deactivate the expressions in the properties you need to edit.
-2. Edit the keyframes; you can also add or remove key poses.
-3. If you've removed some key poses, delete some *Key* effects so there's the same count as the poses.  
-    If you've created new key poses, duplicate the last *Key* effect to have the same count as the poses.
-
-
+1. 停用你要编辑的属性中的表达式。
+2. 编辑关键帧；你也可以添加或删除关键姿势。
+3. 如果你删除了一些关键姿势，就删除一些 *Key* 效果，使数量与姿势一致。  
+    如果你新建了关键姿势，就复制最后一个 *Key* 效果，使数量与姿势一致。

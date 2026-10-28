@@ -1,26 +1,28 @@
 ---
-title: "![](/docs-img/duik/icons/zero.svg) Zero"
+title: "归零"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/zero.svg) Zero
+# <img src="/docs-img/duik/icons/zero.svg" style={{width: '1em'}}/> 归零
 
-In After Effects, as in any animation software using parenting between objects, the coordinates of the layers are always given in relation to their parent; this makes the values change when changing parent links.
+在 After Effects 中（和所有使用对象父子关系的动画软件一样），图层的坐标总是相对于其父级给出的；这就导致改变父子链接时数值会发生变化。
 
-**Select a layer** and then click the ***![](/docs-img/duik/icons/zero.svg) Add Zero*** button to zero out all of its transform properties.  
-`[Alt] + [Click]` to reset the transform properties of the selected layer to `0`,  
-`[Ctrl] + [Alt] + [Click]` to also reset the opacity to `100 %`.
+**选中一个图层**，然后点击 ***<img src="/docs-img/duik/icons/zero.svg" style={{width: '1em'}}/> 添加归零（Add Zero）*** 按钮，即可把它所有的变换属性清零。  
+`[Alt] + [点击]`：把所选图层的变换属性重置为 `0`，  
+`[Ctrl] + [Alt] + [点击]`：同时把不透明度也重置为 `100 %`。
 
-The *Zero* makes use of this behaviour to ease linking with expressions between layer transforms, even from a composition to another.
+*归零（Zero）* 正是利用了这一特性，让图层变换之间、甚至跨合成的表达式链接变得更容易。
 
-A Zero is a standard null object, which has exactly the same transform values as the layer it works with, and it is inserted in the hierarchy, between the layer and its former parent.
+一个 Zero 就是一个标准的空对象，它的变换数值与所作用的图层完全相同，被插入到层级中——位于该图层与其原父级之间。
 
-The effect is that all of the layer’s transformation values, now given in relation to its *zero* layer, which is at the same place, are initialized to: `[0 px, 0 px]` in position, `0°` in rotation, `[100 %, 100 %]` in scale.
+这样一来，该图层的所有变换数值现在都相对于它的 *归零层*（位于同一位置）给出，并被初始化为：位置 `[0 px, 0 px]`、旋转 `0°`、缩放 `[100 %, 100 %]`。
 
-Using zeros on multiple layers, it becomes very easy to link their positions with an expression even if they are not at the same location, and even from one composition to another.
+对多个图层使用归零后，即使它们不在同一位置、甚至位于不同合成中，也能非常轻松地用表达式把它们的位置链接起来。
 
-Another useful thing is that using zeros makes it easy to recover the original position of a layer, you just have to set all its coordinates to `0`. Adding zeroes to all controllers when rigging a character to be able to retrieve its rest pose is a very common trick.
+另一个好处是：使用归零后，图层的原始位置很容易找回——只需把它的所有坐标设为 `0` 即可。给角色绑定时给所有控制器都加上归零层，以便随时恢复休息姿势，是一个非常常见的技巧。
 
 <Callout type="warning">
-    When a zero layer has been added, if you want to change the parent of the layer you're working with, be careful to change the parent of the zero layer and not the actual parent of the layer itself, to keep the zero layer in the hierarchy.
+    归零层添加之后，如果你想改变所作用图层的父级，注意要改的是归零层的父级，而不是图层本身的父级，这样才能让归零层留在层级中。
 </Callout>
-

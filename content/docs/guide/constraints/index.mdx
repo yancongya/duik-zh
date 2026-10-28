@@ -1,46 +1,47 @@
 ---
-title: "![](/docs-img/duik/icons/constraints.svg) Links and Constraints"
+title: "链接与约束"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/constraints.svg) Links and Constraints
+# <img src="/docs-img/duik/icons/constraints.svg" style={{width: '1em'}}/> 链接与约束
 
-The core of a rig are the links and constraints between the bones, the layers or the properties. You can view the constraints as the strings and mechanisms which drive a puppet; the [bones](../bones) are the armature, the handles are the animation [controllers](../controllers).
+绑定的核心，是骨骼、图层或属性之间的链接与约束。你可以把约束想象成驱动木偶的丝线与机关；[骨骼](../bones)[*](../../misc/glossary)是骨架，而那些把手就是动画用的[控制器](../controllers)。
 
 ![](/docs-img/illustration/duik15.png)
 
-There are several different kinds of constraints, but they almost all work the same way, in a cause-and-consequence / parent-and-child / master-and-slave relationship.
+约束有很多种，但它们几乎都以同一种方式工作——一种因果、父子、主从关系。
 
-## The Links and Constraints panel
+## 链接与约束面板
 
 ![](/docs-img/duik/constraints/constraints-panel.png)  
-*The Links and Constraints panel*
+*链接与约束面板*
 
-The top toolbar of the Links and Constraints panel contains a few useful tools related to parenting, properties and transformations. Below the toolbar, you'll find all the available constraints.
+链接与约束面板顶部的工具栏，包含一些与父子关系、属性和变换相关的实用工具。工具栏下方，则列出了所有可用的约束。
 
 ![](/docs-img/duik/constraints/toolbar.png)  
-*The Links and Constraints toolbar*
+*链接与约束工具栏*
 
-### Content
+### 内容
 
-- [Auto-rig](../bones/autorig)
-- [Connector](connector.md)
-- [Key Morph](key-morph.md)
-- [Pins](pins.md)
-- [Kinematics (IK and FK)](kinematics.md)
-- [Parenting](parent.md)
-- [Transform Constraints](transform.md)
-- Tools
-    - [Add list](tools/list.md)
-    - [Split values](tools/split.md)
-    - [Edit mode](tools/edit-mode.md)
-    - [Lock property](tools/lock.md)
-    - [Add zero](tools/zero.md)
-    - [Move anchor point](tools/anchor.md)
-    - [Expose transform](tools/etm.md)
-    - [Locators](tools/locator.md)
-    - [Align layers](tools/align.md)
-    - [Measure distance](tools/measure.md)
-    - [Property info](tools/prop-info.md)
-    - [Locator](tools/locator.md)
-
-
+- [自动绑定](../bones/autorig)
+- [连接器](connector)
+- [形态关键帧](key-morph)
+- [图钉](pins)
+- [动力学（反向动力学与正向动力学）](kinematics)
+- [父子关系](parent)
+- [变换约束](transform)
+- 工具
+    - [添加列表](tools/list)
+    - [拆分数值](tools/split)
+    - [编辑模式](tools/edit-mode)
+    - [锁定属性](tools/lock)
+    - [添加归零](tools/zero)
+    - [移动锚点](tools/anchor)
+    - [暴露变换](tools/etm)
+    - [定位器](tools/locator)
+    - [对齐图层](tools/align)
+    - [测量距离](tools/measure)
+    - [属性信息](tools/prop-info)
+    - [定位器](tools/locator)

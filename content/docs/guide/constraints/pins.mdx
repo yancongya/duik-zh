@@ -1,67 +1,68 @@
 ---
-title: "![](/docs-img/duik/icons/pin.svg) Pins"
+title: "图钉"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/pin.svg) Pins
+# <img src="/docs-img/duik/icons/pin.svg" style={{width: '1em'}}/> 图钉
 
-*Pins* are a very simple yet extremely useful tool. They are layers used to control any spatial property or Bézier shape. This is a quick way to parent these properties or any vertex of a Bézier path to any other layer for example.
+*图钉（Pins）*是一种非常简单却极其有用的工具。它们是用来控制任意空间属性或 Bézier 形状的图层。举例来说，这是一种快速把这些属性、或 Bézier 路径的任意顶点父子化到其他图层的方式。
 
-Duik *Pins* are the easiest way to rig a character using the After Effects Puppet tool or Bézier paths; you'll just need to add Duik pins to the puppet pins or Bézier paths, and parent them to the armatures like you would for any other layer.
+Duik *图钉*是用 After Effects 木偶工具或 Bézier 路径给角色做绑定的最简单方式；你只需把 Duik 图钉加到木偶图钉或 Bézier 路径上，再像对待其他图层一样把它们父子化到骨架上即可。
 
-## Creation
+## 创建
 
-1. **Select** the properties.
-2. **Click** on the *![](/docs-img/duik/icons/pin.svg) Add Pins* button.  
-    - Maintaining the `[Alt]` key will create controls for the tangents when adding pins on a Bézier path.
+1. **选中**属性。
+2. **点击** *![](/docs-img/duik/icons/pin.svg) 添加图钉* 按钮。  
+    - 在 Bézier 路径上添加图钉时，按住 `[Alt]` 键会同时为切线创建控制。
 
-## Spatial properties and puppet pins
+## 空间属性与木偶图钉
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_D02_SpaPins__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_D02_SpaPins__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-You can control any spatial (multi-dimensional) property with pins, and all types of puppet pins.
+你可以用图钉控制任意空间（多维）属性，以及所有类型的木偶图钉。
 
 ![](/docs-img/duik/constraints/pins-spatial_00000.png)  
-*Pins to control: standard spatial property, Puppet position pin, Puppet Advanced pin, Puppet bend pin.*
+*用于控制的图钉：标准空间属性、木偶位置图钉、木偶高级图钉、木偶弯曲图钉。*
 
-Standard pins and Puppet position pins control the location of the property they're linked to; Puppet bend pins control the rotation; Puppet advanced pins also control the rotation and the scale of the After Effects puppet pin.
+标准图钉和木偶位置图钉控制它们所链接属性的位置；木偶弯曲图钉控制旋转；木偶高级图钉还控制 After Effects 木偶图钉的旋转和缩放。
 
 <Callout type="success">
-    To parent a (2D) spatial property using a pin to a 3D layer, simply switch the pin to 3D.
+    要把一个（2D）空间属性通过图钉父子化到 3D 图层，只需把图钉切换为 3D 即可。
 </Callout>
 
-## Bézier paths
+## Bézier 路径
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_D04_BezPins__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_D04_BezPins__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-You can use Duik pins to control all Bézier paths (masks or shape layers).
+你可以用 Duik 图钉控制所有 Bézier 路径（蒙版或形状图层）。
 
 ![](/docs-img/duik/constraints/bezier-pins_00018.png)  
-*A Bézier path controlled with Duik pins.*
+*一个用 Duik 图钉控制的 Bézier 路径。*
 
-By default, Duik won't create pins to control the tangents, but **the tangents can still be controlled by rotating and scaling the pins** for the main points.  
-You can hold the `[Alt]` key when click the *![](/docs-img/duik/icons/pin.svg) Add Pins* button to force Duik to create layers for the tagents instead. These layers are still parented to the main points, so rotating and scaling them still works.  
-By default, these tangents are locked together, but they can be unlocked with a checkbox control in the main point effects.
+默认情况下，Duik 不会创建用来控制切线的图钉，但**主点的切线仍然可以通过旋转和缩放图钉来控制**。  
+点击 *![](/docs-img/duik/icons/pin.svg) 添加图钉* 按钮时按住 `[Alt]` 键，可以强制 Duik 改为给切线创建图层。这些图层仍然父子化到主点上，因此旋转和缩放它们依然有效。  
+默认情况下，这些切线是锁定在一起的，但可以在主点效果中用一个复选框控制解锁。
 
-Bézier path pins and tangent pins can be removed or re-created at any time; this is a way to make the composition lighter with less layers, by using only the needed pins and tangent pins.  
-To re-create a pin for an already rigged Bézier path, select the corresponding property in the effects of the layer containing the Bézier path, then click again on the *![](/docs-img/duik/icons/pin.svg) Add Pins* button.
+Bézier 路径图钉和切线图钉可以随时移除或重新创建；这是一种让合成更轻、图层更少的方式——只使用需要的图钉和切线图钉即可。  
+要给已经绑好的 Bézier 路径重新创建图钉，在包含该 Bézier 路径的图层效果中选中对应属性，然后再次点击 *![](/docs-img/duik/icons/pin.svg) 添加图钉* 按钮。
 
 ![](/docs-img/duik/constraints/pin-path-effects.png)  
-*The effects on the layer containing a rigged path allow you to easily re-create missing pins to control the path, or manually adjust the values.*
+*包含已绑定路径的图层上的效果，让你可以轻松重新创建缺失的图钉来控制路径，或手动调整数值。*
 
 <Callout type="warning">
-    It seems that expressions in the Bézier path properties of masks are much slower than in path properties of shape layers. If you plan to add pins on a Bézier path, prefer using shape layers whenever possible.
+    看起来蒙版 Bézier 路径属性中的表达式，比形状图层路径属性中的表达式慢得多。如果你打算在 Bézier 路径上添加图钉，请尽量优先使用形状图层。
 </Callout>
 
-## Edit pins
+## 编辑图钉
 
-An effect on each pin can be used to adjust their appearance.
+每个图钉上的一个效果可以用来调整它们的外观。
 
 ![](/docs-img/duik/constraints/pin-effect.png)  
-*An effect to control the pin appearance.*
+*一个用来控制图钉外观的效果。*
 
-You can also change the settings of multiple pins together using the additional panel of the *![](/docs-img/duik/icons/pin.svg) Add Pins* button.
+你也可以用 *![](/docs-img/duik/icons/pin.svg) 添加图钉* 按钮的附加面板，一次性修改多个图钉的设置。
 
 ![](/docs-img/duik/constraints/pin-settings.png)  
-*Edit multiple pins using the additional panel.*
-
-
+*用附加面板编辑多个图钉。*

@@ -1,19 +1,20 @@
 ---
-title: "![](/docs-img/duik/icons/locator.svg) Locators"
+title: "定位器"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/locator.svg) Locators
+# <img src="/docs-img/duik/icons/locator.svg" style={{width: '1em'}}/> 定位器
 
-*Locators*, which are used by the ![](/docs-img/duik/icons/parent_across_comp.svg) [*Parent across compositions*](../parent)&nbsp;[^1] tool, can be very useful in some cases. They are null layers which follow another layer no matter what and get (and expose the values of) all its absolute transformations.
+*定位器（Locator）* 是 <img src="/docs-img/duik/icons/parent_across_comp.svg" style={{width: '1em'}}/> [*跨合成父子*](../parent)&nbsp;[^1] 工具所使用的对象，在某些场合非常有用。它们是空对象图层，会无条件跟随另一个图层，并获取（同时暴露）该图层的所有绝对变换数值。
 
-You can add a locator in a composition at any time, and the **![](/docs-img/duik/icons/extract_locator.svg) *Extract locators*** tool will extract all locators from a selected precomposition layer to make them available directly inside the main (containing) composition. This is exactly the principle behind the ![](/docs-img/duik/icons/parent_across_comp.svg) [*Parent across compositions*](../parent)&nbsp;[^1] tool.
+你可以随时在合成中添加一个定位器；而 **<img src="/docs-img/duik/icons/extract_locator.svg" style={{width: '1em'}}/> *提取定位器*** 工具，可以从选中的预合成图层中提取出所有定位器，让它们直接在主（容器）合成中可用。这正是 <img src="/docs-img/duik/icons/parent_across_comp.svg" style={{width: '1em'}}/> [*跨合成父子*](../parent)&nbsp;[^1] 工具背后的原理。
 
-When extracting locators, you have the option to use either expressions or essential properties. You can `[Shift] + [Click]` on the ![](/docs-img/duik/icons/extract_locator.svg) *Extract locators* button to access this option. This option will also be used when parenting a layer across compositions, if the child layer is in a precomposition (and not a “parent” composition).
+提取定位器时，你可以选择使用表达式或基本属性。在 <img src="/docs-img/duik/icons/extract_locator.svg" style={{width: '1em'}}/> *提取定位器* 按钮上 `[Shift] + [点击]` 即可打开这个选项。当把子图层跨合成父子绑定到父级时，如果子图层位于预合成中（而不是"父级"合成中），也会沿用这个选项。
 
 <Callout type="warning">
-    Do not modify the expressions / add keyframes on the transform properties of the locators, as this may break some other Duik tools. If you need to rig locators, just insert another null layer in the hirerachy: as a child of the locator, and parent the initial children of the locator.
+    请勿修改定位器变换属性上的表达式，也不要在其上添加关键帧，否则可能破坏 Duik 的其他一些工具。如果你需要对定位器做绑定，只需在层级中再插入一个空对象图层：让它作为定位器的子级，再把原来定位器的子级图层父子到它上面即可。
 </Callout>
 
-[^1]: *cf.* [*Constraints*](..) / [*Parent Constraints*](../parent).
-
-
+[^1]: 参见 [*约束*](..) / [*父子约束*](../parent)。
