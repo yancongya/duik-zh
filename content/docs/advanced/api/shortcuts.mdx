@@ -1,44 +1,52 @@
 ---
-title: "Add keyboard shortcuts to Duik functions"
+title: "为 Duik 功能添加键盘快捷键"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# Add keyboard shortcuts to Duik functions
+# 为 Duik 功能添加键盘快捷键
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_B04_Shortcuts__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_B04_Shortcuts__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-Using the API, you can quickly write just a few lines to create [*headless scripts*](headless-scripts.md). These scripts can then easily be assigned keyboard shortcuts in *After Effects*.
+借助 API，你只需写短短几行代码就能创建[*无头脚本*](headless-scripts)。这些脚本随后可以很方便地在 *After Effects* 中分配键盘快捷键。
 
-Let's use this script as an example:
+以这个脚本为例：
 
 ```js
-(function())();
+(function(){
+    #include "DuAEF_Duik_api.jsxinc"
+    DuAEF.init( "Auto-Parent", "1.0.0", "RxLaboratory" );
+    DuAEF.enterRunTime();
+
+    // Run the Auto-Parent method
+    // See: http://duik.rxlab.io/Duik.Constraint.html#.autoParent
+    Duik.Constraint.autoParent();
+})();
 ```
 
-Just save it in a file called `Auto-Parent.jsx` for example.
+把它保存为名为 `Auto-Parent.jsx` 的文件即可。
 
-## Save the script in After Effects
+## 在 After Effects 中放置脚本
 
-First, we need to save the script where After Effects will find it.
+首先，我们要把脚本放到 After Effects 能找到的位置。
 
-Copy the `Auto-Parent.jsx` file to:
+把 `Auto-Parent.jsx` 文件复制到：
 
-- Windows: `C:\Program Files\Adobe\Adobe After Effects XXXX\Support Files\Scripts\`
-- Mac: `/Applications/Adobe After Effects XXXX/Scripts/`
+- Windows：`C:\Program Files\Adobe\Adobe After Effects XXXX\Support Files\Scripts\`
+- Mac：`/Applications/Adobe After Effects XXXX/Scripts/`
 
-As the script uses the Duik API, the API needs to be copied in the same folder. Copy `DuAEF_Duik_api.jsxinc` in the same folder[^1].
+由于脚本使用了 Duik API，API 也需要复制到同一文件夹。把 `DuAEF_Duik_api.jsxinc` 复制到同一文件夹[^1]。
 
-## Assign the shortcut
+## 分配快捷键
 
-Restart After Effects if it was open, and go to `Edit ► Keyboard Shortcuts`
+如果 After Effects 当时是开着的，先重启它，然后进入 `Edit ► Keyboard Shortcuts`（编辑 ► 键盘快捷键）。
 
 ![](/docs-img/ae/ae_keyboard_shortcuts.png)
 
-To assign `[Ctrl] + [P]` to the script (for example), first click on the `P` key on the keyboard image, to check what's already assigned to it and make sure you want to replace the default.
+要把 `[Ctrl] + [P]` 分配给这个脚本（举例），先点击键盘示意图上的 `P` 键，看看它当前已分配了什么，确认你确实想替换掉默认设置。
 
-Then type the name of the script in the search field to locate it, and just click on the empty space next to it, in the column labeled *Shortcut". The, just type your shortcut, et voilà !
+然后在搜索框中输入脚本名找到它，点击它旁边标有 *Shortcut* 那一列的空白处，接着按下你想用的快捷键，就大功告成了！
 
 [^1]:
-```text
-Once you've copied the API in the folder, you can add as many scripts using it as you wish, they will all share the same file. Be careful though, if different scripts need different versions of the API, you may have to rename the API file to store the different versions in the same folder, and update the `#include` line accordingly.
-```
-
+    把 API 复制到文件夹后，你想加多少个使用它的脚本都行，它们共享同一个文件。不过要注意：如果不同脚本需要不同版本的 API，你可能得重命名 API 文件，把不同版本存放在同一文件夹里，并相应地更新 `#include` 行。

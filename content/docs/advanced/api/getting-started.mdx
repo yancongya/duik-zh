@@ -1,48 +1,172 @@
 ---
-title: "Getting started"
+title: "入门指南"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# Getting started
+# 入门指南
 
-## Download the API
+## 下载 API
 
-The API and its documentation can be downloaded from **[RxLaboratory](https://rxlaboratory.org/tools/duik-angela/)**, or from a dedicated **[*Github* Repository](https://github.com/RxLaboratory/Duik_API)**.
+API 及其文档可以从 **[RxLaboratory](https://rxlaboratory.org/tools/duik-angela/)** 下载，也可以从专门的 **[*Github* 仓库](https://github.com/RxLaboratory/Duik_API)** 下载。
 
-## Include it in your script
+## 在脚本中引入
 
-The Duik API comes in a few files:
+Duik API 由几个文件组成：
 
-- `Duik_api.jsxinc` is the complete API, including all dependencies. This is the only file you should include in your script by default.
+- `Duik_api.jsxinc` 是完整的 API，包含所有依赖。默认情况下，你的脚本只需引入这一个文件。
 
-- A Subfolder called `libs` contains the actual API code, separated in a few different libraries. These may be useful if you need to handle specific versions of these libraries, if you know what you're doing... Have a look at the main `Duik_api.jsxinc` file if you want to see in which order they should be included in your scripts.
+- 一个名为 `libs` 的子文件夹包含真正的 API 代码，拆分在几个不同的库中。如果你知道自己在做什么、需要管理这些库的特定版本，它们会派上用场。想了解它们在脚本中的引入顺序，可以查看主文件 `Duik_api.jsxinc`。
 
-All these files (both the `.jsxinc` file and the `libs` folder) need to be located next to your script in the following examples.
+下面的示例中，所有这些文件（`.jsxinc` 文件和 `libs` 文件夹）都需要与你的脚本放在同一目录。
 
-### Using only Duik (and DuGR and DuIO)
+### 只使用 Duik（以及 DuGR 和 DuIO）
 
-If you're only needing the Duik API, and perhaps the DuGR API or the DuIO API too, which are included in Duik, you just have to include `Duik_api.jsxinc` at the beginning of your own script.
+如果你只需要 Duik API，或许还需要同样内置在 Duik 中的 DuGR API 或 DuIO API，那你只需在自己脚本的开头引入 `Duik_api.jsxinc`。
 
-Here's an example.
+示例如下。
 
 ```js
 // Encapsulate everything to avoid global variables!
 // thisObj is either undefined (for stand alone script) or the panel containing the ui (for ScriptUI panels)
-(function(thisObj))(this);
+(function(thisObj)
+{
+     // If you only need Duik, just include Duik_api at the beginning
+     #include "Duik_api.jsxinc";
+
 ```
 
-### Complete example
+### 把 Duik API 与其他 API 及 DuAEF 组合使用
+
+如果你要引入 Duik 之外的 API（或已内置在 Duik 中的 DuGR、DuIO），就需要分别引入每一部分，以确保所有框架只被包含一次。这种情况下，在脚本开头分别引入各个库。
+
+示例如下：
+
+```js
+// Encapsulate everything to avoid global variables!
+// The parameter is either undefined (stand alone script) or the panel containing the ui (ScriptUI)
+(function(thisObj)
+{
+     // If you need to combine Duik and other APIs like DuIO or DuGR
+     // Include DuAEF first, and then stand-alone APIs
+     #include "libs/DuAEF.jsxinc";
+     #include "libs/DuGR_api.jsxinc";
+     #include "libs/DuIO_api.jsxinc";
+     #include "libs/DuSan_api.jsxinc";
+     // Duik API is divided into several files to workaround ExtendScript limitations on included files
+     #include "libs/Duik_api_1.jsxinc";
+     #include "libs/Duik_api_2.jsxinc";
+     #include "libs/Duik_api_3.jsxinc";
+
+     // Now you can also include any other API which also depends on DuAEF or one of the above APIs
+     #include "another_API.jsxinc"
+```
+
+### 初始化
+
+引入 API 之后，必须运行 `DuAEF.init()` 方法来搭建框架：
+
+```js
+     // Running the init() method of DuAEF is required to setup everything properly.
+     DuAEF.init( "YourScriptName", "1.0.0", "YourCompanyName" );
+```
+
+***DuAEF*** 即 *Duduf After Effects Framework*，被 Duik API 使用。它是一套（庞大的）对象与方法集合，用于简化 *After Effects* 脚本编写。
+
+*DuAEF* 初始化完成后，你可以设置几个参数来改善用户体验：
+
+```js
+     // These info can be used by the framework to improve UX, but they're all optional
+     DuESF.chatURL = 'http://chat.rxlab.info'; // A link to a live-chat server like Discord or Slack...
+     DuESF.bugReportURL = 'https://github.com/RxLaboratory/DuAEF_Dugr/issues/new/choose'; // A link to a bug report form
+     DuESF.aboutURL = 'http://rxlaboratory.org/tools/duik'; // A link to the webpage about your script
+     DuESF.docURL = 'http://duik.rxlab.guide'; // A link to the documentation of the script
+     DuESF.scriptAbout = 'Duik: The comprehensive rigging and animation tool set'; // A short string describing your script
+     DuESF.companyURL = 'https://rxlaboratory.org'; // A link to your company's website
+     DuESF.rxVersionURL = 'http://api.rxlab.io' // A link to an RxAPI server to check for updates
+```
+
+这里的 ***DuESF*** 指 *Duduf ExtendScript Framework*，被 *DuAEF* 和 *Duik API* 使用。它是另一套对象与方法集合，用于简化任意 *Adobe* 应用的脚本编写。
+
+现在一切就绪，你可以添加自己的方法、构建 UI 了。为此，你可以使用 *DuScriptUI*——一套用 ExtendScript 及其 ScriptUI 对象轻松搭建漂亮界面的对象与方法集合：
+
+```js
+     // This will be our main panel
+     var ui = DuScriptUI.scriptPanel( thisObj, true, true, new File($.fileName) );
+     ui.addCommonSettings(); // Automatically adds the language settings, location of the settings file, etc
+
+     DuScriptUI.staticText( ui.settingsGroup, "Hello world of settings!" ); // Adds a static text to the settings panel
+
+     DuScriptUI.staticText( ui.mainGroup, "Hello worlds!" ); // Adds a static text to the main panel
+
+     // When you're ready to display everything
+     DuScriptUI.showUI(ui);
+```
+
+**如果（且仅当）**你不调用 `DuScriptUI.showUI(ui)` 方法——比如你没有用 *DuScriptUI* 构建界面——那你必须在运行任何其他函数之前调用 `DuAEF.enterRunTime()`。
+
+```js
+     // Note that if you don't have a UI or if you don't use DuScriptUI to show it,
+     // you HAVE TO run this method before running any other function:
+     DuAEF.enterRunTime();
+```
+
+别忘了闭合我们在开头创建的匿名函数，以避免全局变量；并传入 `this`，这样脚本就能构建在自己的面板中（如果有的话）。
+
+```js
+})(this);
+```
+
+### 完整示例
 
 ```js
 // Encapsulate everything to avoid global variables!
 // thisObj is either undefined (for stand alone script) or the panel containing the ui (for ScriptUI panel)
-(function(thisObj))(this);
+(function(thisObj)
+{
+     // If you only need Duik, just include Duik_api at the beginning
+     #include "Duik_api.jsxinc";
+
+     // Running the init() method of DuAEF is required to setup everything properly.
+     DuAEF.init( "YourScriptName", "1.0.0", "YourCompanyName" );
+
+     // These info can be used by the framework to improve UX, but they're all optional
+     DuESF.chatURL = 'http://chat.rxlab.info'; // A link to a live-chat server like Discord or Slack...
+     DuESF.bugReportURL = 'https://github.com/RxLaboratory/DuAEF_Dugr/issues/new/choose'; // A link to a bug report form
+     DuESF.aboutURL = 'http://rxlaboratory.org/tools/duik'; // A link to the webpage about your script
+     DuESF.docURL = 'http://duik.rxlab.guide'; // A link to the documentation of the script
+     DuESF.scriptAbout = 'Duik: The comprehensive rigging and animation tool set'; // A short string describing your script
+     DuESF.companyURL = 'https://rxlaboratory.org'; // A link to your company's website
+     DuESF.rxVersionURL = 'http://api.rxlab.io' // A link to an RxAPI server to check for updates
+
+     // === Add your own functions, develop your script here ===
+
+     // And build the UI, for example
+
+     // This will be our main panel
+     var ui = DuScriptUI.scriptPanel( thisObj, true, true, new File($.fileName) );
+     ui.addCommonSettings(); // Automatically adds the language settings, location of the settings file, etc
+
+     DuScriptUI.staticText( ui.settingsGroup, "Hello world of settings!" ); // Adds a static text to the settings panel
+
+     DuScriptUI.staticText( ui.mainGroup, "Hello worlds!" ); // Adds a static text to the main panel
+
+     // When you're ready to display everything
+     DuScriptUI.showUI(ui);
+
+     // /!\
+     // Note that if and only if you don't have a UI or if you don't use DuScriptUI to show it,
+     // you HAVE TO run this method before running any other function:
+     // DuAEF.enterRunTime();
+})(this);
 ```
 
-## Using Duik features, the High-level Duik API
+## 使用 Duik 功能：高层级 Duik API
 
-Using basic Duik features in your script is pretty easy. Most of theses features are simple methods, sorted in a few namespaces to keep things tidy.
+在脚本中使用 Duik 的基本功能相当简单。这些功能大多是简单方法，归类到几个命名空间下，保持条理清晰。
 
-For example, to run the *arm* auto-rig, just run the `arm` method from the `Rig` namespace of `Duik`:
+例如，要运行 *arm*（手臂）自动绑定，只需调用 `Duik` 的 `Rig` 命名空间下的 `arm` 方法：
 
 ```js
     // Automatically rig the selected bones as an arm
@@ -52,9 +176,9 @@ For example, to run the *arm* auto-rig, just run the `arm` method from the `Rig`
     Duik.Rig.leg( someLayers );
 ```
 
-As another example, you can also add a wiggle effect to the selected properties, or some properties of your choice.
+再举一例，你也可以给选中的属性，或你指定的某些属性，添加抖动效果。
 
-The `wiggle` method is in the `Automation` namespace of `Duik`: 
+`wiggle` 方法位于 `Duik` 的 `Automation` 命名空间下：
 
 ```js
     // Add a Wiggle control with default options to the selected properties
@@ -67,36 +191,41 @@ The `wiggle` method is in the `Automation` namespace of `Duik`:
     Duik.Automation.wiggle( true, true, someProperties );
 ```
 
-Of course, all these methods are fully documented; you can read the reference of [the `Duik` namespace](https://duik.rxlab.io//Duik.html) to learn all of them.
+当然，所有这些方法都有完整文档；你可以阅读 [`Duik` 命名空间](https://duik.rxlab.io//Duik.html)的参考手册来了解全部方法。
 
-This `Duik` namespace is divided in a few other categories to make things easier to find and use:
+这个 `Duik` 命名空间又细分为几个类别，方便查找和使用：
 
-- [**`Duik.Animation`**: The animator's toolkit](https://duik.rxlab.io/Duik.Animation.html) (copy/paste animation, tween, snapKeys...)
-- [**`Duik.Automation`**: The lazy animator's toolkit.](https://duik.rxlab.io//Duik.Automation.html) (NLA, motionTrail, wiggle, random, walk cycle...)
-- [**`Duik.Bone`**: Bone and armatures related tools.](https://duik.rxlab.io//Duik.Bone.html) (leg, arm, bake...)
-- [**`Duik.Camera`**: Camera toolkit.](https://duik.rxlab.io//Duik.Camera.html) (frame, rig, twoDCamera...)
-- [**`Duik.CmdLib`**: The Duik command line library.](https://duik.rxlab.io//Duik.Camera.html) This is a specific namespace used by the *Duik Command Line* panel.
-- [**`Duik.Constraint`**: Constraints for rigging bones and layers.](https://duik.rxlab.io//Duik.Constraint.html) (twoLayerIK, oneLayerIK, bezierIK, orientation, parentAcrosscomp...)
-- [**`Duik.Controller`**: Controller related tools.](https://duik.rxlab.io//Duik.Controller.html) (create, bake...)
-- [**`Duik.Layer`**: Layer related tools.](https://duik.rxlab.io//Duik.Layer.html) (setLimbName, setCharacterName, select, sanitizeName...)
-- [**`Duik.Pin`**: Pin related tools.](https://duik.rxlab.io//Duik.Pin.html) (create, linkPathToLayers, linkPuppetPinsToLayers, addPins...)
-- [**`Duik.Rig`**: (Auto)Rigging tools.](https://duik.rxlab.io//Duik.Rig.html) (auto, arm, leg, fin, wing...)
-- [**`Duik.Tool`**: Miscellaneous tools.](https://duik.rxlab.io//Duik.Tool.html) (cropPrecompositions, editExpression...)
+- [**`Duik.Animation`**：动画师工具箱](https://duik.rxlab.io/Duik.Animation.html)（复制/粘贴动画、补间、snapKeys……）
+- [**`Duik.Automation`**：懒人动画师工具箱](https://duik.rxlab.io//Duik.Automation.html)（NLA、运动轨迹、抖动、随机、行走循环……）
+- [**`Duik.Bone`**：骨骼与骨架相关工具](https://duik.rxlab.io//Duik.Bone.html)（腿、手臂、烘焙……）
+- [**`Duik.Camera`**：相机工具箱](https://duik.rxlab.io//Duik.Camera.html)（取景、绑定、twoDCamera……）
+- [**`Duik.CmdLib`**：Duik 命令行库](https://duik.rxlab.io//Duik.Camera.html)。这是一个专用命名空间，供 *Duik Command Line* 面板使用。
+- [**`Duik.Constraint`**：用于绑定骨骼与图层的约束](https://duik.rxlab.io//Duik.Constraint.html)（twoLayerIK、oneLayerIK、bezierIK、orientation、parentAcrosscomp……）
+- [**`Duik.Controller`**：控制器相关工具](https://duik.rxlab.io//Duik.Controller.html)（创建、烘焙……）
+- [**`Duik.Layer`**：图层相关工具](https://duik.rxlab.io//Duik.Layer.html)（setLimbName、setCharacterName、select、sanitizeName……）
+- [**`Duik.Pin`**：图钉相关工具](https://duik.rxlab.io//Duik.Pin.html)（create、linkPathToLayers、linkPuppetPinsToLayers、addPins……）
+- [**`Duik.Rig`**：（自动）绑定工具](https://duik.rxlab.io//Duik.Rig.html)（auto、arm、leg、fin、wing……）
+- [**`Duik.Tool`**：杂项工具](https://duik.rxlab.io//Duik.Tool.html)（cropPrecompositions、editExpression……）
 
-## DuAEF, After Effects Framework
+## DuAEF：After Effects 框架
 
-[DuAEF](https://duik.rxlab.io//DuAEF.html) includes a lot of useful methods to help After Effects Scripting, and a few specific objects. They're all objects and namespaces which name start with *DuAE*.
+[DuAEF](https://duik.rxlab.io//DuAEF.html) 包含大量有用方法来辅助 After Effects 脚本编写，以及几个专用对象。它们都是以 *DuAE* 开头的对象和命名空间。
 
-Example:
+示例：
 
 ```js
     // Get the active composition
     var comp = DuAEProject.getActiveComp();
     // May be null if there's no active comp.
-    if (comp)
+    if (comp) {
+        // Add a 20 px wide null layer
+        // Note that DuAEF uses a shape layer as null layer,
+        // so it doesn't pollute the "Solids" folder of the project.
+        var null = DuAEComp.addNull( comp, 20 );
+    }
 ```
 
-Some objects are available to make things easier. Especially with properties (to work around the dreaded *invalid object* from AE's strange behavior).
+还有一些对象让事情更简单，尤其是处理属性时（用来绕开 AE 古怪行为导致的可怕 *invalid object* 错误）。
 
 ```js
     var comp = DuAEProject.getActiveComp();
@@ -113,14 +242,14 @@ Some objects are available to make things easier. Especially with properties (to
 ```
 
 <Callout type="info">
-    In the future, namespaces like `DuAEComp` may be also available as wrappers, objects, like `DuAEProperty`.
+    未来，像 `DuAEComp` 这样的命名空间可能也会像 `DuAEProperty` 一样，以包装器对象的形式提供。
 </Callout>
 
-## DuESF, ExtendScript Framework
+## DuESF：ExtendScript 框架
 
-[DuESF](https://duik.rxlab.io//DuESF.html) extends the default ExtendScript framework with useful objects and methods.
+[DuESF](https://duik.rxlab.io//DuESF.html) 在默认 ExtendScript 框架之上扩展了实用的对象与方法。
 
-For example, a set is available to ease the creation of UIs.
+例如，它提供了一套用于轻松创建 UI 的工具。
 
 ```js
     // This will be our main panel
@@ -131,18 +260,18 @@ For example, a set is available to ease the creation of UIs.
 
      DuScriptUI.staticText( ui.mainGroup, "Hello worlds!" ); // Adds a static text to the main panel
      DuScriptUI.button( ui.mainGroup, "A Button"); // Adds a button, which can have an icon
-     
+
      // When you're ready to display everything
      DuScriptUI.showUI(ui);
 ```
 
-It also includes a lot of lower level objects and methods. Here are some examples.
+它还包含大量底层对象与方法。下面是一些示例。
 
 ```js
     // COLORS
     var red = new DuColor([1, 0, 0, 1]);
     // alerts "#ff0000"
-    alert(red.hex); 
+    alert(red.hex);
     // Get a darker red
     var darkerRed = red.darker();
     // You can also create a color from hex
@@ -155,7 +284,7 @@ It also includes a lot of lower level objects and methods. Here are some example
     var clamped = DuMath.clamp( aValue, -5, 5);
     // Linear interpolation (or extrapolation)
     var interpolation = DuMath.linear( aValue, 0, 1, 12, 27);
-    
+
     // Some useful functions are available
     var gauss = DuMath.gaussian( aValue );
     var randomValue = DuMath.gaussRandom( 0, 10 );
@@ -168,6 +297,3 @@ It also includes a lot of lower level objects and methods. Here are some example
     var obj = { one: "A text", two: [ "an", "array"] };
     DuFile.saveJSON(obj, "C:/a/path/file.json" );
 ```
-
-
-

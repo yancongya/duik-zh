@@ -1,120 +1,123 @@
 ---
-title: "The Contributor's Guide"
+title: "贡献者指南"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# The Contributor's Guide
+# 贡献者指南
 
-We always welcome new contributors! There's a lot to do, not only writing some **code**, but also contributing to the **documentation** and **guides**, **tutorials**, **translations**, **bug reports**, **feature request**, **communication** and public relations... And of course we're always in need for [**donations**](http://donate.rxlab.info) too.
+我们永远欢迎新的贡献者！要做的事情有很多：不只是编写**代码**，还包括完善**文档**与**指南**、**教程**、**翻译**、**Bug 报告**、**功能建议**、**沟通**与公共关系……当然，我们也一直需要[**捐款**](http://donate.rxlab.info)。
 
-## Introduction
+## 引言
 
-We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, color, religion, or sexual identity and orientation.
+作为社区的成员、贡献者与领导者，我们承诺：让任何人参与本社区时都不受骚扰，无论年龄、体型、可见或不可见的残障、族裔、性别特征、性别认同与表达、经验水平、教育程度、社会经济地位、国籍、个人外貌、种族、种姓、肤色、宗教信仰，以及性认同与性取向。
 
-We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
+我们承诺以开放、友善、多元、包容、健康的方式行事与互动。
 
-### Get in touch
+### 取得联系
 
-First things first, if you'd like to contribute, come and say hi! We're here to help, give advice and just have a nice chat. Don't be afraid, we won't bite ;) Join us on [**chat.rxlab.info**](http://chat.rxlab.io), that's quick, easy, and anonymous.
+首先，如果你想贡献，先来打个招呼吧！我们在这里提供帮助、给出建议，也随便聊聊。别害怕，我们不咬人 ;) 来 [**chat.rxlab.info**](http://chat.rxlab.io) 加入我们吧，快捷、简单、匿名。
 
-If you have any private inquiry or if you don't like our chat server, you can contact us using our contact form on [**contact.rxlab.info**](http://contact.rxlab.info), we'll reply by e-mail. *Please don't use this form to get support for the tools* but only for other and private inquiries.
+如果你有私人问题，或者不喜欢我们的聊天服务器，可以通过 [**contact.rxlab.info**](http://contact.rxlab.info) 上的联系表单联系我们，我们会用邮件回复。*请不要用这个表单来获取工具支持*，它只用于其他私人事务。
 
-### Help fund the development, support and distribution
+### 资助开发、维护与分发
 
-One of our main needs to continue to develop, maintain, and distribute free software is money...
+要持续开发、维护并分发自由软件，我们主要需要的一样东西就是钱……
 
-We'd like to pay the developers, we have to pay for the web hosting and servers, and in general for all the people and companies working to keep the Rx Open Tools alive.
+我们想给开发者发酬劳，要支付网站托管和服务器费用，总的来说，要养活所有让 Rx Open Tools 存活下去的人和公司。
 
-You can [*make a donation*](http://donate.rxlab.info) right now at [**donate.rxlab.info**](http://donate.rxlab.info), or, even better, [join the ![](https://rxlaboratory.org/wp-content/uploads/RxLab_Logo_Dev-Fund-100x100.png) RxLab. membership](http://membership.rxlab.info) at [**membership.rxlab.info**](http://membership.rxlab.info) and get exclusive advantages like an early access to the tools in development and new versions. You can also buy nice stuff from [the shop](http://shop.rxlab.info) at [**shop.rxlab.info**](http://shop.rxlab.info)!
+你现在就可以在 [**donate.rxlab.info**](http://donate.rxlab.info) [*捐款*](http://donate.rxlab.info)，或者，更好的方式是，在 [**membership.rxlab.info**](http://membership.rxlab.info) [加入 <img src="https://rxlaboratory.org/wp-content/uploads/RxLab_Logo_Dev-Fund-100x100.png" style={{width: '16px'}}/> RxLab. 会员](http://membership.rxlab.info)，获得专属福利，比如提前体验开发中的工具与新版本。你也可以在 [**shop.rxlab.info**](http://shop.rxlab.info) 的[商店](http://shop.rxlab.info)里买些好东西！
 
-## Contribute
+## 贡献
 
-### Code
+### 代码
 
-If you're a fellow developer, either beginner or experienced, you're welcome to contribute to the development of Duik. Most of the work happens on [our dedicated repository](https://github.com/RxLaboratory/Duik) which you can quickly find at [**source.rxlab.io**](http://source.rxlab.io).
+如果你是同行开发者，无论新手还是老手，都欢迎为 Duik 的开发出力。大部分工作在[我们专用的代码仓库](https://github.com/RxLaboratory/Duik)上进行，你可以在 [**source.rxlab.io**](http://source.rxlab.io) 快速找到它。
 
-If you don't know how to use [*Git*](https://git-scm.com/) yet, start by testing that. It's not difficult.
+如果你还不会使用 [*Git*](https://git-scm.com/)，先从上手它开始。并不难。
 
-This is the usual way to submit changes to the code:
+提交代码改动的常规流程如下：
 
-1. **Start by cloning the repo**. This is easily done right from the repository website.
-2. **Clone** your instance of the repo **locally** to your computer, using either the command line or any Git GUI application (a list is available on [git-scm.com](https://git-scm.com/)).
-3. Then you can start to **code**.
-4. **Commit** your changes regularly, and **push** them, using either the command line or your Git GUI application application.
-5. Submit a **pull request** to our repository so we can review your changes. This is easily done right from the repository website.
+1. **先克隆仓库**。直接在仓库网页上就能轻松完成。
+2. 把你的仓库副本**克隆到本地**电脑上，可以用命令行，也可以用任意 Git 图形界面应用（列表见 [git-scm.com](https://git-scm.com/)）。
+3. 然后就可以开始**写代码**了。
+4. 定期**提交**（commit）改动，并**推送**（push），命令行或 Git 图形界面均可。
+5. 向我们的仓库提交一个**拉取请求**（Pull Request），我们会审查你的改动。同样在仓库网页上就能轻松完成。
 
-As you can see, the process is quite easy to follow, and everything can be done with a UI if you're not so familiar with command line interfaces.
+如你所见，这个流程很好懂；如果你不熟悉命令行，全程都可以用图形界面完成。
 
-Don't worry if you're not sure about what you're doing, don't be shy. We'll review and fix (or ask you to fix) your code before it's integrated into Duik, and help you learn. We're doing everything we can so everyone feels included and safe in every place you'll be in touch with us. We've all been beginners ;)
+不确定自己在做什么也别担心，别害羞。在代码并入 Duik 之前，我们会审查并修复（或者请你修复）你的代码，并帮你学习。我们尽一切努力让你在每一个与我们接触的地方都感到被接纳、安全。我们都曾是新手 ;)
 
-If you need help, if you'd like to submit a piece of code, an example, your own script, or anything else which would not fit the process described above, don't hesitate to contact us, either using our [contact form: **contact.rxlab.info**](http://contact.rxlab.info) or through our [chat server: **chat.rxlab.info**](http://chat.rxlab.info) to have a little chat!
+如果你需要帮助，或者想提交一段代码、一个示例、你自己的脚本，以及任何不适合走上面流程的东西，别犹豫，通过[联系表单：**contact.rxlab.info**](http://contact.rxlab.info) 或[聊天服务器：**chat.rxlab.info**](http://chat.rxlab.info) 联系我们聊一聊！
 
-### Document
+### 文档
 
-If you're a skilled user of Duik, or you find some mistakes and typos in the docs and user guides, you're welcome to edit them or create new pages!
+如果你是 Duik 的熟练用户，或者在文档与用户指南中发现了错误和笔误，欢迎直接编辑，或者新建页面！
 
-When you're reading the documentation online, an *Edit* button should be available at the top right corner of the page. Just click it to submit your changes; we'll review and make the changes available quickly. Don't worry if you don't see the change after you edit the page, it has to be accepted first and it's not automatically published.
+在线阅读文档时，页面右上角应该有一个 *Edit*（编辑）按钮。点击它就能提交你的改动；我们会审查并尽快让改动上线。编辑后没马上看到变化也别担心，改动需要先被接受，不会自动发布。
 
-The documentation uses the [*Markdown*](https://en.wikipedia.org/wiki/Markdown)&nbsp;[^md] syntax: the source is made of simple text files following this syntax, and the *html* web pages are generated from this using a tool called [*MkDocs*](https://www.mkdocs.org/). You'll see that Markdown is very simple to use and quick to learn.
+文档使用 [*Markdown*](https://en.wikipedia.org/wiki/Markdown)&nbsp;[^md] 语法：源码就是遵循该语法的纯文本文件，*html* 网页由一个叫 [*MkDocs*](https://www.mkdocs.org/) 的工具据此生成。你会发现 Markdown 非常简单易用、上手很快。
 
-[^md]: *cf. [en.wikipedia.org/wiki/Markdown](https://en.wikipedia.org/wiki/Markdown)*
+[^md]: *参见 [en.wikipedia.org/wiki/Markdown](https://en.wikipedia.org/wiki/Markdown)*
 
-The link to the Duik online documentation is [**duik.rxlab.guide**](http://duik.rxlab.guide)
+Duik 在线文档的地址是 [**duik.rxlab.guide**](http://duik.rxlab.guide)
 
-### Tutorials
+### 教程
 
-The more tutorials available, the better!
+可用的教程越多越好！
 
-Don't hesitate to record either quick tips and tricks or complete courses. Post them on your favorite streaming service, paid or free, in any language, and [let us know](http://contact.rxlab.info) so we can share them!
+别犹豫，录一些技巧小贴士，或者完整课程。发到你喜欢的视频平台上，付费免费都行，任何语言都可以，然后[告诉我们](http://contact.rxlab.info)，好让我们转发分享！
 
-If you'd like and if your tutorial meets our quality requirements, it could become an "*official*" tutorial for your language which will include on the RxLab website and even add to our shop. [Contact us](http://contact.rxlab.info) if you feel your tutorial or course deserves it.
+如果你愿意，并且你的教程达到了我们的质量要求，它可以成为对应语言的"*官方*"教程，收录到 RxLab 网站上，甚至放进我们的商店。如果你觉得自己的教程或课程够格，[联系我们](http://contact.rxlab.info)。
 
-### Translate
+### 翻译
 
-We're trying to make Duik available in as many languages as possible. When we develop the tools, they're written in English first (as all programming languages use English keywords that makes things easier). But we'd like them to use [Esperanto](https://en.wikipedia.org/wiki/Esperanto)&nbsp;[^esperanto] as a default language, because there's no reason English should be the international language, *la internacia lingvo*. Of course, it is, and that won't change tomorrow, but we're trying to show it could be different.
+我们努力让 Duik 支持尽可能多的语言。开发工具时，它们先用英文编写（因为所有编程语言都用英文关键字，这样更方便）。但我们希望默认语言是[世界语（Esperanto）](https://en.wikipedia.org/wiki/Esperanto)&nbsp;[^esperanto]，因为没有理由英语就该是国际通用语 *la internacia lingvo*。当然现实就是如此，明天也不会改变，但我们想证明它本可以不同。
 
-[^esperanto]: Esperanto is the world's most widely spoken constructed international auxiliary language. Created in 1887, it is intended to be a universal second language for international communication, or "the international language" (la Internacia Lingvo). *cf. [en.wikipedia.org/wiki/Esperanto](https://en.wikipedia.org/wiki/Esperanto)*
+[^esperanto]: 世界语（Esperanto）是世界上使用最广泛的人造国际辅助语言，创造于 1887 年，旨在成为国际交流通用的第二语言，即"国际语"（la Internacia Lingvo）。*参见 [en.wikipedia.org/wiki/Esperanto](https://en.wikipedia.org/wiki/Esperanto)*
 
-The best would be that any user could use the tools in the language of its choice. We've noticed that when a tool is translated, its use grows a lot in countries where the new translation is spoken. These are the languages the most used by the users of Duik:
+最理想的情况是：任何用户都能用自己选择的语言使用工具。我们注意到，当一个工具被翻译后，它在该新语言使用国的使用率会大幅上升。以下是 Duik 用户最常用的语言：
 
-- (Esperanto)
-- English
-- French
-- Spanish
-- Chinese
-- Portuguese
-- Japanese
-- German
-- ...
+- （世界语）
+- 英语
+- 法语
+- 西班牙语
+- 中文
+- 葡萄牙语
+- 日语
+- 德语
+- ……
 
-But any translation in any language is welcome!
+但任何语言的翻译都受欢迎！
 
-Technically, to translate Duik, we use open [PO files](https://en.wikipedia.org/wiki/Gettext). To edit these translations, we use the online collaborative platform [*Crowdin*](https://crowdin.com/profile/duduf), but we also recommend using free apps like [*PoEdit*](https://poedit.net/) or [*Virtaal*](https://virtaal.translatehouse.org/) if you prefer to download the files and work offline. These files can also be easily edited with any text editor application.
+技术上，翻译 Duik 用的是开放的 [PO 文件](https://en.wikipedia.org/wiki/Gettext)。编辑这些翻译，我们使用在线协作平台 [*Crowdin*](https://crowdin.com/profile/duduf)；如果你更喜欢下载文件离线工作，我们也推荐 [*PoEdit*](https://poedit.net/)、[*Virtaal*](https://virtaal.translatehouse.org/) 这类免费应用。这些文件用任意文本编辑器也能轻松编辑。
 
-When you decide to help to translate Duik, it's best to first join us on our [chat server: **chat.rxlab.info**](http://chat.rxlab.info) so we can help you, and you can exchange with other translators in your language or other languages.
+当你决定帮忙翻译 Duik 时，最好先加入我们的[聊天服务器：**chat.rxlab.info**](http://chat.rxlab.info)，这样我们能帮你，你也能和使用相同或其他语言的译者交流。
 
-#### Via *Crowdin*
+#### 通过 *Crowdin*
 
-The easiest way to help translate the tools is to create a free account on [Crowdin.com](https://crowdin.com/) and start contributing to the project of your choice. You'll find the Duik project on [**translate.rxlab.io**](http://translate.rxlab.io)
+帮忙翻译工具最简单的方式是在 [Crowdin.com](https://crowdin.com/) 注册一个免费账号，然后开始为你选择的项目贡献。Duik 项目在 [**translate.rxlab.io**](http://translate.rxlab.io)。
 
-If the language you're willing to translate to is not listed yet, just ask us and we'll add it right away!
+如果你想翻译成的语言还没列出，尽管告诉我们，我们马上加上！
 
-#### Via an application
+#### 通过本地应用
 
-If you prefer to translate the tools using an application, you'll first have to download the translation files to edit them. You'll find them either on the corresponding [repository at **source.rxlab.io**](http://source.rxlab.io) or [Crowdin project at **translate.rxlab.io**](https://translate.rxlab.io). First, create a free account on the platform, then download the files. Once you're finished, you'll just have to send them back (post them on our [chat server at chat.rxlab.io](http://chat.rxlab.io), or attach them to an issue on the repository, or create a [pull request](http://git.rxlab.io), or upload them to [Crowdin](https://crowdin.com/profile/duduf), your choice!).
+如果你更喜欢用应用翻译工具，得先把翻译文件下载下来编辑。你可以在对应的 [**source.rxlab.io** 仓库](http://source.rxlab.io)或 [**translate.rxlab.io** 的 Crowdin 项目](https://translate.rxlab.io)找到它们。先在平台注册免费账号，再下载文件。完成后把它们发回来即可（发到我们 [chat.rxlab.io 聊天服务器](http://chat.rxlab.io)、作为附件贴到仓库的 issue、或提交一个[拉取请求](http://git.rxlab.io)、或上传到 [Crowdin](https://crowdin.com/profile/duduf)，随你选择！）。
 
-### Bug reports and feature request
+### Bug 报告与功能建议
 
-If you find a bug (sorry!) or have a feature to request for a specific Rx Open Tool, let us know! It's very important we get feedback from the users to keep improving all the tools.
+如果你发现了 Bug（抱歉！），或者想为某个具体的 Rx Open Tool 提功能建议，请告诉我们！来自用户的反馈对我们持续改进所有工具非常重要。
 
-No matter what, all bug requests and feature requests **must be posted on [issue.rxlab.io](http://issue.rxlab.io)**.
+无论如何，所有 Bug 报告与功能建议**必须发布到 [issue.rxlab.io](http://issue.rxlab.io)**。
 
-But it's a good idea to first join us on [our chat server: chat.rxlab.io](http://chat.rxlab.info) to make sure the issue is not already known or fixed, or if you need any help at all.
+不过，最好先加入我们的[聊天服务器：chat.rxlab.io](http://chat.rxlab.info)，确认这个问题是否已知或已修复，或者你是否需要帮助。
 
-### Communicate, share, repost...
+### 传播、分享、转发……
 
-The more we are, the more contributors we get, the better will be our work. Every time you post something you've made using one of the Rx Open Tools, show it! Include hash tags like #rxlaboratory, #rxlab, #duik, etc. and mentions like @RxLaboratory, and ask your followers to follow us, to contribute, to donate or to become members! Use these links to get them to the right page: [rxlaboratory.org](http://rxlaboratory.org), [donate.rxlab.info](http://donate.rxlab.info), [membership.rxlab.info](http://membership.rxlab.info), [chat.rxlab.info](http://chat.rxlab.info), [rxlab.io](http://rxlab.io), [rxlab.guide](http://rxlab.guide)...
+我们的人越多，贡献者就越多，作品也就越好。每次你用 Rx Open Tools 做了东西，都晒出来！带上 #rxlaboratory、#rxlab、#duik 等话题标签，以及 @RxLaboratory 等提及，让你的粉丝关注我们、贡献、捐款或成为会员！用这些链接把他们带到正确的页面：[rxlaboratory.org](http://rxlaboratory.org)、[donate.rxlab.info](http://donate.rxlab.info)、[membership.rxlab.info](http://membership.rxlab.info)、[chat.rxlab.info](http://chat.rxlab.info)、[rxlab.io](http://rxlab.io)、[rxlab.guide](http://rxlab.guide)……
 
-We'll be happy to repost and share your posts and help you reach more people to show your work!
+我们很乐意转发分享你的作品，帮你触达更多观众！
 
 ► [**Facebook.com/rxlaboratory**](https://www.facebook.com/rxlaboratory)
 
@@ -124,7 +127,7 @@ We'll be happy to repost and share your posts and help you reach more people to 
 
 ► [**chat.rxlab.info**](http://chat.rxlab.info/)
 
-Finally, if you've subscribed to the [RxLab. Membership](http://membership.rxlab.info), use this badge ![](https://rxlaboratory.org/wp-content/uploads/RxLab_Logo_Dev-Fund-100x100.png) ! Show your support by adding it to your website, page, etc. with a link to [membership.rxlab.info](http://membership.rxlab.info).
+最后，如果你已经订阅了 [RxLab. Membership](http://membership.rxlab.info)，请使用这个徽章 <img src="https://rxlaboratory.org/wp-content/uploads/RxLab_Logo_Dev-Fund-100x100.png" style={{width: '16px'}}/> ！把它加到你的网站、主页等处，并链接到 [membership.rxlab.info](http://membership.rxlab.info)，以此表达你的支持。
 
 <a href="http://donate.rxlab.info" class="column"><figure>
   <img src="https://rxlaboratory.org/wp-content/uploads/RxLab_Logo_Dev-Fund-100x100.png" width="100" />

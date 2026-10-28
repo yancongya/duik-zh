@@ -1,102 +1,119 @@
 ---
-title: "Create a headless script with Duik"
+title: "用 Duik 创建无头脚本"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# Create a headless script with Duik
+# 用 Duik 创建无头脚本
 
-Using the Duik API, it is very easy to create simple headless scripts, which don't use any user interface, to automate your workflow, or to[ **assign keyboard shortcuts**](shortcuts.md) to Duik features or your own automations for example.
+借助 Duik API，创建简单的无头脚本（不使用任何用户界面）非常容易。例如，用它来自动化你的工作流，或者把 Duik 功能（或你自己的自动化）[**绑定键盘快捷键**](shortcuts)。
 
-## Create the file
+## 创建文件
 
-Let's assume [you've already downloaded the API](getting-started.md), and saved it in the same folder where you're creating your headless script.
+假设[你已经下载了 API](getting-started)，并把它保存在你即将创建无头脚本的同一个文件夹里。
 
-Now, **create a new text file** with any *text editor*[^1], and name it using the `.jsx` extension, which is the usual extension for After Effects scripts. In this example, we're creating a script which will automatically parent all selected layers to the one selected at last, let's call it `Auto-Parent.jsx`.
+现在，用任意*文本编辑器*[^1] **新建一个文本文件**，命名时使用 `.jsx` 扩展名——这是 After Effects 脚本常用的扩展名。本例中，我们要创建一个脚本，把所有选中图层自动父子链接到最后选中的那一个图层上，就叫它 `Auto-Parent.jsx`。
 
-First, we're going to add what's is called an *anonymous function*. It's a standard function, but without any name. All the script will be written inside this function; this is a simple way to make sure everything stays contained and nothing leaks to the global space, which could break other scripts.
+首先，我们要加一个所谓的*匿名函数*。它就是一个普通函数，只是没有名字。整个脚本都写在这个函数内部；这是一个简单的办法，确保一切都封装在内、不会泄漏到全局空间，从而破坏其他脚本。
 
-This is how the script looks like with just this anonymous function:
+只加这个匿名函数时，脚本长这样：
 
 ```js
-(function())();
+(function(){
+
+})();
 ```
 
-The first line creates the function, the last line closes and executes it. We're going to write the script in between.
+第一行创建函数，最后一行闭合并执行它。我们要写的脚本就放在两者之间。
 
-## Include the API
+## 引入 API
 
-The first thing to do is to include the API with:
+第一件事是用下面这行引入 API：
 
 ```js
     #include "DuAEF_Duik_api.jsxinc"
 ```
 
-Note that this will work only if the API is located next to the script, in the same folder. If not, you can use a path[^2] to the API instead of only the name.
+注意：这只有在 API 文件与脚本位于同一文件夹时才有效。否则，你可以用指向 API 的路径[^2]代替单纯的文件名。
 
-After the inclusion, we need to call the [`DuAEF.init` function](http://duik.rxlab.io/DuAEF.html#.init) to prepare everything.
+引入之后，我们需要调用 [`DuAEF.init` 函数](http://duik.rxlab.io/DuAEF.html#.init)来完成初始化准备。
 
 ```js
     DuAEF.init( "Auto-Parent", "1.0.0", "Your (company) Name" );
 ```
 
-The three arguments are:
+三个参数分别是：
 
-- A name for the script
-- The version of the script
-- Your name or the name of your company
+- 脚本的名称
+- 脚本的版本号
+- 你的名字或公司名
 
-## The code to run
+## 要运行的代码
 
-Now that everything is ready, we can write the actual code. If this wasn't a headless script, we would start by writing the User Interface, and then show it to the user.
+现在一切就绪，可以写真正的代码了。如果这不是无头脚本，我们会先编写用户界面，再把它展示给用户。
 
-As it's not the case, we just need to tell the API we're going to run without UI.
+但本例没有界面，我们只需告诉 API：将无 UI 运行。
 
 ```js
     DuAEF.enterRunTime();
 ```
 
-And now, let's do something!
+现在，让我们做点什么！
 
-Our goal is to create a script which will parent all selected layers to the one which was selected last. Duik can do that for us, it's the [`autoParent` function](http://duik.rxlab.io/Duik.Constraint.html#.autoParent)!
+我们的目标是创建一个脚本，把所有选中图层父子链接到最后选中的那个图层上。Duik 已经能做到，就是 [`autoParent` 函数](http://duik.rxlab.io/Duik.Constraint.html#.autoParent)！
 
-As Duik comes with many features, they're sorted in *namespaces*, which actually correspond to the panels of Duik. The *Auto-Parent* method is located in the *Constraint* panel and namespace.
+由于 Duik 功能众多，它们被归类到*命名空间*下，这些命名空间实际上对应 Duik 的各个面板。*Auto-Parent* 方法位于 *Constraint*（约束）面板和命名空间中。
 
 ```js
     Duik.Constraint.autoParent();
 ```
 
-And that's all! We've finished the script.
+就这么多！脚本写完了。
 
-Note that the [`autoParent` function](http://duik.rxlab.io/Duik.Constraint.html#.autoParent) can take one argument, to tell it to parent only orphans (i.e. the layers which do not have any parent yet). If that's what you want you could write `Duik.Constraint.autoParent(true);` instead.
+注意，[`autoParent` 函数](http://duik.rxlab.io/Duik.Constraint.html#.autoParent)可以接受一个参数，让它只对尚未有父级的图层（即孤儿图层）建立父子关系。如果你想要的是这个效果，可以改写为 `Duik.Constraint.autoParent(true);`。
 
-Almost [all features of Duik](duik-features.md) are available as very [simple functions in the API](duik-features.md).
+Duik 几乎[所有功能](duik-features)都以非常[简单的函数形式](duik-features)暴露在 API 中。
 
-## The complete script
+## 完整脚本
 
-This is the finished script, with some comments[^3] to help you learn and understand.
+这是完成后的脚本，带一些注释[^3]，帮你学习和理解。
 
 ```js
 // First, create an anonymous function.
 // This is very important to make sure we don't leak anything
 // to the global space and won't break anything by mistake.
-(function())();
+(function(){
+
+    // Here we include the Duik API
+    #include "DuAEF_Duik_api.jsxinc"
+
+    // Running the init() method of DuAEF is required to setup everything properly.
+    DuAEF.init( "Auto-Parent", "1.0.0", "RxLaboratory" );
+
+    // There's no User Interface, which would have to be built here.
+    // Let's go right to the execution.
+
+    // This method has to be run once before any other method from the API.
+    DuAEF.enterRunTime();
+
+    // Run the Auto-Parent method
+    // See: http://duik.rxlab.io/Duik.Constraint.html#.autoParent
+    Duik.Constraint.autoParent();
+
+// Close the anonymous function.
+})();
 ```
 
-You can now use this script to assign a **[keyboard shortcut](shortcuts.md)** for parenting layers.
+现在你就可以用这个脚本为图层父子链接分配一个**[键盘快捷键](shortcuts)**了。
 
 [^1]:
-```text
-We recommend [*Visual Studio Code*](https://code.visualstudio.com/), but it can be anything: *Windows Notepad*, [*Notepad++*](https://notepad-plus-plus.org/), [*Brackets*](https://brackets.io/)...  
-It must *not* be a word processor though (like *Microsoft Word* or *LibreOffice Writer*).
-```
+    我们推荐 [*Visual Studio Code*](https://code.visualstudio.com/)，但用什么都行：*Windows 记事本*、[*Notepad++*](https://notepad-plus-plus.org/)、[*Brackets*](https://brackets.io/)……
+    但*不能*是文字处理软件（比如 *Microsoft Word* 或 *LibreOffice Writer*）。
 
 [^2]:
-```text
-It can be either an **absolute** path, which starts with a `/` on Mac or a drive letter like `C:\\` or `C:/` on Windows, or a **relative** path. Note that path separators can be `/` or `\\`, your choice.  
-Examples: `"C:/my scripts/DuAEF_Duik_api.jsx"` (absolute) or `../DuAEF_Duik_api` (relative, `../` denotes the parent folder).
-```
+    可以是**绝对**路径：在 Mac 上以 `/` 开头，在 Windows 上以盘符开头，如 `C:\` 或 `C:/`；也可以是**相对**路径。注意路径分隔符可以用 `/` 或 `\`，随你选择。
+    示例：`"C:/my scripts/DuAEF_Duik_api.jsx"`（绝对路径）或 `../DuAEF_Duik_api`（相对路径，`../` 表示上级文件夹）。
 
 [^3]:
-```text
-In After Effects scripts, comments start with `//`. You can also create a comment block: start it with `/*`, write the comment which can span on several lines, and close it with `*/`.
-```
-
+    在 After Effects 脚本中，注释以 `//` 开头。你也可以创建注释块：用 `/*` 开始，写可以跨多行的注释，再用 `*/` 闭合。

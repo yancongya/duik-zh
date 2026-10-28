@@ -1,443 +1,436 @@
 ---
-title: "How to improve After Effects and Duik performance"
+title: "如何提升 After Effects 与 Duik 的性能"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# How to improve After Effects and Duik performance
+# 如何提升 After Effects 与 Duik 的性能
 
-After Effects is a Digital Compositing Software. This means that the image displayed by the After Effects viewport is pixel-accurate. Its priority is image quality against performance;&nbsp;to the contrary of most animation applications, where you have to render the animation to get the final high-quality video, After Effects' goal is to let you work directly on the final image.
+After Effects 是一款数字合成软件。这意味着 After Effects 视口显示的图像是像素级精确的。它把图像质量置于性能之上；与大多数动画应用不同——那些应用里你必须渲染动画才能得到最终的高质量视频——After Effects 的目标就是让你直接在最终图像上工作。
 
-**After Effects is _not_ a character rigging and animation application.** Animating characters in After Effects is interesting though, thanks to it letting you work directly on the actual, rendered, animation. After Effects is very good at manipulating pixel assets (better than vectors), which makes it a decent software for cut-out character animation.
+**After Effects *不是*一款角色绑定与动画应用。** 不过在 After Effects 里给角色做动画也很有意思，因为它让你直接在真实的、已渲染的动画上工作。After Effects 非常擅长处理像素素材（优于矢量），这使它成为做剪纸角色动画的不错软件。
 
-These last two decades, a lot of third-party tools were built on top of these features, specifically made for character animation;&nbsp;Duik was the first in 2008, followed by others (*Rubberhose*, *Joystick and Sliders*, etc.). Before that, there was no proper character rigging in After Effects, and it was fine. Duik and these other tools brought high-level rigging and animation to After Effects, and great films were made with this technique, but it also brought a lot of performance issues. The way a compositing application like After Effects works is not made for performance.
+过去二十年里，人们在这些特性之上构建了许多专门为角色动画打造的第三方工具；Duik 是 2008 年最早的一个，后来者有 *Rubberhose*、*Joystick and Sliders* 等。在那之前，After Effects 里并没有正经的角色绑定，而且也没什么问题。Duik 和这些其他工具把高层级的绑定与动画带到了 After Effects，也用这种技术做出了很棒的影片，但同时也带来了大量性能问题。像 After Effects 这样的合成应用，其工作方式本就不是为性能设计的。
 
-It is important to always keep in mind what is going to slow down After Effects when animating characters and props, to be able to organize your projects in a way to limit these performance issues, and adjust the settings of your tools accordingly.
+始终牢记给角色和道具做动画时什么会拖慢 After Effects，非常重要——这样你才能组织项目以限制这些性能问题，并相应调整工具的设置。
 
-## Choose the right tool
+## 选对工具
 
-Honestly, if you’re in some kind of very advanced rigging and animation project, if you’re in top-level quality and need both performance and versatility, After Effects may not be the right choice. Did you know [*South Park*](https://en.wikipedia.org/wiki/South_Park) [^1] was made with [*Maya*](https://en.wikipedia.org/wiki/Autodesk_Maya) [^2]? Why don’t you animate in [*Blender*](https://blender.org) [^3] with a nice rig? You can rig 2D characters in 3D software, and you won’t have performance issues there.
+说实话，如果你做的是某种非常高级的绑定与动画项目，追求顶级质量、同时要性能与灵活性兼备，After Effects 可能不是正确选择。你知道 [*South Park（南方公园）*](https://en.wikipedia.org/wiki/South_Park)[^1] 是用 [*Maya*](https://en.wikipedia.org/wiki/Autodesk_Maya)[^2] 做的吗？为什么不去 [*Blender*](https://blender.org)[^3] 里用一套漂亮的绑定做动画呢？你可以在 3D 软件里给 2D 角色绑定，那里不会有性能问题。
 
-But let's agree that sometimes, it’s easier and quicker to use less applications, to not have to render animations between different applications and to animate in the same software which will be used for compositing. In this case, Duik is the tool you need for character animation in After Effects.
+但我们也得承认：有时候，少用几个软件更省事，不用在不同软件之间渲染动画，直接在将来要做合成的同一个软件里做动画。这种情况下，Duik 就是你在 After Effects 里做角色动画所需的工具。
 
 <Callout type="info">
-    Some explanations here might not be perfectly accurate about how After Effects works (there are caching systems and other tricks to improve performance we won’t explain here), but the point is to explain where to look at to improve performance.
+    这里的某些解释对 After Effects 工作原理的描述可能不够精确（它有缓存系统和其他提升性能的技巧，我们这里不展开），重点是告诉你该从哪些地方入手优化性能。
 </Callout>
 
-## Summary
+## 一览
 
-Here's a checklist of what you can do to improve the performance in After Effects, from most to less important. Read the next sections for detailed explanations about these suggestions.
+下面是一份按重要性排序的检查清单，列出你能为提升 After Effects 性能做的事情。关于这些建议的详细解释，见后续章节。
 
-- Set the preview quality to *Off&nbsp;(Final&nbsp;Quality)*. Don't leave it to *Adaptive&nbsp;Resolution*.
-- Lower the preview resolution if you can (to *Half* or *Third*). Don't leave it to *Auto*.
-- Hide, and shy, unneeded layers.
-- Hide the layer controls (`Ctrl + Shift + H`).
-- Cut/hide all layers as soon as they're outside of the frame of the composition.
-- Render or precompose (with a proxy!) the Shape Layers.
-- Always precompose layers before duplicating them, if what you need is an exact copy.
-- Bake expressions whenever you can, remove or deactivate unnneeded expressions (the ones which don't actually animate anything).
-- Precompose the animated characters and props, and render proxies for them before compositing.
-- Don't use essential properties.
-- Use image sequences;&nbsp;Render to *openEXR* instead than *PNG*.
-- Avoid the puppet tool.
-- Restart After Effects every hour.
-- Keep the After Effects project as small as possible.
+- 把预览质量设为 *Off (Final Quality)*（关闭/最终质量）。不要留在 *Adaptive Resolution*（自适应分辨率）。
+- 尽可能降低预览分辨率（到 *Half*（半分辨率）或 *Third*（三分之一））。不要留在 *Auto*（自动）。
+- 隐藏、并用 Shy（隐藏）收起不需要的图层。
+- 隐藏图层控件（`Ctrl + Shift + H`）。
+- 图层一旦移出合成画面，就剪切/隐藏它们。
+- 渲染或预合成（用代理！）形状图层。
+- 如果需要的是精确副本，复制图层前务必先预合成。
+- 尽量烘焙表达式，删除或停用无用表达式（那些实际不产生任何动画的）。
+- 预合成做了动画的角色和道具，并在合成前为它们渲染代理。
+- 不要使用基本属性（Essential Properties）。
+- 使用图像序列；渲染为 *openEXR* 而非 *PNG*。
+- 避免使用木偶工具。
+- 每小时重启一次 After Effects。
+- 让 After Effects 工程尽可能小。
 
-Some tools are more compute-intensive than others. You have to know which ones to avoid or to optimize to fix performance issues in your rigs.  
-You must know that Duik only uses native After Effects features, it automates things you could do by yourself (provided you have a lot of time to spend at it). This means it is not Duik by itself which causes performance issues, it is how native After Effects features are used together and how many of them at the same time.
+有些工具比其他工具更耗算力。你得知道哪些要避开、哪些要优化，才能修好绑定里的性能问题。
+你要清楚：Duik 只使用 After Effects 原生功能，它只是把你自己手动也能做的事自动化了（前提是你有大把时间去做）。这意味着性能问题不是 Duik 本身造成的，而是原生 After Effects 功能组合在一起的方式、以及同时启用了多少个功能造成的。
 
-Next is a non-exhaustive list of features you have to be careful with.
+下面是一份非穷尽清单，列出你必须小心的功能。
 
-## Preview quantity and quality
+## 预览数量与质量
 
-This is not what will improve performance the most, but it’s measures you can take without making any compromise on the features of your rig. When animating, you can downgrade the quality of the preview, and the quantity of layers displayed.
+这不是提升性能最关键的部分，但它是你无需在绑定功能上做任何妥协就能采取的措施。做动画时，你可以降低预览质量和显示的图层数量。
 
-Do you really need to display the [Bones](../guide/bones) and [Pins](../guide/constraints/pins)? Do Bones and [Controllers](../guide/controllers) really need anti-aliasing, or could they be set to draft mode? Actually, do controllers need to be shape layers or could they be simple nulls? Do all layers have to be vectors or could they be pre-rendered to an image format? These are the kind of questions you have to ask yourself.
+你真的需要显示[骨骼](../guide/bones)和[图钉](../guide/constraints/pins)吗？骨骼和[控制器](../guide/controllers)真的需要抗锯齿吗，还是可以设为草稿模式？实际上，控制器必须是形状图层吗，能不能只是简单的空对象？所有图层都必须是矢量吗，能不能预渲染成图像格式？这些就是你要问自己的问题。
 
-There are a few options to speed up the preview and your workflow in After Effects.
+有几个选项可以加快 After Effects 里的预览和工作流。
 
-- You can set the overall quality of the preview.  
-  ![](/docs-img/ae/preview-quality.png)  
-  The default option, *Adaptive&nbsp;Resolution*, does not seem to be the best choice, as constantly changing the resolution of the preview when moving layers does not feel fluid at all. *Off&nbsp;(Final&nbsp;Quality)* does feel way more fluid when working, as does *Fast&nbsp;Draft*. There's actually not much difference between *Fast&nbsp;Draft* and *Off&nbsp;(Final&nbsp;Quality)*…
+- 你可以设置预览的整体质量。
+  ![](/docs-img/ae/preview-quality.png)
+  默认选项 *Adaptive Resolution*（自适应分辨率）似乎并不是最佳选择：移动图层时它不断切换预览分辨率，手感一点也不流畅。*Off (Final Quality)*（关闭/最终质量）工作时明显流畅得多，*Fast Draft*（快速草稿）也是。实际上 *Fast Draft* 和 *Off (Final Quality)* 之间差别不大……
 
-- You can change the resolution of the preview.  
-  ![](/docs-img/ae/preview-resolution.png)  
-  Again, the default one, *Auto* may not be the best for fluidity if you have this habit a lot of people have to constantly zoom in and out, to work details and have an overall look at the image, and if you don’t always do RAM previews at the same level of zoom. In this case, After Effects will be constantly rendering the preview at different resolutions and this has a very bad impact on performance and fluidity. It may be best to wisely choose a resolution and stick to it. Most of the time, when animating in HD or 2K compositions (or bigger), *Half* resolution or even *Third* is enough.
+- 你可以更改预览分辨率。
+  ![](/docs-img/ae/preview-resolution.png)
+  同样，默认的 *Auto*（自动）对流畅度可能并不是最佳选择——如果你像很多人一样习惯不断放大缩小来抠细节又看整体，而且 RAM 预览时缩放比例并不固定，那 After Effects 就会不断以不同分辨率渲染预览，这对性能和流畅度影响很坏。明智的做法是选定一个分辨率并保持不变。大多数时候，在 HD 或 2K 合成（或更大）里做动画，*Half*（半分辨率）甚至 *Third*（三分之一）就够了。
 
-- You can change the quality of the preview per layer too.  
-  ![](/docs-img/ae/layer-quality.png)  
-  In the attributes of the layer, clicking this icon will disable anti-aliasing and other algorithms which are not needed for animation, and this may improve performance a bit. Do the controllers really need the best quality?
-- The quantity of layers enabled greatly impacts the performance of the user interface. Solo and shy the layers as much as possible, hide anything not needed. For this workflow, our other free tool [DuGR](https://rxlaboratory.org/tools/dugr) [^4] can be a great help, and it is fully compatible with Duik. Read below for more information about it.
+- 你也可以按图层更改预览质量。
+  ![](/docs-img/ae/layer-quality.png)
+  在图层属性里点这个图标，会关闭抗锯齿和其他动画用不上的算法，这能略微提升性能。控制器真的需要最佳质量吗？
+- 启用的图层数量对用户界面性能影响很大。尽量独奏（Solo）和 Shy 收起图层，隐藏一切用不到的。配合这个工作流，我们的另一个免费工具 [DuGR](https://rxlaboratory.org/tools/dugr)[^4] 能帮上大忙，而且它与 Duik 完全兼容。下文有更多介绍。
 
-## Layers
+## 图层
 
-The type of layers you use is of great importance to improve the performance. This table lists them from worst to best in terms of performance.
+你使用的图层类型对提升性能至关重要。下表按性能从差到好排列。
 
-| Type | Notes |
+| 类型 | 说明 |
 | ---- | ----- |
-| Complex Shape Layers | Shape layers with a lot of content or many expressions are the worst. |
-| Simple Shape Layers | Very simple shape layers, with just a few shapes and without heavy expressions are much better, but are still a bit slower than raster layer to render. |
-| Raster Layers | Raster layers (pixels, a.k.a. bitmaps) just need to be displayed, there's nothing to compute (except effects of course). |
-| Null Layers | As they're empty, their impact on performance is negligible. |
-| Simple Shape Layers, controls hidden | When  hiding layer controls (`Ctrl + Shift + H`), the performance is much better, for all  types of layers, except complex shapes. |
-| Raster Layers, controls hidden | |
-| Null Layers, controls hidden | As Null layers consist only of layer controls, hiding the layer controls means they don't have any impact on the performance (except for parenting and expressions in the transform properties) |
+| 复杂形状图层 | 内容很多或带大量表达式的形状图层最差。 |
+| 简单形状图层 | 非常简单、只有几个形状、没有重型表达式的形状图层好得多，但渲染仍比栅格图层略慢。 |
+| 栅格图层 | 栅格图层（像素，即位图）只需显示即可，没什么要计算的（效果当然除外）。 |
+| 空对象图层 | 因为是空的，对性能的影响可忽略。 |
+| 简单形状图层，隐藏控件后 | 隐藏图层控件（`Ctrl + Shift + H`）后，所有图层类型（除复杂形状外）性能都好很多。 |
+| 栅格图层，隐藏控件后 | |
+| 空对象图层，隐藏控件后 | 空对象图层只由图层控件构成，隐藏图层控件后对性能毫无影响（父子关系和变换属性里的表达式除外） |
 
-As you can see in this table, there are two ways to improve the performance of the viewport and the rendering performance in After Effects:
+从这张表可以看到，提升 After Effects 视口与渲染性能有两条途径：
 
-1. Always **hide the layer controls**.  
-  This is by far **the best way to improve performance in After Effects** when manipulating layers.
-  The option is available in the `View ▶ View Options...` menu in After Effects, and they can be quickly toggled with the `Ctrl + Shift + H` shortcut. You may have to do this quite regularly as its a pre-composition option.
-2. Always prefer **raster layers**.  
-  A raster layer will almost always be **faster to render** than a shape layer. If you don't need to animate the contents of a shape layer, you could precompose it, or, even better, render it to an openEXR file and replace the shape with the rendered image.
+1. 始终**隐藏图层控件**。
+   这是操作图层时**提升 After Effects 性能目前最好的办法**。该选项在 After Effects 的 `View ▶ View Options...`（视图 ▶ 视图选项……）菜单里，可以用 `Ctrl + Shift + H` 快捷键快速切换。因为它是预合成级选项，你可能得经常手动切。
+2. 始终优先使用**栅格图层**。
+   栅格图层几乎总是比形状图层**渲染更快**。如果你不需要给形状图层的内容做动画，可以预合成它，或者更好的办法是把它渲染成 openEXR 文件，用渲染出来的图像替换形状。
 
 <Callout type="success">
-    It seems the performance is a bit better (approximately 10&nbsp;%) with a shape layer containing many shapes than with everything exploded in several layers.
+    相比把所有形状拆成多个图层，一个形状图层里放许多形状，性能似乎略好（约 10%）。
 </Callout>
 
-### Cut/hide invisible layers
+### 剪切/隐藏不可见图层
 
-Quite often, when animating some layers position, they may be (temporarily) outside of the frame of the composition. In this case, performance may be improved if you hide/cut them as soon as they get out, to be sure to prevent any rendering and evaluation of the expressions which are not needed as long as the layer can't be seen.
+给某些图层做位移动画时，它们常常（临时）移出合成画面。这种情况下，图层一出去就隐藏/剪切它们，能提升性能——这样只要看不见图层，就不会白白渲染和计算那些用不上的表达式。
 
-This is also true if for some time a layer is hidden beneath other layers, cutting it may improve performance.
+同理，如果某段时间一个图层被压在其他图层下面看不见，剪切它也能提升性能。
 
 ![](/docs-img/ae/cut-layers.png)
 
-### Render the Shape Layers
+### 渲染形状图层
 
-Every time you use a bézier shape, After Effects has to rasterize it before it can display it and render the composition. This means the more shape layers you have, the lower the performance will be. Whenever it's possible, you should precompose the shape layer, to the smallest composition you can: this way the precomposition is a raster layer, a bitmap with actual pixels, and faster to render. You can even render this precomposition to an image sequence to replace it or use it as a proxy. Proxies are great!
+每次你使用 Bézier 形状，After Effects 都得先把它栅格化，才能显示并渲染合成。这意味着形状图层越多，性能越低。只要可能，就应该把形状图层预合成到最小的合成里：这样预合成就成了一个栅格图层——一张有真实像素的位图，渲染更快。你甚至可以把这个预合成渲染成图像序列，用它替换原图层或作为代理。代理太棒了！
 
-Of course, do not check the ![](/docs-img/ae/continuous-rasterization.png) *continuous rasterization* option on the precomposition layer or you'll lose all benefits of the precomposition. Read the *Precompositions* section below for more information.
+当然，千万别在预合成图层上勾选 ![](/docs-img/ae/continuous-rasterization.png) *continuous rasterization*（连续栅格化）选项，否则你会丧失预合成的全部好处。详见下文*预合成*一节。
 
 <Callout type="success">
-    A shape layer without animation nor expressions in its content should always be replaced by an image.  
-    Especially when using the puppet tool! As it works with the rendered pixels and not with the vector data, you won’t lose quality, there’s no need to keep the vectors. And precomposing the shape will fix a lot of issues…
+    内容里既无动画也无表达式的形状图层，应该永远替换成图像。尤其在用木偶工具时！它处理的是渲染后的像素而非矢量数据，所以你不会损失质量，没必要保留矢量。而且把形状预合成能解决一大堆问题……
 </Callout>
 
 <Callout type="success">
-    Even if the shape layer uses expressions in its content, it can be a good idea to precompose it. This way, you could temporarily freeze time on the precomposition layer to disable all expressions inside and improve the performance when animating, and only remove the time remapping to adjust details and render the final animation. You could also render a proxy of the precomposition to keep the final result while animating other parts.
+    即使形状图层的内容用了表达式，预合成它也常常是个好主意。这样你可以在预合成图层上临时冻结时间，停用里面所有表达式，做动画时性能更好；只在需要调细节和最终渲染时才去掉时间重映射。你也可以渲染一份预合成的代理，在动画其他部分时保留最终结果。
 </Callout>
 
-**It is _NOT_ a good idea to use shapes hoping to be able to scale them.**
+**指望用形状图层以后好缩放——这*不是*个好主意。**
 
-1. It will have a bad impact on performance, scaling is another step in the render process which takes some time. Especially if you have a lot of shape layers.
-2. Scaling rigs is **very** complicated as it will probably break a lot of expressions.
+1. 它会损害性能：缩放是渲染流程中又一步，要花时间，尤其当你有很多形状图层时。
+2. 缩放绑定**非常**复杂，因为很可能弄断一大堆表达式。
 
-Before working your animation, you should always draw a storyboard; this way you know which sizes are needed for your character and you can build a different rig for each.  
-When you see only a close up on the torso and the head, do you really need the rig of the legs? When the character is far away, do you really need complex facial expressions? Will you even draw the character the same way?
+开工做动画前，你应该先画故事板；这样你知道角色需要哪些尺寸，可以为每种尺寸建一套不同的绑定。
+当镜头只给到躯干和头部特写时，你真的需要腿的绑定吗？当角色离得很远时，你真的需要复杂的面部表情吗？你画角色的方式甚至还会一样吗？
 
-If you’re using vectors only for scaling purposes, you can rasterize them (at a higher resolution if really needed) and greatly improve performance.
+如果你用矢量只是为了缩放，可以把它们栅格化（真有需要就用更高分辨率），性能会大幅提升。
 
-### Duik Bones
+### Duik 骨骼
 
-Duik [Bones](../guide/bones) are Shape Layers and thus have a bad impact on performance. This is not a big issue though, as they're not meant to be displayed; when hidden, their performance impact is negligible, especially if they're *baked*.
+Duik [骨骼](../guide/bones)是形状图层，因此对性能有不良影响。不过这不算大问题，因为它们本来就不该显示；一旦隐藏，其性能影响可忽略，尤其在*烘焙*之后。
 
-This being said, with all their [envelops](../guide/bones/envelops) and [noodles](../guide/bones/noodles), they quickly become complicated to manipulate. If you don't need these advanced features, you have the option to use simpler bones, displayed as small dots, which are much lighter.
+话虽如此，加上所有[包络](../guide/bones/envelops)和[面条骨](../guide/bones/noodles)之后，骨骼很快就变得难以操控。如果你不需要这些高级功能，可以改用更简单的骨骼——显示成小圆点，轻量得多。
 
-Even when using these simpler bones, there are still a few expressions to control their appearance. To further improve performance, you can *bake* the bones to remove these expressions. By default, the bones are automatically baked when running the auto-rig.
+即使用这些简单骨骼，仍有少量表达式控制其外观。要进一步提升性能，可以*烘焙*骨骼来去掉这些表达式。默认运行自动绑定时，骨骼会被自动烘焙。
 
-▷ Read the [*Bones and Autorig*](../guide/bones) section for more information about these options.
+▷ 阅读[*骨骼与自动绑定*](../guide/bones)一节，了解这些选项。
 
-### Duik Controllers
+### Duik 控制器
 
-By default, Duik uses Shape Layers for controllers too. This enables the dynamic display of some guides and helpers directly inside the controller layer contents, but, again, this has a bad impact on performance.
+默认情况下，Duik 控制器也用形状图层。这样能在控制器图层内容里直接动态显示一些参考线和辅助元素，但同样对性能有不良影响。
 
-If you don't need these guides, there are two ways to avoid using shape layers as controllers:
+如果你不需要这些参考线，有两种办法避免用形状图层做控制器：
 
-- **Use raster layers** (*PNG* images imported into the project, or custom layers you've created).  
-  In this case, you can still use a nice icon to identify the controllers, and you can hide the layer controls (`Ctrl +  Shift + H`) to achieve the best performance. If you'd like to customize the appearance of the controllers, like you would do with shape layers, you can use some simple effects, like the *transform* effect to move and scale the icon, and the *fill* effect to change its color. Even with these effects, the performance is better than shape layers.
-- **Use null layers**.  
-  Null layers have a great performance, but they're completely invisible if you hide layer controls, and can't be customized as nicely as standard layers. It's nice that they're automatically hidden when previewing an animation though.
+- **使用栅格图层**（导入工程的 *PNG* 图像，或你自己创建的自定义图层）。
+  这样你仍可以用一个好看的图标来识别控制器，并且可以隐藏图层控件（`Ctrl + Shift + H`）来达到最佳性能。如果你想像形状图层那样自定义控制器外观，可以用一些简单效果：用 *transform*（变换）效果移动和缩放图标，用 *fill*（填充）效果改颜色。即便加了这些效果，性能也比形状图层好。
+- **使用空对象图层**。
+  空对象图层性能很好，但一旦隐藏图层控件就完全看不见，也不能像标准图层那样美观自定义。不过做动画预览时它们会自动隐藏，这点不错。
 
-When using raster layers or null layers as controllers, the performance of the rig is much better;&nbsp;but if you still want or need to use shape layers, you can also *bake* their appearance to make things a bit better.  
-Shape layer controllers are automatically baked by default when *extracting* controllers from a precomposed rig.
+用栅格图层或空对象图层做控制器时，绑定的性能好得多；但如果你仍想或必须用形状图层，也可以*烘焙*它们的外观来略为改善。
+从预合成绑定中*提取*控制器时，形状图层控制器默认会被自动烘焙。
 
-▷ Read the [*Controllers*](../guide/controllers) section for more information about these options.
+▷ 阅读[*控制器*](../guide/controllers)一节，了解这些选项。
 
-## Expressions
+## 表达式
 
-**Expressions in After Effects are all evaluated (computed) when rendering each frame of the composition**. This won’t be an issue if they are simple, with basic calculations like the vast majority of expressions you may write by yourself.  
-Now, imagine an expression, which, when it is evaluated (i.e. at each frame of the composition), needs to compute previous movements of some other layers - this is what simulations do. This means it also needs to compute everything which influences the layers in previous frames of the composition, including other expressions, which might be complex too… This is a nasty situation where performance will drop dramatically[^cumulative].
+**After Effects 里的表达式在渲染合成每一帧时都会被求值（计算）**。如果表达式很简单——只是基础计算，就像你自己写的绝大多数表达式那样——那不是问题。
+现在想象一个表达式：它在每次求值时（即合成的每一帧）都需要计算其他某些图层之前的运动——这正是模拟类功能做的事。这意味着它还得计算前几帧里影响这些图层的一切，包括其他可能同样复杂的表达式……这是个糟糕的局面，性能会断崖式下跌[^cumulative]。
 
-**Some features of Duik use very complex expressions**, and compute-intensive calculations, like the IK which involves more maths than simple additions and multiplications, or simulations like the kleaner's follow-through which have to compute previous movements. Even if we’ve been hard at work to fix performance issues, in some cases combining a lot of expressions (i.e. Duik features) can lead to poorer performance when animating, or even so much lag that the rig cannot be correctly manipulated anymore.
+**Duik 的某些功能使用非常复杂的表达式**和高算力计算，比如 IK 涉及的数学远不止简单的加减乘除，又如 Kleaner 的跟随模拟需要计算历史运动。即便我们一直在努力修复性能问题，某些情况下叠加大量表达式（即 Duik 功能）会导致做动画时性能下降，甚至卡顿到无法正常操控绑定。
 
 <Callout type="info">
-    Don’t worry about simple expressions you create manually, like links between properties, or simple wiggles, etc. They’re not a problem, even if you have hundreds of them.
+    别担心你手动写的简单表达式，比如属性之间的链接、简单的抖动等。就算有几百个也不是问题。
 </Callout>
 
-When dealing with complex expressions, just remember that the more expressions = the more performance issues you’ll have.
+处理复杂表达式时，记住一句话：表达式越多 = 性能问题越多。
 
-In the end, expressions are *just animations* and could be replaced by keyframes to improve the performance.  
-After Effects can bake the expressions to keyframes for you, with the `Animation ▶ Keyframe Assistant ▶ Convert Expression to Keyframes` menu entry. This creates one keyframe per frame, then deactivates the expression.
+说到底，表达式*只是动画*，为提升性能可以用关键帧替换掉。
+After Effects 可以帮你把表达式烘焙成关键帧，菜单入口是 `Animation ▶ Keyframe Assistant ▶ Convert Expression to Keyframes`（动画 ▶ 关键帧辅助 ▶ 将表达式转换为关键帧）。它逐帧创建一个关键帧，然后停用表达式。
 
-Duik can also help you with that:&nbsp;the [*bake expression*](../guide/automation/tools/) tool in the [*Automation and expressions*](../guide/automation) panel has two better ways to convert expressions to keyframes:
+Duik 也能帮你：[*Automation and expressions*](../guide/automation)（自动化与表达式）面板里的 [*bake expression*（烘焙表达式）](../guide/automation/tools/) 工具提供两种更优的表达式转关键帧方式：
 
-- A *smart mode* creates an animation as close as possible to the result of the expression, using just a few Bézier keyframes, and keeps the animation easy to edit later.
-- A *precise mode* creates an animation  with as much keyframes as needed for a perfect match (which is still less than the After Effects native tool).
+- *智能模式*（smart mode）生成尽可能贴近表达式结果的动画，只用少量 Bézier 关键帧，之后仍易编辑。
+- *精确模式*（precise mode）则按需创建足够多的关键帧来完美匹配结果（数量仍少于 After Effects 原生工具）。
 
-### Bézier paths and expressions
+### Bézier 路径与表达式
 
-For some reason, **using an expression to control the Bézier path of a mask is much slower than the same expression in a shape layer**: if you need to use expressions with Bézier path, try to always use shape layers instead of masks! We've measure the same expression to be twice faster in shape layers.
+出于某种原因，**用表达式控制蒙版的 Bézier 路径，比在形状图层里用同样的表达式慢得多**：如果需要对 Bézier 路径用表达式，尽量用形状图层而不是蒙版！我们测过，同一个表达式在形状图层里快一倍。
 
-## Compositions
+## 合成
 
-The more complex a composition becomes, the slower it is to render; complex compositions with too many layers also have a really bad impact on the user interface of After Effects.
+合成越复杂，渲染越慢；图层太多的复杂合成还会严重拖累 After Effects 的用户界面。
 
-The less layers there are in a composition, the better it is.
+合成里图层越少越好。
 
-- Hide layers you don't need to improve the rendering performance.
-- The number of layers displayed in the timeline influences a lot the performance of the user interface. There are two ways to improve that:  
-    - Use the *Shy Mode* to reduce the number of displayed layers.
-    - Reduce the size of the timeline panel to display less layers at once. The timeline displayed vertically, with many layers, is very laggy, but the performance is much better with a horizontal timeline displaying only a few layers, even if the composition contains hundreds of them.
+- 隐藏不需要的图层以提升渲染性能。
+- 时间线里显示的图层数量对界面性能影响很大。有两种办法改善：
+    - 用 *Shy Mode*（隐藏模式）减少显示的图层数。
+    - 缩小时间线面板，一次少显示几个图层。时间线竖向排列一大堆图层非常卡，但横向时间线只显示少数图层时性能好得多——即便合成里有成百上千个图层。
 
-### Precompositions
+### 预合成
 
-Precompositions are an under-estimated way to improve performance.
+预合成是一种被低估的性能提升手段。
 
-Precomposing several layers reduces the number of layers displayed in the timeline and improves the performance of the user interface, and, used wisely, precompositions can greatly improve the rendering performance.
+把多个图层预合成，能减少时间线里显示的图层数、改善界面性能；用得明智的话，预合成还能大幅提升渲染性能。
 
-Each time you duplicate a layer, you have to ask yourself if you can precompose it first in any way and then duplicate the precomposition. Very often, you can precompose!
+每次复制图层时，你都该问问自己：能不能先以某种方式预合成，再复制那个预合成？很多时候是可以的！
 
 <Callout type="success">
-    Keep in mind that you can use expressions to link stuff from the precomposition to the main composition.  
-    With the [*Parent across compositions*](../guide/constraints/parent) tool of Duik, you can even parent a layer in a precomposition to a layer outside of it.  
-    The [*Extract Controllers*](../guide/controllers/extract) tool can be of great help too.
+    记住：你可以用表达式把预合成里的东西链接到主合成。借助 Duik 的 [*Parent across compositions*（跨合成父子）](../guide/constraints/parent)工具，你甚至能把预合成内的图层父子链接到外面的图层上。[*提取控制器*](../guide/controllers/extract)工具也能帮大忙。
 </Callout>
 
-When you precompose before duplicating the layer(s), all its transformation and effects will be rendered only once and only then they will be duplicated. Without precomposition, everything has to be rendered twice (or more if you duplicate again the same layer).
+在复制图层之前先预合成，它所有的变换和效果只会渲染一次，然后才被复制。不预合成的话，一切都得渲染两遍（如果你再复制同一图层，就是更多遍）。
 
 <Callout type="warning">
-    If you enable the *continuous rasterization* ![](/docs-img/ae/continuous-rasterization.png) option, you'll lose all benefits of the precomposition on the rendering performance, as After Effects will re-render all layers inside the composition each time it is used with the option activated.
+    如果开启 *continuous rasterization*（连续栅格化）![](/docs-img/ae/continuous-rasterization.png)选项，你会丧失预合成带来的全部渲染性能好处，因为只要这个选项开着，After Effects 每次使用该预合成都得重新渲染合成内的所有图层。
 </Callout>
 
-#### Proxies
+#### 代理
 
-*Proxies* are a great way to improve the performance when using precompositions. By rendering the composition and using the rendered frames, you can bake lots of layers in your project, and if these proxies are full-quality openEXR files for example, you can even use the proxies for the final render in the end. By rendering proxies at each step of your work, you also save rendering time for the final render. Note that this also saves memory needed for the final render, and can help you deliver more complex projects even on lower-end computers.
+*代理*（Proxy）是配合预合成提升性能的好办法。渲染合成并使用渲染出的帧，你就能把工程里一大堆图层烘焙掉；如果这些代理是全画质 openEXR 文件，最后甚至可以直接用代理做最终渲染。在工作的每一步都渲染代理，还能为最终渲染省时间。注意这还能省掉最终渲染所需的内存，让你在较低配的电脑上也能交付更复杂的项目。
 
-#### Essential properties
+#### 基本属性
 
-When using a lot of precompositions, it may be tempting to use lots of essential properties. But essential properties must be avoided at all costs! Each time a composition uses at least an essential property, that means it has to be re-rendered instead of re-using the previous cached rendered image of the same composition. This also means it gets much more complicated to use proxies with these compositions...
+用了很多预合成后，你可能很想配一大堆基本属性（Essential Properties）。但基本属性必须不惜一切代价避免！只要一个合成用到了哪怕一个基本属性，它就不能复用同一张合成本来已缓存的渲染图像，而必须重新渲染。这也意味着给这些合成配代理会麻烦得多……
 
-Essential properties also have a lower performance than simple expression links; to control a property inside a precomposition, an expression will always be better. The difference may not be noticeable for a single property, but with lots of essential properties, the performance drops dramatically.
+基本属性的性能还不如简单的表达式链接；要控制预合成内部的属性，表达式永远更好。单个属性差别可能不明显，但基本属性一多，性能就断崖式下跌。
 
-A few tools in Duik like [*extract controllers*](../guide/controllers/extract) have the option to use either expressions or essential properties. It is advised to use expressions whenever possible.
+Duik 里有几个工具，比如[*提取控制器*](../guide/controllers/extract)，提供了用表达式或基本属性两种选择。建议尽量用表达式。
 
-### DuGR, Layer groups
+### DuGR：图层分组
 
-To handle lots of layers, we've developed another tool called [*DuGR*](https://rxlaboratory.org/tools/dugr) [^4]. By grouping layers, it makes it easy to isolate them, both in the timeline or the viewport (using solo and shy modes).
+为了管理大量图层，我们开发了另一个工具 [*DuGR*](https://rxlaboratory.org/tools/dugr)[^4]。通过给图层分组，它能让你轻松隔离图层——无论在时间线还是视口里（用独奏和 Shy 模式）。
 
-This helps to improve the performance in two ways:
+这从两方面提升性能：
 
-- By reducing the number of layers displayed in the timeline, the performance of the user interface gets better.
-- By creating simpler, schematic versions of your characters and props to be used during the animation process, you can use *DuGR* to switch between the simplified layers and the final render.
+- 减少时间线里显示的图层数，界面性能变好。
+- 为角色和道具创建更简单的示意图版本，在动画过程中使用；用 *DuGR* 在简化图层与最终渲染之间切换。
 
 <Callout type="info">
-    [Rafael Arame](https://www.artstation.com/rafaelarame/blog) [^5] explains this very well in a [nice article](https://www.artstation.com/blogs/rafaelarame/YVZr/layer-management-a-solution-for-complex-rigs-in-after-effects) about how he uses [DuGR](https://rxlaboratory.org/tools/dugr) [^4] to improve the performance of his complex rigs, which you can read on [rxlab.info/rafael-dugr](http://rxlab.info/rafael-dugr).
+    [Rafael Arame](https://www.artstation.com/rafaelarame/blog)[^5] 在一篇[好文](https://www.artstation.com/blogs/rafaelarame/YVZr/layer-management-a-solution-for-complex-rigs-in-after-effects)里讲得非常透彻，介绍他如何用 [DuGR](https://rxlaboratory.org/tools/dugr)[^4] 提升复杂绑定的性能，你可以在 [rxlab.info/rafael-dugr](http://rxlab.info/rafael-dugr) 读到。
 </Callout>
 
-## Project
+## 工程
 
-Big projects can lead to a lot of issues. The number of items displayed in the project panel influences the performance of the user interface (try to keep the project panel as small as possible, and close folders). Big files are longer to read and write, and raise the probability of sync issues or corrupt files.
+大工程会带来一大堆问题。工程面板里显示的条目数量影响界面性能（尽量让工程面板小一点，收起文件夹）。大文件读写更慢，也更易出现同步问题或文件损坏。
 
-It is a good habit to animate a single shot per project; do not store everything into a single After Effects project! Try to keep the project files as small as possible, and regularly reduce the project to remove unused items.
+每个工程只做一个镜头是个好习惯；别把所有东西塞进一个 After Effects 工程！尽量让工程文件小，并定期整理工程，移除未使用的条目。
 
-The [sanity tests](../guide/sanity) included in Duik keep track of your project size and the number of items in it to help you keep it small.
+Duik 内置的[自检](../guide/sanity)会跟踪工程大小和条目数量，帮你保持精简。
 
-### Project Settings
+### 工程设置
 
-A few settings ![](/docs-img/ae/project-settings.png) can be tweaked per project to improve a bit the performance.
+有几个设置 ![](/docs-img/ae/project-settings.png) 可以按工程微调，略为提升性能。
 
-- `Video Rendering and Effects`  
-  If you have a compatible GPU, you should always leave this option to use *Mercury GPU Acceleration*, unless you have rendering issues or GPU driver issues.
-- `Expressions`  
-   It is *said* that the new *JavaScript* engine is faster than the *Legacy ExtendScript* engine, but if that's true, it doesn't seem to be measurable. What's true is that some expressions may not work on both engines: some expressions may work only on the legacy engine while others only on the JavaScript engine. All expressions used by Duik should be compatible with both engines, but sometimes switching the engine may fix some bugs. In doubt, always use the new JavaScript engine.
+- `Video Rendering and Effects`
+  如果你有兼容的 GPU，应始终让此选项使用 *Mercury GPU Acceleration*（Mercury GPU 加速），除非你遇到渲染问题或 GPU 驱动问题。
+- `Expressions`
+  据说新的 *JavaScript* 引擎比 *Legacy ExtendScript*（旧版 ExtendScript）引擎快，但就算这是真的，似乎也测不出来。可以确定的是，有些表达式在两种引擎上并不能都跑：有的只能在旧引擎上工作，有的只能在 JavaScript 引擎上工作。Duik 使用的所有表达式应与两种引擎都兼容，但有时切换引擎能修好某些 Bug。拿不准时，一律用新的 JavaScript 引擎。
 
-## Formats
+## 格式
 
-Not all formats are equal. If you’ve understood what we wrote just above, you may be beginning to use more image formats and less shapes, whether it’s for proxies or final render. What formats should be used?
+不同格式并不等价。如果你看懂了上面写的，大概已经开始多用图像格式、少用形状了——无论做代理还是最终渲染。那该用什么格式？
 
--  When rendering animations, most of the time it’s better and easier to use image sequences than video files. There is at least one very good and simple reason for it: if the render fails, you won’t have to start it all again, but just the remaining frames. If you want to change something in the animation, you will only have to render the corresponding frames.
+- 渲染动画时，大多数情况下用图像序列比视频文件更好、更省事。至少有一个非常充分且简单的理由：渲染失败时，你不用全部重来，只需重渲染剩余帧。想改动动画里的某处，也只需渲染对应的帧。
 
-- You should use a format which suits your needs (color depth, alpha channel), but also a format which is fast to read and write by After Effects! Our advice is to use *OpenEXR* (with *PIZ* (lossless) or *DWA* (slightly lossy) compression) which handles 32bpc, and has an alpha channel. It is also way faster to read/write than *PNG* in After Effects, and files are usually smaller with *EXR*. It’s better than the *RAW* format of your camera, it’s great for storing HDRi. Premiere and other editing software, as well as Photoshop, can read them; as specified in the name, they’re open and widely compatible. What more could you ask for?
+- 你应该选一个既满足需求（色深、Alpha 通道）、又能被 After Effects 快速读写的格式！我们的建议是用 *OpenEXR*（配 *PIZ*（无损）或 *DWA*（轻微有损）压缩），它支持 32bpc，带 Alpha 通道。在 After Effects 里它的读写也比 *PNG* 快得多，而且 *EXR* 文件通常更小。它比相机的 *RAW* 格式还好，特别适合存 HDRi。Premiere 等剪辑软件以及 Photoshop 都能读；顾名思义，它是开放的、兼容性广。你还能要求什么？
 
 <Callout type="success">
-    You can render the audio to a simple `*.wav` file stored next to the image sequence.
+    你可以把音频单独渲染成一个 `*.wav` 文件，和图像序列放在一起。
 </Callout>
 
-If you still prefer using video files, you should choose a format which is also as fast as possible to read and write. Avoid *H.264* and *H.265* (*mp4*, etc.) and prefer *intra-frame* codecs like *Apple ProRes*, *Avid DnxHD*, or *Quicktime Animation*. Note that, although it's widely used, *ProRes* (and *DnxHD*/*DnxHR*) is a lossy codec which outputs huge files. *OpenEXR* sequences or *Quicktime Animation* are lossless (or optionally very slightly lossy if you wish even smaller files with *EXR*) and usually output much smaller files.
+如果你仍更喜欢用视频文件，应选一个同样尽可能快读写的格式。避开 *H.264* 和 *H.265*（*mp4* 等），优先用*帧内*（intra-frame）编码，如 *Apple ProRes*、*Avid DnxHD* 或 *Quicktime Animation*。注意：尽管 *ProRes*（以及 *DnxHD*/*DnxHR*）用得很广，它其实是有损编码，产出的文件巨大。*OpenEXR* 序列或 *Quicktime Animation* 是无损的（或者如果你想用 *EXR* 换更小的文件，也可选非常轻微的有损），通常产出的文件小得多。
 
-## After Effects
+## After Effects 自身
 
-### Memory leaks
+### 内存泄漏
 
-The most important thing to know about After Effects is that there are memory leaks. This means that the longer you use it, the more memory it will use, and part of this memory is completely wasted. This is especially true when using scripts, it is a known issue in After Effects that scripts are never freed from memory even if they're closed and have finished everything they're doing (the technical term is *garbage collection*, and this garbage collection just doesn't work for scripts). This clearly slows down After Effects after a certain amount of time and use. Until this kind of issues are all fixed, the only way to keep your app as fast as possible is to restart it regularly to completely free the memory. Even the `Edit ▶ Purge` menu is of no use about this issue.
+关于 After Effects，最重要的一点是：它存在内存泄漏。这意味着用得越久，占用内存越多，而且其中一部分内存被白白浪费了。用脚本时尤其如此——After Effects 有个已知问题：脚本即使关闭、做完了所有事，内存也永远不被释放（技术上叫*垃圾回收*，而垃圾回收对脚本就是不起作用）。这用了一段时间后明显拖慢 After Effects。在这类问题全被修复之前，让应用保持最快的唯一办法就是定期重启、彻底释放内存。连 `Edit ▶ Purge`（编辑 ▶ 清除）菜单对这个问题都没用。
 
-### User Interface
+### 用户界面
 
-It is a well-known fact that the user interface of After Effects, is, to say the least, sluggish... If there aren't too many items to be shown, it's usually okayish, but it quickly becomes a pain to navigate panels with a lot of items... Which is usually the case of the most important one, the timeline panel, with a lot of layers and keyframes. There's nothing we can do about that, and it's one of the main reason why you should learn animation in another application (like Blender) if you can.
+After Effects 的用户界面 sluggish（迟钝），这是众所周知的事实……要显示的条目不多时还算凑合，但条目一多，在面板间导航就很快变成煎熬……最重要的时间线面板通常正是这种情况：一大堆图层和关键帧。对此我们无能为力，这也是为什么如果可能，你应该去另一个应用（比如 Blender）学动画的主要原因之一。
 
-This problem has another less-known implication: scripts are (very) slow. In After Effects, scripts run in the same thread as the user interface. This itself could be seen as a design flaw, although at the time this was designed, multi-threading was not the thing it is today. But the real problem is that when a script is running, there's no way to stop the user interface to *try to* follow. Each operation a script does, the user interface tries to reflect it. And the script has to wait for the user interface to finish this (slow) operation to continue onto its next step (because it lives in the same thread). Although the actual operation the script does could be very fast, it is slowed down by the user interface of After Effects. For example, a script creating a few dozens of new keyframes on some properties will be slowed down *for each keyframe creation* by the user interface actually showing the new keyframe (instead of waiting for the script to finish and draw them all at once). This would not be so much of an issue if the user interface wasn't so slow...
+这个问题还有个较少被注意到的后果：脚本（非常）慢。在 After Effects 里，脚本和用户界面跑在同一个线程上。这本身就可以被视为设计缺陷，尽管在它被设计出来的年代，多线程还不是今天这个样子。但真正的问题是：脚本运行时，没法阻止用户界面*试图*跟上每一步。脚本做的每个操作，界面都试图反映出来。而脚本必须等界面完成这个（缓慢的）操作，才能进行下一步（因为它们同住一个线程）。尽管脚本实际做的操作可能非常快，它却被 After Effects 的界面拖慢。例如，一个脚本在某些属性上新建几十个关键帧，*每新建一个关键帧*都会被拖慢——因为界面真的在那儿把新关键帧显示出来（而不是等脚本做完一次性全部绘制）。要不是界面这么慢，这本来也不算什么大问题……
 
-There's no solution here, except that now you know it, you can talk about it with Adobe.
+这里无解，除了你现在知道了，可以去跟 Adobe 提。
 
-### Preferences
+### 首选项
 
-Sometimes, changing a few options in After Effects can improve the performance or fix issues. In most cases, leaving the default values should work well, but it may be useful to have a look at these specific preferences:
+有时，改几个 After Effects 选项能提升性能或解决问题。大多数情况下保持默认值就好，但下面这几个特定首选项值得一看：
 
-- `Previews ▶ Viewer Quality`:  
-    - Set the *Zoom Quality* to *Faster* or *More Accurate Except Cached Preview* to improve a bit the performance when the viewer zoom is not set at 100 %. Note that the difference is hardly noticeable, but sometimes, every little improvement is good to have.
-    - You can do the same for the *Color Management Quality* for color-managed projects.
-- `Previews ▶ Cache Frames When Idle`: This can also be toggled per composition in the `Composition ▶ Preview` menu.  
-  Caching frames when After Effects is idle does improve the performance, as sometimes frames will already be cached when you start working on a composition. But with very long compositions this can cause lots of issues by filling your computer's memory. In this case, all your programs may start to behave erratically or even crash after everything begins to lag a lot.
-- `Display ▶ Motion Path`: Displaying too long motion paths can be very laggy, especially if the motion path is the result of complex expressions. Be careful with that;&nbsp;it may be better to deactivate completely the motion paths and enable them only when needed. Unfortunately, there's no shortcut for that, but Duik may include a button for that in the future.
-- `Display ▶ Disable Thumbnails in Project Panel`: This option doesn't really improve the performance, but again, sometimes with very big projects, every little improvement helps.
-- `Media & Disk Cache ▶ Disk Cache`: When the disk cache is enabled, After Effects will save rendered frames to a temporary location on a specified disk. This is needed if your system runs with low *RAM* memory. If you have a lot of available memory (more that 32 or even 64GB) when working with After Effects, it may improve performance to disable the disk cache: in this case, After Effects saves the frames only into RAM, which is much faster than any disk. But in this case, you'll lose all the cache when closing After Effects or restarting your computer, to the contrary of the disk cache.  
-  A way to benefit from both worlds is to create a *Ram Disk*, read below for more information.
-  No matter what, you should always choose a location on the fastest (SSD) possible disk on your system, separate from the disk containing your footage if possible.
-- `Memory & Performance ▶ Memory`: Be careful with this option: due to the memory leaks explained in the previous section, the memory limit is not actually respected! It is easy to show that After Effects memory can be much higher than the limit set here, by just running a complex script (like Duik) a few times.
-- `Memory & Performance ▶ Performance`: Using Multi-Frame Rendering usually improves performance, but in specific cases it may be better to deactivate this option: if you work with complex compositions, lots of expressions, or non-compatible effects, multi-frame rendering may actually slow down the rendering process:
-    - It takes more time to start the rendering process when using multi-frame rendering. This can be a problem for previews:&nbsp;if you notice a long delay between requesting the preview and the render of the first frame, it may be because of multi-frame rendering and it's worth trying without it, then maybe enable it again just before the final render.
-    - It may sometimes be actually slower to render than standard rendering, but that depends on what you're rendering. You'll have to test with your own project if you suspect it to slow down your renders, but that shouldn't be the case in the majority of projects. In doubt, leave it enabled.
+- `Previews ▶ Viewer Quality`（预览 ▔ 监视器质量）：
+    - 把 *Zoom Quality*（缩放质量）设为 *Faster*（更快）或 *More Accurate Except Cached Preview*（除缓存预览外更精确），监视器缩放不是 100% 时能略提性能。注意差别几乎察觉不到，但有时每一点小改善都值得。
+    - 对做了颜色管理的工程，*Color Management Quality*（颜色管理质量）也可以同样设置。
+- `Previews ▶ Cache Frames When Idle`（预览 ▶ 空闲时缓存帧）：也可以在 `Composition ▶ Preview`（合成 ▶ 预览）菜单里按合成切换。
+  After Effects 空闲时缓存帧确实能提升性能，因为有时你开始动一个合成时帧已经缓存好了。但对于很长的合成，这会填满电脑内存、惹出一堆麻烦。那时所有程序可能开始行为失常，甚至在一切变得很卡之后崩溃。
+- `Display ▶ Motion Path`（显示 ▶ 运动路径）：显示过长的运动路径会非常卡，尤其当运动路径是复杂表达式的结果时。小心这一点；最好彻底关闭运动路径，只在需要时启用。可惜它没有快捷键，但 Duik 将来可能加个按钮。
+- `Display ▶ Disable Thumbnails in Project Panel`（显示 ▶ 禁用工程面板缩略图）：这个选项对性能提升不大，但话说回来，超大工程里每一点小改善都有用。
+- `Media & Disk Cache ▶ Disk Cache`（媒体与磁盘缓存 ▶ 磁盘缓存）：开启磁盘缓存后，After Effects 会把渲染好的帧存到指定磁盘上的临时位置。如果你系统 *RAM* 内存少，这是必需的。如果用 After Effects 时内存充裕（超过 32 甚至 64GB），关闭磁盘缓存可能提升性能：这种情况下 After Effects 只把帧存进 RAM，比任何磁盘都快得多。但代价是，关闭 After Effects 或重启电脑后所有缓存都没了——磁盘缓存则相反。
+  两全其美的办法是建一个 *RAM 磁盘*，见下文。
+  无论如何，缓存位置都应选系统里最快的（SSD）磁盘，并尽量与素材盘分开。
+- `Memory & Performance ▶ Memory`（内存与性能 ▶ 内存）：小心这个选项——由于上一节讲的内存泄漏，内存上限实际上并不会被遵守！很容易证明：只要跑几次复杂脚本（比如 Duik），After Effects 占用的内存就能远超这里设的上限。
+- `Memory & Performance ▶ Performance`（内存与性能 ▶ 性能）：启用多帧渲染（Multi-Frame Rendering）通常能提升性能，但在某些情况下关掉它反而更好：如果你做的合成复杂、表达式一大堆、或效果不兼容，多帧渲染可能反而拖慢渲染：
+    - 启用多帧渲染时，启动渲染流程要花更长时间。这对预览可能是个问题：如果你注意到发出预览请求到渲染出第一帧之间有很长延迟，可能就是多帧渲染的锅，可以试试关掉它，然后在最终渲染前再开回来。
+    - 它有时确实比标准渲染更慢，但取决于你渲染的是什么。如果你怀疑它拖慢了渲染，得用自己的工程测一下；不过大多数工程里不该有这个问题。拿不准就保持开启。
 
-## Duik features impacting performance
+## 影响性能的 Duik 功能
 
-Some features in Duik are especially slowing down After Effects, it's best to know them and what you can do to improve performance with these specific features (or try to avoid them).
+Duik 里有些功能尤其拖慢 After Effects，最好认识它们，并知道针对这些特定功能能做什么来改善性能（或者干脆避开）。
 
 <Callout type="success">
-    Always have a look in the effects of the layers: in the effects created by Duik, there may be some performance options to adjust the balance between performance and quality (especially the quality of motion blurs).
+    经常看看图层的效果：在 Duik 创建的效果里，可能有一些性能选项，用来调节性能与质量之间的平衡（尤其是运动模糊质量）。
 </Callout>
 
 <Callout type="success">
-    Some effects created by Duik have an option to adjust the precision of the motion blur. If you don't need motion blur on the layer, keep this to the lowest value, as it usually make the performance drop a lot. If you need motion blur, keep the value as low as possible to hide motion blur artifacts on fast movements.
+    Duik 创建的某些效果有调节运动模糊精度的选项。如果图层不需要运动模糊，保持最低值，因为它通常会让性能大跌。如果需要运动模糊，也尽量保持低值，以掩盖快速运动时的运动模糊瑕疵。
 </Callout>
 
     ![](/docs-img/duik/effect-moblur-precision.png)
 
 <Callout type="success">
-    Cut the layers when they're hidden or out of the frame of the composition to make sure the expressions aren't evaluated when they're not needed.
+    图层隐藏或移出合成画面时剪切它们，确保表达式在不需要时不被求值。
 </Callout>
 
-### Parent constraint
+### 父子约束
 
-The [Parent constraint](../guide/constraints/parent) is a great tool but… It can be very computer-intensive. To be able to compute the location of a layer, it has to compute the previous movement of all its parents for all the previous frames of the composition. This means the longer the composition is, the slower it will be. Avoid using it in very long compositions, and try to use it only when necessary. Often, it is easier and quicker to just split the layer when its parent must change.
+[父子约束](../guide/constraints/parent)是个好工具，但是……它非常耗算力。要计算一个图层的位置，它必须计算该图层所有父级在合成此前每一帧里的运动。这意味着合成长度越长，它越慢。避免在很长的合成里使用，尽量只在必要时用。通常，当图层的父级需要改变时，直接切分图层更简单快捷。
 
-The other constraint are much lighter, it's better to try to use the orientation or position constraint whenever possible instead of the parent constraint.
+其他约束轻量得多，尽量优先使用方向约束或位置约束，而不是父子约束。
 
 ### IK
 
-The IK used in a character like the ones created by the [Auto-rigger](../guide/bones) will not be a problem unless you have a lot of them, but there are a few tips to make them even lighter.
+像[自动绑定器](../guide/bones)创建的那种角色上用的 IK，不会成为问题——除非你用了一大堆。但有几个技巧可以让它们更轻。
 
-- When using shape layers as controllers, you can disable the guides on the controllers (the dashed lines representing the IK) in the effects of the controller. It's better to use raster controllers though (and in this case, there are no guides at all).
+- 用形状图层做控制器时，你可以在控制器的效果里关掉控制器上的参考线（代表 IK 的虚线）。不过最好还是用栅格控制器（那样的话根本没有参考线）。
+- 停用 IK、改用 FK 做动画时，性能通常更好，而且 FK 动画其实比 IK 更简单。
 
-- When you deactivate the IK and animate in FK, the performance is usually better, and FK animation is actually easier than IK.
-
-### Kleaner (simulated)
+### Kleaner（模拟）
 
 <Callout type="warning">
-    Beware of the simulation
+    小心模拟
 </Callout>
 
-The default [Kleaner](../guide/automation/kleaner) automation should not be an issue most of the time. But beware of the simulation! As every simulations, it involves a lot more computation and can quickly become a reason why your rig won’t work anymore. Try to use simulations as few as possible, and keep in mind that most of the time, animating hanging hairs or the antenna of a car is quick and easy with a few keyframes without even using the Kleaner.
+默认的 [Kleaner](../guide/automation/kleaner) 自动化大多数时候不成问题。但要小心模拟！和所有模拟一样，它的计算量要大得多，很快就会成为绑定跑不动的元凶。尽量少用模拟，并记住：大多数时候，动悬挂的头发或汽车天线，几个关键帧就快速搞定了，根本用不着 Kleaner。
 
-Simulation in the Kleaner happen only in multi-dimensional properties. You can completely disable simulations in the *Performance* section of the effect created by the Kleaner, as long as some other adjustment to further improve the performance according to your needs.
+Kleaner 里的模拟只发生在多维属性上。你可以在 Kleaner 创建的效果的 *Performance*（性能）部分彻底关闭模拟，还有其他调整项可按需进一步提升性能。
 
 ![](/docs-img/duik/automation/kleaner-effect-performance.png)
 
-### Wheel (curved motion)
+### Wheel（曲线运动）
 
-The default [*Wheel*](../guide/automation/wheel) automation is very light and won’t be any problem. But be careful with the *curved* mode, as it needs to compute the trajectory of the wheel on all the previous frames of the composition. At the end of a long composition, this can be very heavy.
+默认的 [*Wheel*](../guide/automation/wheel)（轮子）自动化非常轻量，不会有问题。但小心 *curved*（曲线）模式，因为它需要在合成此前每一帧上计算轮子的轨迹。长合成的末尾，这可能非常重。
 
-### Motion Trails
+### 运动轨迹
 
-As [motion trails](../guide/automation/motion-trail) have to generate bezier paths according to the movement of layers, if you have a lot of layers and parenting, this can lead to very poor performance, as a lot of calculations are needed. You can’t do much about it, except in some cases you can animate the trails by hand: copy the position keyframes into a bezier path, and use the “trim paths” tool in a shape layer.
+[运动轨迹](../guide/automation/motion-trail)需要根据图层运动生成 Bézier 路径，如果你有一大堆图层和父子关系，会因为需要大量计算而导致性能很差。对此你做不了太多，只是有些情况下可以手动画轨迹：把位置关键帧复制进一条 Bézier 路径，再在形状图层里用"修剪路径"工具。
 
-If you don’t need variable width on the motion trail, make sure to keep the mode to *simple* instead of *advanced*. The simple mode is much lighter.
+如果运动轨迹不需要可变宽度，确保模式保持在 *simple*（简单）而不是 *advanced*（高级）。简单模式轻量得多。
 
-There are a few sampling option to adjust the balance between smoothness and performance.
+有几个采样选项可以调节平滑度与性能的平衡。
 
 ![](/docs-img/duik/automation/motion-trail-effect-sampling.png)
 
-The *Method* should be kept on automatic, except if for some unknown reason it fails to generate a smooth path.  
-Try to keep the number of samples as low as possible, on the lowest value you need for the trail to be smooth.
+*Method*（方法）应保持自动，除非因为某些未知原因它没能生成平滑路径。
+尽量把采样数量压到最低——刚好让轨迹平滑所需的最低值即可。
 
-### Other automations and expressions added by Duik
+### Duik 添加的其他自动化与表达式
 
-The other automations are not particularly heavy. Just be careful with automations like the [*Effector*](../guide/automation/effector) which is often used to drive a lot of layers together, which means it's a lot of expressions.
+其他自动化不算特别重。只是要小心像 [*Effector*](../guide/automation/effector) 这样的自动化——它常被用来一起驱动一大堆图层，这意味着一大堆表达式。
 
-## Hardware
+## 硬件
 
-> What's the best hardware to use with After Effects?
+> 搭配 After Effects 的最佳硬件是什么？
 
-If you ask this question around, everyone will have a different opinion. Here's what we've measured when developing Duik and other tools, and tested them on film productions.
+逢人就问这个问题，每个人答案都不一样。下面是我们开发 Duik 等工具时实测、并在影片制作中验证过的结论。
 
 ![](/docs-img/illustration/1024px-Computer_Circuit_Board_MOD_45153624.jpg)
 
-### Disks
+### 磁盘
 
-There are three important locations for your data when working with After Effects: 
+用 After Effects 工作时，数据有三个重要位置：
 
-1. The system, where After Effects is installed. These files are mostly read when After Effects is launched, and then used just very little.
-2. The Disk Cache which stores the temporary rendered frames. This is the most used location.
-3. Your media files (footage). These files are read regularly to render your compositions.
+1. 系统盘，安装 After Effects 的地方。这些文件主要在启动 After Effects 时被读取，之后很少用到。
+2. 磁盘缓存（Disk Cache），存放临时渲染帧。这是最常用的位置。
+3. 你的媒体文件（素材）。这些文件被定期读取以渲染合成。
 
-It doesn't really matter where you store the project files themselves (`*.aep`) as they're read/written only when loading and saving the files, and should not be very big files anyway.
+工程文件本身（`*.aep`）存在哪里其实无所谓，因为它们只在加载和保存时读写，本来也不该是很大的文件。
 
-The best case scenario is to have at least three big different physical disks, as fast as possible (SSD), for each of the aforementioned locations, but if you can't afford it, you can perfectly use just two disks:
+最理想的情况是：上面三个位置各配一块又大又快的物理磁盘（SSD）。但如果预算不够，用两块盘也完全可以：
 
-- A disk as fast as possible for both the system and the disk cache: the system files are not used so often, so it's fine to store the disk cache on the same disk.
-- Another disk to store your footage, which may be read at the same time the disk cache is read and written, so that will improve the performance to separate the footage. Note that the speed of this second disk is a bit less important, as the footage are mostly read and not written: it's always faster to read than write, and they're used a bit less than the disk cache.
+- 一块尽可能快的盘同时装系统和磁盘缓存：系统文件不常用，缓存放同一盘没问题。
+- 另一块盘存素材，它可能在磁盘缓存读写的同时被读取，所以分开素材盘能提升性能。注意这块盘的速度没那么关键，因为素材主要是读、不怎么写：读总比写快，而且它用得比磁盘缓存少一点。
 
-Both disks need to be quite big:&nbsp;the system disk will store your operating system and all applications, and it's more comfortable to have a large disk cache. The disk storing your footage (and rendered files) needs to be able to store a potentially large amount of medias.
+两块盘都得相当大：系统盘要装操作系统和所有应用，缓存大一点也更舒服。存素材（和渲染文件）的盘要能存下可能非常多的媒体。
 
-It is not recommended to use a single disk, unless it's very fast (and big...).
-
-<Callout type="info">
-    Dividing a physical disk into several partitions does not improve performance, and may even slow things down.
-</Callout>
-
-### Memory (RAM)
-
-The more, the better. Simple.
-
-It's not the RAM which matters most, we've been able to use After Effects correctly with computers with only 8&nbsp;GB or even small laptops with 4&nbsp;GB (just remember you need to restart After Effects regularly to free memory). This being said, although everything will work well with as few as 8 GB, more RAM will always be useful if you can afford it.
-
-With a lot of RAM (at least 32&nbsp;GB) you may even be able to disable the After Effects Disk Cache if you'd like, which may improve the performance, and protect your disks by limiting the number of write access to them.
-
-#### RAM Disk
-
-A RAM disk[^6] is a block of random-access memory (RAM, i.e. volatile memory) that a computer's software is treating as if the memory were a disk drive (secondary storage). RAM disks provide high-performance temporary storage for demanding tasks and protect non-volatile storage devices from wearing down, since RAM is not prone to wear from writing, unlike non-volatile flash memory.
-
-The performance of a RAM disk is generally orders of magnitude faster than other forms of digital storage, such as SSD or hard disk. This performance gain is due to multiple factors, including access time, maximum throughput, and file system characteristics.
-
-With more than 32 or 64&nbsp;GB, you could create a small *Ram Disk* to store temporary files or test projects which will be automatically erased when restarting the computer. This has proven very useful in our experience, even with RAM Disks as small as 2&nbsp;GB.
-
-With at least 64&nbsp;GB RAM, you could create a *RAM Disk* of a few dozens of gigabytes to be used as the After Effects Disk cache. In this case, you'll keep the cache between After Effects sessions, as long as you don't restart the computer, and it will be as fast as possible, while protecting your physical disks by limiting the number of write access to them. But to do that you'll need at least 64&nbsp;GB of memory to keep enough standard RAM.
+不建议只用一块盘，除非它非常快（而且很大……）。
 
 <Callout type="info">
-    The RAM Disk can be activated only when you need it, and deactivated when you need your full amount of RAM.
+    把一块物理盘分成多个分区并不能提升性能，甚至可能拖慢。
 </Callout>
 
-#### Central Processing Unit (CPU)
+### 内存（RAM）
 
-That's the most important part for After Effects: it is used a lot when working and rendering the compositions. The faster, the better.
+越多越好。就这么简单。
 
-It seems that, given the choice, it's better to have less threads with a higher frequency than more slower threads (i.e. prefer *GHz* over *Cores*).
+RAM 不是最关键的：我们见过只有 8GB、甚至 4GB 的小笔记本都能正常用 After Effects（只要记得定期重启 After Effects 释放内存）。话虽如此，尽管 8GB 就能跑顺，负担得起的话，更多 RAM 永远有用。
 
-Note that the relation between the CPU capabilities and After Effects performance doesn't feel linear: a CPU twice faster will not result in After Effects being twice faster, but just *a bit* faster. Anyway, After Effects is always too slow, so if you plan to work in After Effects, try to spend your money mostly on the CPU.
+内存很多时（至少 32GB），如果你愿意，甚至可以关掉 After Effects 磁盘缓存，这可能提升性能，还能通过限制写入次数保护磁盘。
 
-#### Graphical Processing Unit (GPU)
+#### RAM 磁盘
 
-After Effects does use the GPU more and more to render the effects and compositions, so it's a good idea to use a good GPU. Of course, if you're working with 3D, you'll need a high-end GPU anyway, but if you're only working with After Effects, 2D, and video, it's not useful to have the best GPU, a mid-level GPU is enough.
+RAM 磁盘[^6]是一块随机存取内存（RAM，即易失内存），被计算机软件当作磁盘驱动器（二级存储）来用。RAM 磁盘为高要求任务提供高性能临时存储，并保护非易失存储设备免受磨损，因为 RAM 不像非易失闪存那样会因写入而损耗。
 
-[^1]: *South Park* is an American animated sitcom. The series revolves around four boys—Stan Marsh, Kyle Broflovski, Eric Cartman, and Kenny McCormick—and their exploits in and around the titular Colorado town. It became infamous for its profanity and dark, surreal humor that satirizes a large range of subject matter. *cf.* [en.wikipedia.org/wiki/South_Park](https://en.wikipedia.org/wiki/South_Park)
+RAM 磁盘的性能通常比 SSD 或硬盘等其他数字存储形式快几个数量级。这一性能提升来自多个因素，包括访问时间、最大吞吐量和文件系统特性。
 
-[^2]: *Autodesk Maya*, commonly shortened to just *Maya*, is a 3D computer graphics application. It is used to create assets for interactive 3D applications (including video games), animated films, TV series, and visual effects. *cf.* [en.wikipedia.org/wiki/Autodesk_Maya](https://en.wikipedia.org/wiki/Autodesk_Maya)
+内存超过 32 或 64GB 时，你可以建一个小的 *RAM 磁盘*来存临时文件或测试工程，重启电脑后自动清除。以我们的经验，即便只有 2GB 的 RAM 磁盘也非常有用。
 
-[^3]: *Blender* is a free and open-source 3D computer graphics software tool set used for creating animated films, visual effects, art, 3D-printed models, motion graphics, interactive 3D applications and virtual reality. *cf.* [blender.org](https://blender.org)
+至少 64GB RAM 时，你可以建一个几十 GB 的 *RAM 磁盘*当作 After Effects 磁盘缓存。这样只要不重启电脑，跨 After Effects 会话保留缓存，速度极致，同时通过限制写入次数保护物理盘。但这需要至少 64GB 内存，才能留下足够的常规 RAM。
 
-[^4]: *DuGR* lets you group layers in After Effects, and isolate the display of these groups. It is an essential tool to simplify the management of compositions with lots of layers, without any need to precompose! *cf.* [rxlaboratory.org/tools/dugr](https://rxlaboratory.org/tools/dugr)
+<Callout type="info">
+    RAM 磁盘可以只在需要时启用，需要全部内存大干一场时再停用。
+</Callout>
 
-[^cumulative]: Because there's no way to reliably store any data with expressions in After Effects, expressions depending on previous values of the same property (cumulating the values) actually have to re-compute everything for each frame of the composition. This means that for each frame, they need to add up all previous values. The total number of values to be computed for a given composition is a [*triangular number*](http://en.wikipedia.org/wiki/Triangular_number) (see [en.wikipedia.org/wiki/Triangular_number](http://en.wikipedia.org/wiki/Triangular_number)) given by the formula `(f² + f) / 2` where `f` is the number of frames in the composition. Because of the `f²` in the formula, this number grows very fast with the duration of the composition.
+#### 中央处理器（CPU）
 
-[^5]: Rafael Arame is a recognized After Effects rigging expert. You can have a look at his blog on [www.artstation.com/rafaelarame/blog](https://www.artstation.com/rafaelarame/blog).
+这是 After Effects 最重要的部分：工作和渲染合成时大量用到它。越快越好。
 
-[^6]: A quick search will let you find several utilities to easily create RAM disks both on *Windows* or *MacOS*. [Read this *Wikipedia* article](https://en.wikipedia.org/wiki/RAM_drive) for more information about RAM Disks: [en.wikipedia.org/wiki/RAM_drive](https://en.wikipedia.org/wiki/RAM_drive).
+看起来，如果要取舍，少一点高频率的核心，比多一点低频率的核心更好（也就是说，优先 *GHz* 而非*核心数*）。
 
+注意 CPU 性能与 After Effects 性能之间的关系并不是线性的：快一倍的 CPU 不会让 After Effects 快一倍，只是*略快*一点。不管怎样，After Effects 永远嫌慢，所以如果你打算用 After Effects，钱尽量花在 CPU 上。
+
+#### 图形处理器（GPU）
+
+After Effects 渲染效果和合成时越来越依赖 GPU，所以用一块好 GPU 是个好主意。当然，如果你做 3D，反正都需要高端 GPU；但如果你只做 After Effects、2D 和视频，用最好的 GPU 没什么用，一块中端 GPU 就够了。
+
+[^1]: *South Park（南方公园）*是一部美国动画情景喜剧。围绕四个男孩——Stan Marsh、Kyle Broflovski、Eric Cartman 和 Kenny McCormick——以及他们在科罗拉多小镇内外的糗事展开。它因粗口和讽刺广泛题材的黑暗超现实幽默而闻名。*参见* [en.wikipedia.org/wiki/South_Park](https://en.wikipedia.org/wiki/South_Park)
+[^2]: *Autodesk Maya*，通常简称 *Maya*，是一款 3D 计算机图形应用，用于为交互式 3D 应用（含电子游戏）、动画电影、电视剧和视觉效果制作素材。*参见* [en.wikipedia.org/wiki/Autodesk_Maya](https://en.wikipedia.org/wiki/Autodesk_Maya)
+[^3]: *Blender* 是一款免费开源的 3D 计算机图形软件套件，用于制作动画电影、视觉效果、美术、3D 打印模型、动态图形、交互式 3D 应用和虚拟现实。*参见* [blender.org](https://blender.org)
+[^4]: *DuGR* 让你在 After Effects 里给图层分组，并隔离这些组的显示。它是简化管理大量图层合成的必备工具，而且完全不用预合成！*参见* [rxlaboratory.org/tools/dugr](https://rxlaboratory.org/tools/dugr)
+[^cumulative]: 由于 After Effects 的表达式无法可靠地存储任何数据，依赖同一属性先前值（累积值）的表达式实际上每一帧都得重新计算一切。也就是说，每一帧它们都得把之前所有值累加起来。给定合成需要计算的值总数是一个[*三角形数*](http://en.wikipedia.org/wiki/Triangular_number)（见 [en.wikipedia.org/wiki/Triangular_number](http://en.wikipedia.org/wiki/Triangular_number)），由公式 `(f² + f) / 2` 给出，其中 `f` 是合成的帧数。因为公式里有 `f²`，这个数随合成长度增长得非常快。
+
+[^5]: Rafael Arame 是公认的 After Effects 绑定专家。你可以在他的博客 [www.artstation.com/rafaelarame/blog](https://www.artstation.com/rafaelarame/blog) 看看。
+
+[^6]: 快速搜索一下，你就能找到好几个在 *Windows* 或 *MacOS* 上轻松创建 RAM 磁盘的工具。想了解 RAM 磁盘，[读这篇 *Wikipedia* 文章](https://en.wikipedia.org/wiki/RAM_drive)：[en.wikipedia.org/wiki/RAM_drive](https://en.wikipedia.org/wiki/RAM_drive)。

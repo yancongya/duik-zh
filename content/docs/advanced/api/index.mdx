@@ -1,49 +1,51 @@
 ---
-title: "Duik API - Character rigging and animation for *After Effects*"
+title: "Duik API —— 为 After Effects 打造的角色绑定与动画工具集"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# Duik API - Character rigging and animation for *After Effects*
+# Duik API —— 为 After Effects 打造的角色绑定与动画工具集
 
-> **The Application Programming Interface of the comprehensive rigging and animation tool set.**
-
-____
-
-**[This software is Free](../../misc/license), as in "_free beer_" as well as in "_your freedom_ to use it as you wish".**
-
-We need your help. Without your contributions, we could not continue our work to make the world a better place, by **protecting your freedom, away from mercantilism**.
-
-► [**DONATE NOW!**](http://donate.rxlab.info)
+> **这套功能完备的绑定与动画工具集的应用程序编程接口。**
 
 ____
 
-▹ You can [**download Duik and its API from rxLaboratory**](http://rxlaboratory.org/tools/duik).
+**[本软件是自由软件](../../misc/license)，既指"*免费的啤酒*"，也指"*你想怎么用就怎么用*的自由"。**
 
-▹ The [**source code is on Github**](https://github.com/RxLaboratory/Duik).
+我们需要你的帮助。没有你的贡献，我们就无法继续工作，无法通过**守护你的自由、远离商业化裹挟**来让世界变得更好。
+
+► [**立即捐款！**](http://donate.rxlab.info)
 
 ____
 
-*Duik* is a comprehensive character rigging and animation tool set for After Effects. It is an end-user tool, which sits in its own panel in the UI of After Effects.
+▹ 你可以[**从 RxLaboratory 下载 Duik 及其 API**](http://rxlaboratory.org/tools/duik)。
 
-To make it easier for people with basic scripting abilities to use Duik in their own scripts, automation, auto-rigs, etc, *Duik* also comes with an easy-to-use API. It may also be very useful to advanced developers though, as it also includes a lot of low-level methods and a very comprehensive scripting framework for After Effects and more generally for Adobe Applications.
+▹ [**源码在 Github 上**](https://github.com/RxLaboratory/Duik)。
 
-It is written in *[ExtendScript](http://extendscript.docsforadobe.dev/)* with the standard *[After Effects API](http://ae-scripting.docsforadobe.dev/)*.
+____
 
-If you've never written any script for After Effects, you may start by learning how to create advanced *[expressions](http://ae-expressions.docsforadobe.dev/)* first, as they use the same language and an API very close to the *[After Effects scripting API](http://ae-scripting.docsforadobe.dev/)*. Then you'll be able to write your first scripts.
+*Duik* 是一套功能完备的 After Effects 角色绑定与动画工具集。它是一个终端用户工具，以独立面板的形式出现在 After Effects 的界面中。
 
-## Useful resources
+为了让有一点脚本基础的人能在自己的脚本、自动化、自动绑定等中使用 Duik，*Duik* 还附带了一套易用的 API。不过它对高级开发者也很有用，因为它还包含大量底层方法，以及一套面向 After Effects（更广泛地说，面向 Adobe 应用）的、非常完备的脚本框架。
 
-These are a few links you may always keep at hand when writing scripts for *After Effects* using the *Duik API*.
+它用 *[ExtendScript](http://extendscript.docsforadobe.dev/)* 编写，并基于标准的 *[After Effects API](http://ae-scripting.docsforadobe.dev/)*。
 
-- **[Javascript Tools Guide (ESTK)](http://extendscript.docsforadobe.dev/)**: this is the documentation and reference for all scripts written using *ExtendScript* for *Adobe* applications.
-- **[After Effects Expressions Documentation](http://ae-expressions.docsforadobe.dev/)**: the complete documentation about After Effects expressions.
-- **[After Effects Scripting Guide](http://ae-scripting.docsforadobe.dev/)**: this is the documentation and comprehensive reference of the *After Effects Scripting API* using *ExtendScript*.
-- **[Duik API reference (duik.rxlab.io)](http://duik.rxlab.io)**: the comprehensive *Duik API reference*. Keep it under your pillow.
-- **[chat.rxlab.info](http://chat.rxlab.info)** is our *Discord* server where you can come to have a chat and get help from the community.
+如果你从没为 After Effects 写过脚本，可以先学习如何创建高级*[表达式](http://ae-expressions.docsforadobe.dev/)*，因为表达式使用同样的语言，其 API 也与 *[After Effects 脚本 API](http://ae-scripting.docsforadobe.dev/)* 非常接近。学会之后，你就能写出第一批脚本了。
 
-## Documentation and examples
+## 有用的资源
 
-- **[Getting Started](getting-started.md)** with the Duik API.
-- **[Headless scripts](headless-scripts.md)**: build your first script using Duik.
-- **[Keyboard Shortcuts for Duik](shortcuts.md)**: use the API to add keyboard shortcuts to Duik features.
-- **[Reference](http://duik.rxlab.io)**: the comprehensive *Duik API reference*. Keep it under your pillow.
+以下是用 *Duik API* 为 *After Effects* 写脚本时可以常备手边的几个链接。
 
+- **[Javascript Tools Guide (ESTK)](http://extendscript.docsforadobe.dev/)**：所有用 *ExtendScript* 为 *Adobe* 应用编写脚本的文档与参考。
+- **[After Effects 表达式文档](http://ae-expressions.docsforadobe.dev/)**：关于 After Effects 表达式的完整文档。
+- **[After Effects 脚本指南](http://ae-scripting.docsforadobe.dev/)**：使用 *ExtendScript* 的 *After Effects 脚本 API* 文档与完整参考。
+- **[Duik API 参考手册（duik.rxlab.io）](http://duik.rxlab.io)**：完备的 *Duik API 参考*。把它放在枕头边。
+- **[chat.rxlab.info](http://chat.rxlab.info)** 是我们的 *Discord* 服务器，你可以来聊聊天、向社区求助。
+
+## 文档与示例
+
+- **[入门指南](getting-started)**：开始使用 Duik API。
+- **[无头脚本](headless-scripts)**：用 Duik 构建你的第一个脚本。
+- **[为 Duik 功能添加键盘快捷键](shortcuts)**：用 API 给 Duik 功能加上快捷键。
+- **[参考手册](http://duik.rxlab.io)**：完备的 *Duik API 参考*。把它放在枕头边。
