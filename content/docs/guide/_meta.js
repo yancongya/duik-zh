@@ -6,7 +6,7 @@ export default {
   "camera": "Camera",
   "cmd": "Command Line",
   "constraints": "Links & Constraints",
-  "controllers": "Controllers",
+  "controllers": "控制器",
   "notes": "Notes editor",
   "rigging": "Rigging with Duik",
   "sanity": "Sanity tests",

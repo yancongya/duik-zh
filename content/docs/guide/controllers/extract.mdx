@@ -1,67 +1,68 @@
 ---
-title: "![](/docs-img/duik/icons/extract.svg) Controllers ▹ Extract"
+title: "控制器 ▹ 提取"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/extract.svg) Controllers ▹ Extract
+# <img src="/docs-img/duik/icons/extract.svg" style={{width: '1em'}}/> 控制器 ▹ 提取
 
-Extracts all controllers from the selected precomposition, to allow the animator to manipulate the rig directly from the containing composition.
+从选中的预合成中提取所有控制器，让动画师可以直接在包含它的合成中操控绑定。
 
 ![](/docs-img/duik/controllers/extract01.gif)
 
-In most cases, it is easier to have rigs (for characters or other items) in their own precompositions, but this is not the most handy way to animate, especially when you have several characters in the same shot or if you need to see the background.
+在多数情况下，把绑定（角色或其他对象的）放在各自的预合成中更容易，但这不是最方便的动画方式，尤其是当同一镜头里有多个角色，或需要看到背景时。
 
-To avoid assembling all the rigs and the background in the same composition, you can keep the rigs in a precomposition and *Extract* the controllers. This way, all the controllers are available in the same main composition, with the background if you wish, but the rigs stay precomposed. This is especially useful when there are a lot of layers for the rigs, and if you want to render proxies for character animations in order to improve performance when compositing the shot.
+为了避免把所有绑定和背景组装到同一个合成里，你可以把绑定保留在预合成中，然后*提取*控制器。这样，所有控制器都位于同一个主合成中，如果需要还可以连同背景；而绑定仍然保持预合成状态。当绑定的图层很多，并且想为角色动画渲染代理以提升合成镜头时的性能时，这尤其有用。
 
-All controllers are parented to the precomposition, which makes it easy to move the rig; the precomposition can even be rotated and scaled too.
+所有控制器都以预合成为父级，这样移动绑定就很容易；预合成还可以旋转和缩放。
 
 ![](/docs-img/duik/controllers/extract02.gif)
 
 <Callout type="info">
-    You can flip the character with a negative scale value on the horizontal axis.
+    你可以通过在水平轴上使用负的缩放值来翻转角色。
 </Callout>
 
-## Usage
+## 使用方法
 
-1. **Select** the precomposition.
-2. **Click** the *Extract* button in the [*Controllers panel*](index.md).
+1. **选择**预合成。
+2. **点击** [*控制器面板*](index) 中的 *提取* 按钮。
 
-!!! hint
-```text
-All layers [*tagged*](tools/tag.md) as controllers will be extracted: you can [tag](tools/tag.md) your own layers to extract them along with the controllers actually created by Duik.
-```
+<Callout type="info">
+    所有[*标记*](tools/tag)为控制器的图层都会被提取：你可以[标记](tools/tag)自己的图层，让它们与 Duik 实际创建的控制器一起被提取。
+</Callout>
 
-## Options
+## 选项
 
 ![](/docs-img/duik/controllers/extract-options.png)
 
-You can choose to extract controllers using expressions or *Essential Properties*.
+你可以选择使用表达式或*基本属性*来提取控制器。
 
-- **With expressions**, **the performance is much better**, but the precomposed rig can't be re-used in another composition. You must keep a clean copy of the rig to be able to duplicate it each time you need to animate in a new composition and extract the controllers.
-- **With essential properties**, there's no need to keep a copy of the rigged composition: **the same composition can be used as many times as you need** in the same project, but the performance is worse, and may even be extremely slow.
+- **使用表达式时，性能要好得多**，但预合成的绑定无法在其他合成中重复使用。你必须保留一份干净的绑定副本，以便每次在新合成中制作动画时都能复制它并提取控制器。
+- **使用基本属性时**，无需保留绑定合成的副本：**同一个合成可以在同一项目中按需使用任意多次**，但性能较差，甚至可能极慢。
 
-By default, Duik will [*bake the controllers*](tools/bake.md) before extracting them, to improve the performance of the rig during the animation process. This way you can keep the controllers editable in a backup copy of the rigged precomposition, to be able to edit the rig later, but automatically have the best performance when animating after the controller extraction.
+默认情况下，Duik 会在提取前[*烘焙控制器*](tools/bake)，以提升动画过程中的绑定性能。这样，你可以在绑定预合成的备份副本中保留可编辑的控制器，以便日后编辑绑定，同时在使用控制器提取后的动画中自动获得最佳性能。
 
-## Recommended workflow
+## 推荐工作流
 
-To keep the best performance possible, it's better to always extract controllers using expressions, except in specific cases when there are very few controllers to extract. The more essential properties are created, the worse the performance is.
+为尽可能保持最佳性能，最好始终使用表达式提取控制器，除非在提取的控制器非常少的特定情况下。创建的基本属性越多，性能就越差。
 
-You should always keep your rigs in their own After Effects project files, and then import them in the projects where you're animating.
+你应该始终把绑定放在各自的 After Effects 项目文件中，然后在你要制作动画的项目中导入它们。
 
-As soon as you import a specific rig, you should rename its main composition and all precompositions it uses; this is the best way to make sure all composition names are unique and avoid expression errors if you need to import several times the same rig in the same After Effects projet.
+导入某个特定绑定时，应立即重命名它的主合成以及它使用的所有预合成；这是确保所有合成名称唯一、并在同一 After Effects 项目中多次导入同一绑定时避免表达式错误的最佳方法。
 
-Making sure that composition names are unique and that you always keep a copy of your rigs in their own projects allows you to easily and safely extract controllers using expressions. This way you won't need to use essential properties, as you could always import the rig as many times as you need it.
+确保合成名称唯一，并始终在各自的项目中保留绑定的副本，就能轻松安全地使用表达式提取控制器。这样你就不需要用到基本属性，因为你总是可以按需多次导入绑定。
 
-## Replacing an already extracted precomposition
+## 替换已提取的预合成
 
-This is the process to follow if you need to update a rig and replace a precomposition which controllers have already been extracted.
+如果需要更新绑定并替换一个控制器已被提取的预合成，请遵循以下流程。
 
-1. [__Copy__ the animation](../animation/tools/copy)&nbsp;[^1], or [__save__ it in the animation library](../animation/anim-library)&nbsp;[^2].
-2. __Remove__ the old precomposition and all its controllers.
-3. __Add__ the new precomposition.
-4. __Extract__ its controllers.
-5. [__Paste__](../animation/tools/copy) or [__apply__](../animation/anim-library) the animation you've copied or saved.
+1. [__复制__动画](../animation/tools/copy)[^1]，或将其[__保存__到动画库](../animation/anim-library)[^2]。
+2. __删除__旧的预合成及其所有控制器。
+3. __添加__新的预合成。
+4. __提取__它的控制器。
+5. [__粘贴__](../animation/tools/copy)或[__应用__](../animation/anim-library)你已复制或保存的动画。
 
-[^1]: *cf. [Animation](../animation) / Tools / [Copy - Cut - Paste](../animation/tools/copy)*.
+[^1]: 参见[*动画*](../animation) / 工具 / [*复制 - 剪切 - 粘贴*](../animation/tools/copy)。
 
-[^2]: *cf. [Animation](../animation) / [Animation Library](../animation/anim-library)*.
-
+[^2]: 参见[*动画*](../animation) / [*动画库*](../animation/anim-library)。

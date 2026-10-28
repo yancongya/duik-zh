@@ -99,5 +99,12 @@
 | tendon | 腱 | ✅ | |
 | root curve length | 根部曲线长度 | ✅ | |
 | end curve length | 末端曲线长度 | ✅ | |
+| tag | 标记 | ✅ | 把图层标记为控制器 |
+| slider | 滑块 | ✅ | Slider 控制器 |
+| raster layer | 栅格图层 | ✅ | |
+| essential property | 基本属性 | ✅ | AE 官方译名（Essential Properties） |
+| layer marker | 图层标记 | ✅ | AE 官方译名 |
+| precomposition | 预合成 | ✅ | AE 官方译名（预合成/嵌套合成） |
+| null object (null) | 空对象 | ✅ | AE 官方译名 |
 
 （Phase 2+ 按翻译进度继续补录，目标 150+ 条）

@@ -23,5 +23,15 @@
   "guide/bones/tools/settings": "骨骼设置",
   "guide/bones/tools/bake": "烘焙骨骼",
   "guide/bones/tools/link-art": "链接图形",
+  "guide/controllers": "控制器",
+  "guide/controllers/index": "控制器",
+  "guide/controllers/extract": "提取控制器",
+  "guide/controllers/pseudo-effects": "控制器伪效果",
+  "guide/controllers/tools": "控制器工具",
+  "guide/controllers/tools/select": "选择控制器",
+  "guide/controllers/tools/show-hide": "显示/隐藏控制器",
+  "guide/controllers/tools/tag": "控制器标记",
+  "guide/controllers/tools/bake": "烘焙控制器",
+  "guide/controllers/tools/settings": "控制器设置",
   "index": "首页"
 }

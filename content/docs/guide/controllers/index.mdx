@@ -1,91 +1,94 @@
 ---
-title: "![](/docs-img/duik/icons/controller.svg) Controllers"
+title: "控制器"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/controller.svg) Controllers
+# <img src="/docs-img/duik/icons/controller.svg" style={{width: '1em'}}/> 控制器
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E03_Ctrls__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E03_Ctrls__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-Using the [Auto-rig](../bones/autorig)&nbsp;[^1], and a set of [constraints](../constraints)[*](../../misc/glossary), what you end up with are *controllers*[*](../../misc/glossary) to drive the animation. You animate the controllers, they drive the [bones](../bones)[*](../../misc/glossary) through the constraints, et voilà! Your character moves.
+使用[自动绑定](../bones/autorig)[^1]和一组[约束](../constraints)[*](../../misc/glossary)，你最终得到的是用来驱动动画的*控制器*[*](../../misc/glossary)。你为控制器制作动画，它们通过约束驱动[骨骼](../bones)[*](../../misc/glossary)，瞧！你的角色就动起来了。
 
 ![](/docs-img/illustration/Ambroise_Pare_prosthetics_mechanical_hand_Wellcome_L0023364.png)  
-*Illustration of mechanical hand; Instrumenta chyrurgiae et icones anathomicae,  
-Ambroise Paré, 1564   
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en), [Wellcome Library](http://wellcomeimages.org/), London.*
+*机械手插图；Instrumenta chyrurgiae et icones anathomicae，  
+Ambroise Paré，1564  
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)，[Wellcome Library](http://wellcomeimages.org/)，伦敦。*
 
-As the controllers are going to be the interface between the animator and the character, they have to be intuitive and easy to manipulate. That’s why Duik uses nice shapes to make them easier to recognize, but also adds visual feedback on the controllers to see what the controllers are doing! And of course, they can be easily customized, changing their colors and shapes if needed.
+由于控制器将成为动画师与角色之间的接口，它们必须直观且易于操控。因此 Duik 使用漂亮的形状让它们更容易辨认，同时在控制器上加入视觉反馈，让你能看到控制器正在做什么！当然，它们也能轻松定制，必要时可以更改颜色和形状。
 
-## The Controllers panel
+## 控制器面板
 
 ![](/docs-img/duik/controllers/panel.png)
 
-The seven lines of icons in the center of the panel represent all the controller shapes available; they're buttons to create the controllers.
+面板中央的七排图标代表所有可用的控制器形状；它们是用来创建控制器的按钮。
 
-By default, controllers created by the [Auto-rig](../bones/autorig)&nbsp;[^1] and the controller panel are shape layers. This allows to customize them, and for them to be dynamic, to include guides and references with some tools. But the performance is better using raster layers or null layers; you can change the type of the controllers in the [controller settings](tools/settings.md)&nbsp;[^2].
-
-<Callout type="success">
-    When controllers are standard shape layers (the default), you can draw anything you'd like in the content of a controller layer, therefore using custom shapes is possible.
-</Callout>
-
-    You can also use custom raster layers (or any layer actually); just [tag](tools/tag.md)&nbsp;[^3] your layers as controllers (and you can use them with the [Auto-rig](../bones/autorig)&nbsp;[^1]).
-
-### Create controllers
-
-There are several ways to create controllers:
-
-- **Without any selection**, click one of the buttons to just create a new controller, centered in the current composition.
-- **With some layers selected**:  
-    - Click one of the buttons to create one controller per layer, at the same location than the corresponding layer.
-    - `[Alt] + [Click]` to create a single controller for all the layers. It's created at the center of mass of the layer coordinates.
-    - `[Ctrl] + [Click]` to automatically parent the layers to the new controllers. Hierarchy is kept and controllers are inserted in it; i.e. the previous parents of the layers will be the parents of the controllers.
-    - `[Ctrl] + [Alt] + [Click]` to create a single controller and parent all the selected layers to it.
+默认情况下，由[自动绑定](../bones/autorig)[^1]和控制器面板创建的控制器都是形状图层。这样既便于自定义，也让它们更灵活，能配合某些工具包含参考与引导。但使用栅格图层或空对象图层性能更好；你可以在[控制器设置](tools/settings)[^2]中更改控制器的类型。
 
 <Callout type="success">
-    **![](/docs-img/duik/icons/null.svg) Null Controllers** and **![](/docs-img/duik/icons/ae_null.svg) After Effects Null layers** will be 3D layers if the corresponding selected layer in the composition is a 3D Layer.
+    当控制器是标准形状图层（默认情况）时，你可以在控制器图层的内容里画任何你想画的东西，因此使用自定义形状是可能的。
 </Callout>
 
-If the controller is a shape layer, you can easily customize its appearance using the effect on the layer.
+<Callout type="success">
+    你也可以使用自定义栅格图层（实际上可以是任何图层）；只需将你的图层[标记](tools/tag)[^3]为控制器（并可与[自动绑定](../bones/autorig)[^1]一起使用）。
+</Callout>
+
+### 创建控制器
+
+有几种方法可以创建控制器：
+
+- **无任何选择**时，点击其中一个按钮即可创建一个新控制器，位于当前合成中央。
+- **选中若干图层时**：  
+    - 点击其中一个按钮，可为每个图层创建一个控制器，位置与该图层相同。
+    - `[Alt] + [Click]` 可为所有图层创建一个控制器，位于图层坐标的质心。
+    - `[Ctrl] + [Click]` 可自动将图层设为新控制器的子级。层级关系保持不变，控制器被插入其中；也就是说，图层原来的父级将成为控制器的父级。
+    - `[Ctrl] + [Alt] + [Click]` 可创建单个控制器，并将所有选中图层设为它的子级。
+
+<Callout type="success">
+    **![](/docs-img/duik/icons/null.svg) 空对象控制器**和**![](/docs-img/duik/icons/ae_null.svg) After Effects 空对象图层**，如果合成中对应的选中图层是 3D 图层，它们也会是 3D 图层。
+</Callout>
+
+如果控制器是形状图层，你可以使用图层上的效果轻松自定义它的外观。
 
 ![](/docs-img/duik/controllers/effect.png)
 
 <Callout type="info">
-    With shape layers, the size is dynamic and relative to the resolution of the composition, until the controller's been [baked](tools/bake.md)&nbsp;[^4]&nbsp;[*](../../misc/glossary).
+    对于形状图层，尺寸是动态的，并与合成分辨率相对，直到控制器被[烘焙](tools/bake)[^4][*](../../misc/glossary)。
 </Callout>
 
-To improve performance, once you've set the appearance of the controller, you can [bake](tools/bake.md)&nbsp;[^4]&nbsp;[*](../../misc/glossary) it.
+为提高性能，一旦设置好控制器的外观，你就可以[烘焙](tools/bake)[^4][*](../../misc/glossary)它。
 
-### Specific controllers
+### 特殊控制器
 
-Among all these controller shapes, some are a bit specific.
+在所有控制器形状中，有一些比较特殊。
 
-- The ![](/docs-img/duik/icons/slider.svg) ***Slider***, ![](/docs-img/duik/icons/2d_slider.svg) ***2D Slider*** and ![](/docs-img/duik/icons/angle.svg) ***Angle*** controllers are not meant to be used like other controllers - with parenting or IKs, etc. - but with the [Connector](../constraints/connector)&nbsp;[^5] or expressions: it is easy to get and connect their value to any other property and control almost anything you want with them, in a very visual and easy way.
-- The ![](/docs-img/duik/icons/ae_null.svg) ***AE Null*** button doesn't create an actual shape but an After Effects null layer to be used as any other controller.
+- ***Slider***（![](/docs-img/duik/icons/slider.svg) 滑块）、***2D Slider***（![](/docs-img/duik/icons/2d_slider.svg) 2D 滑块）和 ***Angle***（![](/docs-img/duik/icons/angle.svg) 角度）控制器并非用于像其他控制器那样使用——比如配合父子关系或 IK 等——而是配合[连接器](../constraints/connector)[^5]或表达式使用：你可以轻松读取并把它们的值连接到任何其他属性，用非常直观简便的方式控制几乎任何东西。
+- ***AE Null***（![](/docs-img/duik/icons/ae_null.svg)）按钮创建的不是形状，而是一个 After Effects 空对象图层，可像任何其他控制器一样使用。
 
-### Tools
+### 工具
 
 ![](/docs-img/duik/controllers/tools.png)
 
-The toolbar at the top of the bones panel gives a quick access to several secondary but useful tools.
+控制器面板顶部的工具栏可以快速访问几个次要但有用的工具。
 
-### Content
+### 内容
 
-- [Controller Pseudo-Effects](pseudo-effects.md)
-- [Extract Controllers](extract.md)
-- Tools  
-    - [Select controllers](tools/select.md)
-    - [Show/hide controllers](tools/show-hide.md)
-    - [Tag](tools/tag.md)
-    - [Bake controllers](tools/bake.md)
-    - [Controller settings](tools/settings.md)
+- [控制器伪效果](pseudo-effects)
+- [提取控制器](extract)
+- 工具  
+    - [选择控制器](tools/select)
+    - [显示/隐藏控制器](tools/show-hide)
+    - [标记](tools/tag)
+    - [烘焙控制器](tools/bake)
+    - [控制器设置](tools/settings)
 
-[^1]: *cf.* *[Bones and Auto-Rig](../bones)* / *[Auto-Rig](../bones/autorig)*.
+[^1]: 参见[*骨骼与自动绑定*](../bones) / [*自动绑定*](../bones/autorig)。
 
-[^2]: *cf.* *Controllers* / *Tools* / *[Settings](tools/settings.md)*.
+[^2]: 参见*控制器* / *工具* / [*设置*](tools/settings)。
 
-[^3]: *cf.* *Controllers* / *Tools* / *[Settings](tools/tag.md)*.
+[^3]: 参见*控制器* / *工具* / [*标记*](tools/tag)。
 
-[^4]: *cf.* *Controllers* / *Tools* / *[Bake controllers](tools/bake.md)*.
+[^4]: 参见*控制器* / *工具* / [*烘焙控制器*](tools/bake)。
 
-[^5]: *cf.* *[Constraints](../constraints)* / *[Connector](../constraints/connector)*.
-
-
+[^5]: 参见[*约束*](../constraints) / [*连接器*](../constraints/connector)。
