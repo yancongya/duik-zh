@@ -1,108 +1,109 @@
 ---
-title: "Temporal Interpolation"
+title: "时间插值"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# Temporal Interpolation
+# 时间插值
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J06_Interpo__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J06_Interpo__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-The second part of the animation panel contains several temporal interpolation tools. It's where you can quickly add or edit keyframe types, and quickly set the *easing* values or even copy and paste them.
+动画面板的第二部分包含若干时间插值工具。在这里你可以快速添加或编辑关键帧类型，快速设置*缓动*数值，甚至复制粘贴它们。
 
 ![](/docs-img/illustration/Lanature1882_praxinoscope_projection_reynaud.png)  
-*Le praxinoscope à projection de M. Reynaud,  
-La Nature, revue des sciences,  
-Louis Poyet, 1882  
-Public domain.*
+*Reynaud 先生的投影式活动镜（praxinoscope），  
+《自然》科学杂志（La Nature, revue des sciences），  
+Louis Poyet，1882 年  
+公有领域。*
 
 ![](/docs-img/duik/animation/temporal-interpolation.png)
 
-## Add / Edit keyframes
+## 添加 / 编辑关键帧
 
 ![](/docs-img/duik/animation/keyframes.png)
 
-The first line of the temporal interpolation section lets you very quickly create or edit keyframe types.
+时间插值区第一行，让你非常快速地创建或编辑关键帧类型。
 
-You can switch between the add or edit mode in the ![](/docs-img/duik/icons/options.svg) *options*.
+你可以在 ![](/docs-img/duik/icons/options.svg) *选项* 里切换添加或编辑模式。
 
 ![](/docs-img/duik/animation/keyframe-options.png)
 
-### Edit keyframes
+### 编辑关键帧
 
-1. **Select** a bunch of keyframes.
-2. **Click one of the buttons** to set the type of keyframe interpolation to the selection.
+1. **选择**一批关键帧。
+2. **点击其中一个按钮**，为所选内容设置关键帧插值类型。
 
 <Callout type="info">
-    When setting a type with Bézier interpolation (![](/docs-img/duik/icons/kbez.svg),  ![](/docs-img/duik/icons/kinbez.svg) or ![](/docs-img/duik/icons/koutbez.svg)), the keyframe ease uses the values of the sliders, and not the default After Effects values.
+    设置带 Bézier 插值的类型（![](/docs-img/duik/icons/kbez.svg)、![](/docs-img/duik/icons/kinbez.svg) 或 ![](/docs-img/duik/icons/koutbez.svg)）时，关键帧缓动使用滑块上的数值，而不是 After Effects 的默认值。
 </Callout>
 
-### Add keyframes
+### 添加关键帧
 
-1. **Select** some properties
-2. **Click one of the buttons** to add keyframes with the corresponding interpolation type.
+1. **选择**一些属性。
+2. **点击其中一个按钮**，添加对应插值类型的关键帧。
 
-By default, Duik adds keyframes on all **animated properties** it'll find, but you can set it to only add keyframes on explicitly **selected properties** if you prefer.
+默认情况下，Duik 会在它找到的所有**已动画属性**上添加关键帧；如果你愿意，也可以设为只在明确**选中的属性**上添加关键帧。
 
-By default, Duik works only with **selected layers**, but you can tell it to use **all layers**; in this case it'll add keyframes in all properties of the composition, no matter the selection. Be careful, this may be a bit long if there are a lot of animated properties.
+默认情况下，Duik 只处理**选中的图层**；但你可以让它使用**所有图层**，这时它会在合成的所有属性里添加关键帧，不管选中了什么。注意，如果已动画属性很多，这可能会有点慢。
 
-## Edit keyframe ease
+## 编辑关键帧缓动
 
-The second part of the temporal interpolation section is a keyframe ease editor, used to quickly adjust the keyframe ease on selected keyframes very quickly.
+时间插值区的第二部分是一个关键帧缓动编辑器，用于非常快速地调整所选关键帧上的关键帧缓动。
 
-In After Effects, the keyframe ease, which actually controls the Bézier interpolation between keyframes, consists in two values:
+在 After Effects 中，关键帧缓动实际上控制着关键帧之间的 Bézier 插值，它由两个数值组成：
 
-- The **influence** controls what would be the length of the tangent of the Bézier curve in the graph editor; for horizontal tangents (i.e. with `0` velocity), it directly controls the acceleration (ease out) and deceleration (ease in) of the motion around the keyframe.
-- The **velocity** is a signed value controlling the speed of the motion before (ease in) and after (ease out) the keyframe; the sign of the value tells the direction of the movement. In the graph editor, it is the angle of the tangents controlling the Bézier curve.
+- **影响力（influence）**控制图表编辑器中 Bézier 曲线切线的长度；对于水平切线（即速度为 `0`），它直接控制关键帧附近运动的加速（缓出 ease out）与减速（缓入 ease in）。
+- **速度（velocity）**是一个带符号数值，控制关键帧之前（缓入）与之后（缓出）的运动快慢；数值的符号表示运动方向。在图表编辑器中，它就是控制 Bézier 曲线的切线角度。
 
 ![](/docs-img/duik/animation/ease-edit.png)
 
-The first line with the dropdown menu let's you quickly apply, add or remove easing presets.
+第一行的下拉菜单，让你快速应用、添加或移除缓动预设。
 
-Below are two groups of two sliders.
+下面是两组滑块，每组两个。
 
-The first group sets the influence, the second group sets the velocity.
+第一组设置影响力，第二组设置速度。
 
-The sliders on the left-hand side set the *ease in* (before the keyframe), the sliders on the right-hand side set the *ease out* (after the keyframe)[^inandout].
+左边的滑块设置*缓入*（关键帧之前），右边的滑块设置*缓出*（关键帧之后）[^inandout]。
 
-The three ![](/docs-img/duik/icons/check.svg) ***apply*** buttons set the easing values to the selected keyframes; the first one sets both the influence and velocity, while the two others can be used to set only the influence or only the velocity.
+三个 ![](/docs-img/duik/icons/check.svg) ***应用*** 按钮把缓动数值设到所选关键帧上；第一个同时设置影响力和速度，另外两个可分别只设置影响力或只设置速度。
 
 <Callout type="success">
-    Actually, you don't really need the ![](/docs-img/duik/icons/check.svg) ***apply*** buttons, except to apply already existing values to other keyframes: as soon as you edit the value of one of the sliders, it's automatically applied on the selected keyframes.
+    实际上，除了把已有的数值应用到其他关键帧上，你并不真正需要这些 ![](/docs-img/duik/icons/check.svg) ***应用*** 按钮：只要你一改动某个滑块的数值，它就会自动应用到所选关键帧上。
 </Callout>
 
-### Velocities
+### 速度
 
-In After Effects, velocities are an absolute value, which depends on the property where it is used. In can be in *pixels per second* for spatial properties, or in *degrees per second* for angles, etc.
+在 After Effects 中，速度是一个绝对值，取决于它所用的属性。对于空间属性可以是*像素每秒*，对于角度可以是*度每秒*，等等。
 
-Duik uses a value relative to the velocity of a linear interpolation, given in percent, which is automatically converted to and from After Effects absolute velocities. This allows to copy and set the interpolation from any keyframe to any other keyframe on any property.
+Duik 使用一个相对于线性插值速度的数值，以百分比表示，并自动与 After Effects 的绝对速度相互换算。这使得你可以把插值从任意一个关键帧复制、设置到任意属性上的任意另一个关键帧。
 
-With this system:
+在这套系统中：
 
-- `0 %` velocity means no velocity.
-- `100 %` is the equivalent of the *continuous* mode of After Effects:  
-    It's the velocity of a linear interpolation.
-- `-100  %` is the same as above but going in the other direction.
+- `0 %` 速度表示没有速度。
+- `100 %` 相当于 After Effects 的*连续*（continuous）模式：  
+    它就是线性插值的速度。
+- `-100 %` 与上面相同，但方向相反。
 
-### Copy and paste keyframe ease values
+### 复制粘贴关键帧缓动数值
 
-1. **Select** a keyframe.
-2. Click the ![](/docs-img/duik/icons/eye_dropper.svg) ***pick***  button.  
-    The influence and velocity values are set on the sliders.
-3. **Select** the destination keyframes.
-4. Click one of the ![](/docs-img/duik/icons/check.svg) ***apply*** buttons.
+1. **选择**一个关键帧。
+2. 点击 ![](/docs-img/duik/icons/eye_dropper.svg) ***拾取*** 按钮。  
+    影响力和速度数值会被设到滑块上。
+3. **选择**目标关键帧。
+4. 点击某个 ![](/docs-img/duik/icons/check.svg) ***应用*** 按钮。
 
-### Presets
+### 预设
 
-1. **Select** some keyframes
-2. **Select the preset** in the dropdown menu  
-    The preset values are automatically set on the sliders below
-3. You can further apply these values with the ![](/docs-img/duik/icons/check.svg) ***apply*** buttons.
+1. **选择**一些关键帧。
+2. **在下拉菜单中选择预设**。  
+    预设数值会自动设到下面的滑块上。
+3. 你可以再用 ![](/docs-img/duik/icons/check.svg) ***应用*** 按钮应用这些数值。
 
-To add a preset, set the values you need with the four sliders then click the ![](/docs-img/duik/icons/add.svg) ***add*** button.
+要添加预设，先用四个滑块设好需要的数值，然后点击 ![](/docs-img/duik/icons/add.svg) ***添加*** 按钮。
 
-To remove a preset, select it in the list and click the ![](/docs-img/duik/icons/remove.svg) ***remove*** button.
+要移除预设，在列表中选中它，然后点击 ![](/docs-img/duik/icons/remove.svg) ***移除*** 按钮。
 
-[^inandout]: To the contrary of other animation software, in After Effects the interpolation is set on a single keyframe, around it, and "*in*" means *arriving in the keyframe*, *before* it, "*out*" means *getting out of the keyframe*, *after* it. That's what's called the *keyframe ease*.  
-In other animation software, the interpolation is defined between two keyframes (which is more logical and makes more sense mathematically speaking: there can't be any interpolation for a single keyframe, one always needs *at least two* keyframes to interpolate).  
-In this latter case, "*in*" means *getting in the interpolation*, that is *after* the first keyframe, what After Effects would call "*ease out*", and "*out*" is the opposite, what After Effects would call "*ease in*". ¯\\_(ツ)_/¯
-
-
+[^inandout]: 与其他动画软件不同，在 After Effects 中插值是设在单个关键帧上、围绕它生效的：*in* 指*进入关键帧*，即它*之前*；*out* 指*离开关键帧*，即它*之后*。这就是所谓的*关键帧缓动*。  
+在其他动画软件中，插值是定义在两个关键帧之间的（这在逻辑上更通顺，从数学上讲也更合理：单个关键帧谈不上插值，插值总需要*至少两个*关键帧）。  
+在后一种情况下，*in* 指*进入插值段*，也就是*第一个关键帧之后*，即 After Effects 所说的*缓出*（ease out）；*out* 则相反，即 After Effects 所说的*缓入*（ease in）。¯\\_(ツ)_/¯

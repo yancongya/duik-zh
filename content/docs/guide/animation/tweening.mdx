@@ -1,140 +1,134 @@
 ---
-title: "Tweening"
+title: "补间"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# Tweening
+# 补间
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J04_Tweening__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J04_Tweening__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-The first part of the animation panel is made of some tweening tools, especially, but not only, useful during the usual first steps of the animation process, blocking[*](../../misc/glossary), when animating with *hold* keyframes[^process].
+动画面板的第一部分由一些补间工具组成，尤其（但不仅）在动画流程最初的步骤——阻塞（blocking）[*](../../misc/glossary)阶段很有用，那时你用*保持（hold）*关键帧做动画[^process]。
 
 ![](/docs-img/illustration/Winsor_McCay_(1918)_The_Sinking_of_the_Lusitania_cel_(Lusitania_rolling_over).png)  
-*A cel from the animated film The Sinking of the Lusitania,  
-Winsor McCay, 1918  
-Public domain.*
+*动画电影《路西塔尼亚号的沉没》的一张赛璐珞片，  
+Winsor McCay，1918 年  
+公有领域。*
 
 ![](/docs-img/duik/animation/tweening.png)
 
-## ![](/docs-img/duik/icons/split_keyframe.svg) Split keyframe
+## ![](/docs-img/duik/icons/split_keyframe.svg) 拆分关键帧
 
-To ensure you'll keep a fixed part in the animation on a specific keyframe, you can *split* it: this tool duplicates the keyframe so there's twice the same keyframe at that time. This makes sure there will be a frozen time around the original keyframe time.
+为了确保动画在某个特定关键帧上有一个固定不动的部分，你可以把它*拆分*：这个工具会复制该关键帧，使同一时刻出现两个相同的关键帧。这样就能保证在原关键帧时刻周围有一段冻结的时间。
 
-1. **Select** some keyframes.
-2. Click the ![](/docs-img/duik/icons/split_keyframe.svg) ***Split*** button.
+1. **选择**一些关键帧。
+2. 点击 ![](/docs-img/duik/icons/split_keyframe.svg) ***拆分（Split）*** 按钮。
 
 ![](/docs-img/duik/animation/split-original.png)  
-*Original*
+*原始*
 
 ![](/docs-img/duik/animation/split-center.png)  
-*Result*
+*结果*
 
-You can tweak the way keyframes are split in the additional panel, with `[Shift] + [Click]` on the ![](/docs-img/duik/icons/split_keyframe.svg) *Split* button.
+你可以在附加面板里调整关键帧的拆分方式：`[Shift] + [点击]` ![](/docs-img/duik/icons/split_keyframe.svg) *拆分* 按钮。
 
 ![](/docs-img/duik/animation/split-options.png)
 
-The **duration** sets the time between the two resulting keyframes, in frames.
+**时长**设置拆分后两个关键帧之间的时间，以帧计。
 
-You can also set the new keyframes alignment in the timeline, relative to the original keyframe:
+你还可以设置新关键帧在时间线上相对于原关键帧的对齐方式：
 
 ![](/docs-img/duik/animation/split-original.png)  
-*The selected keyframe, before it is split*
+*被选中的关键帧，拆分前*
 
-- ***Center***  
-    ![](/docs-img/duik/animation/split-center.png)  
-- ***After***  
-    ![](/docs-img/duik/animation/split-after.png)  
-- ***Before***  
+- ***居中（Center）***  
+    ![](/docs-img/duik/animation/split-center.png)
+- ***之后（After）***  
+    ![](/docs-img/duik/animation/split-after.png)
+- ***之前（Before）***  
     ![](/docs-img/duik/animation/split-before.png)
 
-## ![](/docs-img/duik/icons/freeze_pose.svg) Freeze pose
+## ![](/docs-img/duik/icons/freeze_pose.svg) 冻结姿势
 
-This tool freezes the previous (or next) pose until the current time, by copying the previous (or next) keyframe of the animated properties.
+这个工具会把前一个（或后一个）姿势冻结到当前时间，做法是复制已动画属性的前一个（或后一个）关键帧。
 
-1. **Select** the animated layers.
-2. Click the  ![](/docs-img/duik/icons/freeze_pose.svg) ***Freeze*** button.  
-    `[Alt] + [Click]` to freeze the next pose instead of the previous one.
+1. **选择**已动画的图层。
+2. 点击 ![](/docs-img/duik/icons/freeze_pose.svg) ***冻结（Freeze）*** 按钮。  
+    `[Alt] + [点击]` 改为冻结后一个姿势，而不是前一个。
 
 ![](/docs-img/duik/animation/freeze-before.png)  
-*Original*
+*原始*
 
 ![](/docs-img/duik/animation/freeze-after.png)  
-*Result*
+*结果*
 
-You can tweak the way the pose is frozen in the additional panel, with `[Shift] + [Click]` on the ![](/docs-img/duik/icons/freeze_pose.svg) *Freeze* button.
+你可以在附加面板里调整姿势的冻结方式：`[Shift] + [点击]` ![](/docs-img/duik/icons/freeze_pose.svg) *冻结* 按钮。
 
 ![](/docs-img/duik/animation/freeze-options.png)
 
-By default, Duik freezes all **animated properties** it'll find, but you can set it to only freeze explicitly **selected properties** if you prefer.
+默认情况下，Duik 会冻结它找到的所有**已动画属性**；如果你愿意，也可以设为只冻结明确**选中的属性**。
 
-By default, Duik works only with **selected layers**, but you can tell it to use **all layers**; in this case it'll freeze all animations in the composition, no matter the selection. Be careful, this may be a bit long if there are a lot of animated properties.
+默认情况下，Duik 只处理**选中的图层**；但你可以让它使用**所有图层**，这时它会冻结合成里的所有动画，不管选中了什么。注意，如果已动画属性很多，这可能会有点慢。
 
-## ![](/docs-img/duik/icons/sync_keys.svg) Synchronize keyframes
+## ![](/docs-img/duik/icons/sync_keys.svg) 同步关键帧
 
-This tool synchronizes all the selected keyframes at the current time.
+这个工具把所有选中的关键帧同步到当前时间。
 
-1. **Select** some keyframes
-2. Click the ![](/docs-img/duik/icons/sync_keys.svg) ***Sync*** button.  
-    `[Alt] + [Click]` to sync at the last keyframe instead of the first (in case there are multiple selected keyframes on the same property).
+1. **选择**一些关键帧。
+2. 点击 ![](/docs-img/duik/icons/sync_keys.svg) ***同步（Sync）*** 按钮。  
+    `[Alt] + [点击]` 改为同步到最后一个关键帧，而不是第一个（当同一属性上有多个选中关键帧时）。
 
 ![](/docs-img/duik/animation/sync-before.png)  
-*Original*
+*原始*
 
 ![](/docs-img/duik/animation/sync-after.png)  
-*Result*
+*结果*
 
-If there are multiple keyframes selected on the same property, the animation is offset so that the first (or last) keyframe is synchronized:
+如果同一属性上选中了多个关键帧，动画会被偏移，使第一个（或最后一个）关键帧同步到位：
 
 ![](/docs-img/duik/animation/sync-m-before.png)  
-*Original*
+*原始*
 
 ![](/docs-img/duik/animation/sync-m-after.png)  
-*Result*
+*结果*
 
-## Tweening slider
+## 补间滑块
 
-The slider in the tweening section of the panel can be used to quickly and easily create *breakdowns*[*](../../misc/glossary) between keyframes.
+面板补间区的滑块，可以用来在关键帧之间快速、轻松地创建*过渡画（breakdown）*[*](../../misc/glossary)。
 
 ![](/docs-img/duik/animation/tween-slider.png)
 
-1. **Select** some properties
-2. **Change the slider value** (either with the slider or the value buttons below it)
+1. **选择**一些属性。
+2. **改变滑块数值**（用滑块，或用它下面的数值按钮）。
 
-A new breakdown keyframe (pose) is created at the current time, with values in between the next and previous keyframes at a ratio corresponding to the slider value.  
-`0 %` sets the breakdown at the value of the previous keyframe, `100 %` sets the breakdown at the value of the next keyframe.
+当前时间会创建一个新的过渡画关键帧（姿势），其数值按滑块数值对应的比例，落在下一个与上一个关键帧之间。  
+`0 %` 把过渡画设为上一个关键帧的数值，`100 %` 把过渡画设为下一个关键帧的数值。
 
 ![](/docs-img/duik/animation/tween-example.png)  
-*A `75 %` breakdown: you can see on the trajectory of the left leg (and other controllers) the breakdown being at 75 % between the two extreme poses.  
-This is true for all animated properties like rotations and all other values.*
+*一个 `75 %` 的过渡画：你可以在左腿（以及其他控制器）的轨迹上看到，过渡画位于两个极端姿势之间 75 % 的位置。  
+对于旋转等所有其他数值类已动画属性，也是如此。*
 
-You can tweak the way the tweening slider works in the additional panel, click the ![](/docs-img/duik/icons/options.svg) options button.
+你可以在附加面板里调整补间滑块的工作方式，点击 ![](/docs-img/duik/icons/options.svg) 选项按钮。
 
 ![](/docs-img/duik/animation/tween-options.png)
 
-By default, Duik freezes all **animated properties** it'll find, but you can set it to only freeze explicitly **selected properties** if you prefer.
+默认情况下，Duik 会冻结它找到的所有**已动画属性**；如果你愿意，也可以设为只冻结明确**选中的属性**。
 
-By default, Duik works only with **selected layers**, but you can tell it to use **all layers**; in this case it'll freeze all animations in the composition, no matter the selection. Be careful, this may be a bit long if there are a lot of animated properties.
+默认情况下，Duik 只处理**选中的图层**；但你可以让它使用**所有图层**，这时它会冻结合成里的所有动画，不管选中了什么。注意，如果已动画属性很多，这可能会有点慢。
 
+[^process]: 在（大型）工作室里，动画流程通常遵循以下步骤：
 
-[^process]: In (big) studios, the animation process usually follows these steps:
+    1. 布局（Layout）
+    2. 关键帧动画（阻塞 Blocking）
+    3. 中间画（In-betweens）
+    4. 样条动画（Spline animation）
 
-```text
-1. Layout
-2. Keyframe animation (blocking)
-3. In-betweens
-4. Spline animation
-```
+    直到第四步，关键帧插值才设为 Bézier 插值。在流程的前半段，它们保持在保持（hold）状态，此时动画流程非常接近传统的手绘动画流程。这有很多好处：可以在形体和轮廓上深入打磨细节，也能在细化动画之前多做几次检查。
 
-```text
-It's not until the fourth step that the keyframe interpolation is set to Bézier interpolation. During the first part of the process they're kept on hold, and the animation process is very close to a tradional, hand-drawn animation process. This has many advantages: going into lots of details on the shapes and silhouettes, and allows for more checks before detailing the animation. 
-```
+    不过有时候，直接用 Bézier 插值和曲线来动画会更快。
 
-```text
-Sometimes, it's quicker to directly animate using Bézier interpolation and curves though.  
-In an nutshell, our advice is:
-```
+    简而言之，我们的建议是：
 
-```text
-- Animate in blocks, with keyframes on hold, where the emotion is more important; this eases the creation of expressive and detailed posing of the character. The shape is more important than the movement in this case.
-- Animate with curves when the movement is more important, for dynamic actions, like waling, fighting, falling, running... In this case, you want to focus on the timing and rythm first, and this is easier with a curve editor.
-```
-
+    - 在情感更重要的地方，用阻塞方式动画，关键帧保持在 hold 状态；这样更容易做出富有表现力、细节丰富的角色姿势。在这种情况下，形体比运动更重要。
+    - 当运动更重要时，用曲线动画来做动态动作，比如走路、打斗、摔倒、奔跑……这时你想先专注于节奏，而曲线编辑器更容易做到这一点。

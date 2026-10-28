@@ -1,26 +1,27 @@
 ---
-title: "![](/docs-img/duik/icons/ik_fk_switch.svg) IK / FK Switch"
+title: "IK / FK 切换"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/ik_fk_switch.svg) IK / FK Switch
+# <img src="/docs-img/duik/icons/ik_fk_switch.svg" style={{width: '1em'}}/> IK / FK 切换
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J03_AnimTools02__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J03_AnimTools02__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-The *IK/FK Switch* is an easy way to switch between IK and FK during the animation, if the layers have been rigged by Duik.
+*IK/FK 切换* 能让你在动画过程中轻松地在反向动力学（IK）与正向动力学（FK）之间切换，前提是这些图层已经用 Duik 绑定。
 
-1. **Select** the controller of an IK made with Duik
-2. Click the ![](/docs-img/duik/icons/ik_fk_switch.svg) ***IK / FK Switch*** button.  
-    Duik will detect if it need to be switched to IK or FK and set needed keyframes at the current time to make the switch.
+1. **选择**用 Duik 创建的 IK 的控制器
+2. 点击 ![](/docs-img/duik/icons/ik_fk_switch.svg) ***IK / FK 切换*** 按钮。  
+    Duik 会自动判断需要切换到 IK 还是 FK，并在当前时间设置必要的关键帧来完成切换。
 
-The switch happens in two steps:
+切换分两步进行：
 
-1. Duik snaps the FK to the IK or the opposite, depending on the switch, and adds keyframes to keep the value at the current frame.
-2. Duik actually switches between the IK and the FK, adding keyframes at the current time.
+1. Duik 会把 FK 吸附到 IK，或反过来（取决于切换方向），并添加关键帧以保持当前帧的数值不变。
+2. Duik 真正在 IK 与 FK 之间切换，并在当前时间添加关键帧。
 
-You can `[Shift] + [Click]` the ![](/docs-img/duik/icons/ik_fk_switch.svg) IK / FK Switch button to access the snapping tools.
+你可以 `[Shift] + [点击]` ![](/docs-img/duik/icons/ik_fk_switch.svg) IK / FK 切换按钮来访问吸附工具。
 
 ![](/docs-img/duik/animation/ikfk.png)
 
-There you can manually snap the FK values on the IK or the opposite, without actually switching between IK and FK, if you should need it.
-
-
+在这里你可以手动把 FK 数值吸附到 IK，或反过来，而不真正切换 IK/FK——如果你确实需要这样做的话。

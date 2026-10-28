@@ -1,48 +1,50 @@
 ---
-title: "![](/docs-img/duik/icons/sequencer.svg) Sequence"
+title: "序列"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/sequencer.svg) Sequence
+# <img src="/docs-img/duik/icons/sequencer.svg" style={{width: '1em'}}/> 序列
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J09_Sequence__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J09_Sequence__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-The *Sequence* tool distributes layers or keyframes in time.
+*序列（Sequence）*工具用于在时间上分布图层或关键帧。
 
 ![](/docs-img/duik/animation/sequence-linear.png)
 
-1. **Select** some layers or keyframes
-2. Click the ![](/docs-img/duik/icons/sequencer.svg) ***Sequence*** button.  
-    `[Shift] + [Click]` the button to access some options
+1. **选择**一些图层或关键帧。
+2. 点击 ![](/docs-img/duik/icons/sequencer.svg) ***序列*** 按钮。  
+    `[Shift] + [点击]` 该按钮可访问一些选项。
 
 ![](/docs-img/duik/animation/sequence.png)
 
-You can sequence either the selected **layers** or the selected **keyframes**.
+你可以对选中的**图层**或选中的**关键帧**做序列排列。
 
-When sequencing the layers, you can choose to either **move** them (***Times***) or **cut** them (***In points*** or ***Out points***).
+排列图层时，你可以选择是**移动**它们（***Times***）还是**剪切**它们（***In points*** 或 ***Out points***）。
 
-There are several interpolation[*](../../misc/glossary) algorithms available, which define the shape of the sequenced layers or keyframes.
+有若干插值[*](../../misc/glossary)算法可用，它们决定排列后图层或关键帧的形状。
 
-- **Linear**
+- **线性（Linear）**
 
 ![](/docs-img/duik/animation/sequence-linear.png)
 
-- **Ease** - Sigmoid (logistic)
+- **缓动（Ease）** —— S 形（逻辑斯蒂 logistic）
 
 ![](/docs-img/duik/animation/sequence-sigmoid.png)
 
-- **Natural** - Bell (gaussian)
+- **自然（Natural）** —— 钟形（高斯 gaussian）
 
 ![](/docs-img/duik/animation/sequence-gaussian.png)
 
-- **Ease In** (logarithmic)
+- **缓入（Ease In）**（对数 logarithmic）
 
 ![](/docs-img/duik/animation/sequence-easin.png)
 
-- **Ease Out** (exponential)
+- **缓出（Ease Out）**（指数 exponential）
 
 ![](/docs-img/duik/animation/sequence-easout.png)
 
-For all but the *linear* interpolations, you can adjust the shape with the ***rate*** slider.
+对于除*线性*之外的所有插值，你都可以用 ***rate（速率）*** 滑块调整形状。
 
-Of course, you can also set the duration of the sequence, in frames.
-
+当然，你也可以设置序列的时长（以帧计）。

@@ -1,118 +1,119 @@
 ---
-title: "![](/docs-img/duik/icons/nla.svg) Non-Linear Animation"
+title: "非线性动画"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/nla.svg) Non-Linear Animation
+# <img src="/docs-img/duik/icons/nla.svg" style={{width: '1em'}}/> 非线性动画
 
-Using the *Non-Linear Animation* tool, abbreviated as ***NLA***, you can edit animation clips the same way you would edit video clips in a non-linear editing software (*NLE*) like *Adobe Premiere* or *Avid Media Composer* for example, but right into *After Effects*, keeping all your animation editable at any time.
+借助*非线性动画（Non-Linear Animation）*工具，缩写为 ***NLA***，你可以像在*非线性编辑软件*（*NLE*，比如 *Adobe Premiere* 或 *Avid Media Composer*）里剪辑视频片段那样剪辑动画片段——但这一切就在 *After Effects* 里完成，并且你的动画随时都保持可编辑。
 
 ![](/docs-img/illustration/Theatreoptique.png)  
-*First public performance of Reynaud's 'Theatre Optique' in Paris,  
-Louis Poyet, 1892  
-Public domain.*
+*Reynaud 的「光学剧场」（Théâtre Optique）在巴黎的首次公开演出，  
+Louis Poyet，1892 年  
+公有领域。*
 
-Not only the *NLA* can edit your animations together, but it also can actually *transition* between animations as simply as a crossfade effect, by animating simple opacity values.
+*NLA* 不仅能把你的动画剪辑在一起，还能像交叉淡化那样简单地在动画之间做*过渡*——只需动画化简单的不透明度数值即可。
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_M01_Intro__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_M01_Intro__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-## Usage
+## 用法
 
-To use the *NLA*, you need to start from a base composition, containing what you wish to animate, which can be anything: simple layers, rigged character, props, using or not using Duik [*Controllers*](../controllers).
+要使用 *NLA*，你需要从一个基础合成开始，里面放着你想动画化的东西——可以是任何东西：普通图层、绑定好的角色、道具，用或不用 Duik [*控制器*](../controllers) 都行。
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_M02_Usage__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_M02_Usage__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-### Creation
+### 创建
 
-Like other tools in Duik, **you first have to select what you're rigging/animating** and then click on the *Non-linear Animation* button. Depending on the selection, this is how Duik will create and rig the *NLA* using the active composition:
+和 Duik 里其他工具一样，**你先选中要绑定 / 动画化的对象**，然后点击*非线性动画*按钮。根据所选内容，Duik 会用活动合成这样来创建并绑定 *NLA*：
 
-1. If Duik finds any **selected properties**, it will rig them, and only them.
-2. Else, if Duik finds any **selected layers**, it will rig **all transform properties** (position, rotation, scale, opacity) of these layers, plus the **effects** if the layer is a Duik [**Controller**](../controllers).
-3. Else, Duik will rig **all transform properties and effects** of all Duik [**Controllers**](../controllers), if any.
-4. Finally, if Duik did not find anything else, it will rig all transform properties of **all layers**.
+1. 如果 Duik 发现有任何**选中的属性**，它就只绑定这些属性。
+2. 否则，如果 Duik 发现有任何**选中的图层**，它就绑定这些图层的**所有变换属性**（位置、旋转、缩放、不透明度）；如果图层是一个 Duik [**控制器**](../controllers)，还会加上**效果**。
+3. 否则，Duik 会绑定所有 Duik [**控制器**](../controllers)（如果有的话）的**所有变换属性和效果**。
+4. 最后，如果 Duik 什么都没找到，它就绑定**所有图层**的所有变换属性。
 
 <Callout type="info">
-    The current values (e.g. the current pose of the character) will be the "neutral" values, the "rest" pose. They are the values from which the animation will be generated, and to which the *NLA* will fall back if there's no animation.
+    当前数值（比如角色当前的姿势）将成为「中性」数值，即「休息」姿势。动画会从这些数值生成；当没有动画时，*NLA* 就回退到这些数值。
 </Callout>
 
-Duik then creates a few ***NLA Compositions***.
+Duik 随后会创建几个 ***NLA 合成***。
 
 ![](/docs-img/duik/animation/create_nla.gif)  
-*By default, without selection, the *NLA* rigs all transform properties of the Duik controller layers.*
+*默认情况下，没有选择时，*NLA* 会绑定 Duik 控制器图层的所有变换属性。*
 
-From a single base composition:
+从一个基础合成出发：
 
 ![](/docs-img/duik/animation/nla_before.png)
 
-the *NLA* creates a folder containing four new compositions:
+*NLA* 会创建一个文件夹，里面包含四个新合成：
 
 ![](/docs-img/duik/animation/nla_after.png)
 
-These compositions are:
+这些合成分别是：
 
-- ***NLA.Clip::**name*: **Clips** are the compositions containing the actual animated clips; they're where you animate the layers, using either keyframes or expressions. There can be as many *NLA.Clip* compositions as you need. You can quickly create new clips from the *NLA* options in the Duik Animation panel.
-- ***NLA.Edit::**name*: **Edit** is the composition where you can edit your animated clips together.
-- ***NLA.Original::**name* is a copy of the original composition. It is used to create new clips.
-- ***NLA.Render::**name* is the composition containing the result of the edit, i.e. the clips edited together with their transitions. It is the composition which may be rendered or used as a precompositions in other parts of the project.
+- ***NLA.Clip::**名称*：**片段（Clip）**是包含实际动画片段的合成；你在这里用关键帧或表达式动画化图层。*NLA.Clip* 合成可以有任意多个。你可以在 Duik 动画面板的 *NLA* 选项里快速新建片段。
+- ***NLA.Edit::**名称*：**编辑（Edit）**是你把各动画片段剪辑在一起的合成。
+- ***NLA.Original::**名称* 是原合成的副本，用来创建新片段。
+- ***NLA.Render::**名称* 是包含编辑结果的合成，即各片段连同它们的过渡剪辑在一起的结果。它是可以渲染、或在项目其他部分用作预合成的那个合成。
 
 <Callout type="warning">
-    Do not change the first part of the name of these compositions (before and including `::`) as it is used by Duik and the *NLA* expressions to identify these compositions. The rest, the end of the name, can be safely modified at any time.
+    不要改这些合成名字的第一部分（`::` 及其之前的部分），因为 Duik 和 *NLA* 表达式要用它来识别这些合成。名字剩下的后半部分，随时都可以放心修改。
 </Callout>
 
-### Animated clips (*NLA.Clip::*)
+### 动画片段（*NLA.Clip::*）
 
-The actual animations are made in the ***NLA.Clip::*** compositions. Open these compositions and animate your layers as you would in any other composition. You can use either keyframes, expressions or any Duik feature, the *NLA* will work with all animated values no matter how they're controlled.
+真正的动画在 ***NLA.Clip::*** 合成里制作。打开这些合成，像在其他任何合成里一样动画化你的图层。你可以用关键帧、表达式或任何 Duik 功能，*NLA* 会处理所有被动画的数值，不管它们是怎么被控制的。
 
 ![](/docs-img/duik/animation/nla_add_new_clip.png)
 
-To **create new clips**, you can either **duplicate an existing clip** (to work from the existing animation) or use the __*Add new clip* button__ in the *NLA* options in the Duik Animation panel. This button will create a new clip for the *NLA* corresponding to the active composition (it doesn't matter which one it is as long as it belongs the the *NLA*, i.e. its name starts with "*NLA.*").
+要**新建片段**，你可以**复制一个现有片段**（在已有动画基础上继续），或者用 Duik 动画面板 *NLA* 选项里的**「添加新片段」按钮**。这个按钮会为 *NLA* 对应于活动合成的部分新建一个片段（只要它属于这个 *NLA*，即名字以 *"NLA."* 开头，是哪个合成都无所谓）。
 
 ![](/docs-img/duik/animation/nla_add_clip.gif)
 
-You can - and it is recommended to - change the duration of the "*NLA.Clip::*" compositions, so they fit the exact duration of the animation.
+你可以——而且建议——调整 *"NLA.Clip::"* 合成的时长，让它恰好匹配动画的实际时长。
 
-### Edit clips together
+### 把片段剪辑在一起
 
-To edit the clips together and benefit from the powerful *NLA* features, open the ***NLA.Edit::*** composition.
+要把片段剪辑在一起、用好 *NLA* 的强大功能，打开 ***NLA.Edit::*** 合成。
 
 ![](/docs-img/duik/animation/nla_edit_comp.png)
 
-From this comp, you can edit the clips together as you would with video clips in a video editing software. You can **trim**, **move**, **duplicate** the clips.
+在这个合成里，你可以像在视频剪辑软件里处理视频片段那样，把片段剪辑在一起。你可以**裁剪（trim）**、**移动**、**复制（duplicate）**片段。
 
-To work with the edit:
+处理编辑时要注意：
 
-- The ***NLA.Clip::*** precompositions must be hidden. They're used by the *NLA* to generate the animation, but they're not actually used for rendering.
-- The result is rendered in the ***NLA.Render::*** composition. That's the reason why you should keep it enabled as the first layer of the ***NLA.Edit::*** composition; this is the way to see the result of the edit, in real time.
-- At times when there are no clips in the timeline (or if all their opacity is at `0 %`), the *NLA* falls back to the original values as they were before the creation of the *NLA*.
+- ***NLA.Clip::*** 预合成必须隐藏。它们被 *NLA* 用来生成动画，但并不真正用于渲染。
+- 结果在 ***NLA.Render::*** 合成里渲染。这就是为什么你应该把它作为 ***NLA.Edit::*** 合成的第一个图层并保持启用；这样就能实时看到编辑结果。
+- 在时间线上没有片段的时刻（或它们的不透明度都是 `0 %`），*NLA* 就回退到创建 *NLA* 之前的原始数值。
 
-### Adding other properties to the NLA
+### 给 NLA 添加其他属性
 
-According to the way you've setup the *NLA*, you may want to add other properties to be animated and rigged by the *NLA*. There are two simple ways to do that:
+根据你搭建 *NLA* 的方式，你可能想添加其他属性，让 *NLA* 来动画化和绑定。有两种简单的方法：
 
-First, **open** the ***NLA.Render::*** composition. Then, you can either:
+先**打开** ***NLA.Render::*** 合成，然后你可以：
 
-- Copy and paste the *NLA* expression from any property to the property you wish to add.
-- Or select the new properties, and click on the *Non-Linear animation* button in the Animation Panel of Duik.
+- 把 *NLA* 表达式从任意属性复制粘贴到你想添加的属性上。
+- 或者选中新属性，点击 Duik 动画面板里的*非线性动画*按钮。
 
-### Looping animation and time remapping
+### 循环动画与时间重映射
 
-**You can use and modify the time remap property** of the ***NLA.Clip::*** precompositions in the ***NLA.Edit::*** composition. This is a nice and easy way to change the speed of the animation, or to loop them, either using time remap keyframes, expressions or the Duik [***Looper***](../automation/looper) feature.
+**你可以在 *NLA.Edit::* 合成里使用并修改 *NLA.Clip::* 预合成的时间重映射属性。** 这是改变动画速度、或让动画循环的好办法——可以用时间重映射关键帧、表达式，或 Duik 的 [***Looper***](../automation/looper) 功能。
 
 ![](/docs-img/duik/animation/nla_looper.png)
 
-### Transition between animation
+### 动画之间的过渡
 
-**Animations can be controlled using the opacity** of the the ***NLA.Clip::*** precompositions. `100 %` plays the animation as it is, `0 %` deactivates it, and values in between multiply the values, effectively *weighting* the animations. This can especially be used to **animate transitions between clips**, for example to transition between a standing pose and a walk cycle, and then from a walk cycle to a run cycle. This works exactly as if you were animating a crossfade between video clips, except that the *NLA* doesn't actually animates the opacity but really animates the transition of all animated properties between the animated clips.
+**可以通过 *NLA.Clip::* 预合成的不透明度来控制动画。** `100 %` 原样播放动画，`0 %` 停用它，介于其间的数值会相乘，从而有效地*加权*各动画。这尤其可以用来**动画化片段之间的过渡**，比如在站立姿势和行走循环之间过渡，再从行走循环过渡到奔跑循环。这完全就像你在视频片段之间做交叉淡化一样，只不过 *NLA* 实际上动画化的不是不透明度，而是真正动画化各动画片段之间所有已动画属性的过渡。
 
 ![](/docs-img/duik/animation/nla_transition.png)
 
 <Callout type="success">
-    An ***NLA::Weight*** slider is also added in the effects of the *NLA.Clip::* precompositions, which controls the weight the same way as the opacity of the layer, except that it's not limited to the range `[0 %, 100 %]`. You can use this slider instead of the opacity if you wish to *extrapolate* the animation.
+    *NLA.Clip::* 预合成的效果里还加了一个 ***NLA::Weight（权重）*** 滑块，它以与图层不透明度相同的方式控制权重，但不受 `[0 %, 100 %]` 范围限制。如果你想*外推*动画，可以用这个滑块代替不透明度。
 </Callout>
 
-### Use or render the result
+### 使用或渲染结果
 
-You can use either the *NLA.Edit::* or the ***NLA.Render::*** compositions to include the edited animation inside other compositions or to render it.
+你可以用 *NLA.Edit::* 或 ***NLA.Render::*** 合成，把编辑好的动画包含进其他合成，或渲染它。
 
 ![](/docs-img/duik/animation/nla_render.png)
-
-

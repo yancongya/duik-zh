@@ -1,208 +1,206 @@
 ---
-title: "![](/docs-img/duik/icons/interpolator.svg) Interpolator"
+title: "插值器"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/interpolator.svg) Interpolator
+# <img src="/docs-img/duik/icons/interpolator.svg" style={{width: '1em'}}/> 插值器
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J02_Interpolator__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J02_Interpolator__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-The *Interpolator* help you interpolate[*](../../../misc/glossary) (and extrapolate[*](../../../misc/glossary)) your keyframe values with handy methods other than the usual Bézier and linear functions, or `loopIn()` and `loopOut()` expressions.
+*插值器* 让你能用一些便捷的方法对关键帧数值进行插值[*](../../../misc/glossary)（以及外推[*](../../../misc/glossary)），而不必局限于常用的 Bézier、线性函数，或 `loopIn()`、`loopOut()` 表达式。
 
 ![](/docs-img/illustration/Carl_Friedrich_Gauss_Notizblatt_mit_der_Zeichnung_einer_unbekannten_Frau_1804.jpg)  
-*Notepad with a drawing of an unknown woman, perhaps Johann Gauss born Osthoff,   
-Carl Friedrich Gauß, 1804   
-Public domain.*
+*记事本上画着一位不知名女子的肖像，作者可能是约翰·高斯（生于奥斯特霍夫），卡尔·弗里德里希·高斯，1804 年，公有领域。*
 
-In After Effects, like in almost all animation software, interpolation between keyframes is either linear or using a Bézier function. Although using a Bézier function to interpolate keyframes is very powerful, it can take a lot of time to precisely adjust, as between two keyframes there are four parameters to set (two coordinates per Bézier control point, a.k.a. tangent).
+在 After Effects 中，和几乎所有动画软件一样，关键帧之间的插值要么是线性的，要么使用 Bézier 函数。虽然用 Bézier 函数插值非常强大，但要精确调整却很费时间：两个关键帧之间有四个参数需要设置（每个 Bézier 控制点，也就是切线，有两个坐标）。
 
-Duik can help you with the process, either by controlling the Bézier interpolation with less parameters and some automation, or by introducing completely different interpolation functions[*](../../../misc/glossary).
+Duik 可以帮你完成这个过程：要么用更少的参数加一些自动化来控制 Bézier 插值，要么引入完全不同的插值函数[*](../../../misc/glossary)。
 
-1. **Select** some properties
-2. Click the ![](/docs-img/duik/icons/interpolator.svg) ***Interpolator*** button.
+1. **选择**一些属性
+2. 点击 ![](/docs-img/duik/icons/interpolator.svg) ***插值器*** 按钮。
 
-Duik adds an effect on the layer to let you easily control the interpolation on the properties.
+Duik 会在图层上添加一个效果，让你轻松控制这些属性的插值。
 
 <Callout type="success">
-    When you've applied the Interpolator on some properties and then want to use the same Interpolator on other properties, you can just copy and paste the expression in the new properties.
+    当你已经对某些属性应用了插值器，之后想把同样的插值器用到其他属性上时，直接把表达式复制粘贴到新属性即可。
 </Callout>
 
-## Effect
+## 效果
 
 ![](/docs-img/duik/animation/interpolator-effect.png)
 
-You first have to choose the **interpolation type** to use on the property.
+首先要为属性选择使用哪种**插值类型**。
 
-Duik proposes these types (read the details below):
+Duik 提供以下类型（详见下文）：
 
-- **None** (use keyframes)
-- **Linear**
+- **无**（使用关键帧）
+- **线性**
 - **Bézier**
-- **Gaussian**
-- **Logistic (sigmoid)**
-- **Logarithmic**
-- **Exponential**
+- **高斯**
+- **逻辑（S 型函数）**
+- **对数**
+- **指数**
 
-Except *None* and *Linear*, all these functions can be quickly adjusted with the ***Rate*** value.
+除了*无*和*线性*之外，所有这些函数都可以通过 ***Rate（速率）*** 数值快速调整。
 
 <Callout type="success">
-    Both the interpolation type and the rate properties can be animated; this way you can easily use multiple interpolation methods on the same property at different times!
+    插值类型和速率属性都可以做关键帧动画；这样你就能在同一属性的不同时间点轻松使用多种插值方法！
 </Callout>
 
-The Interpolator can also be used to extrapolate the keyframes, i.e. to continue the animation after the last keyframe (e.g. loop or follow through), or before the first one. It is even able to detect some fixed parts in the animation in between the keyframes to extrapolate some movement in these parts.
+插值器还可以用来外推关键帧，也就是在最后一个关键帧之后继续动画（例如循环或跟随），或者在第一个关键帧之前外推。它甚至能识别关键帧之间动画里的静止段，在这些段落中外推出一些运动。
 
-## Interpolation
+## 插值
 
-### None (use keyframes)
+### 无（使用关键帧）
 
-With this mode, Duik will not interpolate between the keyframes but let After Effects do the interpolation as you wish, using standard After Effects Bézier or linear methods. This is useful if you'd like to use the Interpolator only for its extrapolation (loop and follow through) capabilities.
+在这个模式下，Duik 不会在关键帧之间插值，而是让 After Effects 按你自己的方式插值，使用标准的 After Effects Bézier 或线性方法。如果你只想用插值器的外推（循环和跟随）功能，这个模式就很有用。
 
-### Linear
+### 线性
 
-This is a very simple linear interpolation, similar to the default After Effects keyframes.
+这是一种非常简单的线性插值，和 After Effects 默认的关键帧类似。
 
 ![](/docs-img/ae/interp-linear.png)  
-Linear *interpolation.*
+线性*插值。*
 
 ### Bézier
 
-With this mode, you can use a standard Bézier function to interpolate, but control the parameters more easily.
+在这个模式下，你可以用标准 Bézier 函数插值，但参数控制更轻松。
 
 ![](/docs-img/ae/interp-bezier.png)  
-Bézier *interpolation.*
+Bézier *插值。*
 
-Duik uses carefully chosen default values for the actual Bézier parameters, and lets you quickly adjust the *easing* using only the *Rate* property of the Interpolator effect.
+Duik 为实际的 Bézier 参数选用了精心挑选的默认值，你只需用插值器效果的 *Rate* 属性就能快速调整*缓动*。
 
-But you can also manually adjust everything in the *Bézier options* section of the effect.
+不过你也可以在效果的 *Bézier 选项* 部分手动调整所有参数。
 
 ![](/docs-img/duik/animation/interpolator-effect-bezier.png)
 
-To make it quick and easy to control both Bézier control points (tangents) at once, you can use the ***IN/Out ratio***. With this value, both tangents are horizontal (the After Effects easing *speed* in `0`), and you control the ratio between the length of the two tangents (the After Effects easing *influence*).  
-At `50 %`, both tangents have the same length, at `0 %` the *out influence* is `0 %` and at `100 %` it's the opposite.  
-With this ratio set, you can then control the actual length of both tangents at once with the *Rate* property of the Interpolator effect, which makes it quick and easy to adjust the Bézier interpolation of all the keyframes at once. Don't forget all these values can be animated!
+为了能同时快速轻松地控制两个 Bézier 控制点（切线），你可以使用 ***入/出比率***。设置这个数值后，两条切线都是水平的（相当于 After Effects 缓动的*速度*为 `0`），你控制的是两条切线长度之间的比率（相当于 After Effects 缓动的*影响力*）。  
+设为 `50 %` 时两条切线长度相同；设为 `0 %` 时*出点影响力*为 `0 %`；设为 `100 %` 时则相反。  
+设定好这个比率后，再用插值器效果的 *Rate* 属性就能同时控制两条切线的实际长度，从而快速轻松地一次性调整所有关键帧的 Bézier 插值。别忘了，所有这些数值都可以做动画！
 
-If you need to set the equivalent of the After Effects easing *speed* (i.e. the angle of the tangents) or control manually and precisely all the values, check the ***Use Advanced options*** box and set the values in the ***Advanced*** section.
+如果你需要设置相当于 After Effects 缓动*速度*的参数（即切线的角度），或者需要手动精确控制所有数值，勾选 ***使用高级选项*** 复选框，然后在 ***高级*** 部分设置数值。
 
-### Gaussian
+### 高斯
 
-Using a *gaussian* function to interpolate the keyframes helps creating very natural and smooth movements with a single parameter, set with the *Rate* property of the Interpolator effect.
+用*高斯*函数对关键帧插值，只需通过插值器效果的 *Rate* 属性设置一个参数，就能创建非常自然、流畅的运动。
 
 ![](/docs-img/ae/interp-gauss.png)  
-Gaussian *interpolation.*
+高斯*插值。*
 
-This function is also called a *bell* function because of the shape it generates. The resulting motion feels very natural, especially for characters, animals, to show their *will*: although the movement is very smooth, the acceleration is a bit faster than the deceleration, which perfectly mimics the actual acceleration and deceleration of *voluntary* movements.
+这个函数因生成的曲线形状而被称为*钟形*函数。生成的运动感觉非常自然，尤其适合角色和动物，能表现出它们的*意志*：虽然运动非常流畅，但加速比减速略快，完美模拟了*自主*运动实际的加速和减速过程。
 
-This acceleration and deceleration can easily be adjusted with the *Rate* property.
+这种加速和减速可以用 *Rate* 属性轻松调整。
 
 <Callout type="info">
-    The interpolation generated by this gaussian function can't actually be generated by a standard Bézier function (without adding intermediary keyframes); the deceleration can be much smoother, and the motion feels much more dynamic.
+    这种高斯函数生成的插值，实际上是无法用标准 Bézier 函数生成的（除非添加中间关键帧）；它的减速可以平滑得多，运动也感觉更有活力。
 </Callout>
 
-### Logistic (Sigmoid)
+### 逻辑（S 型函数）
 
-To the contrary of the gaussian function, the interpolation using the logistic function is perfectly symmetrical, with the same acceleration and deceleration (thus its other name, *Sigmoid*).
+与高斯函数相反，使用逻辑函数的插值完全对称，加速和减速相同（因此它又叫 *S 型函数（Sigmoid）*）。
 
-This may be useful for more mechanical movements.
+这可能更适合偏机械的运动。
 
 ![](/docs-img/ae/interp-logistic.png)  
-Logistic *interpolation.*
+逻辑*插值。*
 
-To the contrary of the Duik Bézier interpolation, with the logistic function, what's controlled with the *Rate* property is the actual speed of the movement. That means the interpolation may not *complete* if there's not enough time between the keyframes or if the rate is too small (when the speed is not high enough to finish and stop the movement given the time between the keyframes).
+与 Duik 的 Bézier 插值相反，使用逻辑函数时，*Rate* 属性控制的是运动的实际速度。这意味着如果关键帧之间的时间不够，或者速率太小（在关键帧之间的时间内，速度不足以完成运动并停下来），插值可能无法*走完*。
 
 <Callout type="info">
-    The movement never actually stop using this function, but given enough time to slow down it's slow enough to seem to stop.
+    使用这个函数时运动实际上永远不会完全停止，但只要有足够的时间减速，它就会慢到看起来像停了一样。
 </Callout>
 
-The fact that the speed may not be `0` on the keyframe may actually be very useful when using extrapolations, especially the *continue* or *follow through* modes.
+速度在关键帧上可能不为 `0`，这一点在外推时其实非常有用，尤其是*继续*或*跟随*模式。
 
 ![](/docs-img/ae/interp-logistic-exrap-continue.png)  
-Logistic *interpolation with the extrapolation set on* continue.
+逻辑*插值，外推设为**继续*。
 
-In the example above, the interpolation is set to *Logistic (sigmoid)* and both the *In* and *Out* extrapolations are set to *Continue*. This creates **a movement which never stops**. That would be very difficult to set with a standard Bézier function.
+上面的例子中，插值设为*逻辑（S 型函数）*，*入*和*出*外推都设为*继续*。这就创建了**一个永不停止的运动**。用标准 Bézier 函数要做到这一点会非常困难。
 
-This interpolation works nice with the *follow through* extrapolation too.
+这种插值配合*跟随*外推效果也很好。
 
 ![](/docs-img/ae/interp-logistic-exrap-fthrough.png)  
-Logistic *interpolation with the extrapolation set on* follow through.
+逻辑*插值，外推设为**跟随*。
 
-### Logarithmic or Exponential
+### 对数或指数
 
-Logarithmic and Exponential are always decelerating and always accelerating functions respectively.
+对数函数和指数函数分别是始终减速、始终加速的函数。
 
 ![](/docs-img/ae/interp-log.png)  
-Logarithmic *interpolation.*
+对数*插值。*
 
 ![](/docs-img/ae/interp-exp.png)  
-Exponential *interpolation.*
+指数*插值。*
 
+它们非常适合用来做物体的出现或消失、物体进入画面或离开画面的动画。
 
-They're very useful to animate apparitions or disappearances, objects coming in or getting out of the frame.
-
-Similarly to the *logistic (sigmoid)* function, what makes them interesting is that the generated movement never really stops, and this is especially difficult to setup precisely using standard Bézier functions.  
-The generated motion is also very smooth.
+和*逻辑（S 型函数）*函数类似，它们的有趣之处在于生成的运动永远不会真正停止，而这恰恰是用标准 Bézier 函数很难精确设置的。  
+生成的运动也非常流畅。
 
 ![](/docs-img/ae/interp-log-extrap-continue.png)  
-Logarithmic *interpolation, with the extrapolation set on* continue.
+对数*插值，外推设为**继续*。
 
-You can use the *Rate* property to adjust the acceleration or deceleration rate.
+你可以用 *Rate* 属性调整加速或减速的速率。
 
-## Extrapolation
+## 外推
 
-The Interpolator can also extrapolate the movement, continue it after the keyframes, or before them.
+插值器还可以外推运动，在关键帧之后或之前继续运动。
 
 ![](/docs-img/duik/animation/interpolator-effect-extrapolation.png)
 
-First, the *Extrapolation* to property to `100 %` (or any value other than `0 %`) to enable it.
+首先，把 *Extrapolation（外推）* 属性设为 `100 %`（或任何非 `0 %` 的数值）来启用它。
 
 <Callout type="success">
-    The *Extrapolation* property can be animated to enable, disable or adjust the extrapolation at any time.
+    *Extrapolation（外推）* 属性可以做动画，随时启用、禁用或调整外推。
 </Callout>
 
-The *In* extrapolation section contains the options for the extrapolation before the keyframes, the *Out* extrapolation section for the extrapolation after the keyframes.
+*入*外推部分包含关键帧之前的外推选项，*出*外推部分包含关键帧之后的外推选项。
 
-There are several types of extrapolation:
+外推有以下几种类型：
 
-- **Constant**: values are not extrapolated, the value of the last keyframe is used.
-- **Continue**: the motion continues smoothly after the last keyframe, depending on the interpolation set before the keyframe.  
+- **常量**：不外推数值，使用最后一个关键帧的数值。
+- **继续**：运动在最后一个关键帧之后平滑继续，具体取决于关键帧之前设置的插值。  
     ![](/docs-img/ae/extrap-continue.png)  
-    Continue *extrapolation after a* linear *interpolation.*  
+    线性*插值之后的**继续*外推。  
     ![](/docs-img/ae/interp-logistic-exrap-continue.png)  
-    Continue *extrapolation before and after a* logistic *interpolation.*
-- **Offset**: the motion is repeated, the values being added to the last known value.  
+    逻辑*插值前后的**继续*外推。
+- **偏移**：重复运动，数值累加在最后已知数值之上。  
     ![](/docs-img/ae/extrap-offset.png)  
-    Offset *extrapolation.*
-- **Cycle**: the motion is repeated.  
+    *偏移*外推。
+- **循环**：重复运动。  
     ![](/docs-img/ae/extrap-cycle.png)  
-    Cycle *extrapolation*.
-- **Pingpong**: the motion is repeated, reversed every other cycle.  
+    *循环*外推。
+- **乒乓**：重复运动，每隔一个周期反转方向。  
     ![](/docs-img/ae/extrap_pingpong.png)  
-    Pingpong *extrapolation*.
-- **Follow through**: a follow through[*](../../../misc/glossary) animation is generated (*Out* extrapolation only).  
+    *乒乓*外推。
+- **跟随**：生成跟随[*](../../../misc/glossary)动画（仅*出*外推）。  
     ![](/docs-img/ae/extrap-followthrough.png)  
-    Follow through *extrapolation*.
-- **Bounce**: a bouncing animation is generated (*Out* extrapolation only).  
+    *跟随*外推。
+- **弹跳**：生成弹跳动画（仅*出*外推）。  
     ![](/docs-img/ae/extrap-bounce.png)  
-    Bounce *extrapolation*.
+    *弹跳*外推。
 
-By default, the Interpolator extrapolates **before or after the existing keyframes**. You can also extrapolate **during still parts** of the animation, between keyframes. That's very useful for example to add some follow through animation every time the animation stops, even if there are other keyframes later in the timeline.
+默认情况下，插值器在**现有关键帧之前或之后**外推。你也可以在关键帧之间动画的**静止段**中外推。这非常有用，例如：即使时间轴后面还有其他关键帧，也能在每次动画停下时添加一些跟随动画。
 
-You can choose the **number of keyframes** to be used to extrapolate the motion (for the *Offset*, *Cycle*, and *Pingpong* modes only). If this is set to `0`, the Interpolator will use all available keyframes.
+你可以选择用于外推运动的**关键帧数量**（仅对*偏移*、*循环*和*乒乓*模式有效）。如果设为 `0`，插值器会使用所有可用关键帧。
 
-The **damping** value controls the time it takes for the motion to come to a full stop (and get back to the last keyframe value). This value is especially useful with the follow through or bounce mode, but can be used to dampen the other modes too, and progressively stop a loop.
+**阻尼**数值控制运动完全停止（并回到最后一个关键帧数值）所需的时间。这个数值在跟随或弹跳模式下特别有用，但也可以用来减弱其他模式，并让循环逐渐停止。
 
-With the *Out* extrapolation set to follow through or bounce, you can also control the **elasticity** of the extrapolation, which will change the amplitude and frequency of the extrapolation. You could also use the *Extrapolation* property with values different than `100 %` to control the amplitude.
+当*出*外推设为跟随或弹跳时，你还可以控制外推的**弹性**，它会改变外推的振幅和频率。你也可以把 *Extrapolation（外推）* 属性设为不同于 `100 %` 的数值来控制振幅。
 
-## Color Options
+## 颜色选项
 
-When interpolating colors, changing the colorspace may help generating better colors between the keyframes.
+插值颜色时，改变色彩空间可能有助于在关键帧之间生成更好的颜色。
 
-With After Effects by default, colors are interpolated in an RGB colorspace, and this often generates desaturated colors in between; changing this colorspace may help improve the interpolation by generating more vivid colors in between.
+After Effects 默认在 RGB 色彩空间中插值颜色，这往往会在中间生成不饱和的颜色；改变色彩空间可能有助于改善插值，在中间生成更鲜艳的颜色。
 
-- **RGB**: the default interpolation, where the Red, Green and Blue channels are interpolated separately.
-- **HSL**: the color is converted to Hue, Saturation and Luminosity channels before being interpolated and converted back to RGB. This allows for better and more vivid colors in between, but if the colors are too far away from each other in the Hue channel, this may cause the interpolation to go through all the hues of the rainbow.
-- **Shortest-path HSL**: this is similar to *HSL* but making sure the Hue channel is always interpolated through the shortest path possible, making sure the number of different hues during the interpolation is as small as possible.
-- **Longest-path HSL**: this is similar to *Shortest-path HSL* but taking the longest path with the greatest number of hues as possible.
-- **Combined RGB SL**: this mode interpolates the Saturation and Luminosity separately, and uses an RGB interpolation to generate the interpolated Hue, then converts back everything to RGB. The result is slightly different from the *Shortest-path HSL* and depending on the colors to be interpolated may be a bit better or feel more dynamic.
+- **RGB**：默认插值方式，红、绿、蓝通道分别插值。
+- **HSL**：颜色先转换为色相、饱和度和亮度通道，插值后再转换回 RGB。这样中间颜色更好、更鲜艳，但如果两种颜色在色相通道上相差太远，插值可能会走过彩虹上的所有色相。
+- **最短路径 HSL**：与 *HSL* 类似，但确保色相通道始终走最短路径插值，使插值过程中经过的不同色相数量尽可能少。
+- **最长路径 HSL**：与 *最短路径 HSL* 类似，但走最长路径，经过尽可能多的色相。
+- **组合 RGB SL**：这个模式分别插值饱和度和亮度，用 RGB 插值生成插值后的色相，然后再全部转换回 RGB。结果与 *最短路径 HSL* 略有不同，根据待插值颜色的不同，可能效果稍好或感觉更有活力。
 
-The result depends a lot on the colors to be interpolated and how different they are. The best is to try all the different modes to see which fits better to your needs.
-
-
+结果很大程度上取决于待插值的颜色以及它们之间的差异。最好把所有模式都试一遍，看哪个更符合你的需求。

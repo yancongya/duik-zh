@@ -1,22 +1,23 @@
 ---
-title: "Spatial Interpolation"
+title: "空间插值"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# Spatial Interpolation
+# 空间插值
 
 ![](/docs-img/duik/animation/spatial-interpolation.png)
 
-These are a few buttons to help you quickly switch the spatial interpolation type of the selected keyframes.
+这里有几个按钮，帮你快速切换所选关键帧的空间插值类型。
 
-The ![](/docs-img/duik/icons/autorig.svg) ***Fix*** button automatically fixes spatial interpolation issues on the selected keyframes, which happen when one copies a keyframe and pastes it a bit later and the copied keyframe is not using a linear spatial interpolation. In this case, there may be a wrong movement in between the two keyframes because of the Bézier spatial interpolation. This can be fixed by setting the right linear interpolation on the two keyframes. That's what does the *fix* button, by detecting if two contiguous keyframes have the same value.
+![](/docs-img/duik/icons/autorig.svg) ***修复（Fix）*** 按钮会自动修复所选关键帧上的空间插值问题。这种问题通常发生在：你复制了一个关键帧、稍后又粘贴它，而被复制的关键帧用的不是线性空间插值。这时，由于 Bézier 空间插值，两个关键帧之间可能会出现一段错误的运动。把这两个关键帧设为正确的线性插值即可修复。*修复*按钮就是通过检测两个相邻关键帧数值是否相同来做到这一点的。
 
-1. **Select** keyframes on spatial properties.
-2. Click the ![](/docs-img/duik/icons/autorig.svg) ***Fix*** button.  
-    All Bézier interpolations between contiguous keyframes of the same value (and only them) are set to linear.
+1. **选择**空间属性上的关键帧。
+2. 点击 ![](/docs-img/duik/icons/autorig.svg) ***修复*** 按钮。  
+    数值相同的相邻关键帧之间（且仅此情况）的所有 Bézier 插值都会被设为线性。
 
 ![](/docs-img/illustration/Galileo_spacecraft_trajectory_and_key_mission_events.png)  
-*Galileo spacecraft trajectory and key mission events,  
-NASA, 2003  
-Public domain.*
-
-
+*伽利略号探测器轨迹与关键任务事件，  
+NASA，2003 年  
+公有领域。*
