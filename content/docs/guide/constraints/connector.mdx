@@ -37,6 +37,7 @@ It can be used to quickly animate many properties at once, and make sure all hav
 
 <Callout type="success">
     For example, it is a great way to animate the scale and position of a layer and having these properties perfectly synced, even when using complex Bézier interpolations with the graph editor. More generally, it is a great way to animate many properties and layers at once, when they need to be synced.
+</Callout>
 
 To use the quick connector, follow these simple steps:
 
@@ -46,6 +47,7 @@ To use the quick connector, follow these simple steps:
 
 <Callout type="success">
     The *connector* slider being a simple percentage value, it is also easy to connect it to something else and use simple expressions with it.
+</Callout>
 
 If you need to have the controller in another composition, you can either use the [*Extract controllers*](../controllers/extract) tool from the parent composition, or just copy and paste the controller to the new composition, and link the percentage with an expression, simply using the pickwhip.
 
@@ -105,6 +107,7 @@ Properties to be used as master controllers with the connector can be:
 
 <Callout type="info">
     All these properties are actually numerical values: a color is a 4-dimensional numerical value (consisting of the red, green, blue and alpha channels), and dropdown menu values are the indices of the items, which are simple integers.
+</Callout>
 
 There are also special cases handled automatically; you can also select these:
 
@@ -133,6 +136,7 @@ There you can set a few parameters before finishing the connection.
 
 <Callout type="success">
     If there's an animation (using keyframes or an existing expression) on the master property at the time you select it, before opening the connection settings, Duik automatically picks the minimum and maximum values of the existing animation. This makes it very quick to set up the connection: just add a couple of keyframes on the master property to quickly define the minimum and maximum values to be used, and only then click on the ![](/docs-img/duik/icons/pick_prop.svg) *Pick control* button. You'll be able to remove these keyframes after the connection's been made.
+</Callout>
 
 Once you're done with these settings, you can finish the connection by clicking one of the three bottom buttons:
 
@@ -150,6 +154,7 @@ After the connection, you can still adjust the keyframes and interpolation of an
 
 <Callout type="warning">
     Unfortunately, because of After Effects, disabling the connector effect is not enough in order to be able to adjust the keyframes on slave Bézier path properties, you actually need to deactivate the expression.
+</Callout>
 
 ### Slider, 2D slider, Angle control
 
@@ -283,6 +288,7 @@ When changing these values, you'll adjust how the audio spectrum is displayed, t
 
 <Callout type="success">
     If you'd like to have multiple connections from the same audio layer, just repeat the process from start, to create another precomposition with a new audio connection.
+</Callout>
 
 ## How to connect a single slave property to multiple master properties
 
@@ -296,6 +302,7 @@ In the specific case of transform properties, the easiest way to have multiple c
 
 <Callout type="success">
     From the [controllers panel](../controllers)&nbsp;[^2], you can quickly insert a null layer in the hierarchy by selecting the controlled layer and `[Ctrl] + [Click]` on the ![](/docs-img/duik/icons/ae_null.svg) *Null* button (or any other controller shape).
+</Callout>
 
 ### Bézier shapes (masks or shape layers)
 
@@ -343,6 +350,7 @@ If you'd like to also connect the other axis for a complete fake 3D turn, these 
 
 <Callout type="success">
     You can use After Effects keyframe color labels to better identify and select all the keyframes you're connecting.
+</Callout>
 
 ### Create nice visual selectors for layers: phonemes, hand shapes, eye shapes...
 
@@ -394,19 +402,3 @@ To arrange the available shapes in a grid, the process is almost the same as for
 
 [^4]: *cf.* [*Automation / Tools / List*](../automation/tools/list).
 
-
-</Callout>
-
-</Callout>
-
-</Callout>
-
-</Callout>
-
-</Callout>
-
-</Callout>
-
-</Callout>
-
-</Callout>

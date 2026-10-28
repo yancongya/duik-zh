@@ -29,6 +29,7 @@ Auto-parent is a quick way to parent the selected layers. It is very handy with 
 
 <Callout type="success">
     This feature is available as a scriptlet[^1], which makes it easy to assign a keyboard shortcut to it (like the recommended `[Ctrl] + [P]`).
+</Callout>
 
 ## ![](/docs-img/duik/icons/parent.svg) Parent Constraint
 
@@ -44,6 +45,7 @@ You can use the effect to adjust and animate the parent constraint.
 
 <Callout type="info">
     You won’t see the effect of the parent constraint unless there already are some keyframes (or expressions), the tool needs actual animation to compute the constraint.
+</Callout>
 
 You can select the **parent layer**, but this is not animatable. To change the parent, you have to **duplicate the effect** to have **one effect per parent**, and then animate the ***Weights*** to switch between parents, or mix them.
 
@@ -51,6 +53,7 @@ You can also choose to **inherit only the position** or **only the rotation**.
 
 <Callout type="info">
     Due to After Effects limitations, child layers can't inherit the scale for now.
+</Callout>
 
 You can increase the ***Motion Blur Precision*** if you notice motion blur artefacts, but be careful as this may have a very bad impact on performance.
 
@@ -58,6 +61,7 @@ The transformation of the child layer is computed depending on the weights and t
 
 <Callout type="warning">
     This constraint must use complex expressions, especially if you need to inherit both the position and rotation. This is a problem regarding the performance; the longer the composition, the longer the time needed to compute the expressions: you should try to use this constraint only in short compositions.
+</Callout>
 
     If you can, you should use the [position or orientation constraints](transform.md)&nbsp;[^2] instead, which are much lighter, or deactivate the inheritance of the position or the rotation.
 
@@ -65,6 +69,7 @@ The transformation of the child layer is computed depending on the weights and t
 
 <Callout type="success">
     To improve performance, you can [bake the expressions](../automation/tools/bake)&nbsp;[^3] in the position and rotation properties of the child layer once you're done with the animation.
+</Callout>
 
 As this constraint relies on all previous movements to compute the current position and orientation of the child layer, changing any value at a specific time changes all the following values too. This is also true when moving keyframes in time. This may seem counter-intuitive, compared to the standard After Effects parenting, where you don't have to worry before changing a parent, because without parenting animation, After Effects can instantly adjust the values for all the times. That's not possible if what you need is precisely to animate this parenting like with the Duik Parent Constraint.
 
@@ -74,6 +79,7 @@ Most of the time, it's also easier to animate the weight using the *Hold* interp
 
 <Callout type="success">
     You may have trouble to *unparent* the constrained layer during the animation. Instead, you can create a null layer and parent the constrained layer to it; this will fix any issue you may have when all weights are set to `0 %`.
+</Callout>
 
 ## ![](/docs-img/duik/icons/parent_across_comp.svg) Parent across compositions
 
@@ -96,6 +102,7 @@ With this *Parent across compositions* feature, you can now parent a child layer
 
 <Callout type="success">
     Duik lets you parent only from and to precompositions directly contained in another composition, without intermediate precompositions. If there are intermediate compositions, there may be different *paths* (different *chains* of precompositions) ending with the same containing comp and precomp. In this case, Duik can't know which path to take, and this is important because of nested transformations which may be different.
+</Callout>
 
     For this specific case, you can parent across all nested compositions manually, by repeating the parenting process through all the chain of precompositions.
 
@@ -109,17 +116,3 @@ Duik creates a *Locator*[*](../../misc/glossary)&nbsp;[^4] in each composition, 
 
 [^4]: *cf.* *[Constraints / Tools / Locator](tools/locator.md)*
 
-
-</Callout>
-
-</Callout>
-
-</Callout>
-
-</Callout>
-
-</Callout>
-
-</Callout>
-
-</Callout>

@@ -19,6 +19,7 @@ To use the Walk / Run cycle, you must have a rigged character. It can work with 
 
 <Callout type="success">
     This Walk / Run cycle was made for bipeds, but you can achieve a quadruped walk cycle using two walk cycles: one for the front legs, shoulders, neck and head, and another one for the back legs and hips. You only have to animate the tail by yourself and adjust a few settings.
+</Callout>
 
 ## Setup
 
@@ -42,9 +43,11 @@ The Walk / Run Cycle can be adjusted in the effects of the Walk / Run cycle cont
 
 <Callout type="success">
     All controllers can still be animated, so you can add your own keyframes to adjust the animation to your taste or animate anything else. Feel free to move the controllers to adjust the pose of the character.
+</Callout>
 
 <Callout type="warning">
     The procedural walk / run cycle animates the arms with Forward Kinematics (*FK*)[*](../../misc/glossary) and thus deactivates the Inverse Kinematics (*IK*)[*](../../misc/glossary). The position of the controllers of the arms do not control them anymore, as the animation is made on the angles of the [individual FK controls](../constraints/kinematics)&nbsp;[^ik].
+</Callout>
 
     If you want to animate or adjust the arms, you can either adjust the values in the individual FK controls in the effects of the controllers, or you can enable again the IK, but this will deactivate the procedural animation on the arms.
 
@@ -52,6 +55,7 @@ The Walk / Run Cycle can be adjusted in the effects of the Walk / Run cycle cont
 
 <Callout type="warning">
     Make sure the left and right limbs are tagged accordingly[^tags], or fix the tags before setuping the Walk / Run cycle so it recognizes correctly the sides.
+</Callout>
 
 ## Effect
 
@@ -116,11 +120,3 @@ Public domain.*
 
 [^tags]: You can use the [Layer Manager](../tools/layers) or the [Controller Settings](../controllers/tools/settings).
 
-
-</Callout>
-
-</Callout>
-
-</Callout>
-
-</Callout>

@@ -19,6 +19,7 @@ You can `[Shift] + [Click]` the ![](/docs-img/duik/icons/expression_baker.svg) *
 
 <Callout type="info">
     After Effects can natively bake expressions, with the `Animation / Keyframe Assistant / Conver expression to keyframes` tool, but it always adds one keyframe per frame.
+</Callout>
 
     Even with the *Precise Mode*, Duik is a bit smarter than that, as it only adds *necessary* keyframes (it adds keyframes if and only if there's an actual movement). Duik can also optionaly create more keyframes than that, which may be needed for a cleaner motion blur, or less, if it's fine for you to use interpolations in between.
 
@@ -27,14 +28,10 @@ A higher value will create more keyframes (adding keyframes in between actual fr
 
 <Callout type="warning">
     Be careful, the *Precision* is a sensitive value. Don't raise it too much!
+</Callout>
 
 <Callout type="success">
     With the *Precise* mode, a value lower than `1.0` will create less keyframes than one per frame.
-
-
-
 </Callout>
 
-</Callout>
 
-</Callout>

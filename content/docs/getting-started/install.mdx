@@ -1,100 +1,98 @@
 ---
-title: "Install Duik"
+title: "安装 Duik"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# Install Duik
+# 安装 Duik
 
-## Supported versions of After Effects
+## 支持的 After Effects 版本
 
-**Duik is always tested and works with the most recent release and beta versions of After Effects**, on all platforms compatible with After Effects.
+**Duik 总是针对 After Effects 最新的正式版和 beta 版进行测试**，在所有兼容 After Effects 的平台上均可使用。
 
-Unfortunately, due to Adobe policy about older versions of their software, Duik is **not** compatible with versions of After Effects **older than 18.x (2021)** (≥ 18.0).
+遗憾的是，由于 Adobe 对旧版本软件的政策，Duik **不**兼容 **18.x（2021）之前**的 After Effects 版本（≥ 18.0）。
 
-## Installation
+## 安装
 
 ![RXLAB_VIDEO](https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_B01_Install__EN_720.mp4)  
-*This video is part of __the official comprehensive video course about Duik Ángela__*
+*本视频是 __Duik Ángela 官方完整视频课程__ 的一部分*
 
-### **1 - Download** Duik from the [official website](https://rxlaboratory.org/tools/duik-angela/).
+### **1 - 下载**：从[官网](https://rxlaboratory.org/tools/duik-angela/)下载 Duik。
 
-### **2 - Unzip** the files you have downloaded.
+### **2 - 解压**你下载的文件。
 
-You'll find several folders and files.
+你会看到若干文件夹和文件。
 
-- *README.txt* contains a lot of information to help you get started with Duik.
-- The *Help* folder contains these help pages. Double click on the file *index.html* to open it.
-- The *Tools* folder may contain some useful tools.
-- The *ScriptUI Panels* folder contains the actual *Duik Ángela* script you need to install.  
-  There are many available panels. The main Duik panel, containing the complete tool set is the file called `Duik Angela.jsx`; if you install only this one you'll have all the features in a single panel. Other files are individual panel providing subsets of the Duik tool set, to give you more options to customize your After Effects workspace. You can install as many of them as you need.
+- *README.txt* 包含帮助你上手 Duik 的大量信息。
+- *Help* 文件夹包含这些帮助页面。双击 *index.html* 即可打开。
+- *Tools* 文件夹可能包含一些实用工具。
+- *ScriptUI Panels* 文件夹包含需要安装的 *Duik Ángela* 脚本本体。  
+  这里有许多可选面板。包含完整工具集的主面板是 `Duik Angela.jsx`；只安装这一个就能在单一面板中使用全部功能。其它文件是提供 Duik 工具子集的独立面板，方便你自定义 After Effects 工作区。需要多少就安装多少。
 
-### **3 - Install**
+### **3 - 安装**
 
-You can choose one of these three options to use Duik:
+有三种方式可以选择：
 
-- Manually **copy the files** to the main ScriptUI Panels.
-  For this to work, you need to have administrator rights on the computer. Duik will be available to all users.
-- **Install from within After Effects**.
-  You don't need administrator rights this  way, but Duik will be available only for the current user.
-- You can also **use Duik without installation**.
-  Duik will not be dockable into the After Effects workspace, it will be a floating panel.
+- 手动**复制文件**到 ScriptUI Panels 主目录。  
+  这样安装需要电脑的管理员权限，Duik 对所有用户可用。
+- **在 After Effects 内安装**。  
+  这种方式不需要管理员权限，但 Duik 仅对当前用户可用。
+- 你也可以**免安装直接使用 Duik**。  
+  此时 Duik 无法停靠进 After Effects 工作区，而是浮动面板。
 
-#### Copy the files
+#### 复制文件
 
-- **Copy** the files of your choice from the *ScriptUI Panels* folder to:
-    - Windows: `C:/Program Files/Adobe/Adobe After Effects XXXX/Support Files/Scripts/ScriptUI Panels/`  
-    - Mac OS: `/Applications/Adobe After Effects XXXX/Scripts/ScriptUI Panels`
+- 从 *ScriptUI Panels* 文件夹中**复制**你选择的文件到：
+    - Windows：`C:/Program Files/Adobe/Adobe After Effects XXXX/Support Files/Scripts/ScriptUI Panels/`  
+    - macOS：`/Applications/Adobe After Effects XXXX/Scripts/ScriptUI Panels`
 
-You'll need administrator privileges to install Duik this way. If you don't have them, see the other ways below.
+这种方式安装需要管理员权限。如果没有，请参考下面的其它方式。
 
-- **Restart** After Effects
+- **重启** After Effects
 
-#### Install from within After Effects
+#### 在 After Effects 内安装
 
-- **Open** After Effects
-- Use the `File/Scritps/Install ScriptUI Panel...` **menu** to select and install the panels of your choice from the *ScriptUI Panels* folder.
-- **Restart** After Effects
+- **打开** After Effects
+- 使用 `File/Scripts/Install ScriptUI Panel...` **菜单**，从 *ScriptUI Panels* 文件夹中选择并安装你需要的面板。
+- **重启** After Effects
 
-#### Use it without installing
+#### 免安装使用
 
-You'll always be able to run Duik without even installing it.
+你随时可以不安装就运行 Duik。
 
-- **Open** After Effects
-- Use the `File/Scritps/Run script file...` **menu** to select and run the panel of your choice from the *ScriptUI Panels* folder.
+- **打开** After Effects
+- 使用 `File/Scripts/Run script file...` **菜单**，从 *ScriptUI Panels* 文件夹中选择并运行你需要的面板。
 
-### **4 - First Run**
+### **4 - 首次运行**
 
-#### File and network access
+#### 文件与网络访问权限
 
-On first run, Duik may first ask for file and network access, this is mandatory to make it work[^1].
+首次运行时，Duik 可能会先请求文件和网络访问权限，这是它正常工作的前提[^1]。
 
 ![](/docs-img/duik/install/file_network_access.png)
 
-If you see this window, click on *Open preferences*. This opens After Effects scripting preferences.
+如果看到这个窗口，点击 *Open preferences*。这会打开 After Effects 的脚本首选项。
 
 ![](/docs-img/ae/file_network_access.png)
 
-Check the box called *Allow Scripts to Write Files and Access Network*, then click the *OK* button.
+勾选 *Allow Scripts to Write Files and Access Network*，然后点击 *OK* 按钮。
 
-#### Select language
+#### 选择语言
 
-By default, the language is set to [*Esperanto*](https://en.wikipedia.org/wiki/Esperanto)[^2].
+默认语言是[*世界语（Esperanto）*](https://en.wikipedia.org/wiki/Esperanto)[^2]。
 
 ![](/docs-img/duik/install/language.png)
 
-Select the language of your choice and click the *Apply* button.
+选择你需要的语言，点击 *Apply* 按钮。
 
-[^1]: Duik needs this option in order to be able to:  
-```text
-• Write the images and icons it needs to the disk.  
-• Write the effects it uses to the disk.  
-• Save your notes using the [Duik notes](../guide/notes).  
-• Manage the animation library and save the animations.  
-• Save the expressions opened in an external editor.  
-• Access the network to check for updates. Duik only accesses `http://api.rxlab.io` and does not share any personal data.
-```
+[^1]: Duik 需要该权限才能：  
+    • 把所需图像和图标写入磁盘。  
+    • 把它使用的效果写入磁盘。  
+    • 使用 [Duik 笔记](../guide/notes)保存你的笔记。  
+    • 管理动画库并保存动画。  
+    • 在外部编辑器中保存打开的表达式。  
+    • 访问网络检查更新。Duik 只访问 `http://api.rxlab.io`，不共享任何个人数据。
 
-[^2]: *Esperanto* is the world's most widely spoken constructed international auxiliary language. Created by Warsaw-based ophthalmologist L. L. Zamenhof in 1887, it was intended to be a universal second language for international communication, or "the international language" (la lingvo internacia).  
-```text
-Read more on Wikipedia: [en.wikipedia.org/wiki/Esperanto](https://en.wikipedia.org/wiki/Esperanto)
-```
-
+[^2]: *世界语（Esperanto）* 是世界上使用最广泛的构造国际辅助语言。1887 年由华沙眼科医生 L. L. Zamenhof 创造，意在成为国际交流的通用第二语言，即「国际语」（la lingvo internacia）。  
+    在维基百科了解更多：[en.wikipedia.org/wiki/Esperanto](https://en.wikipedia.org/wiki/Esperanto)

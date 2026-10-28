@@ -1,58 +1,60 @@
 ---
-title: "Troubleshooting"
+title: "故障排除"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# Troubleshooting
+# 故障排除
 
-If you run into any problem with Duik, here are a few tips to help you fix your issues by yourself.
+如果 Duik 出了问题，这里有一些技巧，帮助你自己解决。
 
-## 1 - Check in the frequently asked questions if there's an answer to your problem.
+## 1 - 先查常见问题解答（FAQ），看有没有答案。
 
-► [**Read the FAQ here**](../faq).
+► [**点此阅读 FAQ**](../faq)。
 
-If you **don't find the answer in the FAQ**, and your problem is an **error/crash/bug, follow the next steps**.
+如果 **FAQ 里没有答案**，而你的问题是**报错/崩溃/bug，请继续下一步**。
 
-**If there's no error** of any kind, no crash, no bug, read this documentation to make sure you're using Duik right, then **come and [have a chat with us](http://chat.rxlab.info)**[^1] so we can help you.
+**如果没有出现任何错误**，没有崩溃、没有 bug，请阅读本文档确认你正确使用了 Duik，然后**来[和我们聊聊](http://chat.rxlab.info)**[^1]，以便我们帮助你。
 
-## 2 - Use DuSI to get system information and clean/re-install Duik.
+## 2 - 使用 DuSI 获取系统信息并清理/重装 Duik。
 
-We provide a script called [*DuSI*](https://rxlaboratory.org/tools/dusi/) which cleans all tools developed by RxLaboratory for After Effects, and can gather useful system information in case you need more support.
+我们提供了一个名为 [*DuSI*](https://rxlaboratory.org/tools/dusi/) 的脚本，用于清理 RxLaboratory 为 After Effects 开发的所有工具，并可以在需要更多支持时收集有用的系统信息。
 
-You'll find the script in the *Zip* archive you've downloaded to install Duik, in the `tools` subfolder. You can also [download it here](https://rxlaboratory.org/tools/dusi/).
+脚本在你安装 Duik 时下载的 *Zip* 压缩包的 `tools` 子文件夹中。也可以[点此下载](https://rxlaboratory.org/tools/dusi/)。
 
-There's no need to install it, you can just run the script through the `File/Scripts/Run script file...` menu entry in After Effects.
+无需安装，在 After Effects 中通过 `File/Scripts/Run script file...` 菜单直接运行即可。
 
-This panel is shown:
+会显示这个面板：
 
 ![](/docs-img/dusi/dusi.png)
 
-1. Click on the *Get System Information* button and save the file. Keep this file at hand as you may need it later if you need more support.
-2. Click the *Fix / Uninstall* button.
+1. 点击 *Get System Information* 按钮并保存文件。把文件放在手边，之后若需更多支持可能会用到。
+2. 点击 *Fix / Uninstall* 按钮。
 
-Most of the times, this simple process fixes all RxLab. tools you may be using in After Effects. Simply start Duik again and check if it works.
+大多数时候，这个简单流程就能修复你可能在 After Effects 中使用的所有 RxLab. 工具。重新启动 Duik，检查是否正常。
 
-If Duik still does not work correctly, follow the next steps.
+如果 Duik 仍然不正常，请继续下一步。
 
-## 3 - Run Duik in debug mode
+## 3 - 以调试模式运行 Duik
 
-1. [Go to the settings](../guide/settings) of *Duik* to enable the *Dev and Debug mode*
-2. Restart *Duik*
-3. Try to reproduce your problem, and copy or take a screenshot of any error shown by *After Effects* or *Duik*.
-4. Copy the debug log you should find in the *Duik* subfolder of your default documents folder to a safe place and attach it to any request or bug report later.
+1. [进入 *Duik* 设置](../guide/settings)，启用 *Dev and Debug mode*
+2. 重启 *Duik*
+3. 尝试重现问题，复制或截图 *After Effects* 或 *Duik* 显示的任何错误。
+4. 把默认文档目录下 *Duik* 子文件夹中的调试日志复制到安全位置，之后附在请求或 bug 报告中。
 
-## 4 - File a bug report
+## 4 - 提交 bug 报告
 
-1. Go to [the **issues** report form on *rxlaboratory.org/issues*](https://rxlaboratory.org/issues). You can use the ![](/docs-img/duik/icons/bug.svg) button at the bottom of the Duik panel to quickly open this page.
-2. Fill in **all the details** you can: what exactly is the issue, what were you doing when it happened, what error is shown, screenshots or video recordings of the issue...
-3. **Add the System Information** report you got at step *2*.  
-**This is mandatory**. You can copy and paste the content in the form.
-4. **Add the debug log** you got at step *3*.  
-**This is mandatory**. You can copy and paste the content in the form.
-6. **Be patient**. We'll review your report as soon as possible.
+1. 前往 [*rxlaboratory.org/issues* 上的 **issues** 报告表单](https://rxlaboratory.org/issues)。也可以点击 Duik 面板底部的 <img src="/docs-img/duik/icons/bug.svg" style={{width: '20px'}}/> 按钮快速打开该页面。
+2. 尽量填写**全部细节**：问题具体是什么、发生时你在做什么、显示了什么错误、问题的截图或录屏……
+3. **附上**第 *2* 步获取的系统信息报告。  
+   **这是必填项**。可以复制粘贴内容到表单中。
+4. **附上**第 *3* 步获取的调试日志。  
+   **这是必填项**。可以复制粘贴内容到表单中。
+6. **耐心等待**。我们会尽快查看你的报告。
 
-## 5 - Contact us
+## 5 - 联系我们
 
-Feel free to [come and have a chat](http://chat.rxlab.info)[^1] with us, so we can easily talk about the issue. This is the only place where you'll get a response for your issues, we do not provide support on any other platform.
+欢迎[来和我们聊聊](http://chat.rxlab.info)[^1]，方便直接讨论问题。这是唯一会得到回复的渠道，我们在其它任何平台都不提供支持。
 
-[^1]: Here's the link to use to contact us: [chat.rxlab.info](http://chat.rxlab.info)
-
+[^1]: 联系我们的链接：[chat.rxlab.info](http://chat.rxlab.info)

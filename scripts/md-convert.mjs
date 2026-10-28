@@ -86,7 +86,7 @@ function walk(dir, out = []) {
 }
 
 function convert(raw, relPath) {
-  let text = raw
+  let text = raw.replace(/\r\n/g, '\n')
 
   // META 行：整行删除（归属信息由 NOTICE + frontmatter 承担）
   text = text.replace(/^!\[META\]\([^)]*\)\s*$/gm, '')
@@ -105,8 +105,8 @@ function convert(raw, relPath) {
     /^!!!\s+(note|warning|danger|tip|bug|success|failure)\s*$/gm,
     (_m, kind) => `<Callout type="${kindMap[kind]}">`,
   )
-  // 在 Callout 开启后的下一个空行前闭合（粗粒度，Phase 2 精修为逐块解析）
-  text = text.replace(/(<Callout type="[^"]+">[\s\S]*?)(\n\n)/g, '$1</Callout>$2')
+  // 在 Callout 开启后的下一个空行前闭合（闭合标签独占一行）
+  text = text.replace(/(<Callout type="[^"]+">[\s\S]*?)(\n\n)/g, '$1\n</Callout>$2')
   // 若文件末尾仍有未闭合 Callout，补一个
   const openCount = (text.match(/<Callout /g) || []).length
   const closeCount = (text.match(/<\/Callout>/g) || []).length

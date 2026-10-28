@@ -23,6 +23,7 @@ All rights reserved*
 
 <Callout type="info">
     When animating using IK, you have to set the values of the position keyframe and their temporal interpolation[*](../../misc/glossary), as you would with FK and rotations, but you also have to manage the spatial interpolation and make sure the limb always follows a curved trajectory (and not straight lines)[^1].
+</Callout>
 
 With Duik (and the Auto-rig) you can rig limbs in a way to be able to switch at any time between IK and FK according to your needs at the time you're animating. There are also specific types of IK to ease the animations of longer limbs like horse legs, ant and crab legs or even like hair strands, tails or even spines and long necks.
 
@@ -160,9 +161,11 @@ All this can be configured and animated in the effect of the controller.
 
 <Callout type="success">
     The data section of the effect exposes useful values to write your own expressions or to be used with the connector for an advanced and more customized rig.
+</Callout>
 
 <Callout type="success">
     You can easily switch between IK and FK animation using the [IK/FK Switch](../animation/tools/ik-fk-switch)&nbsp;[^4] tool in the [animation panel](../animation).
+</Callout>
 
 ![](/docs-img/duik/constraints/2l-ik-guides_00000.png)  
 *The IK Controller with the guides, showing the auto swing limit.*
@@ -251,6 +254,7 @@ To animate the limb, you can just **animate the rotation of the controller**.
 
 <Callout type="success">
     When adjusting the **start pose of the animation**, **adding the first keyframe on the rotation** of the controller, **you'll also need to adjust the *Angle* value of the second layer** of the chain (in the controller's effects), to fix the pose. That's because of the automatic overlapping animation, which can't control the first pose as it needs animation data to process the angles, and there's no animation before the first keyframe.
+</Callout>
 
     For performance reasons, Duik also ignores all keyframes hidden before the start of the composition.
 
@@ -287,11 +291,3 @@ In this case, Duik moves the *curve* controller automatically, and you can adjus
 [^4]: *cf.* *[Animation / Tools / IK/FK Switch](../animation/tools/ik-fk-switch)*
 
 
-
-</Callout>
-
-</Callout>
-
-</Callout>
-
-</Callout>

@@ -51,32 +51,50 @@
   },
   "getting-started/be-annoying.md": {
     "upstreamHashAtSnapshot": "05be6f05a711",
-    "status": "untranslated",
+    "status": "translated",
+    "upstreamHashAtTranslation": "05be6f05a711",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent",
     "lastChecked": "2026-10-28"
   },
   "getting-started/first-look.md": {
     "upstreamHashAtSnapshot": "0845131d1830",
-    "status": "untranslated",
+    "status": "translated",
+    "upstreamHashAtTranslation": "0845131d1830",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent",
     "lastChecked": "2026-10-28"
   },
   "getting-started/install.md": {
     "upstreamHashAtSnapshot": "a1246927d1b5",
-    "status": "untranslated",
+    "status": "translated",
+    "upstreamHashAtTranslation": "a1246927d1b5",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent",
     "lastChecked": "2026-10-28"
   },
   "getting-started/introduction.md": {
     "upstreamHashAtSnapshot": "ee064235ef15",
-    "status": "untranslated",
+    "status": "translated",
+    "upstreamHashAtTranslation": "ee064235ef15",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent",
     "lastChecked": "2026-10-28"
   },
   "getting-started/preamble.md": {
     "upstreamHashAtSnapshot": "58ff10af4529",
-    "status": "untranslated",
+    "status": "translated",
+    "upstreamHashAtTranslation": "58ff10af4529",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent",
     "lastChecked": "2026-10-28"
   },
   "getting-started/troubleshoot.md": {
     "upstreamHashAtSnapshot": "7a0c1eb0e148",
-    "status": "untranslated",
+    "status": "translated",
+    "upstreamHashAtTranslation": "7a0c1eb0e148",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent",
     "lastChecked": "2026-10-28"
   },
   "guide/animation/anim-library.md": {

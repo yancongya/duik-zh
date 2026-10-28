@@ -3,7 +3,8 @@ export default {
   "advanced": "Advanced",
   "angela": "Ángela",
   "faq": "F.A.Q.",
-  "index": "Home",
+  "getting-started": "快速上手",
+  "index": "首页",
   "misc": "License",
   "printed-user-guide": "Printed User Guide",
   "tutorials": "Tutorials"

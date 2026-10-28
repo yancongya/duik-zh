@@ -1,200 +1,198 @@
 ---
-title: "First Look"
+title: "初识 Duik"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# First Look
+# 初识 Duik
 
-## How Duik works
+## Duik 如何工作
 
-Duik is a script. This means all it does is automating things. It does nothing you could not do manually by yourself in *After Effects* (if you had time to do some very tedious work).
+Duik 是一个脚本。这意味着它做的所有事都是自动化。它不会做任何你在 *After Effects* 中手动做不到的事（前提是你有时间去完成那些非常繁琐的工作）。
 
-This has two important meanings:  
+这有两层重要含义：
 
-1. A project rigged or animated with Duik can be opened with any instance of *After Effects* even if Duik is not installed.
-2. Duik uses only tools and techniques already existing in *After Effects*.
+1. 用 Duik 绑定或动画过的项目，即使没有安装 Duik，也能在任何 After Effects 实例中打开。
+2. Duik 只使用 *After Effects* 中已有的工具和技术。
 
-## Principles, User Interface and User Experience
+## 理念、界面与体验
 
-The goal of a tool like Duik is to make the life of animators and riggers easier. **The priority was to make Duik as easy to learn as possible**, while keeping it **very quick to use**. The other important goal was to make the interface as small as possible, so it won’t take much space in the *After Effects* interface; we think it’s very important to be able to focus on the timeline and the viewport of the application, without any other tools distracting you when you’re animating.
+像 Duik 这样的工具，目标是让动画师和绑定师的生活更轻松。**优先目标是让 Duik 尽可能好学**，同时保持**非常快捷的操作**。另一个重要目标是把界面做得尽可能小，从而在 *After Effects* 界面中不占太多空间；我们认为，动画时能够专注于时间轴和视口、不被其它工具打扰，这一点非常重要。
 
-To achieve this, we’ve made Duik smarter. **Almost all tools can be used in a single click**, without any prior configuration steps, **letting Duik make the best choice** depending on what you’re doing, what are the selected layers, etc.
+为此，我们让 Duik 更聪明。**几乎所有工具都只需一次点击**，无需任何预先配置，**由 Duik 根据你正在做什么、选中了哪些图层等情况做出最佳选择**。
 
-Most of the character rigging process can be reduced to two clicks in *Duik Ángela*!
+大部分角色绑定流程，在 *Duik Ángela* 里可以缩减为两次点击！
 
-1. First click: create some *Armatures and bones*.  
-2. Second click: *Auto-rig* the whole *Armature*.  
-3. If you feel this is not enough, a nice procedural walk and run cycle is just another click away…
+1. 第一次点击：创建*骨架与骨骼*。  
+2. 第二次点击：对整个骨架做*自动绑定*。  
+3. 如果你觉得这还不够，一次点击就能生成漂亮的程序化行走与奔跑循环……
 
-### User Interface (UI)
+### 用户界面（UI）
 
-As any modern script in *After Effects*, Duik has the form of a panel which can be docked with other native *After Effects* panels and third party tools (provided it was [correctly installed](install.md) and launched from the *Window* menu of *After Effects*).
+与 *After Effects* 中任何现代脚本一样，Duik 以面板形式存在，可以与其它原生 *After Effects* 面板和第三方工具停靠在一起（前提是[正确安装](install)并从 *After Effects* 的 *Window* 菜单启动）。
 
-The User Interface has been designed with these main ideas in mind:
+界面设计围绕这些主要思路：
 
-1. **Keep it close to the form of the user interface of** ***After Effects***
-    Using controls similar to the native controls of *After Effects* helps the user get started quicker. But it was not possible, for specific features and for performance and stability reasons, to make everything exactly the same as in *After Effects* and controls differ a bit. The idea is that Duik must not stand out too much when docked with other *After Effects* panels.
-2. **Do not use windows and dialogs**
-    With very rare exceptions, everything Duik needs to display will be displayed in its main panel, it won't use dialogs and other windows, so you know where to find information, and you're not distracted by pop-ups. Also, there are no blocking windows (what's called *Modal Dialogs*), to keep an agile workflow.
-3. **Keep the UI as small as possible**  
-    What is important when working with graphics is the viewport. Duik is as small as it can be so it won't interfere with your workspace.
+1. **贴近 *After Effects* 的界面形态**  
+    使用与 *After Effects* 原生控件相似的控件有助于用户快速上手。但由于特定功能以及性能和稳定性原因，不可能一切都和 *After Effects* 完全一样，控件会有细微差别。原则是：Duik 停靠在其它 *After Effects* 面板旁边时，不应过于突兀。
+2. **不使用窗口和对话框**  
+    除极少数例外，Duik 需要显示的一切都在主面板中展示，不使用对话框和其它窗口，这样你知道去哪里找信息，也不会被弹窗打扰。同时没有阻塞式窗口（即*模态对话框*），以保持流畅的工作流程。
+3. **界面尽可能小**  
+    做图形工作时重要的是视口。Duik 尽量小，以免干扰你的工作区。
 
 ![](/docs-img/duik/home.png)
 
-Duik welcomes you with this *home* panel, from where you can quickly access all the features.
+Duik 会以这个*主页*面板欢迎你，从这里可以快速访问所有功能。
 
-The top bar shows the main categories (read below). The central panel is used to display the tools, knobs and buttons of the tools, and the bottom bar includes secondary options and features.
+顶部栏显示主要分类（见下文）。中央面板用于显示工具、旋钮和按钮，底部栏包含次要选项和功能。
 
 <Callout type="success">
-    This home screen can be [de-activated](../guide/settings) to get to the latest used panel as soon as Duik is launched, but this greatly increases its launch time.
+    这个主页可以[关闭](../guide/settings)，让 Duik 启动后直接进入上次使用的面板，但这会显著增加启动时间。
+</Callout>
 
-### Categorization
+### 功能分类
 
-Duik is a comprehensive tool set for rigging and animation. This means there are a **lot** of tools available, but they are categorized in some useful panels, depending on what you're doing (animating, rigging, using cameras, etc.)
+Duik 是一套全面的绑定与动画工具集。这意味着可用工具有**很多**，但它们按用途（动画、绑定、摄像机等）分成了若干实用面板。
 
-These categories are always available on the top bar.
+这些分类始终显示在顶部栏。
 
 ![](/docs-img/duik/top-bar.png)
 
-Each panel can be displayed by clicking on one of these top buttons. 
+点击顶部这些按钮之一即可显示对应面板。
 
-- ![](/docs-img/duik/icons/bone.svg) [***Bones***](../guide/bones)
-- ![](/docs-img/duik/icons/constraints.svg) [***Links and constraints***](../guide/constraints)
-- ![](/docs-img/duik/icons/controller.svg) [***Controllers***](../guide/controllers)
-- ![](/docs-img/duik/icons/automation.svg) [***Automation & expressions***](../guide/automation)
-- ![](/docs-img/duik/icons/animation.svg) [***Animation***](../guide/animation)
-- ![](/docs-img/duik/icons/camera.svg) [***Camera***](../guide/camera)
-- ![](/docs-img/duik/icons/tools.svg) [***Tools***](../guide/tools)
-- ![](/docs-img/duik/icons/cmd.svg) [***Command Line and Feature Library***](../guide/cmd)
+- <img src="/docs-img/duik/icons/bone.svg" style={{width: '24px'}}/> [***骨骼***](../guide/bones)
+- <img src="/docs-img/duik/icons/constraints.svg" style={{width: '24px'}}/> [***链接与约束***](../guide/constraints)
+- <img src="/docs-img/duik/icons/controller.svg" style={{width: '24px'}}/> [***控制器***](../guide/controllers)
+- <img src="/docs-img/duik/icons/automation.svg" style={{width: '24px'}}/> [***自动化与表达式***](../guide/automation)
+- <img src="/docs-img/duik/icons/animation.svg" style={{width: '24px'}}/> [***动画***](../guide/animation)
+- <img src="/docs-img/duik/icons/camera.svg" style={{width: '24px'}}/> [***摄像机***](../guide/camera)
+- <img src="/docs-img/duik/icons/tools.svg" style={{width: '24px'}}/> [***工具***](../guide/tools)
+- <img src="/docs-img/duik/icons/cmd.svg" style={{width: '24px'}}/> [***命令行与功能库***](../guide/cmd)
 
-The ![](/docs-img/duik/icons/file.svg) button on the right hand side opens a simple [note editor](../guide/notes).
+右侧的 <img src="/docs-img/duik/icons/file.svg" style={{width: '16px'}}/> 按钮会打开简易[笔记编辑器](../guide/notes)。
 
-On the bottom bar, you'll find some other useful buttons:
+底部栏还有一些实用按钮：
 
 ![](/docs-img/duik/bottom-bar.png)
 
-The progress bar (here in purple) shows how much money we got in donations for the current month. When it's filled (it takes the whole width), we've reached our monthly goal; if it's not, it's time for you to join the [RxLab. Membership](http://membership.rxlab.info)[^membership] or [donate](http://donate.rxlab.info)[^donate]!
+进度条（这里是紫色）显示我们当月收到的捐款金额。当它填满（占满宽度）时，就达到了月度目标；如果没有，是时候加入 [RxLab. 会员计划](http://membership.rxlab.info)[^membership]或[捐赠](http://donate.rxlab.info)[^donate]了！
 
-The ![](/docs-img/duik/icons/heart.svg) ***Donate*** button opens the donation page, to help us continue to develop free software. Thanks!
+<img src="/docs-img/duik/icons/heart.svg" style={{width: '16px'}}/> ***捐赠***按钮打开捐赠页面，帮助我们继续开发自由软件。谢谢！
 
-The percent shows the money we got in donations for the current month, like the progress bar just above.
+百分比与上方进度条一样，显示当月收到的捐款金额。
 
-The text on the right hand side shows the current version of Duik. You can click it to get to the official website for Duik.
+右侧的文字显示 Duik 当前版本号。点击可前往 Duik 官方网站。
 
-The icon on the right hand side shows the current result of the [sanity tests](../guide/sanity) run by Duik to check everything works smoothly in After Effects.
+最右侧的图标显示 Duik 运行[自检](../guide/sanity)的结果，用于确认一切在 After Effects 中运转正常。
 
-- ![](/docs-img/duik/icons/bug.svg) ***Bug report and feature request***: click this button to let us know what's on your mind.
-- ![](/docs-img/duik/icons/settings.svg) [***Settings***](../guide/settings)
-- ![](/docs-img/duik/icons/language_small.svg) ***Translate Duik***: opens the website where you can [contribute to the translation of Duik](http://translate-duik.rxlab.io)[^tr].
-- ![](/docs-img/duik/icons/help.svg) ***Help***: opens the online help (this documentation you're reading), kept up-to-date.
+- <img src="/docs-img/duik/icons/bug.svg" style={{width: '24px'}}/> ***Bug 反馈与功能请求***：点击此按钮告诉我们你的想法。
+- <img src="/docs-img/duik/icons/settings.svg" style={{width: '24px'}}/> [***设置***](../guide/settings)
+- <img src="/docs-img/duik/icons/language_small.svg" style={{width: '24px'}}/> ***翻译 Duik***：打开你可以[参与 Duik 翻译](http://translate-duik.rxlab.io)[^tr]的网站。
+- <img src="/docs-img/duik/icons/help.svg" style={{width: '24px'}}/> ***帮助***：打开在线帮助（也就是你正在阅读的文档），保持最新。
 
-### Individual panels
+### 独立面板
 
-As Duik is made of a lot of panels and sub-panels, depending on your workflow, sometimes you may lose time constantly switching from one panel to another, or just finding a tool you're not used to. As there are as many workflows as users, to address this issue Duik now comes with a lot of optional, individual and [dockable panels](install.md), which you can use as stand-alone scripts. This is a great way to organize your workspace and keep several different panels of Duik opened at once.
+由于 Duik 由大量面板和子面板组成，根据你的工作方式，有时可能会在面板之间频繁切换、或总在找某个不常用的工具而浪费时间。工作方式因人而异，为解决这个问题，Duik 提供了许多可选的独立[可停靠面板](install)，可以当作独立脚本使用。这是组织工作区、同时打开多个 Duik 面板的好办法。
 
 ![](/docs-img/duik/individual-panels.png)
 
-When these stand-alone panels are installed, you can also quickly open them by `[Alt] + [Click]` on the tab buttons in the Duik Ángela main panel.
+安装这些独立面板后，在 Duik Ángela 主面板的标签按钮上 `[Alt] + [点击]` 也能快速打开它们。
 
 <Callout type="success">
-    Don't forget the *stacked* mode for After Effects panels, which can be nice to keep all your Duik panels at hand.
+    别忘了 After Effects 面板的*堆叠（stacked）*模式，它可以把所有 Duik 面板收在手边。
+</Callout>
 
 <Callout type="warning">
-    The more you open different script panels, the more memory leaks from After Effects. This can lead to very poor performance of the user interface of After Effects and of all script panels. Until this issue has been fixed by Adobe, try to limit the number of script panels you open during a working session, and/or restart After Effects regularly[^perf].
+    打开的不同脚本面板越多，After Effects 的内存泄漏就越严重。这可能导致 After Effects 界面和所有脚本面板性能严重下降。在 Adobe 修复该问题之前，请尽量限制一个工作会话中打开的脚本面板数量，并/或定期重启 After Effects[^perf]。
+</Callout>
 
-### User Experience (UX)
+### 用户体验（UX）
 
-For every feature in Duik, the goal is to have a consistent workflow, the fastest possible, the easiest possible.
+Duik 的每个功能都追求一致的工作流程，并尽可能快、尽可能简单。
 
-Most of the tools work this way:
+大多数工具的用法如下：
 
-1. Select layers, properties or keyframes in the timeline of *After Effects*
-2. Click.
-    1. Click on the button of the tool you need
-    2. For some tools, a secondary panel is displayed to ask for some additional needed information
-3. Watch Duik work
-    (Actually, you won't, as for performance reasons most of the work remains hidden from the user, sorry ;) )
+1. 在 *After Effects* 时间轴中选择图层、属性或关键帧
+2. 点击。
+    1. 点击你需要的工具按钮
+    2. 某些工具会显示二级面板，询问所需的额外信息
+3. 看着 Duik 工作  
+    （其实你看不到——出于性能考虑，大部分工作对用户隐藏，抱歉 ;) ）
 
-To be able to work in a single click, the tools need to be smart enough to take some decisions depending on what you're doing.  
-Of course, Duik does not want you to be or feel limited to what you can do. Although most of the tools work in a single click, some of them are accompanied with a small ![](/docs-img/duik/icons/options.svg) button. This means there are options you can change for the future use of the tool, which you can access by clicking on it.
+为了实现一次点击就能工作，工具需要足够聪明，能根据你正在做的事做出判断。  
+当然，Duik 不希望你感到受限。虽然大多数工具一次点击即可，其中一些还带有一个小小的 <img src="/docs-img/duik/icons/options.svg" style={{width: '16px'}}/> 按钮。这意味着该工具有可调整的选项，影响以后的使用，点击即可进入。
 
 ![](/docs-img/duik/tool-with-options.png)
 
-Duik can also be personalized through some [settings](../guide/settings) so you can adapt it to your liking.
+Duik 还可以通过一些[设置](../guide/settings)个性化，方便你按喜好调整。
 
-If you need help about any of the tools, keep your mouse cursor above the corresponding button: very often more details are explained in the tooltip which is shown a couple of seconds later.
+如果对某个工具需要帮助，把鼠标悬停在对应按钮上：几秒后出现的工具提示（tooltip）里往往有更详细的说明。
 
 ![](/docs-img/duik/tooltip.png)
 
-As you can read in the tooltip, when options are available for a specific tool, you can also `[Shift] + [Click]` to access them.
+如工具提示所示，当某个工具有可用选项时，也可以 `[Shift] + [点击]` 直接进入。
 
-### UI Modes
+### 界面模式
 
-The User Interface can be adapted depending on the level of the user, to make it easier to use for beginners, while quicker and smaller for the most advanced users.
+界面可以根据用户水平调整，让新手更容易上手，同时让高级用户用得更快、界面更小。
 
-![](/docs-img/duik/ui-modes.png)
-<figcaption>Rookie, Standard and Expert modes shown in different panels.</figcaption>
+![](/docs-img/duik/ui-modes.png)  
+<figcaption>新手（Rookie）、标准（Standard）与专家（Expert）模式在不同面板中的对比。</figcaption>
 
-This UI mode can be changed through the [*settings*](../guide/settings).
+界面模式可在[*设置*](../guide/settings)中更改。
 
-## What Duik does in *After Effects*
+## Duik 在 *After Effects* 中做了什么
 
-The *After Effects* features mainly used by Duik are:
+*After Effects* 中被 Duik 主要用到的功能有：
 
-- Expressions and parenting
-- Layer creation
-- Custom (Pseudo) effects
+- 表达式与父子关系
+- 图层创建
+- 自定义（伪）效果
 
-### Expressions
+### 表达式
 
-Every time Duik adds an expression to a property, the expression begins with a comment to let you know what the expression is and does.
+每当 Duik 给属性添加表达式时，表达式都会以注释开头，告诉你这是什么表达式、做什么。
 
 ![](/docs-img/duik/expression.png)
 
-### Layers
+### 图层
 
 ![](/docs-img/duik/layer-types.png)
 
-Although Duik uses existing layer types in *After Effects* (mostly shape layers and null objects), the layers it creates have a specific use and can be considered as new layer types.  
-Layers created by Duik have a marker at their beginning, showing how Duik uses them (their "Duik Type"), and containing important data that Duik needs to work with. **Do not remove these markers** (but you can move them away, even before the beginning of the comp to hide them, if you find them annoying).
+虽然 Duik 使用 *After Effects* 中已有的图层类型（主要是形状图层和空对象），但它创建的图层有特定用途，可视为新的图层类型。  
+Duik 创建的图层开头有一个标记，说明 Duik 如何使用它们（它们的「Duik 类型」），并包含 Duik 工作所需的重要数据。**不要删除这些标记**（但可以把它们移走，甚至移到合成开头之前藏起来，如果你觉得碍事的话）。
 
 ![](/docs-img/duik/layer-tags.png)
 
-These markers can also be used to store and show other useful information, like the location of the limb, or the groups[^dugr] the layer is assigned to.
+这些标记也可以用来存放和显示其它有用信息，比如肢体的位置，或图层所属的分组[^dugr]。
 
-### Pseudo effects
+### 伪效果
 
-![](/docs-img/duik/automation/wiggle-effect.png)
-<figcaption>The pseudo effect used by the <a href="../guide/automation/wiggle.html"><i>Wiggle</i></a> tool.</figcaption>
+![](/docs-img/duik/automation/wiggle-effect.png)  
+<figcaption><i>Wiggle（抖动）</i>工具使用的伪效果。</figcaption>
 
-Duik uses a lot of pseudo effects. *Pseudo-Effects* are a hack to create nicer controls for expressions than the native After Effects *"Expression controls"* effects, but they do nothing more than controlling expressions too. It's a bit complicated to create them by hand in After Effects, but there are useful scripts which do this very easily like *Pseudo Effect Maker*[^aescripts].  
-Duik makes a great use of them to create nice user-friendly controls in the effects of the controllers. Always have a look in the *Effects* panel of After Effects when you rig or animate something with Duik!
+Duik 大量使用伪效果。*伪效果（Pseudo-Effects）*是一种变通做法，用来为表达式制作比 After Effects 原生「表达式控制」效果更好的控件，但它们本质上也只是控制表达式。在 After Effects 中手工创建伪效果有点复杂，不过有现成脚本可以轻松完成，比如 *Pseudo Effect Maker*[^aescripts]。  
+Duik 充分利用伪效果，在控制器的效果里创建友好的控件。用 Duik 绑定或动画时，记得常看看 After Effects 的*效果*面板！
 
-### Removing Duik "effects"
+### 移除 Duik「效果」
 
-When you need to remove something made by Duik, you have to understand that Duik did nothing more than creating layers, expressions and pseudo effects.  
-Each time you need to remove something, you just have to remove the expressions and pseudo effects created by Duik, and maybe the layers too.  
-This can sometimes be a bit tedious, but future versions of Duik will include tools to automate this process.
+需要移除 Duik 做过的东西时，你要明白：Duik 只是创建了图层、表达式和伪效果。  
+每次要移除时，只需删掉 Duik 创建的表达式和伪效果，有时还有那些图层。  
+这有时会有点繁琐，但未来版本的 Duik 会加入自动化此流程的工具。
 
 <Callout type="success">
-    If you remove the pseudo effect first, the expressions will be in error. That makes it easier to locate and remove them!
-
-[^membership]: Visit [membership.rxlab.info](http://membership.rxlab.info) to join us!
-
-[^donate]: Visit [donate.rxlab.info](http://donate.rxlab.info) to make a donation.
-
-[^tr]: Visit [translate-duik.rxlab.io](http://translate-duik.rxlab.io) to help translate Duik to any language.
-
-[^perf]: To learn more about the performance of After Effects and Duik, read the section entitled [*Advanced / Performance*](../advanced/performance).
-
-[^dugr]: Duik works hand in hand with another tool called ***DuGR***, which groups layers. You can get it on [rxlaboratory.org/tools/dugr](http://rxlaboratory.org/tools/dugr) and read its complete documentation on [dugr.rxlab.guide](http://dugr.rxlab.guide).
-
-[^aescripts]: Available on [aescripts.com](https://aescripts.com).
-
-
+    如果先删除伪效果，表达式就会报错。这样更容易定位并删除它们！
 </Callout>
 
-</Callout>
+[^membership]: 访问 [membership.rxlab.info](http://membership.rxlab.info) 加入我们！
 
-</Callout>
+[^donate]: 访问 [donate.rxlab.info](http://donate.rxlab.info) 进行捐赠。
 
-</Callout>
+[^tr]: 访问 [translate-duik.rxlab.io](http://translate-duik.rxlab.io) 帮助把 Duik 翻译成任何语言。
+
+[^perf]: 了解更多关于 After Effects 与 Duik 性能的内容，请阅读[*高级 / 性能*](../advanced/performance)一节。
+
+[^dugr]: Duik 与另一款名为 ***DuGR*** 的图层分组工具密切配合。可在 [rxlaboratory.org/tools/dugr](http://rxlaboratory.org/tools/dugr) 获取，并在 [dugr.rxlab.guide](http://dugr.rxlab.guide) 阅读完整文档。
+
+[^aescripts]: 在 [aescripts.com](https://aescripts.com) 提供。

@@ -16,6 +16,7 @@ The list is added in the effects of the layer. You can combine up to five animat
 
 <Callout type="info">
     The result of the mix is calculated the following way  (except for colors, where the function depends on the blending mode):
+</Callout>
 
     `value1 * weight1 + value2 * weight2 + value3 * weight3 + value4 * weight4 + value5 * weight5`
 
@@ -23,6 +24,7 @@ You can use the list with **any numerical property[*](../../../misc/glossary), i
 
 <Callout type="success">
     To use it with Bézier path properties, you can add [Duik pins](../pins)&nbsp;[^1] to control the path first, then use the list on the position (and rotation) properties of the pins.
+</Callout>
 
 When used with colors, the effect is a bit different:
 
@@ -33,6 +35,7 @@ Each value in the list is blended in the previous slot according to the opacity 
 <Callout type="success">
     You can use the list to start and stop any expression, thanks to the animatable weight[*](../../../misc/glossary).  
     It can also be used to combine different expressions, like a sine function with multiple wiggle functions, etc.
+</Callout>
 
     It's also used to connect slave properties to multiple master properties using the *[Connector](../connector)*&nbsp;[^2].
 
@@ -40,9 +43,3 @@ Each value in the list is blended in the previous slot according to the opacity 
 
 [^2]: *cf.* *[Constraints / Pins](../pins)*.
 
-
-</Callout>
-
-</Callout>
-
-</Callout>

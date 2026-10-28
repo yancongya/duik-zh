@@ -43,6 +43,7 @@ You can read our [guide about Fuzzy Logic](http://fuzzylogic.rxlab.guide) and us
 
 <Callout type="info">
     The term *simulation* is actually used in the Kleaner properties and this document, but it really refers to a *fake* simulation, tweaked to generate a better animation and not physically accurate nor using any actual physical law or formula.
+</Callout>
 
 The *Kleaner* has a lot of options though, so that you can still have a fine control on your animation, or even manually adjust each and every little part, while still working quickly on the whole animation at once by just setting some general parameters.
 
@@ -67,12 +68,14 @@ You can use the Kleaner with any property which can have expressions.
 
 <Callout type="success">
     When using the Kleaner, just leave all your keyframes to linear interpolation and use the Kleaner to tweak the animation.
+</Callout>
 
     For spatial properties, you should keep only the first and last keyframe of each movement to linear, and set all in-between keyframes to *rove across time*, using them only to tune the trajectory.
 
 <Callout type="success">
     The Kleaner is best used on multiple properties at once; this way you can control lots of movements with a single effect.  
     Spatial properties and other properties are handled a bit differently though, and it may be better to add the Kleaner twice for spatial properties and other properties separately.
+</Callout>
 
 You can adjust the settings and tweak the Kleaner with the effect Duik adds to the layer.
 
@@ -86,6 +89,7 @@ To make it easier to use and discover, the settings are divided in three parts:
 
 <Callout type="success">
     When you've applied the Kleaner on some properties and then want to use the same Kleaner on other properties, you can just copy and paste the expression in the new properties.
+</Callout>
 
 ## Presets
 
@@ -125,6 +129,7 @@ These are arbitrary, unitless values; if you *feel* the object is not heavy enou
 
 <Callout type="info">
     Duik and the Kleaner can do much for you. But **it can't move keyframes and change the duration of the animation**! If even with these settings your animation is too fast or the object feels too light, it may be because you need to adjust the timing[*](../../misc/glossary) of the animation, move the keyframes and make it longer, and vice versa.
+</Callout>
 
     Before applying the Kleaner, try to time the animation the best you can (it's easier with the default easy-ease interpolation than linear keyframes, select the keyframes and hit `F9`).
 
@@ -208,6 +213,7 @@ You can adjust the overlap by changing this value; set it to `0 %` to completely
 
 <Callout type="info">
     There's no need to disable it on non-spatial properties where this value is not used at all.
+</Callout>
 
 ### Follow through
 
@@ -228,6 +234,7 @@ You can adjust the overlap by changing this value; set it to `0 %` to completely
 
 <Callout type="info">
     When oscillating, the frequency is stable and doesn't change until the object stops. When bouncing, the frequency raises (the bounces get shorter and shorter).
+</Callout>
 
     The Kleaner being a tool for animators made by animators, it is not physically accurate; if it were, some bounces would happen *between* actual frames of the composition, which would be bad because there would be no frame where the contact between the object and the surface is visible. But the Kleaner makes sure all contacts happen exactly on actual frames of the composition, as an animator would do.
 
@@ -252,6 +259,7 @@ Use the ***softness*** to make the motion slow down before hitting the limit.
 <Callout type="info">
     When limits are used, they're also applied to the value of keyframes, effectively limiting the actual value no matter if it comes from the Kleaner or the keyframes.  
     It may be useful to apply the Kleaner on some property just to benefit from the limits, and a preset has been made just for this.
+</Callout>
 
 ## Advanced Parameters
 
@@ -270,19 +278,3 @@ You can use these settings to improve the performance by disabling the simulatio
 If you notice artifacts in the motion blur or imprecision with some interpolations and follow through, you can raise a bit the  ***Time precision*** or ***Value precision***, but be careful as this may slow down the evaluation of the expressions.
 
 
-
-</Callout>
-
-</Callout>
-
-</Callout>
-
-</Callout>
-
-</Callout>
-
-</Callout>
-
-</Callout>
-
-</Callout>
