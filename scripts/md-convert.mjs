@@ -91,6 +91,13 @@ function convert(raw, relPath) {
   // META 行：整行删除（归属信息由 NOTICE + frontmatter 承担）
   text = text.replace(/^!\[META\]\([^)]*\)\s*$/gm, '')
 
+  // RXLAB_VIDEO → 自有 Video 组件（下一行斜体图注保留为 caption）
+  text = text.replace(
+    /^!\[RXLAB_VIDEO\]\((https?:\/\/[^)\s]+)\)[ \t]*\r?\n\*([^*]+)\*[ \t]*$/gm,
+    (_m, url, caption) => `<Video src="${url}" caption={${JSON.stringify(caption.trim())}} />`,
+  )
+  text = text.replace(/^!\[RXLAB_VIDEO\]\((https?:\/\/[^)\s]+)\)[ \t]*$/gm, '<Video src="$1" />')
+
   // mkdocs admonition 开关行 -> Callout
   const kindMap = {
     note: 'info',
