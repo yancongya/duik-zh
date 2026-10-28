@@ -1,40 +1,41 @@
 ---
-title: "![](/docs-img/duik/icons/library.svg) Script Library"
+title: "脚本库"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/library.svg) Script Library
+# <img src="/docs-img/duik/icons/library.svg" style={{width: '1em'}}/> 脚本库
 
-The Script Library is similar to other libraries in Duik, such as the [OCO meta-rig library](../../oco) or the [animation library](../../animation/anim-library) and provides a quick access to all your scripts.
+脚本库与 Duik 中的其他库类似，比如 [OCO 元绑定库](../../oco) 或 [动画库](../../animation/anim-library)，可以让你快速访问所有脚本。
 
 ![](/docs-img/duik/tools/script-lib.png)
 
-You can use the field on the top of the panel to quickly search for scripts and navigate in the categories.
+你可以用面板顶部的输入框快速搜索脚本，并在各分类之间导航。
 
-Some predefined categories are available by default, to list all available scripts in different locations on your system. These correspond to the default locations and scripts available with After Effects.
+默认提供一些预定义分类，用于列出系统不同位置中所有可用的脚本。它们对应 After Effects 自带的默认位置和脚本。
 
-To run a script, `[double click]` it or select it and click the ![](/docs-img/duik/icons/run.svg) *Run* button.  
-Dockable scripts (a.k.a. ScriptUI Panels) are launched as an After Effects dockable panel, but if you `[Alt] + [Click]` the *Run* button, Duik will try to launch their standard (not dockable) version. This may fail if the developer of the script didn't implement this feature.
+要运行脚本，`[双击]`它，或者选中后点击 ![](/docs-img/duik/icons/run.svg)*运行*按钮。  
+可停靠脚本（即 ScriptUI Panels）会作为 After Effects 的可停靠面板启动；但如果你 `[Alt] + [点击]`*运行*按钮，Duik 会尝试启动它们的标准（不可停靠）版本。如果脚本开发者没有实现这个功能，启动可能会失败。
 
-You can also quickly open scripts for edition from the library, by clicking the ![](/docs-img/duik/icons/edit.svg) *Edit* button when the script is selected. By default, the script is opened using the default system's editor corresponding to the file type of the script (usually `.jsx`). You can set a specific editor if you `[Shift] + [Click]` the button, or `[Alt] + [Click]` to open it in a simple editor included in the panel of Duik for [quick edition of small scripts](script-editor.md)&nbsp;[^editor].
+你也可以从脚本库中快速打开脚本进行编辑：选中脚本后点击 ![](/docs-img/duik/icons/edit.svg)*编辑*按钮。默认情况下，脚本会用系统默认的、与脚本文件类型对应的编辑器打开（通常是 `.jsx`）。如果你 `[Shift] + [点击]`这个按钮，可以指定一个特定的编辑器；`[Alt] + [点击]`则会在 Duik 面板自带的简易编辑器中打开它，用于[快速编辑小脚本](script-editor)&nbsp;[^editor]。
 
-[^editor]: *cf [General Tools](..) / Scripts and Expressions / [Script Editor](script-editor.md)*.
+[^editor]: *参见 [通用工具](..) / 脚本与表达式 / [脚本编辑器](script-editor)*.
 
-Click the ![](/docs-img/duik/icons/folder.svg) *Folder* button to open the folder containing the selected script.
+点击 ![](/docs-img/duik/icons/folder.svg)*文件夹*按钮，可打开包含选中脚本的文件夹。
 
-## Editing the library
+## 编辑脚本库
 
-### ![](/docs-img/duik/icons/add.svg) Add
+### ![](/docs-img/duik/icons/add.svg) 添加
 
-Click the ![](/docs-img/duik/icons/add.svg) *add* button to add a new category, or a new script in the current library category.
+点击 ![](/docs-img/duik/icons/add.svg)*添加*按钮，可在当前脚本库分类中新增一个分类或一个新脚本。
 
-### ![](/docs-img/duik/icons/edit.svg) Edit
+### ![](/docs-img/duik/icons/edit.svg) 编辑
 
-Select a category and click the ![](/docs-img/duik/icons/edit.svg) *edit* button to edit its name.
+选中一个分类，点击 ![](/docs-img/duik/icons/edit.svg)*编辑*按钮，可修改其名称。
 
-Select a script and click the ![](/docs-img/duik/icons/edit.svg) *edit* button to add an icon (we recommend using a 16-pixel square PNG), change its name or category, or add it to your favorites.
+选中一个脚本，点击 ![](/docs-img/duik/icons/edit.svg)*编辑*按钮，可以添加图标（建议使用 16 像素见方的 PNG）、修改名称或所属分类，或把它加入收藏。
 
-### ![](/docs-img/duik/icons/remove.svg) Remove
+### ![](/docs-img/duik/icons/remove.svg) 移除
 
-Select a category or a script and click the ![](/docs-img/duik/icons/remove.svg) *remove* button to remove it. Scripts are just removed from the library, but they're not actually removed from disk.
-
-
+选中一个分类或脚本，点击 ![](/docs-img/duik/icons/remove.svg)*移除*按钮即可删除它。脚本只是从库中移除，并不会真正从磁盘上删除。

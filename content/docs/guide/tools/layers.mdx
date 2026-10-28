@@ -1,56 +1,53 @@
 ---
-title: "![](/docs-img/duik/icons/composition_settings.svg) Layer Manager"
+title: "图层管理器"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/composition_settings.svg) Layer Manager
+# <img src="/docs-img/duik/icons/composition_settings.svg" style={{width: '1em'}}/> 图层管理器
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_O02_LayerTools__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_O02_LayerTools__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-The layer manager is there to help you create, rename, and tag layers.
+图层管理器用于帮你创建、重命名并标记图层。
 
-The layer tags set by Duik are actually markers on the first frame of the layer, showing the type of the layer and other useful information. They also contain more data hidden from the user but needed by some tools like the auto-rig.
+Duik 设置的图层标记，实际上是加在图层第一帧上的标记，用于显示图层类型和其他有用信息。它们还包含一些对用户隐藏、但自动绑定等工具所需的额外数据。
 
 ![](/docs-img/duik/tools/layer-tools.png)
 
-The first line are quick buttons to create different kind of layers.
+第一行是用于快速创建各类图层的按钮。
 
-- ![](/docs-img/duik/icons/null.svg) **Null layer**.  
-    This creates a special Null layer made with a shape layer instead of a solid. This has two main advantages: it keeps the project panel tidy without adding to many items, and makes it possible to render the null layer if needed (by just unchecking the *guide layer* option).
-- ![](/docs-img/duik/icons/solid.svg) **Solid**.  
-    Similarly to the *null layer* button, this creates a solid made with a shape layer and a simple rectangle. Another advantage here is that you can easily change its size with the *size* property of the rectangle, and its color can be animated.
-- ![](/docs-img/duik/icons/adjustment.svg) **Adjustment layer**.  
-    Again, Duik uses a shape layer instead of a solid to create adjustment layers. The additional advantage here is that the content of the layer can be used as the alpha of the adjustment layer (i.e. a mask for the effects).
-- ![](/docs-img/duik/icons/circle.svg) ![](/docs-img/duik/icons/square.svg) ![](/docs-img/duik/icons/rounded_square.svg) ![](/docs-img/duik/icons/polygon.svg) ![](/docs-img/duik/icons/star.svg) **Primitives**.  
-    The next buttons are a way to create primitive shapes perfectly centered in the composition with all their transform values initiated to `0` (or `100 %` for the scale and opacity).
-- ![](/docs-img/duik/icons/bone.svg) **Duik [bone](../bones)**&nbsp;[^bone] (custom armature).  
-- ![](/docs-img/duik/icons/move_rotate.svg) **Duik [controller](../controllers)**&nbsp;[^ctrl].  
-- ![](/docs-img/duik/icons/zero.svg) **Duik [zero](../constraints/tools/zero)**&nbsp;[^zero].  
-- ![](/docs-img/duik/icons/locator.svg) **Duik [locator](../constraints/tools/locator)**&nbsp;[^loc].
+- ![](/docs-img/duik/icons/null.svg) **空对象**。  
+    它会创建一个特殊的空对象图层，用形状图层而非纯色层来制作。这样做有两个主要好处：项目面板不会被塞得满满当当、保持整洁；并且在需要时可以渲染这个空对象图层（只需取消勾选*参考图层*选项即可）。
+- ![](/docs-img/duik/icons/solid.svg) **纯色层**。  
+    与*空对象*按钮类似，它用形状图层加一个简单矩形来创建纯色层。额外的好处是：你可以通过矩形的*大小*属性轻松改变它的尺寸，颜色也可以做动画。
+- ![](/docs-img/duik/icons/adjustment.svg) **调整图层**。  
+    同样，Duik 用形状图层而非纯色层来创建调整图层。这里的额外好处是：图层的内容可以用作调整图层的 Alpha 通道（即作为效果的蒙版）。
+- ![](/docs-img/duik/icons/circle.svg) ![](/docs-img/duik/icons/square.svg) ![](/docs-img/duik/icons/rounded_square.svg) ![](/docs-img/duik/icons/polygon.svg) ![](/docs-img/duik/icons/star.svg) **基本图形**。  
+    接下来的几个按钮用于创建基本图形，它们会完美居中放置在合成中，所有变换数值初始化为 `0`（缩放和不透明度为 `100 %`）。
+- ![](/docs-img/duik/icons/bone.svg) **Duik [骨骼](../bones)**&nbsp;[^bone]（自定义骨架）。  
+- ![](/docs-img/duik/icons/move_rotate.svg) **Duik [控制器](../controllers)**&nbsp;[^ctrl]。  
+- ![](/docs-img/duik/icons/zero.svg) **Duik [归零](../constraints/tools/zero)**&nbsp;[^zero]。  
+- ![](/docs-img/duik/icons/locator.svg) **Duik [定位器](../constraints/tools/locator)**&nbsp;[^locator]。
 
-[^link]: *cf. [Bones](../bones) / Tools / [Link Art](../bones/tools/link-art)*.
+[^link]: *参见 [骨骼](../bones) / 工具 / [Link Art（链接图形）](../bones/tools/link-art)*.
 
-[^bone]: *cf. [Bones](../bones)*.
+[^bone]: *参见 [骨骼](../bones)*.
 
-[^ctrl]: *cf. [Controllers](../controllers)*.
+[^ctrl]: *参见 [控制器](../controllers)*.
 
-[^zero]: *cf. [Links and Constraints](../constraints) / Tools / [Zero](../constraints/tools/zero)*.
+[^zero]: *参见 [链接与约束](../constraints) / 工具 / [归零（Zero）](../constraints/tools/zero)*.
 
-[^locator]: *cf. [Links and Constraints](../constraints) / Tools / [Locator](../constraints/tools/locator)*.
+[^locator]: *参见 [链接与约束](../constraints) / 工具 / [定位器（Locator）](../constraints/tools/locator)*.
 
 <Callout type="success">
-    With a "shape solid" created with Duik, you can easily make sure it keeps the size of the composition, even when the composition is resized or if its copied and pasted in another composition. Just add this expression in the *size* property of the rectangle:  
-    `[thisComp.width, thisComp.height];`
+    用 Duik 创建的“形状纯色层”，可以很容易地让它始终保持合成的尺寸——即使合成被缩放，或者被复制粘贴到另一个合成里。只需在矩形的*大小*属性中加入这个表达式：`[thisComp.width, thisComp.height];` 你甚至可以让纯色层的尺寸按合成尺寸的比例缩放，把它乘上一个系数即可：`[thisComp.width, thisComp.height] * 0.5;` 会让纯色层变成合成的一半大小（面积的四分之一）。
 </Callout>
 
-    You can even easily make sure the solid's size is a fraction of the composition size by multiplying this:  
-    `[thisComp.width, thisComp.height] * 0.5;`  
-    will set the solid to be half the size (a quarter of the area) of the composition.
-
-The ![](/docs-img/duik/icons/autorig.svg) ***Auto-Rename and tag*** button is a smart tool which automatically sets the group, side, type, and name of the selected layers according to their original name. It detects words, prefixes and suffixes such as `L` or `Left`, and separators such as `_` or `-` to deduce all attributes which should be associated to the layer, then sets the correct tag and renames them according to the Duik naming scheme (the way Duik names the layers when it creates them).
+![](/docs-img/duik/icons/autorig.svg)***自动重命名与标记***按钮是一个智能工具，它会根据选中图层的原始名称，自动设置图层的组别、侧别、类型和名称。它能识别 `L` 或 `Left` 这类单词、前缀和后缀，以及 `_` 或 `-` 这类分隔符，从而推断出该图层应有的全部属性，然后设置正确的标记，并按照 Duik 命名规范（即 Duik 创建图层时给图层命名的方式）重命名图层。
 
 <Callout type="info">
-    That's what the [*Link art*](../bones/tools/link-art)&nbsp;[^link] tool does, when set to use the layer names.
+    这正是 [*Link Art（链接图形）*](../bones/tools/link-art)&nbsp;[^link] 工具在设置为“使用图层名称”时所做的事。
 </Callout>
 
-You can use the last section of the panel to set specific attributes to the selected layers, or copy the attributes from one layer to others using the ![](/docs-img/duik/icons/eye_dropper.svg) *Pick selected layer* button.
-
+你可以使用面板最后一部分为选中图层设置特定属性，或者用 ![](/docs-img/duik/icons/eye_dropper.svg)*选取选中图层*按钮，把一个图层的属性复制到其他图层。
