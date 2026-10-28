@@ -119,5 +119,115 @@
 | random seed | 随机种子 | ✅ | |
 | time remap / time remapping | 时间重映射 | ✅ | AE 官方 |
 | framerate | 帧率 | ✅ | |
+| camera | 摄像机 | ✅ | AE 官方 |
+| point of interest | 目标点 | ✅ | AE 官方摄像机属性 |
+| safe frames | 安全框 | ✅ | 动作安全区/字幕安全区 |
+| parallax | 视差 | 🟡 | |
+| camera shake | 摄像机抖动 | 🟡 | 区别于 wiggle（抖动） |
+| multiplane camera | 多层摄像机 | 🟡 | Disney 多层摄影 |
+| two-node / one-node camera | 双节点 / 单节点摄像机 | 🟡 | |
+| Handheld / Shoulder / Tripod / Steadicam / Fixed | 手持 / 肩扛 / 三脚架 / 斯坦尼康 / 固定 | 🟡 | 运镜方式 |
+| Track / Pedestal / Dolly / Pan / Tilt / Roll / Zoom | 左右横移 / 上下升降 / 推拉 / 左右摇摄 / 上下俯仰 / 旋转 / 变焦 | 🟡 | 摄影运镜 |
+| Light Bones | 轻量骨骼 | 🟡 | Full Bones（完整骨骼）对应 |
+| Open Cut-Out format | Open Cut-Out 格式 | 🟡 | OCO 全称 |
+| pickwhip | 拾取器 | 🟡 | AE 官方 |
+| weight | 权重 | ✅ | AE 官方；约束/IK/形态关键帧通用乘数 |
+| kinematic chain | 动力学链 | ✅ | |
+| stretch | 拉伸 | ✅ | IK 肢体伸缩 |
+| foreshortening | 透视缩短 | ✅ | |
+| key pose | 关键姿势 | ✅ | key morph 语境 |
+| neutral pose | 中立姿势 | ✅ | key morph 起始姿势 |
+| lipsync | 唇形同步 | ✅ | |
+| phoneme | 音素 | ✅ | |
+| master property | 主属性 | 🟡 | 与 slave property=从属属性 成对 |
+| auto-parent | 自动父子 | 🟡 | |
+| parent across compositions | 跨合成父子 | 🟡 | |
+| eye dropper | 吸管 | ✅ | AE 官方 |
+| Hold interpolation | 保持插值 | ✅ | |
+| graph editor | 图表编辑器 | ✅ | AE 官方 |
+| blend mode | 混合模式 | ✅ | AE 官方 |
+| slot (List) | 槽位 | 🟡 | List 工具叠加位 |
+| rest pose | 休息姿势 | 🟡 | |
+| Expose Transform | 暴露变换 | 🟡 | 工具名 |
+| match name | 匹配名称 | 🟡 | AE 官方 |
+| Tint | 着色 | ✅ | AE 效果名 |
+| normal (path) | 法线 | ✅ | |
+| speed / velocity | 速度 / 速率 | 🟡 | 连接器连接模式 |
+| shy (layer mode) | 隐藏（shy） | 🟡 | AE 官方 |
+| Zero（Add Zero） | 归零（添加归零） | 🟡 | 工具名 |
+| note editor | 笔记编辑器 | ✅ | |
+| Command panel | 命令行面板 | 🟡 | Duik 面板，非系统 cmd |
+| artwork | 美术图层 / 美术素材 | 🟡 | 与 art 行呼应 |
+| footage | 素材 | 🟡 | AE 官方 |
+| project items | 项目项 | 🟡 | |
+| main composition | 主合成 | 🟡 | 相对预合成 |
+| layer handles | 图层手柄 | 🟡 | AE 官方 |
+| expression engine | 表达式引擎 | 🟡 | |
+| memory leak | 内存泄漏 | 🟡 | |
+| spacing | 间距 | 🟡 | 动画原则 |
+| UI modes（Rookie/Standard/Expert/God） | 界面模式（新手/标准/专家/上帝） | 🟡 | |
+| Layer Manager | 图层管理器 | 🟡 | 工具面板名 |
+| Solid | 纯色层 | 🟡 | AE 官方"纯色" |
+| Adjustment layer | 调整图层 | ✅ | AE 官方 |
+| Primitives | 基本图形 | 🟡 | 形状预置按钮组 |
+| Link Art | Link Art（链接图形） | 🟡 | 工具名 |
+| Auto-Rename and tag | 自动重命名与标记 | 🟡 | |
+| dockable script | 可停靠脚本 | 🟡 | a.k.a. ScriptUI Panels |
+| naming scheme | 命名规范 | 🟡 | |
+| proxy | 代理（素材/代理文件） | 🟡 | AE 语境 |
+| continuous rasterization | 连续栅格化 | 🟡 | AE 官方开关名 |
+| disk cache | 磁盘缓存 | ✅ | AE 首选项固定项 |
+| RAM disk | RAM 磁盘 | 🟡 | 保留 RAM 不译 |
+| multi-frame rendering | 多帧渲染 | 🟡 | AE 官方 |
+| intra-frame codec | 帧内编码 | 🟡 | 视频术语 |
+| motion path | 运动路径 | 🟡 | 区别于 motion trail=运动轨迹 |
+| garbage collection | 垃圾回收 | 🟡 | |
+| solo | 独奏（Solo） | 🟡 | AE 官方 |
+| puppet tool | 木偶工具 | 🟡 | |
+| cut-out animation | 剪纸动画 | 🟡 | 与 Open Cut-Out 格式呼应 |
+| storyboard | 故事板 | 🟡 | |
+| anonymous function | 匿名函数 | ✅ | JS 术语 |
+| namespace | 命名空间 | ✅ | |
+| pull request | 拉取请求（PR） | 🟡 | 首现全称，后用 PR |
+| limb | 肢体 | ✅ | |
+| joint | 关节 | ✅ | |
+| extract controllers | 提取控制器 | 🟡 | Duik 面板功能名 |
+| animation exposure / exposure sheet | 动画曝光表 | 🟡 | 与 x-sheet（摄影表）相关 |
+| spring | 弹簧 | 🟡 | Kleaner 预设/自动化工具 |
+| swing | 摆动 | 🟡 | Duik 自动化工具 |
+| Structure（Duik） | 结构 | 🟡 | 骨骼层级结构 |
+| Blocking (animation) | 摆位 | 🟡 | 动画流程第一步 |
+| Breakdown (animation) | 过渡关键帧 | 🟡 | 与中间画区分 |
+| cel | 赛璐珞片 | ✅ | 传统手绘动画单张画稿 |
+| Degrees of Freedom | 自由度 | ✅ | |
+| exposure（动画） | 拍摄格数 | 🟡 | 单帧停留格数，X-Sheet 语境 |
+| Master / Slave | 主控 / 从属 | ✅ | 连接器语境 |
+| Numerical Property | 数值属性 | 🟡 | AE 属性分类 |
+| Simulation | 模拟 | ✅ | 基于物理计算运动 |
+| Squash and Stretch | 挤压与拉伸 | ✅ | 迪士尼动画原则 |
+| Inheritance (parenting) | 继承 | ✅ | 父子关系语境 |
+| Roving keyframes | 漫游关键帧 | 🟡 | AE 官方 |
+| easing / ease | 缓动 | ✅ | AE 官方 |
+| ease in / ease out | 缓入 / 缓出 | ✅ | AE 官方 |
+| influence | 影响力 | 🟡 | 关键帧缓动/切线 |
+| velocity | 速度 | 🟡 | 带符号，区别于 speed |
+| breakdown | 过渡画 | 🟡 | 关键姿势间的次级关键帧 |
+| in-betweens | 中间画 | 🟡 | |
+| blocking | 阻塞 | 🟡 | 动画流程第一阶段 |
+| hold keyframe | 保持关键帧 | 🟡 | AE hold 插值 |
+| onion skin | 洋葱皮 | 🟡 | 中文社区通行 |
+| celluloid | 赛璐珞片 | 🟡 | |
+| paint effect | 绘画效果 | 🟡 | AE Paint |
+| solid layer | 纯色图层 | ✅ | AE 官方 |
+| snap（关键帧） | 吸附 | 🟡 | 与对齐区分 |
+| interpolator | 插值器 | 🟡 | 工具名 |
+| trim（NLE） | 裁剪 | 🟡 | NLE 语境，区别于 crop |
+| crossfade | 交叉淡化 | 🟡 | NLA 过渡 |
+| tangent | 切线 | ✅ | Bézier 切线 |
+| damping | 阻尼 | ✅ | |
+| elasticity | 弹性 | ✅ | |
+| work area | 工作区域 | ✅ | AE 官方 |
+| current time indicator | 当前时间指示器 | ✅ | AE 官方 |
+| gaussian interpolation | 高斯插值 | 🟡 | Kleaner 曲线函数 |
 
 （Phase 2+ 按翻译进度继续补录，目标 150+ 条）

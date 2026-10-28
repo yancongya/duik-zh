@@ -1,106 +1,105 @@
 ---
-title: "Frequently Asked Questions"
+title: "常见问题"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# Frequently Asked Questions
+# 常见问题
 
-These are questions which are not addressed in the documentation of Duik, because they're more general or not directly related to Duik. If you don't find the answer to your question it may be because the answer is already somewhere else in the user guide. If after searching in the guide you still can't find the solution to your problem, you're welcome to ask on [chat.rxlab.info](http://chat.rxlab.info)
+这里收录的是 Duik 文档中没有讲到的问题，因为它们更笼统，或者与 Duik 没有直接关系。如果你在文档里找不到自己问题的答案，可能是因为答案已经藏在用户指南的某个角落了。如果翻遍指南仍找不到解决办法，欢迎来 [chat.rxlab.info](http://chat.rxlab.info) 提问。
 
-## How can I modify the design of an already rigged (and animated) character?
+## 我该如何修改一个已经绑定（并做过动画）的角色的设计？
 
-When you rig a character, you should follow the standard Duik procedure (*cf. [The Rigging Process in Duik Ángela](guide/rigging.md)*).
+绑定角色时，你应当遵循 Duik 的标准流程（参见 [Duik Ángela 中的绑定流程](guide/rigging)）。
 
-When using bones to rig the character, the artwork is not rigged itself, all constraints and expressions are on the bones. This means you can change the design at any time by just swapping the artwork, or adding layers to be parented to the rigged bones.
+用骨骼绑定角色时，美术素材本身并没有被绑定，所有约束和表达式都挂在骨骼上。这意味着你随时可以更换美术素材来修改设计，或者添加图层并让它们成为已绑定骨骼的子级。
 
-This being said, a nice habit to have is to always **precompose all footage** as soon as you import them, and use the precomps instead of the footage. This makes it easy to adjust the design at any time, by just modifying the contents of these precompositions. This works especially well when using the puppet tool, as the pins will be on the precomposition instead of the footage itself. This way you can easily change anything you wish inside the precomposition without having to redo the puppet and parenting work.
+话虽如此，有个好习惯值得养成：导入素材后，**立刻把所有素材预合成**，之后一律使用预合成而不是原始素材。这样一来，你随时都能通过修改这些预合成的内容来调整设计，非常方便。用木偶工具时尤其管用——因为图钉会落在预合成上，而不是原始素材上。如此一来，你就能在预合成里随意改动，而不必重做木偶和父子绑定。
 
-Of course, you can only change *details* on the character this way; if the location of the joints change, it's usually easier and faster to just redo the rig. Don't forget you can remove just a single limb to re-rig it, you don't need to re-rig the whole character.
+当然，用这种方式只能改动角色的*细节*；如果关节的位置变了，通常干脆重新绑定来得更快。别忘了，你只需要卸掉某一根肢体重新绑定即可，不必把整个角色重做一遍。
 
-## Can I use the same rig for multiple characters?
+## 同一个绑定能给多个角色用吗？
 
-Yes, if the characters all have the same proportions (if the length of their limbs, the distance between the joints are all the same).
+可以——前提是这些角色的比例完全相同（肢体长度、关节间距全都一样）。
 
-No in all other cases, sorry. This being said, it's quite quick to create a bunch of bones and run the Auto-Rig, not much longer than having to reposition existing bones (it may even be faster due to performance issues with rigged characters).
+其他情况就不行了，抱歉。不过话说回来，新建一堆骨骼、跑一遍自动绑定其实很快，并不会比重新摆放已有骨骼多花多少时间（考虑到已绑定角色的性能问题，它甚至可能更快）。
 
-We could implement a tool to reposition already rigged bones, that'd be a great new feature in Duik, but it's too complicated for now and all the other great new features we have to add first.
+我们本可以做一个工具来重新摆放已绑定的骨骼，这会是 Duik 一个很棒的新功能；但眼下它太复杂，而我们还有一堆更重要的新功能要先做。
 
-## How can I scale a rigged character in Duik?
+## 我该如何在 Duik 里缩放一个已绑定的角色？
 
-It is not possible to scale the rig itself yet without adjusting some expressions, but:
+目前还不能直接缩放绑定本身而不调整某些表达式，但可以这样：
 
-With the “Extract Controllers” feature, you can scale a rigged character:
+借助"提取控制器"功能，你就能缩放已绑定的角色：
 
-1. Add the rigged comp into another comp.
-2. Select the precomposition layer and, in the controllers panel of Duik, click on "Extract controllers"
+1. 把已绑定的合成放进另一个合成。
+2. 选中该预合成图层，在 Duik 的控制器面板中点击"提取控制器"。
 
-You can then animate from outside of the precomp, with the extracted controllers, and you can scale the precomposition layer to scale the rig (the controllers will follow).
-We think this is a good workaround, you just have to take care of the resolution as it’s a precomposition (and rasterization may not work properly with the rig), scaling up will damage it a bit, but scaling it down is ok.
+之后你就可以在预合成外部，用提取出来的控制器来做动画；缩放这个预合成图层就能缩放整个绑定（控制器会跟着动）。我们认为这是个不错的变通办法。你只需留意分辨率——因为它是预合成（而且栅格化在绑定上可能不太正常），放大多少会有点伤画质，但缩小是没问题的。
 
-## How can I use the connector to connect a single slave property to multiple master properties?
+## 我该如何用连接器把一个从属属性连接到多个主属性？
 
-Use a [List](guide/constraints/tools/list.md)!
+用一个 [List](guide/constraints/tools/list) 就行了！
 
-## The hominoid (or other meta-rigs) is facing left. I’d like it to face right.
+## 人形总目（或其他元绑定）脸朝左，我想让它脸朝右。
 
-The direction the hominoid is facing doesn’t really matter, as the Auto-Rig will adjust to the locations of the armatures at the time you’ll run it. Just move each bone to the corresponding limb of your character, one by one, and then run the Auto-Rig. Don’t forget the [Edit Mode](guide/bones/tools/edit.md) to help you move a Structure without moving its children if you need.
+人形总目朝哪边其实无关紧要，因为自动绑定会在你运行时根据骨骼的位置自动适配。你只要把每根骨骼逐一挪到角色对应的肢体上，再运行自动绑定即可。如果需要在不移动其子级的情况下移动整个结构，别忘了用[编辑模式](guide/bones/tools/edit)来帮你。
 
-## When applying the walk cycle, the controllers of the hands seem to be deactivated, why’s that?
+## 应用行走循环时，手部的控制器好像被禁用了，这是为什么？
 
-The procedural walk cycle animates the arms with Forward Kinematics (FK) and thus deactivates the Inverse Kinematics (IK). They do not need to translate anymore as the animation is on the angles of the individual FK controls.
+程序化行走循环用正向动力学（FK）驱动手臂动画，因此会禁用反向动力学（IK）。它们不再需要位移，因为动画是加在各个 FK 控制器的角度上的。
 
-If you want to animate/adjust the arms, you can either adjust the values in the Individual FK controls in the effects of the controllers, or you can re-enable the IK, but this will deactivate the procedural animation on the arms.
+如果你想给手臂做动画/调整，可以去控制器效果里的"独立 FK 控制"中调整数值，或者重新启用 IK——但那样会关闭手臂上的程序化动画。
 
-!!! Note
-```text
-You can animate the switch between IK and FK, and Duik provides a tool to ease this [IK/FK switch](guide/animation/tools/ik-fk-switch.md) process.
-```
+<Callout type="info">
+    你可以给 IK 与 FK 之间的切换本身做动画，Duik 还提供了一个工具来让这个 [IK/FK 切换](guide/animation/tools/ik-fk-switch) 过程更顺手。
+</Callout>
 
-## FK on legs don't seem to work: the foot is detached from the leg
+## 腿部的 FK 好像不管用：脚和腿断开了。
 
-Because of the way the *foot roll* is rigged[^legrig], legs can't be animated using FK if they've been rigged with the Auto-Rig, as you rarely need FK on legs but very often need the foot roll controls.
+由于[脚掌翻转](guide/bones/autorig/leg)[^legrig]的绑定方式，凡是用自动绑定做出来的腿，都无法用 FK 来动画——因为你很少需要腿部 FK，但非常需要脚掌翻转的控制。
 
-To be able to animate a leg using FK (but without foot roll controls), there are two ways:
+如果确实想用 FK 给腿做动画（但不要脚掌翻转控制），有两种办法：
 
-- Rig it as a hominoid front leg (arm)[^legrig].
-- Create a custom rig, with a standard IK[^ik].
+- 把它当作人形总目的前腿（手臂）来绑定[^legrig]。
+- 自建一个绑定，使用标准 IK[^ik]。
 
-[^legrig]: *cf. [Bones and Auto-Rig / Auto-rig / Arms and legs](guide/bones/autorig/leg.md)*
-[^ik]: *cf. [Links & Constraints / Kinematics](guide/constraints/kinematics.md)*
+[^legrig]: 参见 [骨骼与自动绑定 / 自动绑定 / 手臂和腿](guide/bones/autorig/leg)。
+[^ik]: 参见 [链接与约束 / 动力学](guide/constraints/kinematics)。
 
-## Duik worked well, but it won’t start anymore. What can I do?
+## Duik 之前用得好好的，现在打不开了，我该怎么办？
 
-Sometimes, the files Duik needs to run smoothly get corrupted, especially (but not only) on Mac OS or when something like *OneDrive* or *DropBox* is messing with your documents folder. If this is the case, Duik may not even be able to start anymore, or may be showing a script alert at start. In this case, follow the procedure described in the [Troubleshooting](getting-started/troubleshoot.md) section to repair Duik.
+有时候 Duik 正常运行所需的文件会损坏，尤其是（但不限于）在 Mac OS 上，或者当 *OneDrive*、*Dropbox* 之类的东西在乱动你的文档文件夹时。这种情况下，Duik 可能根本启动不了，或者启动时弹出脚本警告。这时请按照[故障排除](getting-started/troubleshoot)一节里的步骤来修复 Duik。
 
-## Where can I get help with Duik?
+## 我能在哪里获得 Duik 的帮助？
 
-You're reading this guide, that's an important first step.
+你正在读这本指南，这已经是重要的第一步了。
 
-If you'd prefer some video tutorials, we provide lots of official free tutorials and paid comprehensive courses on [rxlaboratory.org](https://rxlaboratory.org) and lots high quality free and paid tutorials are available on the internet.
+如果你更想看视频教程，我们在 [rxlaboratory.org](https://rxlaboratory.org) 提供了大量官方免费教程和付费完整课程；网上也有许多高质量的免费和付费教程。
 
-Of course, we'll be happy to guide you on [chat.rxlab.info](http://chat.rxlab.info), but please, do not contact us through social networks or our contact form to get support and help with Duik or any other tool: we just can't reply to everyone everywhere.
+当然，我们很乐意在 [chat.rxlab.info](http://chat.rxlab.info) 上为你指路；但请不要通过社交媒体或联系表单来找我们要 Duik 或其他工具的技术支持——我们实在没办法在每个地方回复所有人。
 
-## I can’t afford to contribute or I don’t want to donate, can I still use Duik?
+## 我出不起钱做贡献，或者不想捐款，还能用 Duik 吗？
 
-**Our software is free, as in freedom**.
+**我们的软件是自由的，指的是自由的自由。**
 
-You have the same rights whether you make a donation or not. Not everyone can afford to give some money, and we’re fine with that. Note that we welcome any kind of contribution, there’s always something to do, like translations, fixing bugs, contributing to the doc, creating examples and tutorials…
+无论你是否捐款，你拥有的权利都完全一样。不是每个人都拿得出钱，我们完全理解。请注意，我们欢迎任何形式的贡献，总有事情可以做——比如翻译、修 bug、为文档出力、制作示例和教程……
 
-There's always a download link available on [the official website (rxlaboratory.org)](https://rxlaboratory.org) to let you download Duik for free.
+[官网（rxlaboratory.org）](https://rxlaboratory.org)上永远有下载链接，让你免费下载 Duik。
 
-Do NOT download Duik from anywhere else! You probably won't find the latest version, and you may just end-up with a virus too.
+千万别从别的地方下载 Duik！你多半拿不到最新版本，还可能顺手染上病毒。
 
-## Why do you call your tools Free Software if I have to pay for it?
+## 既然要花钱，你们凭什么说自己的工具是"自由软件"？
 
-On the download page of Duik, we ask professionals to make a financial contribution before downloading Duik, because we think that's fair for them to contribute if they make money with our tool.
+在 Duik 的下载页，我们会请专业用户在下载前做一笔经济上的贡献，因为我们觉得：如果他们用我们的工具赚钱，出点钱是公平的。
 
-You have to understand the word free as in freedom or in free speech – what we call *Libre* in French – and not as in free beer. We’ve tried for more than ten years to deliver everything we do for completely free, relying only on voluntarily donations, and that just wasn’t enough for us to continue our work.
+你得把 free 这个词理解成"自由"或"言论自由"——也就是法语里说的 *Libre*——而不是"免费啤酒"的 free。十多年来，我们一直努力完全免费地交付我们所做的一切，只靠自愿捐款维持，但这实在不足以让我们继续做下去。
 
-So we have to sell the software, but you’re still free to use it as you wish, redistribute it (for free if you wish), modify it, and share your modifications.
+所以我们不得不卖软件，但你仍然可以自由地按自己的意愿使用它、再分发它（想免费发也可以）、修改它，并分享你的修改。
 
-This being said, it's not actually mandatory to make a financial contribution. Yes, everyone, including professionals, can download Duik for free, if one just has the courage to click the *I don’t want to contribute and support free software.* link available on the download page.
+话虽如此，经济贡献其实并非强制。是的，每个人——包括专业用户——都能免费下载 Duik，只要你有勇气点一下下载页上那条 *"我不想贡献并支持自由软件。"* 的链接。
 
-## Do you even have the right to sell a program released under the GNU General Public License?
+## 你们真的有权出售一个以 GNU 通用公共许可证发布的程序吗？
 
-Yes, the right to sell copies is part of the definition of free software, and the GNU General Public License.
-
-
+有，出售副本的权利本就是自由软件定义的一部分，也是 GNU 通用公共许可证所赋予的。

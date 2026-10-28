@@ -1,53 +1,83 @@
 {
   "advanced/api/duik-features.md": {
     "upstreamHashAtSnapshot": "10370f188ba2",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "10370f188ba2",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "advanced/api/getting-started.md": {
     "upstreamHashAtSnapshot": "ceb1d434f7b9",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "ceb1d434f7b9",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "advanced/api/headless-scripts.md": {
     "upstreamHashAtSnapshot": "55e809c07417",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "55e809c07417",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "advanced/api/index.md": {
     "upstreamHashAtSnapshot": "d0459677e79b",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "d0459677e79b",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "advanced/api/shortcuts.md": {
     "upstreamHashAtSnapshot": "029107a3d2c4",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "029107a3d2c4",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "advanced/contributing-guide.md": {
     "upstreamHashAtSnapshot": "e3452d44cb54",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "e3452d44cb54",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "advanced/performance.md": {
     "upstreamHashAtSnapshot": "64e0bc83f8a2",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "64e0bc83f8a2",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "angela.md": {
     "upstreamHashAtSnapshot": "e959818d1be6",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "e959818d1be6",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "bassel.md": {
     "upstreamHashAtSnapshot": "8c4a2f285ef3",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "8c4a2f285ef3",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "faq.md": {
     "upstreamHashAtSnapshot": "769f4874c11a",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "769f4874c11a",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "getting-started/be-annoying.md": {
     "upstreamHashAtSnapshot": "736534a3e1c9",
@@ -99,93 +129,147 @@
   },
   "guide/animation/anim-library.md": {
     "upstreamHashAtSnapshot": "d560a0ce9957",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "d560a0ce9957",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/animation/cel.md": {
     "upstreamHashAtSnapshot": "40c241dce0bb",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "40c241dce0bb",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/animation/index.md": {
     "upstreamHashAtSnapshot": "f5db3b04b0ce",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "f5db3b04b0ce",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/animation/interpolation.md": {
     "upstreamHashAtSnapshot": "d93877b34f0f",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "d93877b34f0f",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/animation/kleaner.md": {
     "upstreamHashAtSnapshot": "d6a58617870b",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "d6a58617870b",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/animation/nla.md": {
     "upstreamHashAtSnapshot": "ad04d560c2f3",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "ad04d560c2f3",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/animation/sequence.md": {
     "upstreamHashAtSnapshot": "31b9c53aeb76",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "31b9c53aeb76",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/animation/spatial-interpolation.md": {
     "upstreamHashAtSnapshot": "2da6e43e961a",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "2da6e43e961a",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/animation/tools/align.md": {
     "upstreamHashAtSnapshot": "176aa74115c6",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "176aa74115c6",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/animation/tools/anchor.md": {
     "upstreamHashAtSnapshot": "518449febb73",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "518449febb73",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/animation/tools/copy.md": {
     "upstreamHashAtSnapshot": "ebd5703830fd",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "ebd5703830fd",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/animation/tools/ik-fk-switch.md": {
     "upstreamHashAtSnapshot": "b5a564d9c3db",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "b5a564d9c3db",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/animation/tools/interpolator.md": {
     "upstreamHashAtSnapshot": "c0cf20c652b1",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "c0cf20c652b1",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/animation/tools/motion-trail.md": {
     "upstreamHashAtSnapshot": "531b45184a2f",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "531b45184a2f",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/animation/tools/select.md": {
     "upstreamHashAtSnapshot": "93d3fbfa9d82",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "93d3fbfa9d82",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/animation/tools/snap.md": {
     "upstreamHashAtSnapshot": "9b98349d091c",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "9b98349d091c",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/animation/tweening.md": {
     "upstreamHashAtSnapshot": "9e167d890c2f",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "9e167d890c2f",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/animation/x-sheet.md": {
     "upstreamHashAtSnapshot": "293578bdc2e9",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "293578bdc2e9",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/automation/effector-map.md": {
     "upstreamHashAtSnapshot": "484f7aa5287d",
@@ -517,123 +601,195 @@
   },
   "guide/camera/camera-2d.md": {
     "upstreamHashAtSnapshot": "e9805f2aaf41",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "e9805f2aaf41",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/camera/camera-rig.md": {
     "upstreamHashAtSnapshot": "ceafdf2c41c2",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "ceafdf2c41c2",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/camera/index.md": {
     "upstreamHashAtSnapshot": "dc4aa361b8b2",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "dc4aa361b8b2",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/camera/tools/frame.md": {
     "upstreamHashAtSnapshot": "307d6f8e0aa9",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "307d6f8e0aa9",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/camera/tools/scale-z-link.md": {
     "upstreamHashAtSnapshot": "e0399095639a",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "e0399095639a",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/cmd.md": {
     "upstreamHashAtSnapshot": "0ca8539a2e83",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "0ca8539a2e83",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/connector.md": {
     "upstreamHashAtSnapshot": "bde9cfff8280",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "bde9cfff8280",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/index.md": {
     "upstreamHashAtSnapshot": "ff1fbdcb15ee",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "ff1fbdcb15ee",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/key-morph.md": {
     "upstreamHashAtSnapshot": "2f02088ae4c9",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "2f02088ae4c9",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/kinematics.md": {
     "upstreamHashAtSnapshot": "9e932054e029",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "9e932054e029",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/parent.md": {
     "upstreamHashAtSnapshot": "4560d0c5c605",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "4560d0c5c605",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/pins.md": {
     "upstreamHashAtSnapshot": "f7b6659dc5ca",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "f7b6659dc5ca",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/tools/align.md": {
     "upstreamHashAtSnapshot": "48680a98931a",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "48680a98931a",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/tools/anchor.md": {
     "upstreamHashAtSnapshot": "042f0ed0a1dd",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "042f0ed0a1dd",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/tools/edit-mode.md": {
     "upstreamHashAtSnapshot": "fbc5367ac0ff",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "fbc5367ac0ff",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/tools/etm.md": {
     "upstreamHashAtSnapshot": "2e17080e002e",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "2e17080e002e",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/tools/list.md": {
     "upstreamHashAtSnapshot": "ef9322cfd79e",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "ef9322cfd79e",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/tools/locator.md": {
     "upstreamHashAtSnapshot": "9954bf88b163",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "9954bf88b163",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/tools/lock.md": {
     "upstreamHashAtSnapshot": "69d86112d074",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "69d86112d074",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/tools/measure.md": {
     "upstreamHashAtSnapshot": "e3ea57ed1225",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "e3ea57ed1225",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/tools/prop-info.md": {
     "upstreamHashAtSnapshot": "1d82b7f0d15c",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "1d82b7f0d15c",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/tools/split.md": {
     "upstreamHashAtSnapshot": "0584c7acbe28",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "0584c7acbe28",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/tools/zero.md": {
     "upstreamHashAtSnapshot": "99a073370a12",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "99a073370a12",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/constraints/transform.md": {
     "upstreamHashAtSnapshot": "03782adfe958",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "03782adfe958",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/controllers/extract.md": {
     "upstreamHashAtSnapshot": "b8eb4bb22d25",
@@ -701,127 +857,202 @@
   },
   "guide/notes.md": {
     "upstreamHashAtSnapshot": "daaefb77d256",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "daaefb77d256",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/oco/index.md": {
     "upstreamHashAtSnapshot": "0c43fe1c29de",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "0c43fe1c29de",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/rigging.md": {
     "upstreamHashAtSnapshot": "56a436093850",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "56a436093850",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/sanity.md": {
     "upstreamHashAtSnapshot": "ff9098b13da5",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "ff9098b13da5",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/settings.md": {
     "upstreamHashAtSnapshot": "1583b69f13bd",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "1583b69f13bd",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/tools/composition/crop.md": {
     "upstreamHashAtSnapshot": "2fd64814f666",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "2fd64814f666",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/tools/composition/settings.md": {
     "upstreamHashAtSnapshot": "e7240ca05f0e",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "e7240ca05f0e",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/tools/index.md": {
     "upstreamHashAtSnapshot": "a2721b831d38",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "a2721b831d38",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/tools/layers.md": {
     "upstreamHashAtSnapshot": "0490b5cba8b1",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "0490b5cba8b1",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/tools/scripting/edit-expression.md": {
     "upstreamHashAtSnapshot": "d7193d14faec",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "d7193d14faec",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/tools/scripting/library.md": {
     "upstreamHashAtSnapshot": "22ef08b57a09",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "22ef08b57a09",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/tools/scripting/script-editor.md": {
     "upstreamHashAtSnapshot": "f9eab5f4cc44",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "f9eab5f4cc44",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/tools/scripting/scriptify-expression.md": {
     "upstreamHashAtSnapshot": "20cb760b35eb",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "20cb760b35eb",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/tools/text/rename.md": {
     "upstreamHashAtSnapshot": "112d4a6017c3",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "112d4a6017c3",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/tools/text/search-replace.md": {
     "upstreamHashAtSnapshot": "278057936f39",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "278057936f39",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "index.md": {
     "upstreamHashAtSnapshot": "787edce38364",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "787edce38364",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "misc/changelog.md": {
     "upstreamHashAtSnapshot": "79152aa78006",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "79152aa78006",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "misc/credits.md": {
     "upstreamHashAtSnapshot": "00fe93671242",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "00fe93671242",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "misc/doc-license.md": {
     "upstreamHashAtSnapshot": "673abc6744cb",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "673abc6744cb",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "misc/duik-16-changelog.md": {
     "upstreamHashAtSnapshot": "60d5f13f4517",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "60d5f13f4517",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "misc/glossary.md": {
     "upstreamHashAtSnapshot": "3370cce9a496",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "3370cce9a496",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "misc/gnu-gpl.md": {
     "upstreamHashAtSnapshot": "fbea1bb8163e",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "fbea1bb8163e",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "misc/license.md": {
     "upstreamHashAtSnapshot": "a58ffe948673",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "a58ffe948673",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "printed-user-guide.md": {
     "upstreamHashAtSnapshot": "8ce3e6a6190f",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "8ce3e6a6190f",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "tutorials.md": {
     "upstreamHashAtSnapshot": "8b1658813096",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "8b1658813096",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   }
 }
