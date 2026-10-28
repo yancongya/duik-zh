@@ -72,5 +72,11 @@
 | glossary | 术语表 | ✅ | |
 | credits | 致谢 | ✅ | |
 | license | 许可证 / 协议 | ✅ | 软件语境「许可证」，文档协议语境「协议」 |
+| preamble | 前言 | ✅ | |
+| troubleshooting | 故障排除 | ✅ | |
+| tooltip | 工具提示 | ✅ | AE 官方 |
+| pseudo effect maker | Pseudo Effect Maker | ✅ | 第三方工具名 |
+| ScriptUI Panels | ScriptUI Panels | ✅ | AE 目录名不译 |
+| sanity test | 自检 | ✅ | 与 sanity tests 行一致 |
 
 （Phase 2+ 按翻译进度继续补录，目标 150+ 条）
