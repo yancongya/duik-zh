@@ -1,88 +1,90 @@
 ---
-title: "![](/docs-img/duik/icons/oco.svg) OCO and Meta-rigs"
+title: "OCO 与元绑定"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/oco.svg) OCO and Meta-rigs
+# <img src="/docs-img/duik/icons/oco.svg" style={{width: '1em'}}/> OCO 与元绑定
 
 ![](/docs-img/illustration/oco-angela.gif)
 
-*OCO* is the ***Open Cut-Out format***: it’s a format developed by RxLab., used to export, share, and import rigged characters dedicated to cut-out animation as it can be done in After Effects and many other software like Blender.
+*OCO* 是 ***Open Cut-Out 格式***：由 RxLab. 开发，用于导出、共享和导入专用于切片动画的已绑定角色——就像在 After Effects 以及 Blender 等许多其他软件里做的那样。
 
-With the support of OCO, Duik now also includes a lot of Meta-rigs, predefined armatures you can use to rig an entire character in a few clicks, thanks to the almighty Duik [Auto-rig](../bones/autorig).
+随着 OCO 的支持，Duik 现在还内置了大量元绑定（Meta-rigs）：预定义好的骨架，借助万能的 Duik [自动绑定](../bones/autorig)，点几下就能给整个角色绑定。
 
 ![](/docs-img/duik/oco/oco_panel.png)
 
-## The Meta-rig Library
+## 元绑定库
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C08_OCO__EN_720.mp4" caption={"This video is part of __the official comprehensive video course about Duik Ángela__"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C08_OCO__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-The OCO Panel in Duik is a **library of meta-rigs**, to help you create armatures for all kind of animals in a single click.
+Duik 里的 OCO 面板是一个**元绑定库**，帮你一键为各种动物创建骨架。
 
-These meta-rigs are sorted into categories, corresponding to the type of animals.
+这些元绑定按动物类别分门别类。
 
-Each of these meta-rigs has been carefully crafted so that their limbs have realistic proportions and the joints have an optimal location for 2D cut-out animation. That means they can be used both for rigging existing characters or as a reference to design new characters.
+每个元绑定都经过精心制作，肢体比例逼真，关节位置最适合 2D 切片动画。也就是说，它们既可用来绑定已有角色，也可作为设计新角色的参考。
 
-As they follow the OCO standard, the Duik [Auto-rig](../bones/autorig) is able to rig the armatures created using these meta-rigs in a single click and provide all needed controllers for a very easy, though very detailed animation.
+由于遵循 OCO 标准，Duik 的[自动绑定](../bones/autorig)能一键给用这些元绑定创建的骨架绑定好，并提供所需的全部控制器，让动画既简单又非常细致。
 
 ![](/docs-img/illustration/man.png)
 ![](/docs-img/illustration/raptor.png)
 
-### Creating new armatures
+### 创建新骨架
 
-To create an armature from an OCO meta-rig, you just have to find it in the library and double click the item or click the ![](/docs-img/duik/icons/check.svg) apply button.
+要从 OCO 元绑定创建骨架，只需在库里找到它，双击该项，或点击 ![](/docs-img/duik/icons/check.svg) 应用按钮。
 
-You can filter categories and meta-rigs using the search field on top of the panel.
+可以用面板顶部的搜索框筛选类别和元绑定。
 
-To automatically assign a given name to the new character, you can set its name in the character name field on top of the panel, this name will be used for the creation of the armature.
+要自动给新角色命名，可以在面板顶部的角色名称框里设定名字，创建骨架时就会使用这个名字。
 
 <Callout type="info">
-    The created armatures are using [Duik Bones](../bones), and all of the bone options and features are available to further customize it[^1].
+    创建出的骨架使用 [Duik 骨骼](../bones)，所有骨骼选项和功能都可用于进一步自定义[^1]。
 </Callout>
 
 ![](/docs-img/illustration/rabbit_armature.png)
 
-### Creation options
+### 创建选项
 
-If you `[Shift] + [Click]` the ![](/docs-img/duik/icons/check.svg) apply button, you can set a few options for the creation of the bones.
+如果 `[Shift] + [Click]` ![](/docs-img/duik/icons/check.svg) 应用按钮，就可以设置几个骨骼创建选项。
 
 ![](/docs-img/duik/oco/creation_options.png)
 
-- You can change the **type** of bones to be created:
-    - *Full Bones* are bones with [envelops](../bones/envelops) and [noodles](../bones/noodles)[^1], if you plan to use all of these bone features.
-    - *Light Bones* are simpler bones with better performance, but without envelops nor noodles or other advanced features.
-- You can **show the bone envelops** by default. Use this if you're using the meta-rig as a reference to design a character for example.
-- You can **show the bone noodles** by default. You can use this to use the meta-rig as a base for designing a simple vector character.
-- Select the ***Create new composition*** option to create the new armature in its own dedicated composition.
+- 可以更改要创建的骨骼**类型**：
+    - *完整骨骼（Full Bones）*：带[包络](../bones/envelops)和[面条骨](../bones/noodles)[^1]的骨骼——如果你打算用上这些骨骼功能。
+    - *轻量骨骼（Light Bones）*：更简单、性能更好，但没有包络、面条骨及其他高级功能。
+- 默认**显示骨骼包络**。比如把元绑定当作设计角色的参考时就用这个。
+- 默认**显示骨骼面条骨**。可以把元绑定作为设计简单矢量角色的基础。
+- 选中***创建新合成（Create new composition）***选项，就会在单独的合成里创建新骨架。
 
-### Extending the library
+### 扩展库
 
-You can add your own custom OCO meta-rigs to the library, from any composition containing Duik Bones.
+可以把自己的自定义 OCO 元绑定加入库，来源可以是任何包含 Duik 骨骼的合成。
 
-You can handle the content of the library with the buttons on the bottom right corner of the panel.
+用面板右下角的按钮管理库内容。
 
 ![](/docs-img/duik/oco/oco_lib_buttons.png)
 
-Duik will collect all information from the bones in the current composition and export it as a new OCO file stored in the library for future use.
+Duik 会收集当前合成中骨骼的所有信息，导出为一个新的 OCO 文件存入库，供以后使用。
 
 ![](/docs-img/duik/oco/create_metarig.png)
 
-When creating the meta-rig, you can include an icon which should be a small PNG file.
+创建元绑定时，可以附带一个图标，应为小 PNG 文件。
 
-Set the approximate character height (from its lowest bone to the highest) so that information can be used when creating multiple characters in the same scene and automatically have them approximately at the right size. This height is in centimeters to be independent from the resolution.
+设定角色的大致高度（从最低骨骼到最高骨骼），这样在同一场景里创建多个角色时，就能自动让它们大致处于正确尺寸。这个高度以厘米为单位，与分辨率无关。
 
-### OCO Files
+### OCO 文件
 
-The library is actually just a folder structure containing OCO files, which is by default located in your `Documents` folder. You can quickly open this folder with the ![](/docs-img/duik/icons/folder.svg) folder button, or set a new folder to be used as the library with `[Alt] + [Click]`. In this case you must select (or create) an new `OCO.config` file which will contain all your OCO settings, shared across all applications using OCO and this same config file.
+这个库其实就是一个包含 OCO 文件的文件夹结构，默认位于你的 `Documents` 文件夹。用 ![](/docs-img/duik/icons/folder.svg) 文件夹按钮可以快速打开它；`[Alt] + [Click]` 则可以设定一个新文件夹作为库。这时必须选择（或新建）一个 `OCO.config` 文件，它会保存你的全部 OCO 设置，并在所有使用 OCO 且共用同一配置文件的应用之间共享。
 
 <Callout type="success">
-    You can share this library (just send the files) or even synchronize it across multiple devices using any syncing service or application like [*Syncthing*](https://syncthing.net/)[^2], *Dropbox*, *OneDrive*, etc.
+    你可以分享这个库（直接把文件发出去就行），甚至用任何同步服务或应用跨设备同步，比如 [*Syncthing*](https://syncthing.net/)[^2]、*Dropbox*、*OneDrive* 等。
 </Callout>
 
 <Callout type="info">
-    If you think your shiny brand new OCO Metarig deserves to be officially included in Duik, just send it to us with a friendly message on [contact.rxlab.info](http://contact.rxlab.info)!
+    如果你觉得自己全新的 OCO 元绑定够棒，值得官方收录进 Duik，就友好地发消息告诉我们，地址 [contact.rxlab.info](http://contact.rxlab.info)！
 </Callout>
 
-[^1]: See the following section entitled [*Bones and Auto-Rig*](../bones).
+[^1]: 参见后面的章节 [*骨骼与自动绑定*](../bones)。
 
-[^2]: Syncthing is a great free and open source continuous file synchronization program. Read more on [syncthing.net](https://syncthing.net/).
-
+[^2]: Syncthing 是一款出色的免费开源持续文件同步程序。详情见 [syncthing.net](https://syncthing.net/)。

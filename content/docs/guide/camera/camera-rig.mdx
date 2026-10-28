@@ -1,78 +1,79 @@
 ---
-title: "![](/docs-img/duik/icons/camera_rig.svg) Camera Rig"
+title: "摄像机绑定"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/camera_rig.svg) Camera Rig
+# <img src="/docs-img/duik/icons/camera_rig.svg" style={{width: '1em'}}/> 摄像机绑定
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_N02_3DCam__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_N02_3DCam__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-If you need to use 3D cameras, you can rig them in a simple way using Duik’s Camera Rig. This rig also includes camera behaviors to easily simulate real cameras and the way they're manipulated (hand, shoulder, tripod, etc.).
+如果需要使用 3D 摄像机，可以用 Duik 的「摄像机绑定」以简单方式给它们绑定。这个绑定还附带摄像机行为，能轻松模拟真实摄像机及其操作方式（手持、肩扛、三脚架等）。
 
 ![](/docs-img/illustration/Cinematograf-Project3.jpg)  
-*Cinematographe Camera,  
-Le Magazine du Siècle,  
-Louis Poyet, 1897,  
-Public Domain.*
+*电影放映机（Cinematographe）摄像机，  
+Le Magazine du Siècle，  
+Louis Poyet，1897 年，  
+公有领域。*
 
-This is a simple way to manipulate a two-node camera with the advantages of both a two-node and a one-node camera.
+这是一种操作双节点摄像机的简单方式，同时兼具双节点和单节点摄像机的优点。
 
-1. **Select** a **2-node** camera.  
-    The rig can only be done with two-node cameras.
-2. Click the ![](/docs-img/duik/icons/camera_rig.svg) ***Camera Rig*** button.
+1. **选中**一个**双节点（2-node）**摄像机。  
+    绑定只能在双节点摄像机上进行。
+2. 点击 ![](/docs-img/duik/icons/camera_rig.svg) ***摄像机绑定*** 按钮。
 
-Duik creates three controllers:
+Duik 会创建三个控制器：
 
-- The main controller will control both the camera and its point of interest, actually controlling the camera as if it had only one node (without a point of interest).
-- A position controller is used to control the camera only.
-- And a third controller controls only the point of interest.
+- 主控制器同时控制摄像机及其目标点，实际上就像摄像机只有一个节点（没有目标点）那样控制它。
+- 一个位置控制器只用于控制摄像机。
+- 第三个控制器只控制目标点。
 
 <Callout type="success">
-    If the position dimensions are separated on the After Effects camera at the time it is rigged by Duik, Duik will also separate the dimensions of the controllers it creates.  
-    You can also separate or unify the dimensions later: copy the expression from the property before, in order to paste it back after you've separated or unified the dimensions.
+    如果 Duik 绑定时 After Effects 摄像机的位置尺寸是分离的，Duik 创建的控制器也会分离尺寸。  
+    之后你也可以分离或合并尺寸：先从属性上复制表达式，等分离或合并完尺寸后再粘贴回去。
 </Callout>
 
-## Effect
+## 效果
 
-An effect on the main camera controller helps you animate the camera, with nice interpolations for a smooth camera move, and advanced behaviors to simulate real cameras.
+主摄像机控制器上挂了一个效果，帮你给摄像机动画：插值平滑，运镜流畅，还有高级行为模拟真实摄像机。
 
 ![](/docs-img/duik/cameras/camera-rig_effect.png)
 
-### Setup
+### 设置
 
-The **Type of camera** changes the behavior of the camera.  
-With the **Fixed** camera, there's no random values at all, the camera perfectly follows the animation keyframes.  
-With the other modes, **Handheld**, **Shoulder**, **Tripod**, **Steadicam**, Duik adds some handmade, fine tuned wiggling to the motion to perfectly simulate the way the camera is moved by the operator. Depending on the type of camera, there are different degrees of liberty for each axis, both in position and rotation, and their weight may change. Duik takes all of this into account to generate a perfect motion. This option also influences how **camera shake** is generated, all these types will shake differently, to get the most realistic motion possible.
+**摄像机类型**改变摄像机的行为。  
+**固定（Fixed）**摄像机完全没有随机值，严格跟随动画关键帧。  
+其他模式——**手持（Handheld）**、**肩扛（Shoulder）**、**三脚架（Tripod）**、**斯坦尼康（Steadicam）**——会在运动中加入手工调校的细微抖动，逼真模拟操作者手持摄像机的方式。根据摄像机类型不同，位置和旋转各轴的自由程度不同，权重也会变化。Duik 会综合所有这些因素生成完美的运动。该选项还会影响**摄像机抖动**的生成方式：每种类型的抖动都不一样，以求最真实的运动。
 
-The **Type of motion** changes the interpolation[*](../../misc/glossary) and extrapolation[*](../../misc/glossary) of the keyframes.  
-To generate a perfectly smooth and realistic movement on cameras from your keyframes, Duik uses different interpolation and extrapolation algorithms[*](../../misc/glossary), and you just have to set the type of motion you're animating:
+**运动类型**改变关键帧的插值[*](../../misc/glossary)和外推[*](../../misc/glossary)。  
+为了从关键帧生成平滑真实的摄像机运动，Duik 使用不同的插值和外推算法[*](../../misc/glossary)，你只需设定正在做的运动类型：
 
-- **Start then stop movement**: The camera is still at the beginning of the shot, then starts moving and stops moving before the end of the shot.
-- **Start of movement**: The camera is still at the beginning of the shot, starts moving, and the shot is cut before it starts to slow down.
-- **End of movement**: The camera is already moving at the beginning of the shot, slows down and stops moving.
-- **Easy-Bézier interpolation**: If you'd like to manually adjust the interpolation, this mode allows for fine tuning while keeping a small number of parameters to set.
-- **Linear interpolation**: To be used when the movement needs to be very regular, and if the camera is already moving at the beginning of the shot and doesn't stop at the end of the shot.
-- **None (use actual keyframe interpolation)**: Deactivates the interpolation by Duik to let you use After Effects keyframe interpolation.
+- **起步后停止**：镜头开始时静止，然后开始运动，并在镜头结束前停下。
+- **起始运动**：镜头开始时静止，开始运动，在开始减速之前镜头就被剪掉。
+- **结束运动**：镜头开始时已经在运动，然后减速并停下。
+- **Easy-Bézier 插值**：如果你想手动微调插值，这个模式参数很少，却能精细调校。
+- **线性插值**：当运动需要非常均匀，且镜头开始时摄像机已在运动、结束时也不停下时使用。
+- **无（使用实际关键帧插值）**：关闭 Duik 的插值，改用 After Effects 的关键帧插值。
 
-With all these types of motion, you can tweak the acceleration or deceleration of the camera with the **Easing / Acceleration** property. This property can be animated if you wish!
+对所有这些运动类型，你都可以用**缓动 / 加速度（Easing / Acceleration）**属性调整摄像机的加减速。这个属性也可以打关键帧！
 
-The *Easy-Bézier* options are available in the end of the effect; they're similar to the Bézier mode of the [Interpolator](../animation/tools/interpolator)&nbsp;[^interpolator].
+*Easy-Bézier* 选项位于效果末尾；它们类似于[插值器](../animation/tools/interpolator)&nbsp;[^interpolator]的 Bézier 模式。
 
-[^interpolator]: *cf. [Animation](../animation) / Tools / [Interpolator](../animation/tools/interpolator)*.
+[^interpolator]: 参见[*动画*](../animation) / 工具 / [*插值器*](../animation/tools/interpolator)。
 
-### Random motion and camera shake
+### 随机运动与摄像机抖动
 
 ![](/docs-img/duik/cameras/camera-rig-effect-random.png)
 
-According to the *type of camera*, Duik may add some **random motion** on top of the keyframe animation, to simulate the corresponding type.
+根据*摄像机类型*，Duik 可能会在关键帧动画之上叠加一些**随机运动**，以模拟对应的类型。
 
-You can adjust the amplitude and frequency of this wiggling animation, especially for the position which depends on the size of the scene and can't be correctly set by Duik automatically.
+你可以调整这种抖动动画的幅度和频率，尤其是位置——它取决于场景大小，Duik 无法自动正确设定。
 
-You can also animate the amplitude of the camera shake to make the camera shake at a specific time, for example as the result of an explosion, of the ground trembling or the wind...
+你还可以给摄像机抖动的幅度打关键帧，让它在特定时刻抖动，例如爆炸、地面震动或起风……
 
 <Callout type="success">
-    You shouldn't have to change much the frequency values which should be the same for almost all cameras.
+    你基本不需要改动频率数值——几乎所有摄像机都适用同一组频率。
 </Callout>
 
-As with all other random values, you can change the **seed** in the advanced section of the effect, to test different versions of the motion (or to make sure multiple controllers use the same seed to generate the same motion).
-
-
+和所有其他随机值一样，你可以在效果的高级部分更改**随机种子（seed）**，来测试运动的不同版本（或让多个控制器使用同一个种子，生成相同的运动）。

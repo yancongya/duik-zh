@@ -1,60 +1,58 @@
 ---
-title: "![](/docs-img/duik/icons/frame.svg) Framing grids and guides."
+title: "构图参考线"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/frame.svg) Framing grids and guides.
+# <img src="/docs-img/duik/icons/frame.svg" style={{width: '1em'}}/> 构图参考线
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_N01_FramingGuides__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_N01_FramingGuides__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-This very simple tool creates different types of grids and guides on a Shape Layer, which you can extensively configure, to help the composition of the image.
+这个非常简单的工具会在形状图层上创建各种网格和参考线，可大量自定义，帮助你构图。
 
 ![](/docs-img/examples/lidl.png)  
-*The Carefree Dragonfly,  
-Nicolas Dufresne, 2022   
-All Rights Reserved.*
+*《无忧的蜻蜓》（The Carefree Dragonfly），  
+Nicolas Dufresne，2022 年   
+保留所有权利。*
 
 ![](/docs-img/duik/cameras/defaultFrameGuide.PNG)  
-*These are the default frame and guides added when you apply the preset.*
+*应用预设后，默认添加的画幅与参考线。*
 
-## Frame
+## 画幅
 
-The first effect added to the layer lets you configure the frame.
+加到图层上的第一个效果用于配置画幅。
 
 ![](/docs-img/duik/cameras/frame-effect.png)
 
-- **Format Presets**:  
-    - ***Custom*** lets you specify the format using the Format value.  
-    - ***Composition*** will compute the current aspect ratio of the composition, so you can know what it is in the *Format* value.
-    - The other formats in the list are relatively common formats (some older, some more recent) which can be useful. The current standard for video is *16/9*, and for digital cinema they are *DCP Flat* and *DCP Scope*.
+- **格式预设（Format Presets）**：  
+    - ***自定义（Custom）***：用「格式」数值自行指定画幅。  
+    - ***合成（Composition）***：计算当前合成的宽高比，方便你在*格式*数值里看到它是多少。
+    - 列表里其他是比较常见的画幅格式（有老有新），都可能派上用场。当前视频标准是 *16/9*，数字电影则是 *DCP Flat* 和 *DCP Scope*。
+- **格式（Format）**：  
+    这里可以读取所选预设的画幅；如果预设设为*自定义*，也可以在这里设定自己的画幅。
+- **外观（Appearance）**：  
+    这一组数值用于调整画幅外观（颜色、不透明度等）。
+- **计算尺寸（只读）（Computed Size）**：  
+    即最终画幅的尺寸，单位像素。
 
-- **Format**: 
-    This value lets you read the format of the selected preset, or set your own format if you’ve set the preset to *Custom*.
+## 网格
 
-- **Appearance**: 
-    The values in this section are used to adjust the appearance of the frame (its color, opacity, etc.).
+其余效果用于调整网格和参考线。
 
-- **Computed Size (Read only)**: 
-    This is the size of the resulting frame, in pixels.
+想要多少参考线都行，复制一个网格效果就能新增一个。唯一限制是不能同时出现两个相同类型的网格或参考线，但需要的话你总可以复制整个图层。
 
-## Grids
-
-The other effects are used to adjust the grids and guides.
-
-You can have as many guides as you want, you just have to duplicate a grid effect to add a new one. The only limitation is that you cannot have twice the same type of grid or guide, but you can always duplicate the layer itself if you need.
-
-You can temporarily hide a specific grid or guide by disabling the corresponding effect.
+禁用对应效果即可临时隐藏某个网格或参考线。
 
 ![](/docs-img/duik/cameras/grid-effect.png)
 
-- **Safe Frames** displays standard “action” and “title” safe frames, which represents respectively 80% and 90% of the surface of the entire frame.
-- **Digital Frames** shows the standard digital formats (4/3, 16/9, 1.85, 2.35) contained in the current frame. This way you can make sure your composition works even if the image is later cropped to another format.
-- **Golden Rectangle** divides the image using the golden ratio.
-- **Golden Fibonacci** draws the famous Fibonacci spiral, but adjusted using the golden ratio to fit the entire image.
-- **Real Fibonacci** draws the true Fibonacci spiral, with its accurate proportions.
-- **Isometric** draws an isometric guide very helpful when designing… isometric perspectives.
+- **安全框（Safe Frames）**：显示标准的「动作」和「字幕」安全框，分别占整个画幅面积的 80% 和 90%。
+- **数字画幅框（Digital Frames）**：在当前画幅内显示标准数字格式（4/3、16/9、1.85、2.35）。这样即使画面之后被裁剪成别的格式，也能确认构图依然成立。
+- **黄金矩形（Golden Rectangle）**：用黄金比例分割画面。
+- **黄金斐波那契（Golden Fibonacci）**：画出著名的斐波那契螺旋，但按黄金比例调整以铺满整个画面。
+- **真实斐波那契（Real Fibonacci）**：画出真正的斐波那契螺旋，比例精确。
+- **等距（Isometric）**：画出等距参考线，在设计……等距透视时非常有用。
 
 ![](/docs-img/duik/cameras/isometricGrid.PNG)
 
 ![](/docs-img/duik/cameras/goldenRectangle.PNG)
-
-

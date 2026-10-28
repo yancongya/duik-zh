@@ -1,131 +1,122 @@
 ---
-title: "![](/docs-img/duik/icons/2d_camera.svg) 2D Camera"
+title: "2D 摄像机"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/2d_camera.svg) 2D Camera
+# <img src="/docs-img/duik/icons/2d_camera.svg" style={{width: '1em'}}/> 2D 摄像机
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_N03_2DCam__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_N03_2DCam__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-With 2D animation, it is usually easier to animate the positions of 2D layers than to set up a 3D space using cameras to create camera movements.
+做 2D 动画时，通常直接让 2D 图层的位置动起来，比搭建 3D 空间、用摄像机来运镜要简单。
 
-The 2D camera tool creates virtual 2D multiplane cameras to easily animate all types of camera movements, using only 2D layers[^multiplane].
+2D 摄像机工具会创建虚拟的 2D 多层摄像机，只用 2D 图层[^multiplane]就能轻松做出各种运镜。
 
-[^multiplane]: This is the digital equivalent of Disney's multiplane camera (vertical setup) or the Fleischer Studios' stereoptical camera (horizontal setup) from the early days of traditional animation.
+[^multiplane]: 这相当于传统动画早期迪士尼多层摄像机（竖直式）或 Fleischer 工作室立体光学摄像机（水平式）的数字版本。
 
-Similarly to the [Camera rig](camera-rig.md)&nbsp;[^rig], Duik also adds nice camera behaviors to these 2D cameras, to easily simulate real cameras and the way they're manipulated (hand, shoulder, tripod, etc.).
+和[摄像机绑定](camera-rig)&nbsp;[^rig]类似，Duik 也给这些 2D 摄像机加上了好用的摄像机行为，可以轻松模拟真实摄像机以及操作它们的方式（手持、肩扛、三脚架等）。
 
-[^rig]: *cf. [Cameras](index.md) / [Camera Rig](camera-rig.md)*.
+[^rig]: 参见[*摄像机*](index) / [*摄像机绑定*](camera-rig)。
 
 ![](/docs-img/illustration/Fleischer_stereoptical_camera_fig1_edit.png)  
-*Fleischer Studios' stereoptical camera,  
-From the patent by Max Fleischer, "Art of Making Motion Picture Cartoons",  
-1936,  
-Public Domain.*
+*Fleischer 工作室的立体光学摄像机，  
+出自 Max Fleischer 的专利《Art of Making Motion Picture Cartoons》，  
+1936 年，  
+公有领域。*
 
-1. **Select** the layers corresponding to the background planes.  
-    This is optional, if there are no layer selected, Duik creates a default 2D camera.
-2. Click the ![](/docs-img/duik/icons/2d_camera.svg) ***2D Camera*** button.
+1. **选中**对应背景平面的图层。  
+    这一步可选；如果没有选中任何图层，Duik 会创建一个默认的 2D 摄像机。
+2. 点击 ![](/docs-img/duik/icons/2d_camera.svg) ***2D 摄像机*** 按钮。
 
-Duik creates a controller for the camera, and a null layer for each background plane (or three null layers if there was no layer selected).  
-Selected layers are automatically parented to these null layers.
+Duik 会为摄像机创建一个控制器，并为每个背景平面创建一个空对象图层（如果没选中图层，则创建三个空对象图层）。选中的图层会自动成为这些空对象的子级。
 
 ![](/docs-img/duik/cameras/2d-camera-layers.png)
 
-## Levels
+## 深度层（Levels）
 
-Each null layer controls one plane, one level of the background. In the effect of the null layer, you can adjust the **influence** of the camera with a simple slider.
+每个空对象图层控制一个平面，即背景的一层深度。在空对象图层的效果里，你可以用一个简单的滑块调整摄像机的**影响程度**。
 
-The *Camera Influence*, as the name suggests, indicates how much of an impact the camera controller has on that null layer.
+顾名思义，*摄像机影响（Camera Influence）*表示摄像机控制器对该空对象图层的影响大小。
 
-Camera Influence can be found in the effects of the generated or duplicated nulls. A common use case for these nulls would be to view them as planes, or “depths”.
+在生成或复制出的空对象的效果里可以找到「摄像机影响」。常见做法是把这些空对象看作一个个平面，或者说一层层「深度」。
 
-- `0` means the level won't move at all with the camera.
-- `100` means the level moves exactly at the same speed as the camera.
-- `> 100` means the level is "closer" than the camera and moves faster.
-- `< 0` negative values moves the level the other way than the camera; this simulates a camera rotating around a middle point in the set, which would be the level `0`.
+- `0` 表示这一层完全不随摄像机移动。
+- `100` 表示这一层与摄像机以完全相同的速度移动。
+- `> 100` 表示这一层比摄像机「更近」，移动得更快。
+- `< 0` 负值会让这一层朝与摄像机相反的方向移动；这模拟摄像机绕场景中某个中点旋转，那个中点就是 `0` 层。
 
 <Callout type="success">
-    Let’s say we want to create the illusion of three dimensional space that has a main focus on the objects in the middleground (*mg*).
+    假设我们想营造三维空间的错觉，让画面焦点落在中景（*mg*）物体上。你有一个前景（*fg*）图层、一个 *mg* 图层和一个背景（*bg*）图层。把 *mg* 图层父子关系到「深度层 2」（它是主体），把 *bg* 父子关系到「深度层 1」，把 *fg* 父子关系到「深度层 3」。然后把「深度层 1」（*bg*）的摄像机影响设为小于 `100` 的数值（默认 `50 %`），把「深度层 3」（*fg*）的摄像机影响设为大于 100（默认 `150 %`）。这样一来，当你操作控制器时，背景移动速度是 *mg* 的 `50 %`，前景比 *mg* 多移动 `50 %`，从而产生深度/视差的错觉。
 </Callout>
 
-    You have a foreground (*fg*) layer, an *mg* layer, and a background (*bg*) layer.
+<Callout type="warning">
+    Duik 会随 2D 摄像机一起创建一个名为 *Z* 的空对象，忽略它就好，不要修改、复制或移动它。它用于给摄像机控制器提供锚点及其他计算，你不需要手动操作它。
+</Callout>
 
-    You would parent your *mg* layer to Level 2 since it is your primary object, the *bg* to Level 1, and the *fg* to Level 3.
+如果需要更多或更少的图层来控制其他深度，可以删除或复制这些空对象深度层，然后把真正的背景图像图层父子关系到这些空对象上。
 
-    From here, you can set the camera influence of Level 1 (*bg*) to a number with a value lower than `100` (the default is `50 %`) and the camera influence of Level 3 (*fg*) to a value greater than 100 (default: `150 %`). 
+## 摄像机动画与效果
 
-    Now when you manipulate the controller, the background will move `50 %` that of the *mg* and the *fg* will move `50 %` more than the *mg*, giving the illusion of depth/parallax.
-
-!!! Warning
-```text
-Duik will create a null called *Z* along with the 2D Camera, just ignore it and don’t try to modify, duplicate or move it. It’s needed to give the camera control it’s anchor point and some other calculations but you should not have to manipulate it by yourself.
-```
-
-If you need more or less layers to control other levels, you can remove or duplicate these null level layers, and just parent the actual background image layers to these null layers.
-
-## Camera animation and effect
-
-An effect on the main camera controller helps you animate the camera, with nice interpolations for a smooth camera move, and advanced behaviors to simulate real cameras.
+主摄像机控制器上挂了一个效果，帮你给摄像机动画：它带有漂亮的插值，能让运镜平滑，还有高级行为来模拟真实摄像机。
 
 ![](/docs-img/duik/cameras/2d-camera-effect.png)
 
-### Setup
+### 设置
 
-The type of camera and type of motion work similarly to the [3D Camera rig](camera-rig.md)&nbsp[^rig].
+摄像机类型和运动类型的工作方式与 [3D 摄像机绑定](camera-rig)&nbsp;[^rig]类似。
 
-The **Type of camera** changes the behavior of the camera.  
-With the **Fixed** camera, there's no random values at all, the camera perfectly follows the animation keyframes.  
-With the other modes, **Handheld**, **Shoulder**, **Tripod**, **Steadicam**, Duik adds some handmade, fine tuned wiggling to the motion to perfectly simulate the way the camera is moved by the operator. Depending on the type of camera, there are different degrees of liberty for each axis, both in position and rotation, and their weight may change. Duik takes all of this into account to generate a perfect motion. This option also influences how **camera shake** is generated, all these types will shake differently, to get the most realistic motion possible.
+**摄像机类型**改变摄像机的行为。  
+**固定（Fixed）**摄像机完全没有随机值，严格跟随动画关键帧。  
+其他模式——**手持（Handheld）**、**肩扛（Shoulder）**、**三脚架（Tripod）**、**斯坦尼康（Steadicam）**——会在运动中加入手工调校的细微抖动，逼真模拟操作者手持摄像机的方式。根据摄像机类型不同，位置和旋转各轴的自由程度不同，权重也会变化。Duik 会综合所有这些因素生成完美的运动。该选项还会影响**摄像机抖动**的生成方式：每种类型的抖动都不一样，以求最真实的运动。
 
-The **Type of motion** changes the interpolation[*](../../misc/glossary) and extrapolation[*](../../misc/glossary) of the keyframes.  
-To generate a perfectly smooth and realistic movement on cameras from your keyframes, Duik uses different interpolation and extrapolation algorithms[*](../../misc/glossary), and you just have to set the type of motion you're animating:
+**运动类型**改变关键帧的插值[*](../../misc/glossary)和外推[*](../../misc/glossary)。  
+为了从关键帧生成平滑真实的摄像机运动，Duik 使用不同的插值和外推算法[*](../../misc/glossary)，你只需设定正在做的运动类型：
 
-- **Start then stop movement**: The camera is still at the beginning of the shot, then starts moving and stops moving before the end of the shot.
-- **Start of movement**: The camera is still at the beginning of the shot, starts moving, and the shot is cut before it starts to slow down.
-- **End of movement**: The camera is already moving at the beginning of the shot, slows down and stops moving.
-- **Easy-Bézier interpolation**: If you'd like to manually adjust the interpolation, this mode allows for fine tuning while keeping a small number of parameters to set.
-- **Linear interpolation**: To be used when the movement needs to be very regular, and if the camera is already moving at the beginning of the shot and doesn't stop at the end of the shot.
-- **None (use actual keyframe interpolation)**: Deactivates the interpolation by Duik to let you use After Effects keyframe interpolation.
+- **起步后停止**：镜头开始时静止，然后开始运动，并在镜头结束前停下。
+- **起始运动**：镜头开始时静止，开始运动，在开始减速之前镜头就被剪掉。
+- **结束运动**：镜头开始时已经在运动，然后减速并停下。
+- **Easy-Bézier 插值**：如果你想手动微调插值，这个模式参数很少，却能精细调校。
+- **线性插值**：当运动需要非常均匀，且镜头开始时摄像机已在运动、结束时也不停下时使用。
+- **无（使用实际关键帧插值）**：关闭 Duik 的插值，改用 After Effects 的关键帧插值。
 
-With all these types of motion, you can tweak the acceleration or deceleration of the camera with the **Easing / Acceleration** property. This property can be animated if you wish!
+对所有这些运动类型，你都可以用**缓动 / 加速度（Easing / Acceleration）**属性调整摄像机的加减速。这个属性也可以打关键帧！
 
-The *Easy-Bézier* options are available in the end of the effect; they're similar to the Bézier mode of the [Interpolator](../animation/tools/interpolator)&nbsp;[^interpolator].
+*Easy-Bézier* 选项位于效果末尾；它们类似于[插值器](../animation/tools/interpolator)&nbsp;[^interpolator]的 Bézier 模式。
 
-[^interpolator]: *cf. [Animation](../animation) / Tools / [Interpolator](../animation/tools/interpolator)*.
+[^interpolator]: 参见[*动画*](../animation) / 工具 / [*插值器*](../animation/tools/interpolator)。
 
-### Camera Animation
+### 摄像机动画
 
-Although you could animate directly the position of the camera controller layer, it should be easier and better to animate only from the effect, where all camera moves can be keyframed.
+虽然你可以直接给摄像机控制器图层的位置打关键帧，但更好、更省事的做法是只在这个效果里做动画——所有运镜都能在这里打关键帧。
 
-Duik differentiates the translation of the camera, which generate a parallax effect, from the rotation or scale which should not generate any parallax[^parallax]. Of course, you can combine all of them.
+Duik 会区分摄像机会产生视差的平移，和不应产生视差的旋转与缩放[^parallax]。当然，你可以把它们组合起来用。
 
-[^parallax]: That's how it works in real life; there is no change of perspective with rotations, thus no parallax effect, in an ideal setup where the pivot would be exactly at the center of the censor (and the censor would be infinitely small). As this perfect case scenario is almost impossible, there may be a very small parallax when a camera is panning, which is the result of the censor actually translating a bit too instead of just rotating.
+[^parallax]: 现实中就是这样：在理想情况下，旋转不会改变透视，因此不会产生视差——前提是旋转轴正好位于传感器中心（且传感器无限小）。由于这种理想情况几乎不可能，摄像机摇摄时会有极轻微的视差，这是因为传感器除了旋转之外还发生了一点平移。
 
-- **Position** (with a parallax effect)  
-    - **Track left/right**: horizontal translation.
-    - **Pedestal up/down**: vertical translation.
-    - **Dolly in/out**: depth translation (the third axis which doesn't exist in 3D, simulated using the scale of the layers).
-- **Rotation** (without parallax)  
-    - **Pan left/right**: horizontal rotation (*yaw*).
-    - **Tilt up/down**: vertical rotation (*pitch*).
-    - **Roll**: the actual 2D rotation.
-- **Scale** (without parallax)
-    - **Zoom in/out**: the actual 2D scale. This simulate the animation of the focal length (zoom) of the camera. If you prefer to *dolly*, with parallax, use the *dolly in/out* property.
+- **位置**（带视差）  
+    - **左右横移（Track left/right）**：水平平移。
+    - **上下升降（Pedestal up/down）**：垂直平移。
+    - **推拉（Dolly in/out）**：纵深平移（3D 中不存在的第三个轴，用图层的缩放来模拟）。
+- **旋转**（无视差）  
+    - **左右摇摄（Pan left/right）**：水平旋转（*yaw* 偏航）。
+    - **上下俯仰（Tilt up/down）**：垂直旋转（*pitch*）。
+    - **旋转（Roll）**：真正的 2D 旋转。
+- **缩放**（无视差）
+    - **变焦推拉（Zoom in/out）**：真正的 2D 缩放。这模拟摄像机焦距（zoom）的动画。如果你更喜欢带视差的 *dolly* 推拉，请使用 *dolly in/out* 属性。
 
-### Random motion and camera shake
+### 随机运动与摄像机抖动
 
 ![](/docs-img/duik/cameras/2d-camera-effect-random.png)
 
-According to the *type of camera*, Duik may add some **random motion** on top of the keyframe animation, to simulate the corresponding type.
+根据*摄像机类型*，Duik 可能会在关键帧动画之上叠加一些**随机运动**，以模拟对应的类型。
 
-You can adjust the amplitude and frequency of this wiggling animation.
+你可以调整这种抖动动画的幅度和频率。
 
-You can also animate the amplitude of the camera shake to make the camera shake at a specific time, for example as the result of an explosion, of the ground trembling or the wind...
+你还可以给摄像机抖动的幅度打关键帧，让它在特定时刻抖动，例如爆炸、地面震动或起风……
 
 <Callout type="success">
-    You shouldn't have to change much the frequency values which should be the same for almost all cameras.
+    你基本不需要改动频率数值——几乎所有摄像机都适用同一组频率。
 </Callout>
 
-As with all other random values, you can change the **seed** in the advanced section of the effect, to test different versions of the motion (or to make sure multiple controllers use the same seed to generate the same motion).
-
-
+和所有其他随机值一样，你可以在效果的高级部分更改**随机种子（seed）**，来测试运动的不同版本（或让多个控制器使用同一个种子，生成相同的运动）。
