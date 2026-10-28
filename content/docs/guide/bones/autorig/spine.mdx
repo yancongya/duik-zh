@@ -1,30 +1,32 @@
 ---
-title: "![](/docs-img/duik/icons/spine.svg) Spines"
+title: "脊柱"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/spine.svg) Spines
+# <img src="/docs-img/duik/icons/spine.svg" style={{width: '1em'}}/> 脊柱
 
 ![](/docs-img/illustration/spine.png)
 
-In Duik, what's called spine includes the actual spine, and the hips and head.
+在 Duik 中，所谓的"脊柱"包括实际的脊椎，以及髋部和头部。
 
-For all types of animals, spines are rigged the same way, except for fishes, for which spines are actually rigged as tails.
+对于所有类型的动物，脊柱的绑定方式都相同；鱼类除外——鱼类的脊柱实际上按尾巴方式绑定。
 
 ![](/docs-img/duik/bones/spines_00000.png)
 
-The controllers created when rigging spines may differ according to the way the character is designed and the available joints. All possible controllers are:
+绑定脊柱时创建的控制器可能因角色设计和可用关节而异。所有可能的控制器有：
 
-- ![](/docs-img/duik/icons/body.svg) **Body**: This controller moves the whole body, including the head. It's the one to be animated up and down in a walk cycle for example, but except for this specific case, it's more subtle to animate the other controllers of the spine. This controller is always available for all kind of spines.
-- ![](/docs-img/duik/icons/hips.svg) **Hips**: This controller moves only the hips, and thus bends the spine. It's especially useful to animate its rotation.
-- ![](/docs-img/duik/icons/vertebrae.svg) **Spine**: This controller can only be rotated. It rotates the whole spine up to the torso, in a very natural way if the spine is made of multiple bones.
-- ![](/docs-img/duik/icons/move.svg) **Spine Curve**: This controller can be moved to adjust the curvature of the spine if it is made of multiple bones.
-- ![](/docs-img/duik/icons/torso.svg) **Torso**: This controller controls the torso. Although it can be moved (using IK), it's easier to animate the rotation of the spine and just rotate the torso too instead of animating its position.
-- ![](/docs-img/duik/icons/shoulders.svg) **Neck and Shoulders**: The position of this controller moves the shoulders (and thus rotates the torso with the IK), but it's usually easier to animate the rotation of the torso instead. The rotation of this controller can be used to animate the neck.
-- ![](/docs-img/duik/icons/head.svg) **Head**: This controller's rotation can be animated to control the head. Again, although its position can be animated, it's usually easier to animate the rotation of the neck.
+- <img src="/docs-img/duik/icons/body.svg" style={{width: '2em'}}/> **身体（Body）**：此控制器移动整个身体，包括头部。例如在行走循环中，它是上下动画的对象；但除这一特殊情况外，动画脊柱的其它控制器会更细腻。此控制器对所有类型的脊柱都始终可用。
+- <img src="/docs-img/duik/icons/hips.svg" style={{width: '2em'}}/> **髋部（Hips）**：此控制器仅移动髋部，从而使脊柱弯曲。它对动画旋转特别有用。
+- <img src="/docs-img/duik/icons/vertebrae.svg" style={{width: '2em'}}/> **脊柱（Spine）**：此控制器只能旋转。它旋转整个脊柱直到躯干，如果脊柱由多根骨骼组成，旋转方式非常自然。
+- <img src="/docs-img/duik/icons/move.svg" style={{width: '2em'}}/> **脊柱曲线（Spine Curve）**：如果脊柱由多根骨骼组成，可以移动此控制器来调整脊柱的曲率。
+- <img src="/docs-img/duik/icons/torso.svg" style={{width: '2em'}}/> **躯干（Torso）**：此控制器控制躯干。虽然它可以移动（使用 IK），但动画脊柱的旋转并让躯干随之旋转，比直接动画躯干位置更容易。
+- <img src="/docs-img/duik/icons/shoulders.svg" style={{width: '2em'}}/> **颈部与肩部（Neck and Shoulders）**：此控制器的位置移动肩部（从而通过 IK 旋转躯干），但通常动画躯干的旋转更容易。此控制器的旋转可用于动画颈部。
+- <img src="/docs-img/duik/icons/head.svg" style={{width: '2em'}}/> **头部（Head）**：此控制器的旋转可以动画来控制头部。同样，虽然位置也可以动画，但通常动画颈部的旋转更容易。
 
-As usual, it's much easier to animate the rotation of the available controllers (FK) than their position (IK), even if for beginners animating the position might seem more intuitive.
+与往常一样，动画可用控制器的旋转（FK）比动画位置（IK）容易得多，即使对初学者来说动画位置可能看起来更直观。
 
 <Callout type="success">
-    When rigging insects, it's better to rig the abdomen as a tail, and use a simple spine rigging for just the thorax and the head; that makes more sense in terms of animation.
+    绑定昆虫时，最好把腹部按尾巴方式绑定，只对胸部和头部使用简单的脊柱绑定；这样在动画上更有意义。
 </Callout>
-

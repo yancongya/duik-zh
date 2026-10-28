@@ -1,33 +1,35 @@
 ---
-title: "![](/docs-img/duik/icons/fin.svg) Fins"
+title: "鳍"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/fin.svg) Fins
+# <img src="/docs-img/duik/icons/fin.svg" style={{width: '1em'}}/> 鳍
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E09_Fish__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E09_Fish__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
 ![](/docs-img/illustration/fish_whale_00000.png)
 
 ![](/docs-img/illustration/fish_bones_00000.png)
 
-Fins of fishes and whales come in very different shapes, but with Duik you can use a single and very simple Fin armature to rig any kind of fin.
+鱼和鲸的鳍形状各异，但有了 Duik，你可以用一个非常简单的鳍骨架来绑定任何类型的鳍。
 
-This armature is made of a main bone, which will be animated using its rotation, and fishbones, which add some automatic overlapping animation so the fin bends nicely and smoothly, according to its own flexibility and the resistance of the water. There can be as many secondary fishbones as needed; a single one may be enough for simple fins such as of whales, while complex and flexible fins of tropical fishes may need a few more.
+这个骨架由一根主骨骼（通过旋转来动画）和若干鱼骨（fishbone，添加自动重叠动画，使鳍根据自身柔韧性和水的阻力平滑弯曲）构成。次级鱼骨的数量可以按需增减：像鲸这样简单的鳍可能一根就够了，而热带鱼复杂灵活的鳍可能需要多根。
 
 ![](/docs-img/duik/bones/fish_rigged_00000.png)
 
-The auto-rig creates a single controller for the whole fin: most of the animation can be automated and controlled from the rotation of this controller along with a few properties in the effect of the controller.
+自动绑定为整个鳍创建一个控制器：大部分动画可以从该控制器的旋转和效果中的几个属性自动控制。
 
-## Fin effect
+## Fin 效果
 
 ![](/docs-img/duik/bones/fin_effect.png)  
-*The effect to control the fin.*
+*控制鳍的效果。*
 
-The fin effect contains useful settings to adjust how the automatic overlapping animation is done, in a similar way to the standard Duik [FK Controller](../../constraints/kinematics)[^1].
+鳍效果包含调整自动重叠动画方式的实用设置，方式类似于标准 Duik [FK 控制器](../../constraints/kinematics)[^1]。
 
-The curve property can be used to adjust the general shape of the fin, but should not be used for animation; the rotation of the controller is the main property to be animated, along with the individual *Fishbone* effects on the controller if needed, which control each fin individually for a precise and manual animation.
+曲线属性可以用来调整鳍的整体形状，但不应用于动画；控制器的旋转是主要的动画属性，如果需要，还可以配合控制器上单独的 *Fishbone（鱼骨）*效果，单独控制每根鱼骨以实现精确的手动动画。
 
-The *Overlap* section of the effect can be used to adjust the fin parameters, especially its flexibility and the resistance of the water. Duik will adjust the flexibility of each fishbone according to its position relatively to the main bone of the fin. Some randomness can be added to these parameters so the animation feels more natural.
+效果的 *Overlap（重叠）*一节可以用来调整鳍的参数，尤其是柔韧性和水的阻力。Duik 会根据每根鱼骨相对于鳍主骨骼的位置调整其柔韧性。这些参数可以添加一些随机性，使动画更自然。
 
-[^1]: *cf.* [*Constraints / Kinematics (IK and FK)*](../../constraints/kinematics).
-
+[^1]: 参见[*约束 / 运动学（IK 与 FK）*](../../constraints/kinematics)。

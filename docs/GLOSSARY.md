@@ -78,5 +78,26 @@
 | pseudo effect maker | Pseudo Effect Maker | ✅ | 第三方工具名 |
 | ScriptUI Panels | ScriptUI Panels | ✅ | AE 目录名不译 |
 | sanity test | 自检 | ✅ | 与 sanity tests 行一致 |
+| armature | 骨架 | ✅ | 一组骨骼的整体结构 |
+| tetrapod | 四足动物 | ✅ | |
+| hominoid | 人形总目 | ✅ | |
+| plantigrade | 蹻行 | ✅ | 全脚掌着地行走 |
+| digitigrade | 趾行 | ✅ | 用脚趾行走 |
+| ungulate | 蹄行 | ✅ | 用蹄/指尖行走 |
+| arthropod | 节肢动物 | ✅ | |
+| Bézier path | Bézier 路径 | ✅ | AE 路径类型 |
+| mask path | 蒙版路径 | ✅ | AE 官方 |
+| shape path | 形状路径 | ✅ | AE 官方 |
+| puppet pin | 木偶图钉 | ✅ | AE 木偶工具 |
+| guide layer | 参考图层 | ✅ | AE 官方 |
+| full bones | 完整骨骼 | ✅ | Duik 骨骼模式 |
+| root controller | 根控制器 | ✅ | |
+| foot roll | 脚掌翻转 | 🟡 | |
+| shoulder | 肩部 | ✅ | |
+| hoof | 蹄 | ✅ | |
+| claw | 爪 | ✅ | |
+| tendon | 腱 | ✅ | |
+| root curve length | 根部曲线长度 | ✅ | |
+| end curve length | 末端曲线长度 | ✅ | |
 
 （Phase 2+ 按翻译进度继续补录，目标 150+ 条）

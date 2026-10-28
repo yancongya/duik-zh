@@ -11,5 +11,17 @@
   "guide/bones/envelops": "骨骼包络",
   "guide/bones/noodles": "面条骨",
   "guide/bones/autorig": "自动绑定",
+  "guide/bones/autorig/leg": "手臂与腿",
+  "guide/bones/autorig/spine": "脊柱",
+  "guide/bones/autorig/tail": "尾巴与毛发",
+  "guide/bones/autorig/wing": "翅膀",
+  "guide/bones/autorig/fin": "鳍",
+  "guide/bones/tools/select": "选择骨骼",
+  "guide/bones/tools/show-hide": "显示/隐藏骨骼",
+  "guide/bones/tools/duplicate": "复制骨骼",
+  "guide/bones/tools/edit": "编辑模式",
+  "guide/bones/tools/settings": "骨骼设置",
+  "guide/bones/tools/bake": "烘焙骨骼",
+  "guide/bones/tools/link-art": "链接图形",
   "index": "首页"
 }

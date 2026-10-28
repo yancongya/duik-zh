@@ -1,164 +1,163 @@
 ---
-title: "![](/docs-img/duik/icons/arm.svg) ![](/docs-img/duik/icons/leg.svg) Arms and legs"
+title: "手臂与腿"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/arm.svg) ![](/docs-img/duik/icons/leg.svg) Arms and legs
+# <img src="/docs-img/duik/icons/arm.svg" style={{width: '1em'}}/> <img src="/docs-img/duik/icons/leg.svg" style={{width: '1em'}}/> 手臂与腿
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E06_Leg__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E06_Leg__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
 ![](/docs-img/duik/bones/leg_armatures.png)
 
 ![](/docs-img/illustration/armslegs.png)
 
-For both [tetrapods](https://en.wikipedia.org/wiki/Tetrapod)[^1] and [arthropods](https://en.wikipedia.org/wiki/Arthropod)[^2] (i.e. all legged animals), the rig for arms, front legs and back legs is similar; the only difference is that for tetrapods, there may be a shoulder bone at the root of the limb, and of course the side of the elbow on the front leg and the knee on the back leg are reversed.
+对于[四足动物](https://en.wikipedia.org/wiki/Tetrapod)[^1]和[节肢动物](https://en.wikipedia.org/wiki/Arthropod)[^2]（即所有有腿的动物），手臂、前腿和后腿的绑定方式类似；唯一的区别是，四足动物的肢体根部可能有一根肩骨，当然前腿的肘部和后腿的膝部方向是相反的。
 
-For all these legs, Duik creates a control at the end (on the foot or hand), and depending on the bones available in the armature (thus depending on how you've designed the limb)[^3], some controls for specific joints of the limb are available in the effects of the controller layer.
+对于所有这些腿，Duik 会在末端（脚或手）创建一个控制器，根据骨架中可用的骨骼（即你设计肢体的方式）[^3]，控制器效果中还会提供肢体特定关节的额外控制器。
 
 ![](/docs-img/duik/bones/front_legs.png)  
-*Front legs*
+*前腿*
 
 ![](/docs-img/duik/bones/back_legs.png)  
-*Back legs*
+*后腿*
 
 <Callout type="info">
-    All tetrapods (four-legged animals) have the same joints on the legs, and although they may *seem* to be reversed, it's never actually the case.
+    所有四足动物（四条腿的动物）腿部的关节都相同，虽然它们可能*看起来*方向相反，但实际上从来不是这样。例如，涉禽的膝部看起来与哺乳动物相反，但我们看到的"膝关节"其实是踝关节，真正的膝关节隐藏在上方的羽毛里。
 </Callout>
 
-    For example, it may seem that the knee is reversed on wading birds compared to mammals, but the joint we see as the knee is actually the ankle, the knee being hidden higher under the feathers.
+绑定腿部时，Duik 会创建一个控制器，所有细节控制都在其效果中。对于所有腿部，*至少*有一个 IK 效果控制肢体的主要部分；根据动物类型、肢体中可用的骨骼，或运行自动绑定时的选择，还可能有其它效果来控制肢体的其它关节。
 
-When rigging legs, Duik creates a single controller with all the detailed controls in its effects. For all legs, there is *at least* one IK Effect which controls the main part of the limb, and according to the type of animal, the available bones in the limbs, or what was selected when running the auto-rig, there may be other effects to control other joints of the limb.
+有关 IK 和 FK 效果的详情，请阅读[*约束 / 运动学*](../../constraints/kinematics)一节。
 
-Read the [*Constraints / Kinematics*](../../constraints/kinematics) section for more details about the IK and FK effects.
-
-## ![](/docs-img/duik/icons/hominoid.svg) ![](/docs-img/duik/icons/bunny.svg) Hominoids and plantigrades
+## <img src="/docs-img/duik/icons/hominoid.svg" style={{width: '1em'}}/> <img src="/docs-img/duik/icons/bunny.svg" style={{width: '1em'}}/> 人形总目与躻行
 
 ![](/docs-img/duik/bones/footroll_plantigrade_rest.png)  
-*A typical plantigrade leg, with all possible joints and bones*
+*典型的躻行腿，含所有可能的关节和骨骼*
 
 ![](/docs-img/duik/bones/armature_human_arm.png)  
-*A typical human arm, shoulder not included*
+*典型的人类手臂，不含肩部*
 
 ![](/docs-img/duik/bones/armature_plantigrade_arm.png)  
-*A typical plantigrade (bear) front leg, shoulder not included*
+*典型的躻行（熊）前腿，不含肩部*
 
 ![](/docs-img/duik/bones/front_leg_effect_plantigrade.png)
 
-Additionally to the IK controlling the thigh and calf, or arm and forearm parts of the limb, the following effects may be available.
+除了控制肢体大腿/小腿（或手臂/前臂）部分的 IK 效果外，还可能有以下效果。
 
-### Foot roll
+### 脚掌翻转（Foot roll）
 
-The foot roll effect is available only if the leg is a standard leg made of two parts (a thigh and a calf).
+脚掌翻转效果仅在腿是由两段（大腿和小腿）构成的标准腿时可用。
 
-Use this effect to control all possible rotations of the foot, using different anchor points:
+用此效果通过不同的锚点控制脚的所有可能旋转：
 
-- The *Toes* angle simply rotates the toes (or claws).
-- The *Tiptoe* angle rotates the foot from its tip, its very end, like a dancer tiptoeing.
-- The *Heel* angle rotates the foot from the point of contact between the heel and the ground.
-- The *Foot roll* angle is a very useful control when animating a walk for example. Negative values rotate the foot the same way as the *Heel* value, and positive values raise the heel by rotating it around the toe joint, which happens at the end of each step during the walk, when the foot is behind the character, just before it raises to go forward again.
+- *脚趾（Toes）*角度只是旋转脚趾（或爪子）。
+- *踮脚（Tiptoe）*角度从脚尖——最末端——旋转脚，就像舞者踮起脚尖一样。
+- *脚跟（Heel）*角度从脚跟与地面的接触点旋转脚。
+- *脚掌翻转（Foot roll）*角度在动画行走时非常有用。负值与*脚跟*值旋转方向相同；正值则通过围绕脚趾关节旋转来抬起脚跟——这发生在行走中每一步的末尾，当脚在角色身后、即将再次抬起向前时。
 
 <Callout type="info">
-    Some of these controls have a slightly different effect if the toes aren't separated from the foot, if there's no joint between the foot and the toes.
+    如果脚趾没有与脚分离（脚和脚趾之间没有关节），上述某些控制的效果会略有不同。
 </Callout>
 
-As all these values rotate (part of) the foot using different pivots, they should never be used at the same time. When one of these values is set, the three other values should always be 0&nbsp;° (the foot can't rotate using multiple pivots at the same time).
+由于所有这些值都使用不同的转轴旋转（部分）脚部，它们绝不能同时使用。设置了其中一个值后，另外三个值应始终为 0&nbsp;°（脚不能同时围绕多个转轴旋转）。
 
 <Callout type="info">
-    Rotate the controller itself to rotate the foot from the ankle.
+    旋转控制器本身可以从脚踝处旋转脚。
 </Callout>
 
 ![](/docs-img/duik/bones/footroll_plantigrade.png)  
-*Different ways to rotate the foot: Rest pose, Foot rotation (using the controller),* Toe *angle,* Tiptoe *angle,* Heel *angle, and* Foot Roll *angle. Notice how the three last angles also move the knee.*
+*旋转脚的不同方式：静止姿态、脚部旋转（使用控制器）、*脚趾*角度、*踮脚*角度、*脚跟*角度、*脚掌翻转*角度。注意后三个角度也会移动膝部。*
 
-For a precise control of the foot, make sure all joints and bones are perfectly located, especially the toe bone, the tip, and the heel, as shown on the picture above.
+为了精确控制脚，请确保所有关节和骨骼位置准确，尤其是脚趾骨、脚尖和脚跟，如上图所示。
 
 <Callout type="success">
-    The *Tiptoe*, *Heel*, and *Foot roll* values all move the knee when they're animated, and make it difficult to control precisely the movement of the knee and the leg. You should avoid animating them when possible.
+    *踮脚*、*脚跟*和*脚掌翻转*值在动画时都会移动膝部，使得难以精确控制膝部和腿部的运动。应尽可能避免动画这些值。
 </Callout>
 
-### Shoulder controls
+### 肩部控制
 
-The two shoulder effects are available if the limb is an arm or front leg, and a shoulder bone has been included.
+如果肢体是手臂或前腿，且包含肩骨，则两个肩部效果可用。
 
-- The *IK* effect controls the rotation of the shoulder; an automatic rotation occurs when the hand moves, according to the *Weight* value of this effect. Use the *FK* value to manually adjust or animate the rotation of the shoulder.
-- The *Shoulder position* effect controls the position of the shoulder. An automatic translation of the shoulder can be controlled with the *Auto* effect, but be aware that this movement happens if and only if there's an actual animation (with keyframes or expressions), and *not* when just manipulating the controller.  
-Use the *Position* value to manually adjust or animate the position of the shoulder.
+- *IK* 效果控制肩部的旋转；手移动时会根据该效果的*权重（Weight）*值自动旋转。使用 *FK* 值手动调整或动画肩部旋转。
+- *肩部位置（Shoulder position）*效果控制肩部的位置。可以用 *Auto* 效果控制肩部的自动平移，但请注意，此运动仅在存在实际动画（关键帧或表达式）时发生，而*不是*在仅仅操作控制器时。  
+使用*位置（Position）*值手动调整或动画肩部位置。
 
-## ![](/docs-img/duik/icons/cat.svg) Digitigrades
+## <img src="/docs-img/duik/icons/cat.svg" style={{width: '1em'}}/> 趾行
 
 ![](/docs-img/duik/bones/armature_digitigrade_leg.png)  
-*A typical digitigrade (cat) back leg*
+*典型的趾行（猫）后腿*
 
 ![](/docs-img/duik/bones/front_leg_effect_digitigrade.png)
 
-Additionally to the IK controlling the thigh and calf, or arm and forearm parts of the limb, the following effects may be available.
+除了控制肢体大腿/小腿（或手臂/前臂）部分的 IK 效果外，还可能有以下效果。
 
-### Foot roll
+### 脚掌翻转（Foot roll）
 
-The foot roll effect is available only if the leg is a standard leg made of two parts (a thigh and a calf, or an arm and a forearm) and the toes/claws are separated from the foot (i.e. the toe joint can be rotated).
+脚掌翻转效果仅在腿是由两段（大腿和小腿，或手臂和前臂）构成的标准腿，且脚趾/爪子与脚分离（即脚趾关节可旋转）时可用。
 
-Use this effect to control all possible rotations of the foot, using different anchor points:
+用此效果通过不同的锚点控制脚的所有可能旋转：
 
-- The *Tiptoe* angle rotates the foot from its tip, its very end, like a dancer tiptoeing.
-- The *Claws* angle rotates the fingers or claws.
-- The *Foot roll* angle is a very useful control when animating a walk for example. It rotates the foot around the fingers/claws joint.
+- *踮脚（Tiptoe）*角度从脚尖——最末端——旋转脚，就像舞者踮起脚尖一样。
+- *爪子（Claws）*角度旋转手指或爪子。
+- *脚掌翻转（Foot roll）*角度在动画行走时非常有用。它围绕手指/爪子关节旋转脚。
 
-As the *Tiptoe* and *Foot roll* values rotate (part of) the foot using different pivots, they should never be used at the same time. When one of these values is set, the other value should always be 0&nbsp;° (the foot can't rotate using multiple pivots at the same time).
+由于*踮脚*和*脚掌翻转*值使用不同的转轴旋转（部分）脚部，它们绝不能同时使用。设置了其中一个值后，另一个值应始终为 0&nbsp;°（脚不能同时围绕多个转轴旋转）。
 
 <Callout type="info">
-    To the contrrary of plantigrades, the rotation of the controller itself, which rotates the whole foot around the toe joint, may not be very useful in this rig.
+    与躻行不同，控制器本身的旋转（围绕脚趾关节旋转整个脚）在这种绑定中可能不太有用。
 </Callout>
 
-For a precise control of the foot, make sure all joints and bones are perfectly located, especially the toe bone and the tip, as shown on the picture above.
+为了精确控制脚，请确保所有关节和骨骼位置准确，尤其是脚趾骨和脚尖，如上图所示。
 
 <Callout type="success">
-    The *Tiptoe* and *Foot roll* values both move the knee when they're animated, and make it difficult to control precisely the movement of the knee and the leg. You should avoid animating them when possible.
+    *踮脚*和*脚掌翻转*值在动画时都会移动膝部，使得难以精确控制膝部和腿部的运动。应尽可能避免动画这些值。
 </Callout>
 
-### Shoulder controls
+### 肩部控制
 
-The two shoulder effects are available if the limb is an arm or front leg, and a shoulder bone has been included.
+如果肢体是手臂或前腿，且包含肩骨，则两个肩部效果可用。
 
-- The *IK* effect controls the rotation of the shoulder; an automatic rotation occurs when the hand moves, according to the *Weight* value of this effect. Use the *FK* value to manually adjust or animate the rotation of the shoulder.
-- The *Shoulder position* effect controls the position of the shoulder. An automatic translation of the shoulder can be controlled with the *Auto* effect, but be aware that this movement happens if and only if there's an actual animation (with keyframes or expressions), and *not* when just manipulating the controller.  
-Use the *Position* value to manually adjust or animate the position of the shoulder.
+- *IK* 效果控制肩部的旋转；手移动时会根据该效果的*权重（Weight）*值自动旋转。使用 *FK* 值手动调整或动画肩部旋转。
+- *肩部位置（Shoulder position）*效果控制肩部的位置。可以用 *Auto* 效果控制肩部的自动平移，但请注意，此运动仅在存在实际动画（关键帧或表达式）时发生，而*不是*在仅仅操作控制器时。  
+使用*位置（Position）*值手动调整或动画肩部位置。
 
-## ![](/docs-img/duik/icons/horse.svg) Ungulate
+## <img src="/docs-img/duik/icons/horse.svg" style={{width: '1em'}}/> 蹄行
 
 ![](/docs-img/duik/bones/armature_ungulate_arm.png)  
-*A typical ungulate (horse) front leg, shoulder not included*
+*典型的蹄行（马）前腿，不含肩部*
 
 ![](/docs-img/duik/bones/front_leg_effect_ungulate.png)
 
-Additionally to the IK controlling the thigh and calf, or arm and forearm parts of the limb, the following effects may be available.
+除了控制肢体大腿/小腿（或手臂/前臂）部分的 IK 效果外，还可能有以下效果。
 
-### IK | Foot
+### IK | 脚部
 
-This single-layer IK controls the orientation of the whole foot (including the hoof).
+这个单层 IK 控制整个脚（包括蹄）的方向。
 
-### Hoof
+### 蹄
 
-This simple angle controls the rotation of the hoof. It is to be used when the leg is not standing and in contact with the ground.
+这个简单的角度控制蹄的旋转。当腿不着地、不与地面接触时使用。
 
-The rotation of the controller itself rotates the foot around the hoof joint, a bit like what the *Foot Roll* values do with the plantigrade and digitigrade rigs.
+控制器本身的旋转围绕蹄关节旋转脚，有点像躻行和趾行绑定中*脚掌翻转*值的作用。
 
-### Shoulder controls
+### 肩部控制
 
-The two shoulder effects are available if the limb is an arm or front leg, and a shoulder bone has been included.
+如果肢体是手臂或前腿，且包含肩骨，则两个肩部效果可用。
 
-- The *IK* effect controls the rotation of the shoulder; an automatic rotation occurs when the hand moves, according to the *Weight* value of this effect. Use the *FK* value to manually adjust or animate the rotation of the shoulder.
-- The *Shoulder position* effect controls the position of the shoulder. An automatic translation of the shoulder can be controlled with the *Auto* effect, but be aware that this movement happens if and only if there's an actual animation (with keyframes or expressions), and *not* when just manipulating the controller.  
-Use the *Position* value to manually adjust or animate the position of the shoulder.
+- *IK* 效果控制肩部的旋转；手移动时会根据该效果的*权重（Weight）*值自动旋转。使用 *FK* 值手动调整或动画肩部旋转。
+- *肩部位置（Shoulder position）*效果控制肩部的位置。可以用 *Auto* 效果控制肩部的自动平移，但请注意，此运动仅在存在实际动画（关键帧或表达式）时发生，而*不是*在仅仅操作控制器时。  
+使用*位置（Position）*值手动调整或动画肩部位置。
 
-## ![](/docs-img/duik/icons/ant.svg) Arthropod
+## <img src="/docs-img/duik/icons/ant.svg" style={{width: '1em'}}/> 节肢动物
 
 ![](/docs-img/duik/bones/front_leg_effect_arthropod.png)
 
-The arthropod rig, in the current version of Duik, is actually similar to the ungulate rig, and has the same controls and effects. Only the initial locations of the joints and length ratios of the different parts of the limbs differ.
+在 Duik 当前版本中，节肢动物绑定实际上与蹄行绑定类似，具有相同的控制器和效果。只有肢体各段的初始关节位置和长度比例不同。
 
-[^1]: [***Tetrapods***](https://en.wikipedia.org/wiki/Tetrapod) are four-limbed vertebrate animals constituting the superclass Tetrapoda. It includes amphibians, reptiles, dinosaurs, birds, mammals and other extinct classes.
+[^1]: [***四足动物（Tetrapods）***](https://en.wikipedia.org/wiki/Tetrapod)是构成四足总纲的四肢脊椎动物，包括两栖类、爬行类、恐龙、鸟类、哺乳类及其它已灭绝类群。
 
-[^2]: [***Arthropods***](https://en.wikipedia.org/wiki/Arthropod) are invertebrates with segmented bodies and jointed limbs. It includes arachnids (spiders, scorpions, ticks, mites...), myriapods (millipedes...), crustaceans (shrimps, crabs, lobsters...), and hexapods (insects).
+[^2]: [***节肢动物（Arthropods）***](https://en.wikipedia.org/wiki/Arthropod)是身体分节、附肢分节的无脊椎动物，包括蛛形纲（蜘蛛、蝎子、蜱、螨……）、多足纲（千足虫……）、甲壳纲（虾、蟹、龙虾……）和六足纲（昆虫）。
 
-[^3]: *cf.* [*Bones / Create bones*](../create-bones)
-
-
+[^3]: 参见[*骨骼 / 创建骨骼*](../create-bones)。

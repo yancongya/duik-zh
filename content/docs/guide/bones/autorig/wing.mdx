@@ -1,68 +1,69 @@
 ---
-title: "![](/docs-img/duik/icons/wing.svg) Wings"
+title: "翅膀"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/wing.svg) Wings
+# <img src="/docs-img/duik/icons/wing.svg" style={{width: '1em'}}/> 翅膀
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E07_Wings__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E07_Wings__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
 ![](/docs-img/illustration/Wingbones.png)
 
 ![](/docs-img/illustration/Wingbones_bones_00000.png)
 
-Like all [tetrapods](https://en.wikipedia.org/wiki/Tetrapod), bird wings, and bat wings, consist of an arm, a forearm and a hand with fingers. Both bird and bat wings can be rigged the same way with Duik: birds have feathers attached to the arm, and the Duik wing armature includes bones for these feathers. The feather bones can be used to rig the actual fingers of the bats which have the same role as feathers for birds.
+与所有[四足动物](https://en.wikipedia.org/wiki/Tetrapod)一样，鸟翼和蝙蝠翼都由手臂、前臂和带手指的手构成。鸟翼和蝙蝠翼在 Duik 中可以用相同方式绑定：鸟的翅膀上有羽毛附着在手臂上，Duik 的翅膀骨架包含这些羽毛的骨骼。羽毛骨骼可以用来绑定蝙蝠的实际手指——它们对蝙蝠的作用与羽毛对鸟的作用相同。
 
-!!! Warning
-```text
-To the contrary of other limbs, there is an additional step to correctly rig the wings after you've selected the bones and run the Auto-Rig. Read below.
-```
+<Callout type="warning">
+    与其它肢体不同，选中骨骼并运行自动绑定后，还需要额外一步才能正确绑定翅膀。见下文。
+</Callout>
 
 ![](/docs-img/duik/bones/Wingbones_rig_00000.png)
 
-The Auto-rig creates a single controller for the whole wing: most of the animation can be automated and controlled from the rotation, position and a few properties in the effect of this controller.
+自动绑定为整个翅膀创建一个控制器：大部分动画可以从该控制器的旋转、位置和效果中的几个属性自动控制。
 
 <Callout type="success">
-    It's not necessary to create one bone for each feather. All feathers can be controlled by fewer bones, and cleverly using orientation constraints[^1] for example; this will improve the performance, which can drop drastically with too many feather bones.
+    不需要为每根羽毛创建一根骨骼。所有羽毛可以用更少的骨骼来控制，巧妙地使用朝向约束[^1]即可；这能提升性能——羽毛骨骼太多时性能会急剧下降。
 </Callout>
 
-But before being able to animate correctly the wing (especially to fold and unfold it), you have to adjust a setting for each of the Feather effects.
+但在能正确动画翅膀（尤其是折叠和展开）之前，你需要为每个羽毛效果调整一项设置。
 
-1. Fold the wing, using the *Fold wing* property in the Wing effect on the controller.
-2. For each feather, adjust the *Folded angle* property in the corresponding Feather effect on the controller, so the wing looks nice when folded.
-3. You can now unfold the wing and animate everything on the wing, the setup is finished.
+1. 使用控制器上 Wing 效果中的 *Fold wing（折叠翅膀）*属性折叠翅膀。
+2. 为每根羽毛，调整控制器上对应 Feather 效果中的 *Folded angle（折叠角度）*属性，使翅膀折叠后看起来美观。
+3. 现在可以展开翅膀并动画翅膀上的一切了，设置完成。
 
-## Wing effect
+## Wing 效果
 
 ![](/docs-img/duik/bones/wing_effect.png)  
-*The effect to control the wing.*
+*控制翅膀的效果。*
 
-The Wing rig is similar to a standard FK control, except it also handles automatically the rotation and animation of the feathers.
+翅膀绑定类似于标准的 FK 控制器，不过它还会自动处理羽毛的旋转和动画。
 
-You can animate the rotation of the controller to flap the wing, and animate each part of the arm individually in the Wing effect.
+你可以动画控制器的旋转来扇动翅膀，并在 Wing 效果中单独动画手臂的各部分。
 
-The *Fold wing* property in the effect can be used to animate the folding and unfolding of the wing very easily.
+效果中的 *Fold wing* 属性可以非常方便地动画翅膀的折叠和展开。
 
-The *General parameters* section contains a few properties to adjust the settings of the wing:
+*General parameters（通用参数）*一节包含调整翅膀设置的几个属性：
 
-- *Forearm orientation* controls whether the forearm should rotate with the arm or keep its own orientation. The choice depends on the animation you're working on, and your personal preference.
-- *Wing flexibility* and *Air resistance* are the two usual settings which come with the automatic overlapping animation Duik generates with FK controls[^2].
+- *Forearm orientation（前臂朝向）*控制前臂是随手臂旋转还是保持自身朝向。选择取决于你正在做的动画和个人偏好。
+- *Wing flexibility（翅膀柔韧性）*和 *Air resistance（空气阻力）*是 Duik 用 FK 控制器生成的自动重叠动画随附的两个常用设置[^2]。
 
-Finally, you can control how the wings attached to the *hand* part of the arm should rotate with the *Hand rotation multiplicator* in the *Feather parameters* section of the effect; changing this ratio adjusts the amplitude of the movement of the feathers when the wing flaps.
+最后，可以用效果中 *Feather parameters（羽毛参数）*一节的 *Hand rotation multiplicator（手部旋转倍数）*来控制附着在手臂*手部*部分的翅膀如何旋转；调整此比例可以改变翅膀扇动时羽毛的运动幅度。
 
-## Feather effect
+## Feather 效果
 
 ![](/docs-img/duik/bones/feather_effect.png)  
-*An effect to control and adjust a feather.*
+*控制和调整单根羽毛的效果。*
 
-Use the *Rotation* property to control the rotation of each feather individually if you need.
+如果需要，可以用 *Rotation（旋转）*属性单独控制每根羽毛的旋转。
 
-The *Settings* section is to be used only during the rigging process and should not be changed afterwards (read above).
+*Settings（设置）*一节仅在绑定过程中使用，之后不应更改（见上文）。
 
 <Callout type="info">
-    Duik Wing rigs can be used for all view axis, the character being viewed either from the top, the face or the side.
+    Duik 翅膀绑定适用于所有视角轴——无论从顶部、正面还是侧面观看角色。
 </Callout>
 
-[^1]: *cf.* [*Constraints / Transform constraints*](../../constraints/transform).
+[^1]: 参见[*约束 / 变换约束*](../../constraints/transform)。
 
-[^2]: *cf.* [*Constraints / Kinematics (IK and FK)*](../../constraints/kinematics).
-
+[^2]: 参见[*约束 / 运动学（IK 与 FK）*](../../constraints/kinematics)。

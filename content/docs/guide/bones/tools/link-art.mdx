@@ -1,62 +1,63 @@
 ---
-title: "![](/docs-img/duik/icons/link_to_bone.svg) Bone tools ▹ Link Art"
+title: "链接图形"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/link_to_bone.svg) Bone tools ▹ Link Art
+# <img src="/docs-img/duik/icons/link_to_bone.svg" style={{width: '1em'}}/> 骨骼工具 ▹ 链接图形
 
-The *Link Art* tool tries to automagically __parent the artwork layers and [*Duik Pins*](../../constraints/pins) to the bones__.
+*链接图形（Link Art）*工具会自动将美术图层和 [*Duik 图钉*](../../constraints/pins)父子链接到骨骼。
 
 ![](/docs-img/duik/bones/link_art_name.gif)
 
-## Usage
+## 用法
 
-1. *[Optional]* **Select** some layers.
-2. **Click** the *Link Art* button in the [*Bones panel*](..).
+1. *[可选]* **选择**若干图层。
+2. 在[*骨骼面板*](../)中点击*链接图形*按钮。
 
-This is how the selection is used to determine the layers to parent:
+选择的使用方式如下：
 
-1. If layers are selected, it will try to find the artwork layers and pins and the bones in the selection, to parent only between selected layers.
-2. If there are no bones in the selection, it parents the artwork layers and pins to any bone it can find in the composition.
-3. If there's no selection, it parents all artwork layers and pins in the composition to any bone it can find.
+1. 如果选中了图层，它会尝试在选择中找到美术图层、图钉和骨骼，只在选中图层之间建立父子链接。
+2. 如果选择中没有骨骼，它会把美术图层和图钉链接到合成中能找到的任何骨骼。
+3. 如果没有选择，它会把合成中所有美术图层和图钉链接到能找到的任何骨骼。
 
 <Callout type="success">
-    Locked layers are always ignored. To quickly parent all layers except a few ones, it's faster to just lock the ones which do not need to be parented.
+    锁定的图层始终被忽略。要快速链接除少数几个之外的所有图层，最快的方法是锁定不需要链接的那些。
 </Callout>
 
-## Options
+## 选项
 
-By default, bones are matched with artwork layers and pins by checking the distance separating them.  
-Hold the `[Alt]` key when clicking the button to use the layer names instead.
+默认情况下，骨骼与美术图层和图钉的匹配通过检查它们之间的距离来实现。  
+点击按钮时按住 `[Alt]` 键可以改用图层名称匹配。
 
-### By name
+### 按名称
 
-This is the default behavior.
+这是默认行为。
 
-Layer names are analysed by a smart algorithm to find the corresponding bone. Duik tries to detect the side (left or right) and location (front, back...) along with the limb name and even the character name to correctly match the layers with the bones.
+图层名称由智能算法分析以找到对应骨骼。Duik 会尝试检测侧（左或右）和位置（前、后……），以及肢体名称甚至角色名称，以正确匹配图层和骨骼。
 
-![](/docs-img/duik/bones/link_art_name.gif)
-*Using layer names, Duik also renames the layers according to the Duik naming scheme.*
+![](/docs-img/duik/bones/link_art_name.gif)  
+*使用图层名称时，Duik 还会按照 Duik 命名方案重命名图层。*
 
 <Callout type="info">
-    The limb names, sides and location will vary according to the language of the user interface of Duik, so the artwork layers and *Duik Pins* must use the same language for this feature to work correctly.
+    肢体名称、侧和位置会随 Duik 界面语言而变，因此美术图层和 *Duik 图钉*必须使用相同语言，此功能才能正常工作。
 </Callout>
 
-![](/docs-img/duik/bones/fuzzy_autolink.gif)
-*Duik understands synonyms, and performs a* fuzzy *search to find the corresponding bones*
+![](/docs-img/duik/bones/fuzzy_autolink.gif)  
+*Duik 理解同义词，并执行模糊搜索来找到对应骨骼。*
 
-### By distance
+### 按距离
 
-Hold the `[Alt]` key when clicking the button to use the distance.
+点击按钮时按住 `[Alt]` 键可以使用距离匹配。
 
-Distance between the layers and bones is measured, using the anchor points. Layers are parented to the closest bone, if and only if the distance between them is lower than the [*envelop*](..) size of the bone.
+使用锚点测量图层和骨骼之间的距离。图层会被链接到最近的骨骼——当且仅当它们之间的距离小于骨骼的[*包络*](../)大小时。
 
 ![](/docs-img/duik/bones/link_art_distance1.png)  
-*__OK__: The forearm will be parented to the bone.*
+***正确**：前臂将被链接到骨骼。*
 
 ![](/docs-img/duik/bones/link_art_distance2.png)  
-*__Wrong__: The anchor point is outside the envelop.*
+***错误**：锚点在包络之外。*
 
 ![](/docs-img/duik/bones/link_art_distance3.png)  
-*__Wrong__: The anchor point is too far from the anchor point of the bone*  
-*(the distance is higher than the evelop size parameter).*
-
+***错误**：锚点离骨骼锚点太远（距离大于包络大小参数）。*

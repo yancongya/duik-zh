@@ -1,25 +1,25 @@
 ---
-title: "![](/docs-img/duik/icons/unlink.svg) Edit Mode"
+title: "编辑模式"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/unlink.svg) Edit Mode
+# <img src="/docs-img/duik/icons/unlink.svg" style={{width: '1em'}}/> 编辑模式
 
-Sometimes, you need to adjust the location of a specific bone, but you don't want to move all its children as well (child bones and art layers). In this case, with the bone selected, toggle the *Edit Mode* using Duik.
+有时你需要调整某根骨骼的位置，但不想同时移动它的所有子级（子骨骼和美术图层）。这种情况下，选中骨骼后，用 Duik 切换*编辑模式*。
 
-Duik will automatically and temporarily unparent all children so you can easiy relocate the bone, and then deactivate the edit mode.
+Duik 会自动且临时地解除所有子级的父子链接，让你可以轻松重新定位骨骼，然后关闭编辑模式。
 
-!!! Tip
-```text
-Although the *Edit Mode* button in the bones panel works only for bone layers, there is another [*Edit Mode* button in the *Links and Constraints* panel](../../constraints/tools/edit-mode) working for all layers.
-```
-
-When the edit mode is toggled, the bone name changes and it turns red to warn you, until you switch it off.
-
-![](/docs-img/duik/bones/edit_mode.png)  
-*The forarm bone has been toggled to the edit mode.*
-
-<Callout type="warning">
-    In current versions of Duik, the edit mode does not work if the bones have already been rigged with the Auto-rig or other constraints.
+<Callout type="success">
+    虽然骨骼面板中的*编辑模式*按钮仅适用于骨骼图层，但[*链接与约束*面板中还有另一个*编辑模式*按钮](../../constraints/tools/edit-mode)，适用于所有图层。
 </Callout>
 
+切换编辑模式后，骨骼名称会改变并变为红色以警告你，直到你关闭它。
 
+![](/docs-img/duik/bones/edit_mode.png)  
+*前臂骨骼已切换到编辑模式。*
+
+<Callout type="warning">
+    在 Duik 当前版本中，如果骨骼已经用自动绑定或其它约束绑定过，编辑模式将不起作用。
+</Callout>

@@ -309,8 +309,11 @@
   },
   "guide/bones/autorig/fin.md": {
     "upstreamHashAtSnapshot": "442cec53b83a",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "442cec53b83a",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/bones/autorig/index.md": {
     "upstreamHashAtSnapshot": "096b26a4eb15",
@@ -322,23 +325,35 @@
   },
   "guide/bones/autorig/leg.md": {
     "upstreamHashAtSnapshot": "2d3d0efc03c8",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "2d3d0efc03c8",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/bones/autorig/spine.md": {
     "upstreamHashAtSnapshot": "66f428bb424a",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "66f428bb424a",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/bones/autorig/tail.md": {
     "upstreamHashAtSnapshot": "0826aed7e3d9",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "0826aed7e3d9",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/bones/autorig/wing.md": {
     "upstreamHashAtSnapshot": "55cd46fe932d",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "55cd46fe932d",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/bones/create-bones.md": {
     "upstreamHashAtSnapshot": "b1ad0870560d",
@@ -374,38 +389,59 @@
   },
   "guide/bones/tools/bake.md": {
     "upstreamHashAtSnapshot": "e944dd6cc270",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "e944dd6cc270",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/bones/tools/duplicate.md": {
     "upstreamHashAtSnapshot": "4fd6dc8e1278",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "4fd6dc8e1278",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/bones/tools/edit.md": {
     "upstreamHashAtSnapshot": "cf269463e394",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "cf269463e394",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/bones/tools/link-art.md": {
     "upstreamHashAtSnapshot": "af9976b46fc8",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "af9976b46fc8",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/bones/tools/select.md": {
     "upstreamHashAtSnapshot": "151d659f8100",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "151d659f8100",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/bones/tools/settings.md": {
     "upstreamHashAtSnapshot": "314214ac38a6",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "314214ac38a6",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/bones/tools/show-hide.md": {
     "upstreamHashAtSnapshot": "98598ea4fe42",
-    "status": "untranslated",
-    "lastChecked": "2026-10-28"
+    "status": "translated",
+    "lastChecked": "2026-10-28",
+    "upstreamHashAtTranslation": "98598ea4fe42",
+    "lastTranslated": "2026-10-28",
+    "translator": "opencode-agent"
   },
   "guide/camera/camera-2d.md": {
     "upstreamHashAtSnapshot": "e9805f2aaf41",
