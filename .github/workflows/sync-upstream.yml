@@ -1,0 +1,63 @@
+name: Sync upstream Duik docs
+
+on:
+  schedule:
+    # 每周一 UTC 02:00
+    - cron: '0 2 * * 1'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: '强制全量（忽略 hash 缓存）'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout self
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Sparse checkout upstream src-docs
+        uses: actions/checkout@v4
+        with:
+          repository: RxLaboratory/Duik
+          ref: master
+          path: upstream-tmp
+          sparse-checkout: |
+            src-docs
+
+      - name: Replace upstream/
+        shell: bash
+        run: |
+          rm -rf upstream
+          mkdir -p upstream
+          cp -r upstream-tmp/src-docs/. upstream/
+          rm -rf upstream-tmp
+
+      - name: Analyze + generate report
+        run: |
+          npm ci --ignore-scripts || npm install --ignore-scripts
+          npm run sync
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: 'chore(sync): refresh upstream snapshot'
+          branch: chore/sync-upstream
+          delete-branch: true
+          title: 'chore(sync): 上游文档同步'
+          body: |
+            自动生成的上游同步 PR。
+            详见 `sync-report.json` 与 `translation-manifest.json` 中的 stale 标记。

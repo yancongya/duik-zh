@@ -1,0 +1,662 @@
+{
+  "advanced/api/duik-features.md": {
+    "upstreamHashAtSnapshot": "0e3b8f7f24c0",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "advanced/api/getting-started.md": {
+    "upstreamHashAtSnapshot": "7a2e606653c6",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "advanced/api/headless-scripts.md": {
+    "upstreamHashAtSnapshot": "24644151a36b",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "advanced/api/index.md": {
+    "upstreamHashAtSnapshot": "338eb479e8d5",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "advanced/api/shortcuts.md": {
+    "upstreamHashAtSnapshot": "41ca661422b3",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "advanced/contributing-guide.md": {
+    "upstreamHashAtSnapshot": "91eeccf977bb",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "advanced/performance.md": {
+    "upstreamHashAtSnapshot": "e0c8017cfca5",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "angela.md": {
+    "upstreamHashAtSnapshot": "daf593ecec1c",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "bassel.md": {
+    "upstreamHashAtSnapshot": "8c59bccee02d",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "faq.md": {
+    "upstreamHashAtSnapshot": "5fa4121d73ca",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "getting-started/be-annoying.md": {
+    "upstreamHashAtSnapshot": "05be6f05a711",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "getting-started/first-look.md": {
+    "upstreamHashAtSnapshot": "0845131d1830",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "getting-started/install.md": {
+    "upstreamHashAtSnapshot": "a1246927d1b5",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "getting-started/introduction.md": {
+    "upstreamHashAtSnapshot": "ee064235ef15",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "getting-started/preamble.md": {
+    "upstreamHashAtSnapshot": "58ff10af4529",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "getting-started/troubleshoot.md": {
+    "upstreamHashAtSnapshot": "7a0c1eb0e148",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/anim-library.md": {
+    "upstreamHashAtSnapshot": "6392b1d2db81",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/cel.md": {
+    "upstreamHashAtSnapshot": "95839f1f7150",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/index.md": {
+    "upstreamHashAtSnapshot": "488fc3c5e606",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/interpolation.md": {
+    "upstreamHashAtSnapshot": "b2f6d1cf4fd0",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/kleaner.md": {
+    "upstreamHashAtSnapshot": "d64c8fabae8c",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/nla.md": {
+    "upstreamHashAtSnapshot": "1ac78ab71480",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/sequence.md": {
+    "upstreamHashAtSnapshot": "3931f2eb651a",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/spatial-interpolation.md": {
+    "upstreamHashAtSnapshot": "d98b68d8ecac",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/tools/align.md": {
+    "upstreamHashAtSnapshot": "023361f8acb8",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/tools/anchor.md": {
+    "upstreamHashAtSnapshot": "01c9fbedba37",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/tools/copy.md": {
+    "upstreamHashAtSnapshot": "4d4ffdb66208",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/tools/ik-fk-switch.md": {
+    "upstreamHashAtSnapshot": "8fca18a9b7fc",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/tools/interpolator.md": {
+    "upstreamHashAtSnapshot": "3bc32e9a0119",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/tools/motion-trail.md": {
+    "upstreamHashAtSnapshot": "77705f8505a9",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/tools/select.md": {
+    "upstreamHashAtSnapshot": "37b2b375130a",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/tools/snap.md": {
+    "upstreamHashAtSnapshot": "bfab115a5441",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/tweening.md": {
+    "upstreamHashAtSnapshot": "e89fb1a2aeb8",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/animation/x-sheet.md": {
+    "upstreamHashAtSnapshot": "d0d96bc387e9",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/effector-map.md": {
+    "upstreamHashAtSnapshot": "49b6699e2819",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/effector.md": {
+    "upstreamHashAtSnapshot": "508736324b4b",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/index.md": {
+    "upstreamHashAtSnapshot": "b3d503ce2432",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/kleaner.md": {
+    "upstreamHashAtSnapshot": "ef7205a1a64b",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/looper.md": {
+    "upstreamHashAtSnapshot": "dd3b483c37f4",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/motion-trail.md": {
+    "upstreamHashAtSnapshot": "a6bc63d57fd5",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/move-away.md": {
+    "upstreamHashAtSnapshot": "762d3d844f27",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/paint-rig.md": {
+    "upstreamHashAtSnapshot": "b2059858c676",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/random-motion.md": {
+    "upstreamHashAtSnapshot": "b4939862ca1a",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/swink.md": {
+    "upstreamHashAtSnapshot": "4325b4c19a2e",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/tools/bake-comp.md": {
+    "upstreamHashAtSnapshot": "80779ebac207",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/tools/bake.md": {
+    "upstreamHashAtSnapshot": "05ef61fabd76",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/tools/copy.md": {
+    "upstreamHashAtSnapshot": "1e52f4851b95",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/tools/edit.md": {
+    "upstreamHashAtSnapshot": "0029eb9ece0c",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/tools/expressions-tools.md": {
+    "upstreamHashAtSnapshot": "40f3b7457413",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/tools/list.md": {
+    "upstreamHashAtSnapshot": "0036da9f3f5b",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/tools/randomize.md": {
+    "upstreamHashAtSnapshot": "6848490aea52",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/tools/remove-expressions.md": {
+    "upstreamHashAtSnapshot": "d2fabcc37b3a",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/tools/split.md": {
+    "upstreamHashAtSnapshot": "43f48fdcbc69",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/tools/time-remap.md": {
+    "upstreamHashAtSnapshot": "c7c673e40dd9",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/walk-run.md": {
+    "upstreamHashAtSnapshot": "819da96dab37",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/wheel.md": {
+    "upstreamHashAtSnapshot": "489f7dee06e2",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/wiggle.md": {
+    "upstreamHashAtSnapshot": "c02efd804a23",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/automation/x-sheet.md": {
+    "upstreamHashAtSnapshot": "6a29a2ecf63c",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/bones/autorig/fin.md": {
+    "upstreamHashAtSnapshot": "f87770bf2605",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/bones/autorig/index.md": {
+    "upstreamHashAtSnapshot": "8e9d24ccedfc",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/bones/autorig/leg.md": {
+    "upstreamHashAtSnapshot": "5d3d6c86de64",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/bones/autorig/spine.md": {
+    "upstreamHashAtSnapshot": "c4aa2ce74791",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/bones/autorig/tail.md": {
+    "upstreamHashAtSnapshot": "a63a66eee1fe",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/bones/autorig/wing.md": {
+    "upstreamHashAtSnapshot": "85b388a44c5b",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/bones/create-bones.md": {
+    "upstreamHashAtSnapshot": "6ec06aa661cc",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/bones/envelops.md": {
+    "upstreamHashAtSnapshot": "1f400a83a2ee",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/bones/index.md": {
+    "upstreamHashAtSnapshot": "b1b3c0a74d4b",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/bones/noodles.md": {
+    "upstreamHashAtSnapshot": "df523b41ded8",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/bones/tools/bake.md": {
+    "upstreamHashAtSnapshot": "399839b48acd",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/bones/tools/duplicate.md": {
+    "upstreamHashAtSnapshot": "2f3db79dea11",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/bones/tools/edit.md": {
+    "upstreamHashAtSnapshot": "bc404539cb3e",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/bones/tools/link-art.md": {
+    "upstreamHashAtSnapshot": "4947cf0edd44",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/bones/tools/select.md": {
+    "upstreamHashAtSnapshot": "828abe5a16cb",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/bones/tools/settings.md": {
+    "upstreamHashAtSnapshot": "fc29af3a7420",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/bones/tools/show-hide.md": {
+    "upstreamHashAtSnapshot": "11c8b2f84b87",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/camera/camera-2d.md": {
+    "upstreamHashAtSnapshot": "cd95a1d7de39",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/camera/camera-rig.md": {
+    "upstreamHashAtSnapshot": "c17a08bbcd3d",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/camera/index.md": {
+    "upstreamHashAtSnapshot": "e43d23a11e3a",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/camera/tools/frame.md": {
+    "upstreamHashAtSnapshot": "00d7d0aaedfc",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/camera/tools/scale-z-link.md": {
+    "upstreamHashAtSnapshot": "b0406511308e",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/cmd.md": {
+    "upstreamHashAtSnapshot": "8adbb0c7aa84",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/connector.md": {
+    "upstreamHashAtSnapshot": "992c115e6f06",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/index.md": {
+    "upstreamHashAtSnapshot": "83091bf0edb7",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/key-morph.md": {
+    "upstreamHashAtSnapshot": "ae3e329cc665",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/kinematics.md": {
+    "upstreamHashAtSnapshot": "ee9a9485819f",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/parent.md": {
+    "upstreamHashAtSnapshot": "42d163883a4c",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/pins.md": {
+    "upstreamHashAtSnapshot": "a4c03df4c3bb",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/tools/align.md": {
+    "upstreamHashAtSnapshot": "6271d06fde4a",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/tools/anchor.md": {
+    "upstreamHashAtSnapshot": "240cdeda6402",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/tools/edit-mode.md": {
+    "upstreamHashAtSnapshot": "6c2cfb2988aa",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/tools/etm.md": {
+    "upstreamHashAtSnapshot": "4c21c70bad66",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/tools/list.md": {
+    "upstreamHashAtSnapshot": "44b230899722",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/tools/locator.md": {
+    "upstreamHashAtSnapshot": "315d9069dacf",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/tools/lock.md": {
+    "upstreamHashAtSnapshot": "988ee1acdf41",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/tools/measure.md": {
+    "upstreamHashAtSnapshot": "dd1cc8afb24b",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/tools/prop-info.md": {
+    "upstreamHashAtSnapshot": "44ecb540524a",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/tools/split.md": {
+    "upstreamHashAtSnapshot": "8640380ffa01",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/tools/zero.md": {
+    "upstreamHashAtSnapshot": "c94395bb7865",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/constraints/transform.md": {
+    "upstreamHashAtSnapshot": "5124cf4dbc18",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/controllers/extract.md": {
+    "upstreamHashAtSnapshot": "0db2319c9e04",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/controllers/index.md": {
+    "upstreamHashAtSnapshot": "667c21e7e635",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/controllers/pseudo-effects.md": {
+    "upstreamHashAtSnapshot": "eba9533b6d30",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/controllers/tools/bake.md": {
+    "upstreamHashAtSnapshot": "6e2c448214ae",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/controllers/tools/select.md": {
+    "upstreamHashAtSnapshot": "bd57f13408cf",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/controllers/tools/settings.md": {
+    "upstreamHashAtSnapshot": "c70d15221698",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/controllers/tools/show-hide.md": {
+    "upstreamHashAtSnapshot": "9af1277d0e43",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/controllers/tools/tag.md": {
+    "upstreamHashAtSnapshot": "9e0041824c18",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/notes.md": {
+    "upstreamHashAtSnapshot": "b02b0950fea5",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/oco/index.md": {
+    "upstreamHashAtSnapshot": "830bfae7fb3a",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/rigging.md": {
+    "upstreamHashAtSnapshot": "fbcaeb68830c",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/sanity.md": {
+    "upstreamHashAtSnapshot": "1decde6e8585",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/settings.md": {
+    "upstreamHashAtSnapshot": "16ae90f3bc4b",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/tools/composition/crop.md": {
+    "upstreamHashAtSnapshot": "f6cfa8965bba",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/tools/composition/settings.md": {
+    "upstreamHashAtSnapshot": "996215457677",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/tools/index.md": {
+    "upstreamHashAtSnapshot": "d5ca0ab223e3",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/tools/layers.md": {
+    "upstreamHashAtSnapshot": "e6eb42814157",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/tools/scripting/edit-expression.md": {
+    "upstreamHashAtSnapshot": "49560695ed94",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/tools/scripting/library.md": {
+    "upstreamHashAtSnapshot": "7695e951eb7f",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/tools/scripting/script-editor.md": {
+    "upstreamHashAtSnapshot": "8fed196a5eb7",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/tools/scripting/scriptify-expression.md": {
+    "upstreamHashAtSnapshot": "f5de33329374",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/tools/text/rename.md": {
+    "upstreamHashAtSnapshot": "258847caa5e4",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "guide/tools/text/search-replace.md": {
+    "upstreamHashAtSnapshot": "f84928560f36",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "index.md": {
+    "upstreamHashAtSnapshot": "509d51976434",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "misc/changelog.md": {
+    "upstreamHashAtSnapshot": "ccf320eab03f",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "misc/credits.md": {
+    "upstreamHashAtSnapshot": "587196f856b0",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "misc/doc-license.md": {
+    "upstreamHashAtSnapshot": "3898bf003377",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "misc/duik-16-changelog.md": {
+    "upstreamHashAtSnapshot": "cd03d7299069",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "misc/glossary.md": {
+    "upstreamHashAtSnapshot": "99eb1c336ec8",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "misc/gnu-gpl.md": {
+    "upstreamHashAtSnapshot": "829702a055da",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "misc/license.md": {
+    "upstreamHashAtSnapshot": "9062b3b9ef42",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "printed-user-guide.md": {
+    "upstreamHashAtSnapshot": "8afbfbf72f4c",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  },
+  "tutorials.md": {
+    "upstreamHashAtSnapshot": "b704776c1e05",
+    "status": "untranslated",
+    "lastChecked": "2026-10-28"
+  }
+}

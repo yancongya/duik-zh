@@ -1,0 +1,18 @@
+# deps / build
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# 上游快照：CI 负责刷新；本地保留一份用于 diff，但不强制提交大体积图片时可取消注释
+# upstream/
+# 上游 img 较大（700+ 文件），默认跟踪以保证离线可用；如仓库过大可改为 CI 产物
+# upstream/docs/img/
+
+# 本地环境
+.env
+.env.local
+.DS_Store
+.vercel
+*.log

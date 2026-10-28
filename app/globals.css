@@ -1,0 +1,32 @@
+:root {
+  --accent: #ff5c1a;
+  --accent-soft: #ff8a5c;
+  --bg: #ffffff;
+  --bg-soft: #f7f7f8;
+  --fg: #1a1a1c;
+  --muted: #6b6b70;
+  --border: #e6e6e8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    'Noto Sans SC', 'HarmonyOS Sans SC', system-ui, -apple-system,
+    'Segoe UI', sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.75;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
