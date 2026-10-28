@@ -23,7 +23,9 @@ function walk(dir, out = []) {
 }
 
 function hashFile(p) {
-  return createHash('sha256').update(readFileSync(p)).digest('hex').slice(0, 12)
+  // 统一按 LF 归一化后哈希，避免 Windows CRLF / CI LF 造成假 stale
+  const text = readFileSync(p).toString('utf8').replace(/\r\n/g, '\n')
+  return createHash('sha256').update(text).digest('hex').slice(0, 12)
 }
 
 if (!existsSync(UPSTREAM_DOCS)) {
@@ -62,6 +64,18 @@ for (const key of Object.keys(manifest)) {
   if (!seen.has(key)) manifest[key].removedUpstream = true
 }
 
-writeFileSync(join(ROOT, 'sync-report.json'), JSON.stringify(report, null, 2))
+// 内容无变化时保留旧 generatedAt，避免每次运行产生无意义的空 PR
+const REPORT_PATH = join(ROOT, 'sync-report.json')
+if (existsSync(REPORT_PATH)) {
+  try {
+    const old = JSON.parse(readFileSync(REPORT_PATH, 'utf8'))
+    const same =
+      old.mdCount === report.mdCount &&
+      JSON.stringify(old.files) === JSON.stringify(report.files)
+    if (same) report.generatedAt = old.generatedAt
+  } catch {}
+}
+
+writeFileSync(REPORT_PATH, JSON.stringify(report, null, 2))
 writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + '\n')
 console.log(`[sync] ${files.length} 个 md 已盘点；报告 -> sync-report.json；manifest -> translation-manifest.json`)

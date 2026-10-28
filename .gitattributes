@@ -1,0 +1,2 @@
+# 上游快照按 LF 存储，避免 Windows/CI 行尾差异造成全量假 diff 与假 stale
+upstream/** text eol=lf

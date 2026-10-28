@@ -1,534 +1,534 @@
 {
-  "generatedAt": "2026-10-28T03:30:30.476Z",
+  "generatedAt": "2026-10-28T07:19:28.041Z",
   "mdCount": 132,
   "files": [
     {
       "path": "advanced/api/duik-features.md",
-      "hash": "0e3b8f7f24c0"
+      "hash": "10370f188ba2"
     },
     {
       "path": "advanced/api/getting-started.md",
-      "hash": "7a2e606653c6"
+      "hash": "ceb1d434f7b9"
     },
     {
       "path": "advanced/api/headless-scripts.md",
-      "hash": "24644151a36b"
+      "hash": "55e809c07417"
     },
     {
       "path": "advanced/api/index.md",
-      "hash": "338eb479e8d5"
+      "hash": "d0459677e79b"
     },
     {
       "path": "advanced/api/shortcuts.md",
-      "hash": "41ca661422b3"
+      "hash": "029107a3d2c4"
     },
     {
       "path": "advanced/contributing-guide.md",
-      "hash": "91eeccf977bb"
+      "hash": "e3452d44cb54"
     },
     {
       "path": "advanced/performance.md",
-      "hash": "e0c8017cfca5"
+      "hash": "64e0bc83f8a2"
     },
     {
       "path": "angela.md",
-      "hash": "daf593ecec1c"
+      "hash": "e959818d1be6"
     },
     {
       "path": "bassel.md",
-      "hash": "8c59bccee02d"
+      "hash": "8c4a2f285ef3"
     },
     {
       "path": "faq.md",
-      "hash": "5fa4121d73ca"
+      "hash": "769f4874c11a"
     },
     {
       "path": "getting-started/be-annoying.md",
-      "hash": "05be6f05a711"
+      "hash": "736534a3e1c9"
     },
     {
       "path": "getting-started/first-look.md",
-      "hash": "0845131d1830"
+      "hash": "d23914d94c30"
     },
     {
       "path": "getting-started/install.md",
-      "hash": "a1246927d1b5"
+      "hash": "1e91ab42c37a"
     },
     {
       "path": "getting-started/introduction.md",
-      "hash": "ee064235ef15"
+      "hash": "baac9ae5ba74"
     },
     {
       "path": "getting-started/preamble.md",
-      "hash": "58ff10af4529"
+      "hash": "548359bfabbc"
     },
     {
       "path": "getting-started/troubleshoot.md",
-      "hash": "7a0c1eb0e148"
+      "hash": "230afb763dcb"
     },
     {
       "path": "guide/animation/anim-library.md",
-      "hash": "6392b1d2db81"
+      "hash": "d560a0ce9957"
     },
     {
       "path": "guide/animation/cel.md",
-      "hash": "95839f1f7150"
+      "hash": "40c241dce0bb"
     },
     {
       "path": "guide/animation/index.md",
-      "hash": "488fc3c5e606"
+      "hash": "f5db3b04b0ce"
     },
     {
       "path": "guide/animation/interpolation.md",
-      "hash": "b2f6d1cf4fd0"
+      "hash": "d93877b34f0f"
     },
     {
       "path": "guide/animation/kleaner.md",
-      "hash": "d64c8fabae8c"
+      "hash": "d6a58617870b"
     },
     {
       "path": "guide/animation/nla.md",
-      "hash": "1ac78ab71480"
+      "hash": "ad04d560c2f3"
     },
     {
       "path": "guide/animation/sequence.md",
-      "hash": "3931f2eb651a"
+      "hash": "31b9c53aeb76"
     },
     {
       "path": "guide/animation/spatial-interpolation.md",
-      "hash": "d98b68d8ecac"
+      "hash": "2da6e43e961a"
     },
     {
       "path": "guide/animation/tools/align.md",
-      "hash": "023361f8acb8"
+      "hash": "176aa74115c6"
     },
     {
       "path": "guide/animation/tools/anchor.md",
-      "hash": "01c9fbedba37"
+      "hash": "518449febb73"
     },
     {
       "path": "guide/animation/tools/copy.md",
-      "hash": "4d4ffdb66208"
+      "hash": "ebd5703830fd"
     },
     {
       "path": "guide/animation/tools/ik-fk-switch.md",
-      "hash": "8fca18a9b7fc"
+      "hash": "b5a564d9c3db"
     },
     {
       "path": "guide/animation/tools/interpolator.md",
-      "hash": "3bc32e9a0119"
+      "hash": "c0cf20c652b1"
     },
     {
       "path": "guide/animation/tools/motion-trail.md",
-      "hash": "77705f8505a9"
+      "hash": "531b45184a2f"
     },
     {
       "path": "guide/animation/tools/select.md",
-      "hash": "37b2b375130a"
+      "hash": "93d3fbfa9d82"
     },
     {
       "path": "guide/animation/tools/snap.md",
-      "hash": "bfab115a5441"
+      "hash": "9b98349d091c"
     },
     {
       "path": "guide/animation/tweening.md",
-      "hash": "e89fb1a2aeb8"
+      "hash": "9e167d890c2f"
     },
     {
       "path": "guide/animation/x-sheet.md",
-      "hash": "d0d96bc387e9"
+      "hash": "293578bdc2e9"
     },
     {
       "path": "guide/automation/effector-map.md",
-      "hash": "49b6699e2819"
+      "hash": "484f7aa5287d"
     },
     {
       "path": "guide/automation/effector.md",
-      "hash": "508736324b4b"
+      "hash": "248392423b20"
     },
     {
       "path": "guide/automation/index.md",
-      "hash": "b3d503ce2432"
+      "hash": "292847151ac0"
     },
     {
       "path": "guide/automation/kleaner.md",
-      "hash": "ef7205a1a64b"
+      "hash": "080e0a9902bb"
     },
     {
       "path": "guide/automation/looper.md",
-      "hash": "dd3b483c37f4"
+      "hash": "637cc79b08fd"
     },
     {
       "path": "guide/automation/motion-trail.md",
-      "hash": "a6bc63d57fd5"
+      "hash": "028e6f884ba0"
     },
     {
       "path": "guide/automation/move-away.md",
-      "hash": "762d3d844f27"
+      "hash": "2ac35921f1bc"
     },
     {
       "path": "guide/automation/paint-rig.md",
-      "hash": "b2059858c676"
+      "hash": "6913ccf349c3"
     },
     {
       "path": "guide/automation/random-motion.md",
-      "hash": "b4939862ca1a"
+      "hash": "429cbea2886f"
     },
     {
       "path": "guide/automation/swink.md",
-      "hash": "4325b4c19a2e"
+      "hash": "1fac04e33667"
     },
     {
       "path": "guide/automation/tools/bake-comp.md",
-      "hash": "80779ebac207"
+      "hash": "6fece64cbd02"
     },
     {
       "path": "guide/automation/tools/bake.md",
-      "hash": "05ef61fabd76"
+      "hash": "2d13ffca9b3f"
     },
     {
       "path": "guide/automation/tools/copy.md",
-      "hash": "1e52f4851b95"
+      "hash": "fa3581fcd05e"
     },
     {
       "path": "guide/automation/tools/edit.md",
-      "hash": "0029eb9ece0c"
+      "hash": "d2de27577bb2"
     },
     {
       "path": "guide/automation/tools/expressions-tools.md",
-      "hash": "40f3b7457413"
+      "hash": "eb83000ac2dc"
     },
     {
       "path": "guide/automation/tools/list.md",
-      "hash": "0036da9f3f5b"
+      "hash": "d0a8ffc52ac6"
     },
     {
       "path": "guide/automation/tools/randomize.md",
-      "hash": "6848490aea52"
+      "hash": "a3205fa8ce6f"
     },
     {
       "path": "guide/automation/tools/remove-expressions.md",
-      "hash": "d2fabcc37b3a"
+      "hash": "ca3e6af6cbf2"
     },
     {
       "path": "guide/automation/tools/split.md",
-      "hash": "43f48fdcbc69"
+      "hash": "d3f4452fee3a"
     },
     {
       "path": "guide/automation/tools/time-remap.md",
-      "hash": "c7c673e40dd9"
+      "hash": "08491e276d15"
     },
     {
       "path": "guide/automation/walk-run.md",
-      "hash": "819da96dab37"
+      "hash": "f8dc256b88e6"
     },
     {
       "path": "guide/automation/wheel.md",
-      "hash": "489f7dee06e2"
+      "hash": "8ebd2e3c659f"
     },
     {
       "path": "guide/automation/wiggle.md",
-      "hash": "c02efd804a23"
+      "hash": "d8988ec579b1"
     },
     {
       "path": "guide/automation/x-sheet.md",
-      "hash": "6a29a2ecf63c"
+      "hash": "5092d860d210"
     },
     {
       "path": "guide/bones/autorig/fin.md",
-      "hash": "f87770bf2605"
+      "hash": "442cec53b83a"
     },
     {
       "path": "guide/bones/autorig/index.md",
-      "hash": "8e9d24ccedfc"
+      "hash": "096b26a4eb15"
     },
     {
       "path": "guide/bones/autorig/leg.md",
-      "hash": "5d3d6c86de64"
+      "hash": "2d3d0efc03c8"
     },
     {
       "path": "guide/bones/autorig/spine.md",
-      "hash": "c4aa2ce74791"
+      "hash": "66f428bb424a"
     },
     {
       "path": "guide/bones/autorig/tail.md",
-      "hash": "a63a66eee1fe"
+      "hash": "0826aed7e3d9"
     },
     {
       "path": "guide/bones/autorig/wing.md",
-      "hash": "85b388a44c5b"
+      "hash": "55cd46fe932d"
     },
     {
       "path": "guide/bones/create-bones.md",
-      "hash": "6ec06aa661cc"
+      "hash": "b1ad0870560d"
     },
     {
       "path": "guide/bones/envelops.md",
-      "hash": "1f400a83a2ee"
+      "hash": "d74a3c12933a"
     },
     {
       "path": "guide/bones/index.md",
-      "hash": "b1b3c0a74d4b"
+      "hash": "9d68fb85fd36"
     },
     {
       "path": "guide/bones/noodles.md",
-      "hash": "df523b41ded8"
+      "hash": "4c20d611a87c"
     },
     {
       "path": "guide/bones/tools/bake.md",
-      "hash": "399839b48acd"
+      "hash": "e944dd6cc270"
     },
     {
       "path": "guide/bones/tools/duplicate.md",
-      "hash": "2f3db79dea11"
+      "hash": "4fd6dc8e1278"
     },
     {
       "path": "guide/bones/tools/edit.md",
-      "hash": "bc404539cb3e"
+      "hash": "cf269463e394"
     },
     {
       "path": "guide/bones/tools/link-art.md",
-      "hash": "4947cf0edd44"
+      "hash": "af9976b46fc8"
     },
     {
       "path": "guide/bones/tools/select.md",
-      "hash": "828abe5a16cb"
+      "hash": "151d659f8100"
     },
     {
       "path": "guide/bones/tools/settings.md",
-      "hash": "fc29af3a7420"
+      "hash": "314214ac38a6"
     },
     {
       "path": "guide/bones/tools/show-hide.md",
-      "hash": "11c8b2f84b87"
+      "hash": "98598ea4fe42"
     },
     {
       "path": "guide/camera/camera-2d.md",
-      "hash": "cd95a1d7de39"
+      "hash": "e9805f2aaf41"
     },
     {
       "path": "guide/camera/camera-rig.md",
-      "hash": "c17a08bbcd3d"
+      "hash": "ceafdf2c41c2"
     },
     {
       "path": "guide/camera/index.md",
-      "hash": "e43d23a11e3a"
+      "hash": "dc4aa361b8b2"
     },
     {
       "path": "guide/camera/tools/frame.md",
-      "hash": "00d7d0aaedfc"
+      "hash": "307d6f8e0aa9"
     },
     {
       "path": "guide/camera/tools/scale-z-link.md",
-      "hash": "b0406511308e"
+      "hash": "e0399095639a"
     },
     {
       "path": "guide/cmd.md",
-      "hash": "8adbb0c7aa84"
+      "hash": "0ca8539a2e83"
     },
     {
       "path": "guide/constraints/connector.md",
-      "hash": "992c115e6f06"
+      "hash": "bde9cfff8280"
     },
     {
       "path": "guide/constraints/index.md",
-      "hash": "83091bf0edb7"
+      "hash": "ff1fbdcb15ee"
     },
     {
       "path": "guide/constraints/key-morph.md",
-      "hash": "ae3e329cc665"
+      "hash": "2f02088ae4c9"
     },
     {
       "path": "guide/constraints/kinematics.md",
-      "hash": "ee9a9485819f"
+      "hash": "9e932054e029"
     },
     {
       "path": "guide/constraints/parent.md",
-      "hash": "42d163883a4c"
+      "hash": "4560d0c5c605"
     },
     {
       "path": "guide/constraints/pins.md",
-      "hash": "a4c03df4c3bb"
+      "hash": "f7b6659dc5ca"
     },
     {
       "path": "guide/constraints/tools/align.md",
-      "hash": "6271d06fde4a"
+      "hash": "48680a98931a"
     },
     {
       "path": "guide/constraints/tools/anchor.md",
-      "hash": "240cdeda6402"
+      "hash": "042f0ed0a1dd"
     },
     {
       "path": "guide/constraints/tools/edit-mode.md",
-      "hash": "6c2cfb2988aa"
+      "hash": "fbc5367ac0ff"
     },
     {
       "path": "guide/constraints/tools/etm.md",
-      "hash": "4c21c70bad66"
+      "hash": "2e17080e002e"
     },
     {
       "path": "guide/constraints/tools/list.md",
-      "hash": "44b230899722"
+      "hash": "ef9322cfd79e"
     },
     {
       "path": "guide/constraints/tools/locator.md",
-      "hash": "315d9069dacf"
+      "hash": "9954bf88b163"
     },
     {
       "path": "guide/constraints/tools/lock.md",
-      "hash": "988ee1acdf41"
+      "hash": "69d86112d074"
     },
     {
       "path": "guide/constraints/tools/measure.md",
-      "hash": "dd1cc8afb24b"
+      "hash": "e3ea57ed1225"
     },
     {
       "path": "guide/constraints/tools/prop-info.md",
-      "hash": "44ecb540524a"
+      "hash": "1d82b7f0d15c"
     },
     {
       "path": "guide/constraints/tools/split.md",
-      "hash": "8640380ffa01"
+      "hash": "0584c7acbe28"
     },
     {
       "path": "guide/constraints/tools/zero.md",
-      "hash": "c94395bb7865"
+      "hash": "99a073370a12"
     },
     {
       "path": "guide/constraints/transform.md",
-      "hash": "5124cf4dbc18"
+      "hash": "03782adfe958"
     },
     {
       "path": "guide/controllers/extract.md",
-      "hash": "0db2319c9e04"
+      "hash": "b8eb4bb22d25"
     },
     {
       "path": "guide/controllers/index.md",
-      "hash": "667c21e7e635"
+      "hash": "ead43544c07e"
     },
     {
       "path": "guide/controllers/pseudo-effects.md",
-      "hash": "eba9533b6d30"
+      "hash": "6aefcd36de80"
     },
     {
       "path": "guide/controllers/tools/bake.md",
-      "hash": "6e2c448214ae"
+      "hash": "31e98a2d02a4"
     },
     {
       "path": "guide/controllers/tools/select.md",
-      "hash": "bd57f13408cf"
+      "hash": "d022858a67ff"
     },
     {
       "path": "guide/controllers/tools/settings.md",
-      "hash": "c70d15221698"
+      "hash": "dd2830f9c631"
     },
     {
       "path": "guide/controllers/tools/show-hide.md",
-      "hash": "9af1277d0e43"
+      "hash": "59f55d748b09"
     },
     {
       "path": "guide/controllers/tools/tag.md",
-      "hash": "9e0041824c18"
+      "hash": "71523a98f541"
     },
     {
       "path": "guide/notes.md",
-      "hash": "b02b0950fea5"
+      "hash": "daaefb77d256"
     },
     {
       "path": "guide/oco/index.md",
-      "hash": "830bfae7fb3a"
+      "hash": "0c43fe1c29de"
     },
     {
       "path": "guide/rigging.md",
-      "hash": "fbcaeb68830c"
+      "hash": "56a436093850"
     },
     {
       "path": "guide/sanity.md",
-      "hash": "1decde6e8585"
+      "hash": "ff9098b13da5"
     },
     {
       "path": "guide/settings.md",
-      "hash": "16ae90f3bc4b"
+      "hash": "1583b69f13bd"
     },
     {
       "path": "guide/tools/composition/crop.md",
-      "hash": "f6cfa8965bba"
+      "hash": "2fd64814f666"
     },
     {
       "path": "guide/tools/composition/settings.md",
-      "hash": "996215457677"
+      "hash": "e7240ca05f0e"
     },
     {
       "path": "guide/tools/index.md",
-      "hash": "d5ca0ab223e3"
+      "hash": "a2721b831d38"
     },
     {
       "path": "guide/tools/layers.md",
-      "hash": "e6eb42814157"
+      "hash": "0490b5cba8b1"
     },
     {
       "path": "guide/tools/scripting/edit-expression.md",
-      "hash": "49560695ed94"
+      "hash": "d7193d14faec"
     },
     {
       "path": "guide/tools/scripting/library.md",
-      "hash": "7695e951eb7f"
+      "hash": "22ef08b57a09"
     },
     {
       "path": "guide/tools/scripting/script-editor.md",
-      "hash": "8fed196a5eb7"
+      "hash": "f9eab5f4cc44"
     },
     {
       "path": "guide/tools/scripting/scriptify-expression.md",
-      "hash": "f5de33329374"
+      "hash": "20cb760b35eb"
     },
     {
       "path": "guide/tools/text/rename.md",
-      "hash": "258847caa5e4"
+      "hash": "112d4a6017c3"
     },
     {
       "path": "guide/tools/text/search-replace.md",
-      "hash": "f84928560f36"
+      "hash": "278057936f39"
     },
     {
       "path": "index.md",
-      "hash": "509d51976434"
+      "hash": "787edce38364"
     },
     {
       "path": "misc/changelog.md",
-      "hash": "ccf320eab03f"
+      "hash": "79152aa78006"
     },
     {
       "path": "misc/credits.md",
-      "hash": "587196f856b0"
+      "hash": "00fe93671242"
     },
     {
       "path": "misc/doc-license.md",
-      "hash": "3898bf003377"
+      "hash": "673abc6744cb"
     },
     {
       "path": "misc/duik-16-changelog.md",
-      "hash": "cd03d7299069"
+      "hash": "60d5f13f4517"
     },
     {
       "path": "misc/glossary.md",
-      "hash": "99eb1c336ec8"
+      "hash": "3370cce9a496"
     },
     {
       "path": "misc/gnu-gpl.md",
-      "hash": "829702a055da"
+      "hash": "fbea1bb8163e"
     },
     {
       "path": "misc/license.md",
-      "hash": "9062b3b9ef42"
+      "hash": "a58ffe948673"
     },
     {
       "path": "printed-user-guide.md",
-      "hash": "8afbfbf72f4c"
+      "hash": "8ce3e6a6190f"
     },
     {
       "path": "tutorials.md",
-      "hash": "b704776c1e05"
+      "hash": "8b1658813096"
     }
   ]
 }

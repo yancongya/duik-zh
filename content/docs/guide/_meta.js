@@ -2,7 +2,7 @@
 export default {
   "animation": "Animation",
   "automation": "Automation & Expressions",
-  "bones": "Bones and Auto-Rig",
+  "bones": "骨骼",
   "camera": "Camera",
   "cmd": "Command Line",
   "constraints": "Links & Constraints",

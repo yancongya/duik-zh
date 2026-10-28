@@ -1,50 +1,51 @@
 ---
-title: "![](/docs-img/duik/icons/bones.svg) Bones"
+title: "骨骼"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/bones.svg) Bones
+# <img src="/docs-img/duik/icons/bones.svg" style={{width: '1em'}}/> 骨骼
 
 ![](/docs-img/duik/bones/bones_demo.gif)
 
-The bones are the core of the rigging process in Duik, both for characters and props. They're After Effects Shape layers used to drive the artwork layers. Instead of working directly on the art layers, one can work on these bones, so that the artwork won't have any expression. This allows to easily modify or replace the artwork even if it's already been rigged, to re-use an existing rig for multiple characters, and helps the Duik [Auto-rig](autorig/index.md) know what it has to do to build the best rig according to your type of character and limbs.
+骨骼是 Duik 绑定流程的核心，角色和道具都一样。它们是 After Effects 形状图层，用来驱动美术图层。不在美术图层上直接操作，而是在骨骼上操作，美术图层就不会带任何表达式。这样即使已经完成绑定，也能轻松修改或替换美术素材、把现有绑定复用到多个角色，并且帮助 Duik 的[自动绑定](autorig)知道该如何根据你的角色与肢体类型构建最佳绑定。
 
 ![](/docs-img/duik/bones/bones_example.png)
 
-The bones come with their envelops, which are references to help you design perfectly shaped joints for your cut-out characters, and their noodles to quickly design nice, bendy, smoothly-curved limbs like if they were soft rubber. Softness can only make the world better, don’t you think?
+骨骼还带有包络（envelop），作为帮你为剪纸角色设计精确关节的参考；还有面条骨（Noodle），用来快速做出柔软、可弯曲、曲线平滑的肢体，就像软橡胶一样。柔软只会让世界更美好，不是吗？
 
-## The Bones panel and tools
+## 骨骼面板与工具
 
 ![](/docs-img/duik/bones/bones_panel.png)
 
-The bones panel consists essentially of a toolbar, and categories to create predefined or custom armatures to be rigged later with the Auto-rig feature.
+骨骼面板主要由工具栏和若干分类组成，用于创建预设或自定义骨架，之后再用自动绑定功能来绑定。
 
-You can set a *Character Name* in the top field to automatically add the name to all new bones in the composition and keep things organized easily.
+你可以在顶部字段设置*角色名称（Character Name）*，自动为合成中所有新骨骼加上名称，轻松保持条理。
 
 ![](/docs-img/duik/bones/toolbar.png)
 
-The toolbar at the top of the bones panel gives a quick access to several secondary but useful tools.
+骨骼面板顶部的工具栏可以快速访问若干次要但有用的工具。
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C07_Tools__EN_720.mp4" caption={"This video is part of __the official comprehensive video course about Duik Ángela__"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C07_Tools__EN_720.mp4" caption="本视频是 __Duik Ángela 官方完整视频课程__ 的一部分" />
 
-### Content
+### 本章内容
 
-- [Create bones](create-bones.md)
-- [Bone envelops](envelops.md)
-- [Bone noodles](noodles.md)
-- Autorig
-    - [Introduction](autorig/index.md)
-    - [Arms and legs](autorig/leg.md)
-    - [Spines](autorig/spine.md)
-    - [Tails and hair](autorig/tail.md)
-    - [Wings](autorig/wing.md)
-    - [Fins](autorig/fin.md)
-- Tools
-    - [Select bones](tools/select.md)
-    - [Show/hide bones](tools/show-hide.md)
-    - [Duplicate bones](tools/duplicate.md)
-    - [Link art](tools/link-art.md)
-    - [Edit mode](tools/edit.md)
-    - [Bake bones](tools/bake.md)
-    - [Bone settings](tools/settings.md)
-
-
+- [创建骨骼](create-bones)
+- [骨骼包络](envelops)
+- [面条骨](noodles)
+- 自动绑定
+    - [简介](autorig)
+    - [手臂与腿](autorig/leg)
+    - [脊柱](autorig/spine)
+    - [尾巴与毛发](autorig/tail)
+    - [翅膀](autorig/wing)
+    - [鳍](autorig/fin)
+- 工具
+    - [选择骨骼](tools/select)
+    - [显示/隐藏骨骼](tools/show-hide)
+    - [复制骨骼](tools/duplicate)
+    - [链接图形](tools/link-art)
+    - [编辑模式](tools/edit)
+    - [烘焙骨骼](tools/bake)
+    - [骨骼设置](tools/settings)

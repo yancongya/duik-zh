@@ -6,5 +6,10 @@
   "getting-started/first-look": "初识 Duik",
   "getting-started/be-annoying": "要敢于较真",
   "getting-started/troubleshoot": "故障排除",
+  "guide/bones": "骨骼",
+  "guide/bones/create-bones": "创建骨骼",
+  "guide/bones/envelops": "骨骼包络",
+  "guide/bones/noodles": "面条骨",
+  "guide/bones/autorig": "自动绑定",
   "index": "首页"
 }

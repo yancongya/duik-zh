@@ -1,72 +1,75 @@
 ---
-title: "Bones creation"
+title: "创建骨骼"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# Bones creation
+# 创建骨骼
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C01_CreateBones__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C01_CreateBones__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-With Duik, you can quickly create all kinds of predefined limbs, or some custom bones if ever the limb you're rigging is not included in these predefined armatures yet.
+有了 Duik，你可以快速创建各种预设肢体；如果正在绑定的肢体还不在这些预设骨架中，也可以创建自定义骨骼。
 
-## Armatures for all types of animals
+## 适配所有动物类型的骨架
 
-As there are many different types of animals, these limbs are sorted in categories.
+动物种类繁多，因此这些肢体按类别划分。
 
 ![](/docs-img/duik/bones/bone_categories.png)
 
 ![](/docs-img/illustration/pattes-demo.png)  
-*Tetrapod legs*
+*四足动物的腿*
 
 ![](/docs-img/illustration/hominoid.png)  
-*Hominoids
+*人形总目*
 
 Benjamin Waterhouse Hawkins
 
-Public Domain*
+公有领域
 
-| Type | Description | Examples | Notes |
+| 类型 | 说明 | 例子 | 备注 |
 | ---- | ----------- | -------- | ----- |
-| ![](/docs-img/duik/icons/hominoid.svg) Hominoid[^1] | Human-like tetrapods[^2]: biped humans and apes without tails | Human, Chimpanzee, Gorilla... | Humans and their equals. |
-| ![](/docs-img/duik/icons/bunny.svg) Plantigrade | Tetrapods which put the whole foot on the ground, with the heel touching the ground when they walk. | Primates, bears, rabbits… | The ones nearly equal to humans. |
-| ![](/docs-img/duik/icons/cat.svg) Digitigrade | Tetrapods which walk on their fingers. | Dogs and all canines, cats and other felines, dinosaurs, walking birds… | Human friends. |
-| ![](/docs-img/duik/icons/horse.svg) Ungulate | Tetrapods which walk on the tip of their fingers, who usually have hoofs. | Horses, cattle, girafes, pigs, deers, camels, hippopotamuses… | Food for humans. |
-| ![](/docs-img/duik/icons/ant.svg) Arthropod | Invertebrates which have more joints than tetrapods in their legs. | Spiders, scorpions, ants, crabs, bees… | Enemies of humans. |
-| ![](/docs-img/duik/icons/bird.svg) Bird | Flying digitigrades. | Sparrows and pigeons but not chickens. | |
-| ![](/docs-img/duik/icons/fish.svg) Fish | Swimming with fins. Note that Duik considers whales to be fishes too. The important thing is the way the animals move, not their actual classification. | Fishes, sharks and whales. | |
+| <img src="/docs-img/duik/icons/hominoid.svg" style={{width: '16px'}}/> 人形总目（Hominoid）[^1] | 类人的四足动物[^2]：无尾、双足行走的人和猿 | 人类、黑猩猩、大猩猩…… | 人类和它们的近亲。 |
+| <img src="/docs-img/duik/icons/bunny.svg" style={{width: '16px'}}/> 蹻行（Plantigrade） | 走路时整个脚掌着地、脚跟着地的四足动物 | 灵长类、熊、兔子…… | 几乎与人类等同的那些。 |
+| <img src="/docs-img/duik/icons/cat.svg" style={{width: '16px'}}/> 趾行（Digitigrade） | 用脚趾行走的四足动物 | 犬科（狗）、猫科（猫）、恐龙、行走的鸟类…… | 人类的朋友。 |
+| <img src="/docs-img/duik/icons/horse.svg" style={{width: '16px'}}/> 蹄行（Ungulate） | 用指尖行走、通常有蹄的四足动物 | 马、牛、长颈鹿、猪、鹿、河马…… | 人类的食物。 |
+| <img src="/docs-img/duik/icons/ant.svg" style={{width: '16px'}}/> 节肢（Arthropod） | 腿部关节比四足动物更多的无脊椎动物 | 蜘蛛、蝎子、蚂蚁、螃蟹、蜜蜂…… | 人类的敌人。 |
+| <img src="/docs-img/duik/icons/bird.svg" style={{width: '16px'}}/> 鸟类 | 飞行的趾行动物 | 麻雀、鸽子，但不是鸡。 | |
+| <img src="/docs-img/duik/icons/fish.svg" style={{width: '16px'}}/> 鱼类 | 用鳍游动。注意 Duik 也把鲸算作鱼。重要的是动物的运动方式，而不是实际分类。 | 鱼、鲨鱼、鲸。 | |
 
-When using the [auto-rig](autorig/index.md) later, Duik will adjust the controls for each limb of each type of animal, to allow for the most detailed and easiest animation according to the animal you're animating. Read the next section for a complete description of the controls for each limb.
+之后使用[自动绑定](autorig)时，Duik 会按每种动物类型调整各肢体的控制器，以便根据你动画的动物做出最细致、最简便的动画。各肢体控制器的完整说明见下一节。
 
 ![](/docs-img/duik/bones/limbs.png)
 
-In these categories, for each limb you can adjust some ![](/docs-img/duik/icons/options.svg) options before the creation, to adapt them to your design, which makes the armatures and the auto-rig extremely versatile in Duik.
+在这些分类中，每个肢体都可以在创建前调整一些 ![](/docs-img/duik/icons/options.svg) 选项，以贴合你的设计——这让 Duik 的骨架与自动绑定极其灵活。
 
 ![](/docs-img/duik/bones/limb_options.png)
 
-The choices you can make in these options depends on the design of your character, and especially which joints are available and where they are located.
+这些选项的可选范围取决于你的角色设计，尤其是有哪些关节、位于何处。
 
-To learn how each kind of limb may be designed and how the corresponding bones have to be located, read the [*Bones / Auto-rig*](autorig/index.md) section.
+要了解每种肢体应如何设计、对应骨骼应如何摆放，请阅读[*骨骼 / 自动绑定*](autorig)一节。
 
-## Create armatures and bones
+## 创建骨架与骨骼
 
-There are several ways to create armatures with Duik, depending on what you need. As all the other tools in Duik Ángela, **the bone creation tools try to be smart, and change their behavior depending on the context** (i.e. the current selection in the current composition).
+用 Duik 创建骨架有多种方式，取决于你的需要。与 Duik Ángela 中所有其它工具一样，**骨骼创建工具会「聪明」地根据上下文（即当前合成中的选择）改变行为**。
 
-You can create either complete characters (e.g. Humans, rabbits, etc.) using the [OCO meta-rig panel](../oco)[^3], single limbs (e.g. arms, legs, etc.), or custom armatures. Except for complete characters, the way the bones are created will change depending on the selection.
+你可以创建完整角色（如人类、兔子等，使用 [OCO 元绑定面板](../oco)[^3]）、单个肢体（如手臂、腿等），或自定义骨架。除完整角色外，骨骼的创建方式会随选择而变。
 
-Complete characters (meta-rigs) are always built in the center of the composition, and nothing is linked to the new armature, you’ll have to create the links between the artwork and the armature by yourself later.
+完整角色（元绑定）总是在合成中心创建，且不会有任何东西链接到新骨架；之后你需要自己在美术图层和骨架之间建立链接。
 
 <Callout type="success">
-    Click the *Bone Settings* button in the toolbar of the Bones panel to access some settings, where you can change how bones are created. Read the [*Bones and Auto-rig / Tools / Settings*](tools/settings.md) section for more information about these settings.
+    点击骨骼面板工具栏上的*骨骼设置*按钮可进入设置，修改骨骼的创建方式。详见[*骨骼与自动绑定 / 工具 / 设置*](tools/settings)。
 </Callout>
 
-### Without selection
+### 无选择时
 
-Without any selection in the composition, predefined limbs and custom armatures will be created in the center of the composition.
+合成中没有任何选择时，预设肢体和自定义骨架会创建在合成中心。
 
-There is a very quick way to locate the new bones where you need them though:
+不过有一个快捷方法可以把新骨骼放到你需要的位置：
 
-1. With the pen tool, `[G]`, and without any layer selected, click on the location of the bones you wish to create, from the root to the tip of the limb. This will create a new shape layer with a path, each vertex of the path located at a joint of the limb.
-2. Keeping this new path selected (do not change the current tool nor click anywhere else), create the new armature with Duik.
-3. Duik will automatically locate the new bones on the vertices of the path, and then remove this temporary shape layer, used only as a reference.
+1. 用钢笔工具 `[G]`，在未选中任何图层的情况下，从肢体根部到末端依次点击你希望骨骼所在的位置。这会创建一个带路径的新形状图层，路径的每个顶点都在肢体的一个关节上。
+2. 保持该新路径被选中（不要切换工具，也不要点击别处），用 Duik 创建新骨架。
+3. Duik 会自动把新骨骼放到路径顶点上，然后删除这个仅作参考的临时形状图层。
 
 |     |     |     |
 | --- | --- | --- |
@@ -74,35 +77,30 @@ There is a very quick way to locate the new bones where you need them though:
 
 ![](/docs-img/duik/bones/create_with_pen.gif)
 
+### 有选择时
 
-### With a selection
+有选择时，骨骼会移动到选中的属性或图层上；如果 `[Ctrl] + [点击]` 创建按钮，选中的属性或图层还会自动父子链接到新建的骨架上。
 
-With a selection, they will be moved to the selected properties or layers, and if you `[Ctrl] + [Click]` on the creation button, these selected properties or layers will be automatically parented to the newly created armature.
+如果选中的是 **Bézier 路径属性**（即蒙版路径或形状路径），**每条路径会创建一个骨架**，路径的每个顶点对应一根骨骼。顶点和切线都会链接到对应骨骼，但切线没有单独的控制器。如果需要，之后可以用[图钉](../constraints/pins)[^4]工具创建。
 
-If **Bézier path properties** (i.e. mask path or shape path) are selected, **one armature will be created for each path**, with one bone for each vertex of the path.
-Vertex and tangents will both be linked to the corresponding bone, but there is no individual control for tangents. You can create them later if you need with the [Pins](../constraints/pins)[^4] tool.
+如果选中的是**木偶图钉**，**每个图层会创建一个骨架**，每个图钉对应一根骨骼。骨骼顺序取决于图钉在图层堆栈中的顺序。你可以在创建骨架前调整顺序，以控制骨架的创建方式，以及图钉与骨架的链接方式。
 
-If **puppet pins** are selected, **one armature will be created for each layer**, with one bone for each puppet pin. The order of the bones depends on the order of the pins in the layer stack. You can re-order them before creating the armature to adjust how the armature is created and optionally how the pin is linked to it.
-
-If **layers** are selected, without any other property, **one armature will be created**. Each bone will be moved to the corresponding layer, and the layer can optionally be parented to it.
+如果选中的是**图层**（没有其它属性），**会创建一个骨架**。每根骨骼移动到对应图层，图层可选择性地父子链接到骨架。
 
 <Callout type="info">
-    If there are selected layers with their anchor points at the same location in the composition, the armature will not use the layers’ position, and layers will not be parented, to avoid weird issues happening when layers share the same anchor point in the same armature.
+    如果选中的多个图层在合成中的锚点位置相同，骨架将不会使用这些图层的位置，图层也不会被父子链接，以避免同一骨架中锚点重叠导致的奇怪问题。
 </Callout>
 
 <Callout type="warning">
-    **Never duplicate nor copy and paste bones** in After Effects, always create new armatures or use the [*Duplicate*](tools/duplicate.md) button in the bones panel of Duik.
+    **绝不要在 After Effects 中复制或复制粘贴骨骼**，应始终创建新骨架，或使用 Duik 骨骼面板中的[*复制（Duplicate）*](tools/duplicate)按钮。骨架带有内部唯一标识符，复制或复制骨架时这些标识符不会自动更新。Duik 的自动绑定和其它绑定工具需要这些标识符才能正常工作，如果设置不当可能会失败。Duplicate 工具会正确处理它们。
 </Callout>
 
-    Internal unique identifiers are associated with the armatures, which won’t be updated when you copy or duplicate the armatures in After Effects. The Auto-rig and other rigging tools in Duik need these identifiers to work correctly and may fail if they are not set properly. The Duplicate tool does this.
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C03_boneEffect__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C03_boneEffect__EN_720.mp4" caption={"This video is part of __the official comprehensive video course about Duik Ángela__"} />
+[^1]: [***人形总目（Hominoids）***](https://en.wikipedia.org/wiki/Ape)（Hominoidea）是原产于非洲和东南亚的一支无尾类人灵长类动物。与其它灵长类相比，它们肩关节的活动自由度更大。现存的总目有两个分支：长臂猿（小型类人猿）；以及人科（大型类人猿）——红毛猩猩、大猩猩、黑猩猩、人类。
 
-[^1]: [***Hominoids***](https://en.wikipedia.org/wiki/Ape) (Hominoidea) are a branch of tailless anthropoid primates native to Africa and Southeast Asia. They are distinguished from other primates by a wider degree of freedom of motion at the shoulder joint. There are two extant branches of the superfamily Hominoidea: the gibbons, or lesser apes; and the hominids, or great apes (orangutans, gorillas, chimpanzees, humans).
+[^2]: [***四足动物（Tetrapods）***](https://en.wikipedia.org/wiki/Tetrapod)是构成四足总纲的四肢脊椎动物，包括两栖类、爬行类、恐龙、鸟类、哺乳类及其它已灭绝类群。
 
-[^2]: [***Tetrapods***](https://en.wikipedia.org/wiki/Tetrapod) are four-limbed vertebrate animals constituting the superclass Tetrapoda. It includes amphibians, reptiles, dinosaurs, birds, mammals and other extinct classes.
+[^3]: 请阅读[*元绑定与 OCO*](../oco)一节。
 
-[^3]: Read the section entitled [*Meta-rigs and OCO*](../oco)
-
-[^4]: Read the section [*Constraints / Pins*](../constraints/pins)
-
+[^4]: 请阅读[*约束 / 图钉*](../constraints/pins)一节。
