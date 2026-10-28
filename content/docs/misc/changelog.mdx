@@ -1,216 +1,217 @@
 ---
-title: "Duik Ángela (17) Changelog"
+title: "Duik Ángela（17）更新日志"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# Duik Ángela (17) Changelog
+# Duik Ángela（17）更新日志
 
-This is the list of what has changed since the previous major version of Duik ([Duik Bassel, 16.2](duik-16-changelog.md)).
+本页列出自 Duik 上一个大版本（[Duik Bassel 16.2](duik-16-changelog)）以来的所有变更。
 
-► [The detailed list of changes of minor versions of Duik is available here](https://github.com/RxLaboratory/Duik/releases).
+► [Duik 各小版本的详细变更列表见此处](https://github.com/RxLaboratory/Duik/releases)。
 
 ## 17.1
 
-This new version of Duik Ángela introduces important features to help color animation, which may be extended later into more features or tools in another dedicated tool set.
+这个新版本的 Duik Ángela 引入了辅助色彩动画的重要功能，日后可能扩展为另一套专用工具集中的更多功能或工具。
 
-- Added new controls and interpolation options for the Swink when it is used on colors.
-- Added color options for the Interpolator. You can now select a better colorspace to use during the interpolation, to have better (brightest) colors in between keyframes.
-- Added the ability to add lists to color properties
+- 为 Swink 在用于颜色时新增了控件和插值选项。
+- 为 Interpolator 新增了颜色选项。现在你可以在插值时选择更合适的色彩空间，让关键帧之间的颜色更好（更鲜亮）。
+- 新增向颜色属性添加列表（List）的功能。
 
-Performance improvements and options were also added.
+还新增了性能改进与选项。
 
-- Added new "Light Bones" ; they can be activated in the bone settings panel or OCO Create Metarig options.
-- Added optional raster (PNG) controllers ; this improves a lot the performance compared to shape layers. The option can be set in the settings panel of the controllers.
-- The bone settings panel can now edit the bone color and opacity even if they're already baked.
-- The Bake Expression tool has been slightly improved to generate keyframe interpolations closer to the original one in specific cases. This is part of an ongoing work on all keyframe and timeline stuff. Stay in touch!
+- 新增"轻量骨骼（Light Bones）"；可在骨骼设置面板或 OCO 创建元绑定选项中启用。
+- 新增可选的栅格（PNG）控制器；相比形状图层大幅提升性能。该选项可在控制器设置面板中设置。
+- 骨骼设置面板现在即使在骨骼已烘焙后也能编辑其颜色与不透明度。
+- 烘焙表达式（Bake Expression）工具略有改进，在特定情况下能生成更接近原始曲线的关键帧插值。这是正在进行的关键帧与时间线相关工作的一部分。敬请期待！
 
-And this version also has introduces many other improvements to make your life easier.
+此外，这个版本还带来了许多其他改进，让你的工作更轻松。
 
-- Added an Extrapolation weight, a % you can animate to adjust the extrapolation (e.g. start and stop a loopout/in cycle) on the Looper/Interpolator.
-- Added an option to not lock the scale of null controllers by default (so you can use them to quickly scale several layers at once).
-- Added an option to automatically create a root controller in the autorig.
-- Added opacity controls to the pins.
-- Refactored the pin settings panel, which is now similar to other settings panels.
-- Allow negative anticipation in the Kleaner (to simulate some kind of rusty thing, or hesitation when starting a movement)
-- Alt Click the List button to automatically add a keyframe to the second slot (and quickly reveal it with 'U' in the timeline)
-- OCO Update: OCO now uses an "OCO.config" files to share settings and the OCO Library between all applications using OCO, a bit like OpenColorIO config files. OCO is still under heavy development, and many new features will be added in the next months, both in After Effects, Blender and Krita.
-- The 'Bug report' button now redirects to a new and better form on rxlaboratory.org, pre-filled with details about your system.
+- 新增外推权重（Extrapolation weight），一个可动画化的百分比，用于调整 Looper/Interpolator 上的外推（例如开始和停止循环的循环 out/in）。
+- 新增一个选项，默认不锁定空控制器的缩放（这样你可以用它们一次性快速缩放多个图层）。
+- 新增在自动绑定中自动创建根控制器的选项。
+- 为图钉（Pin）新增了不透明度控件。
+- 重构了图钉设置面板，现在与其他设置面板保持一致。
+- 允许 Kleaner 使用负的预备（anticipation）（用于模拟某种生锈卡顿的感觉，或动作启动时的迟疑）。
+- Alt+点击 List 按钮，可自动向第二个槽位添加关键帧（并在时间线中按 `U` 快速显示它）。
+- OCO 更新：OCO 现在使用 `OCO.config` 文件，在所有使用 OCO 的应用之间共享设置和 OCO 库，有点像 OpenColorIO 的配置文件。OCO 仍在大力开发中，未来几个月将在 After Effects、Blender 和 Krita 中加入许多新功能。
+- "Bug report"（Bug 报告）按钮现在跳转到 rxlaboratory.org 上一个全新、更完善的表单，并预填了你的系统信息。
 
-Finally, new OCO metarigs were included:
+最后，还内置了新的 OCO 元绑定：
 
-- Horse
-- Bear
-- Lemur
-- Tyrannosaurus
-- Scorpion
-- Whale
-- Monkey
+- 马（Horse）
+- 熊（Bear）
+- 狐猴（Lemur）
+- 霸王龙（Tyrannosaurus）
+- 蝎子（Scorpion）
+- 鲸（Whale）
+- 猴子（Monkey）
 
-► [The list of all bug fixes is available here](https://github.com/RxLaboratory/Duik/releases).
+► [全部修复列表见此处](https://github.com/RxLaboratory/Duik/releases)。
 
 ## 17.0
 
-### New Features
+### 新功能
 
-#### (Auto-)Rigging
+#### （自动）绑定
 
 <Callout type="info">
-    There have been some changes in the way tools are named in Duik Ángela, compared to Duik Bassel.  
-    • *Structures* are now named ***Bones*** (single item) or ***Armatures*** (complete limbs).  
-    • *Bones* are now named ***Pins***.  
-    This changelog and all the documentation now use these new naming.
+    与 Duik Bassel 相比，Duik Ángela 中工具的命名方式有一些变化。  
+    • *Structures* 现在命名为 ***Bones***（单个）或 ***Armatures***（完整肢体）。  
+    • 原来的 *Bones* 现在命名为 ***Pins***（图钉）。  
+    本更新日志和全部文档现在都使用这些新命名。
 </Callout>
 
-- New ***Auto-rigs***:
-    - ***Wings*** rigging is now a thing.
-    - ***Hair*** rigging is now a thing.
-    - **_Arthropod leg_** rigging is now a thing.
-    - **_Fish (fins and spine)_** rigging is now a thing.
-- **New _Bones_**: previously known as Structures, Bones have been redesigned, and new limbs for all kind of animals are available (fish and their fins, snakes, wings...). Note: the *bones* from the previous versions of Duik are now named *Pins*.
-    - *Bones* now have optional *envelops* and *noodles*. Bone envelops are very useful to design limbs and make sure the joints work well, and combined with the bone noodles they're a quick way to create and animate customizable limbs in a single click and a few settings.
-- New ***controller*** shapes:
-    - Vertebrae
-    - Rib cage / Torso
-- The ***Link art*** button in the bone panel will (try to) automatically parent all artwork layers to their corresponding bones.
+- 新的***自动绑定***：
+    - ***翅膀（Wings）***绑定现已支持。
+    - ***头发（Hair）***绑定现已支持。
+    - **_节肢动物腿_**绑定现已支持。
+    - **_鱼（鳍与脊柱）_**绑定现已支持。
+- **新的 _骨骼（Bones）_**：即以前的 Structures，骨骼已被重新设计，并为各类动物提供了新肢体（鱼及其鳍、蛇、翅膀……）。注意：以前版本 Duik 中的 *bones* 现在命名为 *Pins*（图钉）。
+    - *骨骼*现在有可选的*包络*和*面条骨*。骨骼包络对于设计肢体、确保关节运作良好非常有用；配合骨骼面条骨，只需一次点击和少量设置，就能快速创建并动画化可定制肢体。
+- 新的***控制器***形状：
+    - 椎骨（Vertebrae）
+    - 胸廓 / 躯干（Rib cage / Torso）
+- 骨骼面板中的 ***Link art***（链接美术层）按钮会（尝试）自动把所有美术层设为对应骨骼的子级。
 
-#### Constraints
+#### 约束
 
-- The ***Connector*** has many new abilities:
-    - it can now use the ***audio*** from a layer to control properties.
-    - it has a new *Layer list* mode to quicklly connect a bunch of layers to a dropdown menu effect.
-    - its UI has been made simpler.
-- New type of IK/FK: ***Bézier FK***, which is used by the *Auto-rig* for spine and neck rigging.
-- The ***Move anchor point*** tool can move the anchor points of the selected layers to their bounds or center. It works with pixel layers and shape layers, and can use the masks too. It can also take a custom margin into account. This tool is located both the the *links & constraints* panel and the *animation* panel.
-- **_Key Morph_**: also known as *Shape Keys*, *Pose Morph*, *Blend Shapes* or *Morphers* in other software, they're now available in After Effects with Duik, and can be easily connected to nice controllers using the *Connector*.
-    - A property can be connected to a selection of key morphs using the *Connector*. Note that the master property must use keyframes (it can not be controlled by expressions).
-- UI Tweaks:
-    - **_Kinematics Constraints_** button: quickly add IK and FK constraints to the layers.
-    - **_Parent Constraints_** are assembled under the same button group.
-    - **_Tranformation Constraints_** are assembled under the same button group.
-- **_2+1 layer IK_** is a new way to use IK on a 3-layer chain, which is useful for arthropods and the new way of rigging ungulates.
+- ***连接器（Connector）***有了许多新能力：
+    - 现在可以使用图层上的***音频***来控制属性。
+    - 新增 *图层列表（Layer list）*模式，可快速把一堆图层连接到下拉菜单效果。
+    - 界面已简化。
+- 新的 IK/FK 类型：***Bézier FK***，*自动绑定*在脊柱和颈部绑定时会用到它。
+- ***移动锚点（Move anchor point）***工具可以把选中图层的锚点移动到其边界或中心。它适用于像素图层和形状图层，也能利用蒙版。它还可以考虑自定义边距。该工具同时位于*链接与约束*面板和*动画*面板中。
+- **_形态关键帧（Key Morph）_**：在其他软件中也称为 *Shape Keys*、*Pose Morph*、*Blend Shapes* 或 *Morphers*，现在借助 Duik 可在 After Effects 中使用，并能用*连接器*轻松连接到漂亮的控制器。
+    - 可以用*连接器*把某个属性连接到一组形态关键帧。注意：主控属性必须使用关键帧（不能由表达式控制）。
+- 界面调整：
+    - **_动力学约束（Kinematics Constraints）_**按钮：快速为图层添加 IK 和 FK 约束。
+    - **_父子约束（Parent Constraints）_**已归入同一按钮组。
+    - **_变换约束（Transformation Constraints）_**已归入同一按钮组。
+- **_2+1 图层 IK_** 是在 3 图层链上使用 IK 的新方式，对节肢动物和新的蹄行动物绑定方式很有用。
 
-#### Automation and expressions
+#### 自动化与表达式
 
-- The ***Kleaner*** is back and it's been completely redesigned.
-    - It now uses general intuitive parameters to control the whole animation (like the size, weight, friction, etc.), but you still can fine-tune it with more detailed and advanced parameters.
-    - It is now able to correctly handle easing, anticipation and follow through on spatial properties without separating the dimensions. In this case, just use roving keyframes when the layer is moving, and keep linear keyframes when it stops. The Kleaner will precisely follow the trajectory while handling the speed.
-    - Ease is automatically computed for the motion to be as smooth as possible. If you want to stop at a specific keyframe, switch it to *maintain*.
-    - The overlap (and soft body simulation) has been improved a lot: the animation is better and smoother, and performance is a bit better.
-    - It now has (soft) limits too!
-- The ***Walk Cycle*** is now also a ***Run Cycle***. Its controls and performance have been greatly improved.
-- The ***Swink*** tool replaces the previous *Swing* and *Blink* tools. It makes a property regularly switch between two values, with advanced options to manage the frequency and interpolation between the two.
-    - The frequency of the *Swink* can be animated.
-- The ***Random*** automation can be used when a property needs to be completely randomized; e.g. when a *Wiggle* automation is too smooth.
-- The ***Bake expressions*** tool is able to bake selected expressions or the whole project expressions to keyframes. It comes with two algorithms: a precise algorithm which adds a keyframe per frame (or less, according to the precision factor you can set), and a *smart algorithm* which automatically adds as less keyframes as possible, and the resulting keyframes are easy to edit.
-- The ***Bake Composition*** tool bakes all expressions in the comp (or on selected layers), and removes all non-renderable layers (guide layers, nulls, etc.). If a renderable layer was parented to a non-renderable one, its transformation properties are baked to keyframes.
-- ***Edit Expression*** in the *Automation* and *Tools* panel opens the selected expression in your favorite external editor to edit them more easily, then reloads them in the After Effects properties when you've finished editing them.
-- ***Expression tools***: various useful tools to fix and work with expressions (in the automation panel toolbar).
+- ***Kleaner*** 回来了，并且已被彻底重新设计。
+    - 它现在使用直观的通用参数来控制整段动画（如幅度、重量、摩擦等），但你仍可以用更细致、更高级的参数进行微调。
+    - 它现在能在不分离维度的情况下，正确处理空间属性上的缓动、预备和跟随。这种情况下，图层运动时只需使用漫游关键帧，停止时保持线性关键帧。Kleaner 会精确沿轨迹运动，同时处理好速度。
+    - 会自动计算缓动，使运动尽可能平滑。如果你想在某个特定关键帧处停下，把它切换为*保持（maintain）*。
+    - 重叠（以及软体模拟）大幅改进：动画更好更平滑，性能也略有提升。
+    - 它现在还有（软）限制了！
+- ***行走循环（Walk Cycle）***现在也是***奔跑循环（Run Cycle）***了。其控件和性能都大为改进。
+- ***Swink*** 工具取代了以前的 *Swing* 和 *Blink* 工具。它让一个属性在两个值之间规律性切换，并提供高级选项来管理两者之间的频率和插值。
+    - *Swink* 的频率可以被动画化。
+- 当某个属性需要完全随机时，可使用 ***Random***（随机）自动化；例如 *Wiggle* 自动化过于平滑时。
+- ***烘焙表达式（Bake expressions）***工具能把选中的表达式或整个项目的表达式烘焙成关键帧。它提供两种算法：一种是精确算法，每帧添加一个关键帧（或更少，取决于你可设置的精度系数）；另一种是*智能算法*，自动尽量少地添加关键帧，且生成的关键帧易于编辑。
+- ***烘焙合成（Bake Composition）***工具会烘焙合成（或选中图层）中的所有表达式，并移除所有不可渲染图层（参考图层、空对象等）。如果某个可渲染图层被设为不可渲染图层的子级，其变换属性会被烘焙成关键帧。
+- *自动化*和*工具*面板中的 ***Edit Expression***（编辑表达式）会在你喜欢的外部编辑器中打开选中的表达式，便于编辑，编辑完成后再把它们重新载入 After Effects 属性中。
+- ***Expression tools（表达式工具）***：各种有用的工具，用于修复和处理表达式（在自动化面板工具栏中）。
 
-#### Animation
+#### 动画
 
-- New **_Non-linear Animation (NLA)_** tool replaces the previous *Animation Blender* tool. It is a great and very easy way to edit animations as you would do with video clips in a Non-linear video editor like *Adobe Premiere*.
-- A ***Tweening*** section in the animation panel helps you tween your animation, if you're working with hold keyframes before going to curves for example (using the *Kleaner* or not). Includes three new tools:
-    - ***Tween Slider***: adds a new in-between to the current time, according to a ratio between the previous and next pose.
-    - ***Split Keyframes***: splits the selected keyframes into couples of keyframes with the same values (freezing the pose for a predefined time).
-    - ***Freeze pose***: freezes the previous (or next) pose up to the current time (copies the previous or next keyframe to the current time).
-    - ***Sync Keyframes*** moves all selected keyframes to the current time. If multiple keyframes in the same property are selected, they're offset to the current time, keeping the animation.
-    - ***Snap Keyframes*** snaps the keyframes to actual frames if they're in between (like it happens when changing the duration of an animation or the framerate of a comp).
-- The ***Sequencer*** distributes your layers or keyframes in time.
-- New **_Interpolator_** tool (animation panel). The *Interpolator* is a tool to help you.... Interpolate keyframes. It's a bit like the *Kleaner* but on a low-level where you can really choose and tweak how the animation is interpolated, for more advanced users.
-    - It includens *extrapolation* methods to loop in or out, with different modes: constant, continue, ping pong, cycle, bounce, follow-through.
-    - When an extrapolation is animated, for example when stopping a loop, the property now stays at the right value.
-    - It is able to extrapolate motion (loops) in between keyframes if the property is still.
-- Quickly save, export, import, apply animations with the new **_Animation library_** (animation panel).
+- 新的**_非线性动画（NLA）_**工具取代了以前的 *Animation Blender* 工具。它像在 *Adobe Premiere* 这类非线性视频编辑器中剪辑视频片段一样编辑动画，非常出色且极其简单。
+- 动画面板中有一个 ***补间（Tweening）***区，在你先使用保持关键帧、再转曲线时（无论是否用 *Kleaner*）帮你补间动画。包含以下新工具：
+    - ***Tween Slider（补间滑块）***：根据上一个姿势与下一个姿势之间的比例，在当前时间添加一个新的中间帧。
+    - ***Split Keyframes（拆分关键帧）***：把选中的关键帧拆分成成对的同值关键帧（把姿势冻结一段预定时间）。
+    - ***Freeze pose（冻结姿势）***：把上一个（或下一个）姿势冻结到当前时间（把上一个或下一个关键帧复制到当前时间）。
+    - ***Sync Keyframes（同步关键帧）***把所有选中的关键帧移动到当前时间。如果同一属性中选中了多个关键帧，它们会整体偏移到当前时间，同时保留动画。
+    - ***Snap Keyframes（吸附关键帧）***：如果关键帧落在两帧之间（例如改变动画时长或合帧率时会出现这种情况），把它们吸附到实际帧上。
+- ***Sequencer（序列器）***在时间上排布你的图层或关键帧。
+- 新的**_Interpolator（插值器）_**工具（动画面板）。*Interpolator* 是一个帮你……插值关键帧的工具。它有点像 *Kleaner*，但是在更底层，你可以真正选择并调整动画的插值方式，面向更高级的用户。
+    - 它包含用于循环入/出的*外推*方法，并有不同模式：恒定（constant）、继续（continue）、往返（ping pong）、循环（cycle）、弹跳（bounce）、跟随（follow-through）。
+    - 当外推被动画化时（例如停止一个循环），属性现在会停留在正确的值。
+    - 如果属性保持静止，它能在关键帧之间外推运动（循环）。
+- 借助新的**_动画库（Animation library）_**（动画面板），快速保存、导出、导入并应用动画。
 
+#### 工具
 
-#### Tools
+- ***DuCop***（Duduf Comp Parameters）现已包含在 Duik 中（工具/合成面板）。它让你可以更改所有选中合成（包括其预合成）的合成设置。如果合成时长和尺寸改变，它还会相应调整那些应当匹配新合成时长和尺寸的图层。
+- 使用 ***Crop precompositions（裁剪预合成）***来……裁剪预合成。该工具利用预合成图层上的蒙版来裁剪源合成：只需在图层上快速画一个蒙版，然后点击按钮裁剪合成，而不会移动任何使用同一源合成的图层。
+- **_图层管理器（Layer Manager）_**将帮助你（重）命名图层，并为绑定和图层分组设置有用的标记。
+- ***注释面板（Note panel）***现在还能保存特定于合成或项目的注释。这些注释保存在项目文件中。
+- ***脚本库（Script library）***帮你整理所有脚本。在那里，你可以轻松访问、编辑并启动已安装的脚本、可停靠面板，或任何其他独立脚本。
+- ***脚本编辑器（Script editor）***是一个基础脚本，让你编辑并运行简单脚本。但即使它很基础，也包含了整个 Duik API，让你用几行简单代码就能轻松调用 Duik 的高级功能。
 
-- ***DuCop*** (Duduf Comp Parameters) is now included in Duik (Tools/Composition panel). It enables you to change the composition settings of all selected compositions including their precompositions. It will also adjust the duration and size of any layer which should match the new composition duration and size if it's changed.
-- Use ***Crop precompositions*** to... crop precompositions. The tool uses the mask(s) found on the precomposition layer to crop the source composition: just draw a quick mask on the layer then click on the button to crop the composition, without moving any of the layers using the same source composition.
-- **The _Layer Manager_** will help (re)naming layers and setting useful tags for rigging and grouping layers.
-- The ***Note panel*** can now also save composition-specific or project-specific notes. These notes are savec in the project file.
-- The ***Script library*** helps you sort all your scripts. From there, you can easily access, edit, and launch your installed scripts and dockable panels, or any other stand-alone script.
-- The ***Script editor*** is a basic script to let you edit and run simple scripts. But even if it's basic, it includes the whole Duik API to easily use Duik's advanced functions in a few simple lines.
+#### 杂项
 
-#### Miscellaneous
+- **全新用户界面**：伴随着彻底的代码重构，*Duik* 经历了完整的界面重设计。性能（加载时间）已改善，*Duik* 现在更贴合 After Effects 的界面，更低调，让你专注于工作。
+- **彻底的代码重构**：Duik 更易维护，代码组织更清晰，性能已提升……
+- 面板底部有一个进度条，显示当前的资金状况……
+- 我们终于放弃了对 *After Effects CS6* 的支持，抱歉，为太少的用户保持兼容性代价太大。*CS6*（*v11.0.2*）要追溯到 2012 年 10 月，是时候升级了！*Duik* 现在应能在从 *After Effects CC*（*v12.0*，2013 年 7 月）起的所有 After Effects 版本上运行。
 
-- **New User Interface**: Along with a complete code refactor, *Duik* underwent a complete UI redesign. Performance (loading time) has been improved, *Duik* now fits better in the interface of After Effects, it is more discreet and let you focus on your work.
-- **Complete code refactor**: Duik is easier to maintain, code is better organizezd, performance has been improved...
-- A progress bar is available at the bottom of the panel to show the current funding status...
-- We've finally dropped support of *After Effects CS6*, sorry, it was too much work to keep compatibility for too few users. *CS6* (*v11.0.2*) dates back to October 2012, it's time to update! *Duik* should now work on all versions of After Effects starting with *After Effects CC* (*v12.0*, July 2013).
+### 改进
 
-### Improvements
+#### （自动）绑定
 
-#### (Auto-)Rigging
+- 几乎所有工具和表达式的性能都已改进。
+- *腿部*：
+    - *脚掌翻转（Foot Roll）*的性能通过更简单的绑定得到（大幅）改进。
+    - *蹄行腿*绑定已修改，更贴近你所食用动物（牛、可爱的小羊、马……）的真实解剖结构。
+- *脊柱自动绑定*已调整，以更好处理某些特殊情况，并整体改善对脊柱和躯干的控制。
+- *尾巴*以及所有*带重叠的 FK*现在可以拉伸了！
+- *显示/隐藏* *骨骼*和*控制器*：`[Alt] + [点击]` 仅显示/隐藏未选中的图层。
+- *IK/FK*：
+    - *3 图层 IK* 已从 *Duik* 中移除，因为没人用它，而且可以轻易用更好的 2+1 或 1+2 IK 替代。
+    - 为 2 图层和 3 图层 IK 新增了*权重*滑块，以便在 IK 与 FK 之间渐进过渡（这在新的*非线性动画*和*动画库*中可能很有用）。
+    - 从 IK 效果中移除了*高级 / 完整旋转限制*选项。
+    - *单图层 IK* 现在有可选的限制，并带一个柔和度参数。
+    - *双图层 IK* 的两侧现在可以渐进切换，并且有一个 *auto-swing* 选项可以自动反转关节。
+- *骨骼*和*控制器*的尺寸现在会随合成尺寸自适应（如果它们尚未烘焙）。
 
-- Performance has been improved for almost all of the tools and expressions.
-- *Legs*:
-    - The *Foot Roll* performance has been improved (a lot) with a simpler rig.
-    - *Ungulate leg* rigs have been changed to be closer to the actual anatomy of the animals you eat (cattle, cute lambs, horses...)
-- The *Spine Auto-Rig* has been tweaked to better handle some special cases and globally improve controls over the spine and the torso.
-- *Tails* and all *FK with overlap* are now stretchy!
-- *Show/Hide* *bones* and *controllers*: `[Alt] + [Click]` to show/hide only the unselected layers.
-- *IK/FK*:
-    - The *3-layer IK* has been removed from *Duik* as it wasn't used, and could easily be replaced by the better 2+1 or 1+2 IK.
-    - Added a *Weight* slider to the 2-layer and 3-layer IK to be able to progressively transition between IK and FK (this may be useful with the new *Non-Linear Animation* and *Animation Library*).
-    - Removed *Advanced / Full rotation limit* option from the IK effects.
-    - *One-layer IK* now have optional limits, with a softness parameter.
-    - *Two-layer IK* sides can now be switched progressively, and an *auto-swing* option can automate reversing the joint.
-- *Bone* and *controller* sizes are now responsive to the composition size (if the're not baked)
+#### 约束
 
-#### Constraints
+- *连接器*现在可以连接速度或速率。
+- 形状上的*图钉*：在顶点图层的效果中新增了"锁定切线（Lock tangent）"按钮。
+- *父子约束*的性能已大幅改进。注意：权重属性中的表达式可能无法正常工作，你可能需要把它们烘焙成关键帧（例如使用 Duik 新的*烘焙表达式*工具）。
+- *定位器*（被*跨合成父子约束*使用）现在创建在图层堆栈的底部。
+- *路径约束*：`[Alt] + [点击]` 把图层移动到路径的第一个点。
+- *列表（List）*现在可以简单复制来获得更多轨道。
+- *属性信息（Property Info）*现在显示关键帧信息。
 
-- The *Connector* can now connect both velocities or speed.
-- *Pins* on shapes: added a "Lock tangent" button in the effects of the vertex layers.
-- The performance of the *Parent Constraint* has been greatly improved. Note that expressions in the weight properties may not work correctly, you may have to bake them to keyframes (for example using the new *Bake expressions* tool from Duik).
-- *Locators* (used by *Parent Across comps*) are now created at the bottom of the layer stack.
-- *Path Constraint*: `[Alt] + [Clic]` to move the layer to the first point of the path.
-- *Lists* can now be simply duplicated to get more tracks.
-- *Property Info* now shows keyframe information.
+#### 自动化与表达式
 
-#### Automation and expressions
+- *Wiggle（抖动）*：
+    - *Wiggle* 现在可以为每个受控图层可选地使用不同的种子。
+    - *Wiggle* 的频率现在可以被动画化。
+    - 初始随机种子的选取更合理。
+- *Effector* 现在也支持*自定义形状*了！（除圆形和直线之外）。
+- *Randomizer（随机化器）*现在能生成沿*高斯钟形*函数分布的随机值，结果更自然。
+- *运动轨迹（Motion Trail）*参数已改进，现在能使用 After Effects >= 17.1 的锥形参数。
+- *Wheel（轮子）*自动化新增了 *Straight（直线）*选项，用于沿非水平直线运动的轮子，相比 *Curved（曲线）*选项在这种特定情况下性能更好。
+- *Looper（循环器）*现在使用新的 *Interpolator* 工具。
+- 把 *Separate dimensions（分离维度）*重命名为 *Split values（拆分值）*。
 
-- *Wiggle*:
-    - The *Wiggle* can now optionally use a different seed for each controlled layer.
-    - The frequency of the *Wiggle* can now be animated.
-    - The initial random seed is better chosen.
-- The *Effector* now also works with *custom shapes*! (in addition to the circle and the line).
-- The *Randomizer* now has the ability to generate random values distributed along a *Gaussian bell-shaped* function for a more natural result.
-- The *Motion Trail* parameters have been improved, and it is now able to use the taper parameters from After Effects >= 17.1.
-- The *Wheel* automation has a new *Straight* option for wheels moving along a non-horizontal straight line, which improves performance for this specific case compared to the *Curved* option.
-- The *Looper* now uses the new *Interpolator* tool.
-- Renamed *Separate dimensions* to *Split values*.
+#### 动画
 
-#### Animation
+- *复制动画*：`[Alt] + [点击]` 剪切关键帧。
+- *IK/FK 切换*工具现在能更好地处理同时包含单图层和双图层 IK 的控制器（如手臂及其肩部）。
 
-- *Copy animation*: `[Alt] + [Click]` to cut the keyframes.
-- The *IK/FK Switch* tool now works better with controllers which have a combination of 1-layer and 2-layer IK (like an arm and its shoulder).
+#### 摄像机
 
-#### Cameras
+- *2D 多平面摄像机（2D Multiplane Camera）*工具现在组织得更好，在所有层级之上有一个单独的摄像机控制器。
+- *摄像机绑定（Camera rig）*现在包含了高级行为，就像 *2D 多平面摄像机*早已具备的那样。
+- *摄像机绑定*和 *2D 多平面摄像机*现在都会自动处理运动插值，实现完美平滑的摄像机运动。
 
-- The *2D Multiplane Camera* tool is now better organized, with a single camera controller on top of all levels.
-- The *Camera rig* now includes advanced behaviours like the *2D Multiplane Camera* already did.
-- Both the *Camera rig* and the *2D Multiplane Camera* now automatically handle motion interpolation for perfect and smooth camera movements.
+#### 工具
 
-#### Tools
+- 现在也可以在效果名称中*查找和替换*了。
 
-- You can now *Search and Replace* in effect names too.
+#### 杂项
 
-#### Miscellaneous
+- *重命名*：重命名木偶图钉时，只需选中单个图层即可重命名其上找到的所有木偶图钉，不必再逐个选择图钉。
+- *自检（Sanity tests）*：
+    - *自检*已改进，运行更高效。现在会检查 *After Effects* 的连续运行时长，因为 *After Effects* 存在内存泄漏，需要每隔几小时重启一次，以保持内存占用和性能最佳。
+    - 性能改进。当项目过大时，某些测试可能会暂停；它们仍可手动运行。
+- *Scriptify Expression（脚本化表达式）*工具现在会根据属性名创建一个变量，并转换为驼峰命名（camelCase）。
 
-- *Rename*: when renaming puppet pins, just select a single layer to rename all puppet pins found on it, no need to select the pins individually anymore.
-- *Sanity tests*:
-    - The *Sanity tests* have been improved to work more efficiently. The *After Effects* up time is now checked, as *After Effects* has memory leaks and needs to be restarted every few hours to keep the memory consumption and performance optimal.
-    - Improved performance. Some tests may be paused when the project is too big; they can still be run manually.
-- *Scriptify Expression* tool now creates a variable according to the property name, converted to camelCase.
+### 修复
 
-### Fixes
-
-- Fixed glitching issues hapenning sometimes with IK when they're stretched.
-- The *Scale Z-Link* now works correctly when the camera is locked.
-- The *Camera rig* tool no longer fails with one-node cameras, but shows a user-friendly alert.
-- *Copy / Paste Animation* and the *Animation Library* now handle text keyframes.
-- *Copy / Paste Animation* now correctly selects missing layers.
-- *Edit Mode* now works correctly with locked child layers.
-- *Controller extraction* is now faster and more reliable on *After Effects* > 22.0.
-- *Pins* now work better with 3D layers.
-
+- 修复了 IK 在被拉伸时偶尔出现的闪烁问题。
+- *Scale Z-Link* 现在在摄像机锁定时也能正常工作。
+- *摄像机绑定*工具不再因单点摄像机而失败，而是显示一个友好提示。
+- *复制 / 粘贴动画*和*动画库*现在能处理文字关键帧。
+- *复制 / 粘贴动画*现在能正确选中缺失的图层。
+- *编辑模式*现在能与已锁定的子图层正常配合。
+- *提取控制器*在 *After Effects* > 22.0 上现在更快、更可靠。
+- *图钉*现在与 3D 图层配合得更好。
