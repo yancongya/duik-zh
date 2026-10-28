@@ -1,75 +1,73 @@
 ---
-title: "![](/docs-img/duik/icons/motion_trail.svg) Motion Trail"
+title: "运动轨迹"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/motion_trail.svg) Motion Trail
+# <img src="/docs-img/duik/icons/motion_trail.svg" style={{width: '1em'}}/> 运动轨迹
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F07_MoveAwayMotionTrail__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F07_MoveAwayMotionTrail__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-The *Motion Trail* tool draws the trajectory of any layer in a shape layer, and can show trails behind (or in front of) them.
+*运动轨迹*工具会在一个形状图层中绘制任何图层的轨迹，并能在它们后面（或前面）显示轨迹。
 
 ![](/docs-img/illustration/A_drawing_showing_the_trajectories_of_Pioneer_10_and_11_as_well_as_Voyager_1_and_2_on_their_varied_routes_out_of_the_Solar_System.jpg)  
-* A drawing showing the trajectories of Pioneer 10 and 11 as well as Voyager 1 and 2 on their varied routes out of the Solar System,  
-NASA, 25 February 1992   
-Public domain.*
+*一幅显示先驱者 10 号、11 号以及旅行者 1 号、2 号各自路线离开太阳系的轨迹图，  
+NASA，1992 年 2 月 25 日  
+公有领域。*
 
 ![](/docs-img/examples/motion_trail.gif)
 
-1. **Select** the layers.
-2. Click the ![](/docs-img/duik/icons/motion_trail.svg) ***Motion Trail*** button  
-    - `[Alt] + [Click]` to create a new motion trail layer instead of adding the new motion trail in the existing layer.
+1. **选择**图层。
+2. 点击 ![](/docs-img/duik/icons/motion_trail.svg) ***运动轨迹***按钮  
+    - `[Alt] + [Click]` 创建一个新的运动轨迹图层，而不是把新轨迹添加到现有图层中。
 
-!!! Note
+<Callout type="info">
+    要复制运动轨迹，你不能只复制效果；形状图层的内容也需要调整。  
+    为同一个图层添加多个运动轨迹有两种方法：
+</Callout>
 
-```text
-To duplicate a motion trail, you can’t just duplicate the effect; the content of the shape layer needs to be adjusted too.  
-There are two ways to add multiple motion trails for the same layer:
-```
+<Callout type="info">
+    - 复制运动轨迹图层，而不是只复制效果。
+    - 使用 Duik 中的运动轨迹按钮，为同一个图层重新创建一个新的运动轨迹。
+</Callout>
 
-```text
-- Duplicate the motion trail layer instead of just the effect.
-- Use the motion trail button in Duik to re-create a new motion trail for the same layer.
-```
-
-
-A *Motion Trail* layer is added to the comp. It's a shape layer used to draw the trails. An effect is added on this layer for each motion trail created.
+一个*运动轨迹*图层被添加到合成中。它是一个用于绘制轨迹的形状图层。每创建一个运动轨迹，就会在这个图层上添加一个效果。
 
 ![](/docs-img/duik/automation/motiontrail-effect.png)
 
-- The ***Motion source*** is the layer used to draw the trail.
-- You can set the ***start*** and ***end*** (in frames relative to the current time) to adjust the length of the trail. Note: long trails can make the performance drop (a lot).
+- ***运动源***是用于绘制轨迹的图层。
+- 你可以设置***开始***和***结束***（相对于当前时间，以帧为单位）来调整轨迹的长度。注意：长轨迹会让性能大幅下降。
 
-▷ Read the *[Automation](index.md) / [Move Away](move-away.md)* section for a nice example of using this Motion Trail in combination with the *Move Away* and *[Swink](swink.md)* tool.
+▷ 阅读*[自动化](index) / [Move Away](move-away)*一节，了解将运动轨迹与 *Move Away* 和[*Swink*](swink)工具结合使用的绝佳示例。
 
-## Basic Parameters
+## 基本参数
 
-In the *basic* section, you can change and animate basic appearance settings. Keep in mind that Motion trails are standard shape layers and you can do much more with them by modifying the content by yourself.
+在*基本*部分，你可以更改和制作基本外观设置的动画。请记住，运动轨迹是标准的形状图层，你可以通过自己修改内容来做更多事情。
 
-The *Taper* settings are the same than those you can find in paths in the content of an After Effects shape layer.
+*锥化（Taper）*设置与 After Effects 形状图层内容中路径里的设置相同。
 
-## Advanced Parameters
+## 高级参数
 
-Using the ***`simple (stroke)` Mode***, the trail is a simple open Bézier path with a stroke. Switching to the ***`advanced (fill)` Mode*** replaces the trail by a closed Bézier path filled with a color. This advanced mode allows for taking the 3D depth and scale of the layer into account when computing the width of the trail, so it looks like a 3D stroke (but still in a 2D shape layer).
+使用***`simple (stroke)` 模式***，轨迹是一条带有描边的简单开放 Bézier 路径。切换到***`advanced (fill)` 模式***会把轨迹替换为用颜色填充的闭合 Bézier 路径。这种高级模式可以在计算轨迹宽度时考虑图层的 3D 深度和缩放，让它看起来像 3D 描边（但仍然在一个 2D 形状图层中）。
 
-Depending on how you wish to customize the trail in the contents of the shape layer, sometimes you may also prefer a closed and filled shape than a simple stroke. Be careful though as the performance is reduced using the advanced mode as it needs a bit more computation.
+根据你想如何在形状图层内容中自定义轨迹，有时你可能也更喜欢闭合、填充的形状而不是简单描边。但要小心，使用高级模式会降低性能，因为它需要更多计算。
 
 ![](/docs-img/examples/motiontrails2.gif)  
-*Using the advanced mode, the trail can look 3D*
+*使用高级模式，轨迹可以看起来是 3D 的*
 
 <Callout type="success">
-    As the motion trail is contained in a shape layer, it's easy to change it’s appearance, so use it as you wish! You can add and modify everything in the content of the Motion Trail layer.
+    由于运动轨迹包含在一个形状图层中，很容易改变它的外观，所以请随意使用！你可以在运动轨迹图层的内容中添加和修改任何东西。
 </Callout>
 
-### Sampling and performance
+### 采样与性能
 
-The sampling controls how the motion of the layer is analyzed. With a low sampling, you may see angles appear in the trajectory of fast layers; a higher sampling generates a smoother curve for fast movements, at the cost of performance.
+采样控制着如何分析图层的运动。采样较低时，你可能会在快速图层的轨迹中看到折角；采样较高时，快速运动会生成更平滑的曲线，但代价是性能。
 
-By default, the automatic sampling tries to adjust the number of samples depending on the velocity and choose the best sampling for a smooth curve while trying to keep better performance.  
-Sub-frame sampling is a calculation-intensive way to sample the motion where the whole motion is sampled at regular intervals, no matter the speed.  
-For both modes, you can adjust the number of samples, which directly controls the quality of the trail but can have a big hit on performance, too.
+默认情况下，自动采样会根据速度调整采样数量，并选择对平滑曲线最佳的采样方式，同时尽量保持较好的性能。  
+子帧采样是一种计算密集型的运动采样方式，它按固定间隔对整体运动进行采样，无论速度如何。  
+对于这两种模式，你都可以调整采样数量，它直接控制轨迹的质量，但也会对性能造成很大影响。
 
 <Callout type="warning">
-    This is a sensitive value, use with care!
+    这是一个敏感数值，请谨慎使用！
 </Callout>
-
-

@@ -1,20 +1,21 @@
 ---
-title: "![](/docs-img/duik/icons/comp_baker.svg) Bake Composition"
+title: "烘焙合成"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/comp_baker.svg) Bake Composition
+# <img src="/docs-img/duik/icons/comp_baker.svg" style={{width: '1em'}}/> 烘焙合成
 
-The *Bake Composition* tool simplifies the whole composition as much as possible, to make it the lightest possible without compromise on the animation, and makes it better suitable for specific exports like HTML/JS/CSS animation, such  as Lottie/Bodymovin.
+*烘焙合成*工具会尽可能简化整个合成，在不影响动画的前提下让它尽量轻，并让它更适合特定的导出，比如 HTML/JS/CSS 动画，例如 Lottie/Bodymovin。
 
-- It **removes all parenting** from the layers.  
-    But keeps the same animation, adding necessary keyframes on the layers for them to keep the exact same motion.
-- It **removes all expressions** from the layers.  
-    According to the mode set in the options (*Smart* or *Precise*).
-- It **removes all non-renderable layers**.  
-    These layers can be: null layers, empty shape layers, adjustment layers without effects, guide layers (including Duik controllers, bones and pins) or layers with `0 %` opacity during the whole composition.
+- 它**移除图层上的所有父子关系**。  
+    但会保留相同的动画，在图层上添加必要的关键帧，让它们保持完全相同的运动。
+- 它**移除图层上的所有表达式**。  
+    根据选项中设置的模式（*智能*或*精确*）。
+- 它**移除所有不可渲染的图层**。  
+    这些图层可以是：空对象图层、空的形状图层、没有效果且整个合成不透明度为 `0 %` 的调整图层，或参考图层（包括 Duik 控制器、骨骼和图钉）。
 
-The result is a composition without any extra layer, without any parenting, and without expressions.
+结果是一个没有任何多余图层、没有任何父子关系、没有任何表达式的合成。
 
-The *Bake Composition* tool has the same options as the *Bake Expressions* tool.
-
-
+*烘焙合成*工具与*烘焙表达式*工具拥有相同的选项。

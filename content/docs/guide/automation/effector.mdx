@@ -1,39 +1,41 @@
 ---
-title: "![](/docs-img/duik/icons/effector.svg) Effector"
+title: "Effector"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/effector.svg) Effector
+# <img src="/docs-img/duik/icons/effector.svg" style={{width: '1em'}}/> Effector
 
-The spatial effector is an easy way to control (lots of) properties according to the location of a layer, or, more precisely, to the area defined by a shape of any kind and its exact location.
+空间 Effector（效果器）是一种简便的方式，可以根据一个图层的位置——更准确地说，是根据由任意形状及其精确位置所定义的区域——来控制（大量）属性。
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_G01B_Connector2__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_G01B_Connector2__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-1. **Animate the slave properties** as they should change with the effector.
-2. **Select the slave properties** to be controlled with the spatial effector.
-3. Click the ![](/docs-img/duik/icons/effector.svg) ***Effector*** button.
+1. **制作从属属性动画**，让它们随 Effector 变化。
+2. **选择要从属属性**，用空间 Effector 控制它们。
+3. 点击 ![](/docs-img/duik/icons/effector.svg) ***Effector*** 按钮。
 
 ![](/docs-img/duik/automation/effector_00000.png)  
-*An effector controlling layer colors and rotation.*
+*一个控制图层颜色和旋转的 Effector。*
 
-The effector is a simple shape layer Duik creates in the composition; you can move it around or parent it to another layer, the absolute position of the effector layer (and its shape) controls the slave properties.
+Effector 是 Duik 在合成中创建的一个简单形状图层；你可以移动它，或把它设为另一个图层的子级，Effector 图层（及其形状）的绝对位置控制着从属属性。
 
 <Callout type="success">
-    You can translate but also rotate and scale the effector.
+    你可以平移 Effector，也可以旋转和缩放它。
 </Callout>
 
-You can tweak the effector with the effect on the layer.
+你可以用图层上的效果来调整 Effector。
 
 ![](/docs-img/duik/automation/effector-effect.png)
 
-The slave property values will change according to the location of the anchor point their layer relative to the effector's shape, transitioning between the limits.
+从属属性的值会根据其图层的锚点相对于 Effector 形状的位置而变化，在限制之间过渡。
 
-- The ***Inner limit*** is shown in green on the effector layer.
-- The ***Outer limit*** is shown in red.
-- The ***Mode*** changes the shape of the effector, it can be a **circle**, an **infinite line**, or a **custom shape**.
-- Use the ***Interpolation*** section to change the way the value transition between the limits of the effector.
+- ***内部限制***在 Effector 图层上以绿色显示。
+- ***外部限制***以红色显示。
+- ***模式***改变 Effector 的形状，可以是**圆形**、**无限直线**或**自定义形状**。
+- 使用***插值***部分来改变数值在 Effector 限制之间过渡的方式。
 
-When using a *custom shape*, you can change the shape by modifying the corresponding Bézier path in the content of the shape layer.
+使用*自定义形状*时，你可以通过修改形状图层内容中相应的 Bézier 路径来改变形状。
 
 ![](/docs-img/duik/automation/effector-content.png)  
-*The path property to edit to adjust the custom shape of the effector.*
-
+*要编辑以调整 Effector 自定义形状的路径属性。*

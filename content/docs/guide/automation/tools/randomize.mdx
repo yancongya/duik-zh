@@ -1,51 +1,52 @@
 ---
-title: "![](/docs-img/duik/icons/randomize.svg) Randomize"
+title: "Randomize"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/randomize.svg) Randomize
+# <img src="/docs-img/duik/icons/randomize.svg" style={{width: '1em'}}/> Randomize
 
-The *Randomize* tool is able to randomize all kinds of things (property values, keyframe times, layer times…)
+*Randomize* 工具能够随机化各种东西（属性值、关键帧时间、图层时间……）
 
-First, open the *Randomize* panel by clicking on the ![](/docs-img/duik/icons/randomize.svg) *Randomize* button.
+首先，点击 ![](/docs-img/duik/icons/randomize.svg) *Randomize* 按钮打开 *Randomize* 面板。
 
 ![](/docs-img/illustration/Jean_Siméon_Chardin_-_A_Child_with_a_Teetotum_-_WGA04755.jpg)  
-*L'enfant au toton (Portrait de Auguste Gabriel Godefroy),  
-Jean-Baptiste-Siméon Chardin, 1738  
-Public domain.*
+*L'enfant au toton（Portrait de Auguste Gabriel Godefroy），  
+Jean-Baptiste-Siméon Chardin，1738  
+公有领域。*
 
-You can choose to randomize:
+你可以选择随机化：
 
-- The Current values: randomizes the selected properties, adding a keyframe at the current time if the property is animated.
-- The Layers: randomizes the layers times, or locatioon in the layer stack.
-- The Keyframes: randomizes the selected keyframes values or times.
+- **当前值**：随机化选中的属性，如果属性有动画，会在当前时间添加一个关键帧。
+- **图层**：随机化图层的时间，或图层在堆叠中的位置。
+- **关键帧**：随机化选中关键帧的数值或时间。
 
-For all modes, you can select the mode:
+对于所有模式，你都可以选择模式：
 
-- The ***Natural (gaussian distribution)* mode** feels more realistic and natural; when used in the position of layers for example, the layers will be distributed around the center of the original position, in a circular area. But with this mode, the values may jump further away than the exact amplitude.  
-- The ***Strict* mode** feels less natural, but the values are strictly bounded by the given amplitude.
+- ***自然（高斯分布）模式***感觉更真实、更自然；例如用在图层位置上时，图层会在一个圆形区域内围绕原始位置中心分布。但这种模式下，数值可能会跳出精确幅度更远。  
+- ***严格模式***感觉不那么自然，但数值严格限制在给定的幅度之内。
 
-You can also choose if the value is added to the current state (***offset***) or if it completely replaces existing values (***absolute***).
+你还可以选择数值是添加到当前状态（***偏移***），还是完全替换现有数值（***绝对***）。
 
-## Current Values
+## 当前值
 
 ![](/docs-img/duik/automation/randomize-currentvalues.png)
 
-If you **split** the multi-dimensional values, three axis are shown; you can just ignore the third axis if you're randomizing a 2D value. In case of colors, the three axis represent the Red, Green and Blue channels, and are ranging from `0.0` to `1.0` (or more in case of 32-bits-per-channel projects).
+如果你**拆分**多维数值，会显示三个轴；如果你随机化的是一个 2D 数值，可以忽略第三个轴。对于颜色，三个轴代表红、绿、蓝通道，范围从 `0.0` 到 `1.0`（在每通道 32 位项目的情况下可能更多）。
 
-## Layers
+## 图层
 
 ![](/docs-img/duik/automation/randomize-layer.png)
 
-- ***Indices*** move the layers up and down in the stack.
-- ***Times*** move the layers in the timeline.
-- ***In points*** and ***Out points*** cut the layer at the specified times, without moving them.
+- ***索引***在堆叠中上下移动图层。
+- ***时间***在时间轴中移动图层。
+- ***入点***和***出点***在指定时间剪切图层，而不移动它们。
 
-## Keyframes
+## 关键帧
 
 ![](/docs-img/duik/automation/radomize-keyframes.png)
 
-With keyframes, you can either randomize their **times** (and move them in the timeline) or their **values**.
+对于关键帧，你可以随机化它们的**时间**（并在时间轴中移动它们）或它们的**数值**。
 
-If you **split** the multi-dimensional values, three axis are shown; you can just ignore the third axis if you're randomizing a 2D value. In case of colors, the three axis represent the Red, Green and Blue channels, and are ranging from `0.0` to `1.0` (or more in case of 32-bits-per-channel projects).
-
-
+如果你**拆分**多维数值，会显示三个轴；如果你随机化的是一个 2D 数值，可以忽略第三个轴。对于颜色，三个轴代表红、绿、蓝通道，范围从 `0.0` 到 `1.0`（在每通道 32 位项目的情况下可能更多）。

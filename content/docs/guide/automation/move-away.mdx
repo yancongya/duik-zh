@@ -1,45 +1,46 @@
 ---
-title: "![](/docs-img/duik/icons/move_away.svg) Move Away"
+title: "Move Away"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/move_away.svg) Move Away
+# <img src="/docs-img/duik/icons/move_away.svg" style={{width: '1em'}}/> Move Away
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F07_MoveAwayMotionTrail__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F07_MoveAwayMotionTrail__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-The *Move Away* tool will add a simple cursor which controls the distance between the layer and its parent.
+*Move Away* 工具会添加一个简单的滑块，用来控制图层与其父级之间的距离。
 
 ![](/docs-img/illustration/Fotothek_df_tg_0004802_Geometrie_Architektur_Festungsbau_Vermessung.jpg)  
-*Konstruktion einer Ellipse, Ansicht der ungarischen Stadt und Festung Ofen,  
-Anton Ernst Burkhard von Birckenstein, 1698   
-Public domain.*
+*椭圆构造，匈牙利城市与奥芬要塞的景观，  
+Anton Ernst Burkhard von Birckenstein，1698  
+公有领域。*
 
-1. **Select** the layers.
-2. Click the ![](/docs-img/duik/icons/move_away.svg) ***Move Away*** button
+1. **选择**图层。
+2. 点击 ![](/docs-img/duik/icons/move_away.svg) ***Move Away*** 按钮
 
-This is very useful when you need to animate the distance separating to layers which are not aligned, or worse, rotating. It's especially fun to use when the parent layer rotates and the child layer revolves around it, see the exercise below.
+当你需要为两个不对齐、或者更糟、正在旋转的图层之间的距离制作动画时，这非常有用。当父图层旋转、子图层绕它旋转时，用起来尤其有趣，请看下面的练习。
 
-## Exercise!
+## 练习！
 
-Here's an easy but fun exercise to test this tool with other Duik automations.
+这里有一个简单但有趣的练习，用来结合其他 Duik 自动化测试这个工具。
 
-1. **Create a sun** in the center of the composition. It can be any layer, but it's better if it's not circular so you can see it rotating later.
-2. **Create a planet**, asteroid, satellite, anything, revolving around the sun.
-3. **Parent the planet** layer to the sun layer.
-4. Select the planet layer and click the ![](/docs-img/duik/icons/move_away.svg) ***Move Away*** button.
-5. **Animate the rotation of the sun**. Let's just use this expression in the rotation of the layer: `time * 100;`. You can change the `100` to any value to change the speed, or replace by a link to a slider control.
-6. Play with the *Move Away* slider on the planet layer, add a few keyframes to see what it does. Loop the animation (with Duik or an expression)!
-7. Select the planet layer, add a [***Motion Trail***](motion-trail.md)&nbsp;[^trail], and tweak the settings.
-8. For even more fun, remove the animation in the Move Away slider, and add a [***Swink***](swink.md)&nbsp;[^swink]!
+1. 在合成中央**创建一颗太阳**。它可以是任何图层，但最好不要是圆形，这样你之后才能看到它在旋转。
+2. **创建一颗行星**、小行星、卫星或任何绕太阳公转的东西。
+3. 把**行星图层设为太阳图层的子级**。
+4. 选中行星图层，点击 ![](/docs-img/duik/icons/move_away.svg) ***Move Away*** 按钮。
+5. **为太阳的旋转制作动画**。我们就在图层旋转上使用这个表达式：`time * 100;`。你可以把 `100` 改成任何数值来改变速度，或用指向滑块控制的链接替换。
+6. 摆弄行星图层上的 *Move Away* 滑块，添加几个关键帧看看它会怎样。循环播放动画（用 Duik 或表达式）！
+7. 选中行星图层，添加一个[***运动轨迹***](motion-trail)[^trail]，并调整设置。
+8. 为了更有趣，移除 Move Away 滑块中的动画，添加一个[***Swink***](swink)[^swink]！
 
 ![](/docs-img/illustration/astronomer.gif)
 
 ![](/docs-img/illustration/Table_of_Conics_Cyclopaedia_volume_1_p_304_1728.png)  
-*Table of Conics,  
-Cyclopaedia, volume 1, 1728   
-Public domain.*
+*圆锥曲线表，  
+Cyclopaedia，第 1 卷，1728  
+公有领域。*
 
-[^trail]: *cf. [Automation](index.md) / [Motion Trail](motion-trail.md)*.
+[^trail]: 参见[*自动化*](index) / [*运动轨迹*](motion-trail)。
 
-[^swink]: *cf. [Automation](index.md) / [Swink](motion-trail.md)*.
-
-
+[^swink]: 参见[*自动化*](index) / [*Swink*](motion-trail)。

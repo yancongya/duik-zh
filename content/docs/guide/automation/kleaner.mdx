@@ -1,139 +1,129 @@
 ---
-title: "![](/docs-img/duik/icons/kleaner.svg) Kleaner"
+title: "Kleaner"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/kleaner.svg) Kleaner
+# <img src="/docs-img/duik/icons/kleaner.svg" style={{width: '1em'}}/> Kleaner
 
-*Kleaner* stands for ***Keyframe Cleaner***[^pun]. It's a very poowerful tool to help you achieve the best animation with very little work; for any simple enough animation, it's able to do all the tedious interpolation[*](../../misc/glossary) and some extrapolation[*](../../misc/glossary) work for you, adding all the details needed in the animation using only simple linear keyframes.
+*Kleaner* 代表 ***Keyframe Cleaner（关键帧清洁器）***[^pun]。它是一个非常强大的工具，能让你用很少的工作就获得最好的动画；对于任何足够简单的动画，它都能替你完成所有繁琐的插值[*](../../misc/glossary)和一些外推工作，仅用简单的线性关键帧就能添加动画所需的所有细节。
 
-[^pun]: We've had a hard time translating this term in other languages, but we've found *Clettoyeur* for the "Nettoyeur de clefs" in French, and *Climpiador* for the "Limpiador de clave" in Spanish. If you'd like to play with us and help translate Duik, come to  [translate.rxlab.io](http://translate.rxlab.io)!
+[^pun]: 我们在把这个词翻译成其他语言时费了不少劲，但我们在法语里为 "Nettoyeur de clefs" 找到了 *Clettoyeur*，在西班牙语里为 "Limpiador de clave" 找到了 *Climpiador*。如果你想和我们一起玩并帮助翻译 Duik，欢迎来到 [translate.rxlab.io](http://translate.rxlab.io)！
 
 ![](/docs-img/illustration/A_cat_running_Photogravure_after_Eadweard_Muybridge_1887_Wellcome_V0048771.jpg)  
-*A cat running,  
-Eadweard Muybridge, 1887   
-Public domain.*
+*奔跑的猫，  
+Eadweard Muybridge，1887  
+公有领域。*
 
-It's a smart tool which takes a lot of parameters into account to generate the best animation. To achieve this result, we've used advanced coding techniques, like *Fuzzy Logics*[^fuzzy]; everything uses **analytical methods** though, there's **no simulation nor A.I.** or machine learning: this is **a tool for animators made by animators**. It's not physically accurate; **every generated motion has been designed** and fine tuned to be the best according to the animator's view, not to mimic perfectly the real world. Like any true animation.
+它是一个智能工具，会考虑大量参数来生成最好的动画。为了实现这一结果，我们使用了先进编码技术，比如*模糊逻辑*[^fuzzy]；不过一切都基于**解析方法**，**没有模拟，也没有 A.I.** 或机器学习：这是**由动画师为动画师打造的工具**。它并不追求物理精确；**每一段生成的运动都经过设计**并微调，以达到动画师眼中最好的效果，而不是完美模仿真实世界。正如任何真正的动画一样。
 
-[^fuzzy]: Fuzzy Logic is a way to replace Boolean logic when values may not be completely true or false, e.g. a temperature can be hot, but more precisely it can be just a bit hot or very hot.
-```text
+[^fuzzy]: 模糊逻辑是在数值可能并非完全真或假时替代布尔逻辑的一种方式，例如温度可以是热的，但更准确地说它可以是有点热或非常热。
 
-Using Fuzzy Logic is a way to test the veracity of a statement, and get a nuanced result, which can then be used to set nuanced values according to the truthness, the veracity, obtained from the statement.
-```
+    使用模糊逻辑是一种测试某个陈述真实程度的方法，并获得一个细致的结果，然后可以根据从该陈述获得的真实度、真值来设置细致入微的数值。
 
-```text
-For example, if one wants to adjust the power of a fan, one needs to check the temperature and adjust the fan accordingly.
-```
+    例如，如果想调节风扇的功率，就需要检查温度，并相应地调节风扇。
 
-```text
-With boolean logic, the statement `IF the temperature IS hot THEN SET the fan on` will either turn the fan on at full power or completely off, according to a predefined limit value.
-```
+    用布尔逻辑，陈述 `IF the temperature IS hot THEN SET the fan on` 会根据一个预定义的界限值，要么把风扇开到全功率，要么完全关闭。
 
-```text
-With Fuzzy Logic, both the veracity and the result being fuzzy and more nuanced, the same statement will adjust precisely the power of the fan according to the hotness. With a single simple rule like this, it is like a conversion (interpolation) of the temperature value into a power value.
-```
+    使用模糊逻辑，真值和结果都是模糊、更细致的，同一个陈述会根据热度精确调节风扇的功率。像这样一条简单的规则，就像把温度值转换（插值）成功率值。
 
-```text
-But like Boolean logic, Fuzzy Logic becomes very interesting when combining veracity and rules. For example, it becomes easy to code a program with these rules: `IF the temperature IS low OR humidity IS high THEN SET the fan on AND SET the heater on`
-```
+    但和布尔逻辑一样，模糊逻辑在组合真值和规则时会变得非常有趣。例如，用这些规则编码一个程序变得很容易：`IF the temperature IS low OR humidity IS high THEN SET the fan on AND SET the heater on`
 
-```text
-You can read our [guide about Fuzzy Logic](http://fuzzylogic.rxlab.guide) and use our libraries in your scripts and expressions on [fuzzylogic.rxlab.guide](http://fuzzylogic.rxlab.guide)
-```
+    你可以在 [fuzzylogic.rxlab.guide](http://fuzzylogic.rxlab.guide) 阅读我们的[模糊逻辑指南](http://fuzzylogic.rxlab.guide)，并在你的脚本和表达式中使用我们提供的库。
 
 <Callout type="info">
-    The term *simulation* is actually used in the Kleaner properties and this document, but it really refers to a *fake* simulation, tweaked to generate a better animation and not physically accurate nor using any actual physical law or formula.
+    术语*模拟*实际上用于 Kleaner 属性和本文档中，但它真正指的是一个*假*的模拟，经过调整以生成更好的动画，而非物理精确，也不使用任何实际的物理定律或公式。
 </Callout>
 
-The *Kleaner* has a lot of options though, so that you can still have a fine control on your animation, or even manually adjust each and every little part, while still working quickly on the whole animation at once by just setting some general parameters.
+*Kleaner* 有很多选项，这样你既能对动画进行精细控制，甚至可以手动调整每一个细微部分，同时只需设置一些通用参数就能一次性快速处理整个动画。
 
 ![](/docs-img/examples/kleaner-default.gif)
 
 ![](/docs-img/duik/automation/kleaner-curve.png)  
-*A simple animation curve generated by the Kleaner from two linear keyframes*
+*Kleaner 根据两个线性关键帧生成的简单动画曲线*
 
 ![](/docs-img/duik/automation/kleaner-curve2.png)  
-*An animation curve generated by the Kleaner from three linear keyframes*
+*Kleaner 根据三个线性关键帧生成的动画曲线*
 
 ![](/docs-img/duik/automation/kleaner-curve3.png)  
-*An animation curve generated by the Kleaner from three linear keyframes*
+*Kleaner 根据三个线性关键帧生成的动画曲线*
 
-As you can see, the Kleaner adapts the generated animation to any keyframe available, which makes it easy to tweak the animation by just using a few linear keyframes.
+如你所见，Kleaner 会根据任何可用的关键帧来调整生成的动画，这使得仅用几个线性关键帧就能轻松调整动画。
 
-You can use the Kleaner with any property which can have expressions.
+你可以在任何支持表达式的属性上使用 Kleaner。
 
-1. **Select** the properties.
-2. Click the ***![](/docs-img/duik/icons/kleaner.svg) Kleaner*** button.
-3. **Choose** one of the presets.
-
-<Callout type="success">
-    When using the Kleaner, just leave all your keyframes to linear interpolation and use the Kleaner to tweak the animation.
-</Callout>
-
-    For spatial properties, you should keep only the first and last keyframe of each movement to linear, and set all in-between keyframes to *rove across time*, using them only to tune the trajectory.
+1. **选择**属性。
+2. 点击 ***![](/docs-img/duik/icons/kleaner.svg) Kleaner*** 按钮。
+3. **选择**其中一个预设。
 
 <Callout type="success">
-    The Kleaner is best used on multiple properties at once; this way you can control lots of movements with a single effect.  
-    Spatial properties and other properties are handled a bit differently though, and it may be better to add the Kleaner twice for spatial properties and other properties separately.
+    使用 Kleaner 时，只需把所有关键帧保持为线性插值，用 Kleaner 来调整动画。
 </Callout>
 
-You can adjust the settings and tweak the Kleaner with the effect Duik adds to the layer.
+<Callout type="success">
+    对于空间属性，你应该只把每段运动的第一个和最后一个关键帧设为线性，并把中间的所有关键帧设为*跨越时间（rove across time）*，仅用它们来调整轨迹。
+</Callout>
+
+<Callout type="success">
+    Kleaner 最好同时用于多个属性；这样你就能用单个效果控制大量运动。不过空间属性和其他属性的处理方式略有不同，最好分别为空间属性和其他属性各添加一次 Kleaner。
+</Callout>
+
+你可以用 Duik 添加到图层上的效果来调整设置、微调 Kleaner。
 
 ![](/docs-img/duik/automation/kleaner-effect.png)
 
-To make it easier to use and discover, the settings are divided in three parts:
+为了更易于使用和发现，设置被分为三部分：
 
-- Some **general properties** describing the object being animated, like its weight and initial energy, or will, etc.
-- **Detailed parameters** for all animation principles applied by the Kleaner, to let you go into small details if you wish, or customize the animation further.
-- **Advanced settings** to control low-level parameters of the Kleaner.
+- 一些**通用属性**，描述被动画对象，如它的重量、初始能量或意志等。
+- **详细参数**，覆盖 Kleaner 应用的所有动画原则，如果你愿意，可以深入到细节，或进一步自定义动画。
+- **高级设置**，用于控制 Kleaner 的低层参数。
 
 <Callout type="success">
-    When you've applied the Kleaner on some properties and then want to use the same Kleaner on other properties, you can just copy and paste the expression in the new properties.
+    当你把 Kleaner 应用在某些属性上，之后想在其他属性上使用同样的 Kleaner 时，你只需在新的属性里复制并粘贴表达式即可。
 </Callout>
 
-## Presets
+## 预设
 
 ![](/docs-img/duik/automation/kleaner-presets.png)
 
-When you click the ***![](/docs-img/duik/icons/kleaner.svg) Kleaner*** button, you have to choose one of these settings:
+点击 ***![](/docs-img/duik/icons/kleaner.svg) Kleaner*** 按钮时，你必须选择以下设置之一：
 
-- **Alive** (anticipation + interpolation + follow through)  
-    Use this preset with any character (or object, or part of a character) which moves voluntarily (i.e. the movement doesn't have an external cause, like gravity or a hit).  
-    With this preset, the Kleaner applies an anticipation[*](../../misc/glossary) to the movement, then interpolates accordingly to the general parameters you'll choose, and ends the movement with a follow through[*](../../misc/glossary) animation. It also adds overlap[*](../../misc/glossary) and drag[*](../../misc/glossary) to spatial properties.
-- **Inanimate** (interpolation  + follow through)  
-    This is almost the same as the *Alive* preset, except the anticipation is disabled[^anticipate].
-- **True stop** (anticipation + interpolation) 
-    This is the same preset as the *Alive* preset, except there's no follow through at the end of the animation, to let you manually animate it.
-- **Exact keyframes** (interpolation only)  
-    With this preset, the Kleaner only interpolates between the keyframes, without anticipation nor follow through animation. With this setup, the resulting animation actually goes through the exact values of the keyframes, which may not be the case with the previous presets.
-- **Spring** (follow through only)  
-    Use this preset if you want to animate manually, but have an automatic follow through at the end of the animation. The Kleaner also adds some overlapping and dragging animation on spatial properties.
-- **Spring** (no simulation)
-    This is the same preset as the previous one, except all simulations are disabled. This improves the performance a lot, but there won't be any overlapping and dragging animation on spatial properties anymore.
-- **Bounce**  (follow through only)  
-    This is the same as the *Spring* preset, but for objects bouncing on a surface instead of turning around the end value.
-- **Bounce**  (no simulation)  
-    This is the same as the *Spring* preset, but for objects bouncing on a surface instead of turning around the end value.
-- **Limits**  
-    Use this preset if all you need is to bound the values of the property inside some predefined (but animatable) limits.
+- **Alive（活跃）**（预备 + 插值 + 跟随）  
+    把这个预设用于任何*自愿*移动（即运动没有外部原因，比如重力或撞击）的角色（或物体、或角色的某一部分）。  
+    使用这个预设时，Kleaner 会对运动应用一个预备[*](../../misc/glossary)，然后根据你选择的通用参数进行插值，并以一个跟随[*](../../misc/glossary)动画结束运动。它还会为空间属性添加重叠[*](../../misc/glossary)和拖拽[*](../../misc/glossary)。
+- **Inanimate（无生命）**（插值 + 跟随）  
+    这与 *Alive* 预设几乎相同，只是禁用预备[^anticipate]。
+- **True stop（真正停止）**（预备 + 插值）  
+    这与 *Alive* 预设相同，只是动画结束时没有跟随，让你手动制作动画。
+- **Exact keyframes（精确关键帧）**（仅插值）  
+    使用这个预设时，Kleaner 只在关键帧之间插值，没有预备或跟随动画。在这种设置下，生成的动画会精确经过关键帧的数值，而之前的预设未必如此。
+- **Spring（弹簧）**（仅跟随）  
+    如果你想手动制作动画，但希望在动画结束时有一个自动跟随，就用这个预设。Kleaner 还会在空间属性上添加一些重叠和拖拽动画。
+- **Spring（弹簧）**（无模拟）  
+    这与前一个预设相同，只是所有模拟都被禁用。这能大大提升性能，但空间属性上不再有重叠和拖拽动画。
+- **Bounce（弹跳）**（仅跟随）  
+    这与 *Spring* 预设相同，但用于在表面上弹跳的对象，而不是绕终点值振荡。
+- **Bounce（弹跳）**（无模拟）  
+    这与 *Spring* 预设相同，但用于在表面上弹跳的对象，而不是绕终点值振荡。
+- **Limits（限制）**  
+    如果你只需要把属性的值限制在某些预定义（但可动画化）的范围内，就用这个预设。
 
-[^anticipate]: Anticipation is an animation principle invented to show the *will*. You should never have anticipation if the movement is not voluntary, but an object *can* have an anticipation, if it is manipulated by a character for example.
+[^anticipate]: 预备（anticipation）是一个被发明出来用以表现*意志*的动画原则。如果运动不是自愿的，你绝不应该使用预备；但一个物体*可以*有预备，例如当它被某个角色操纵时。
 
-## General parameters
+## 通用参数
 
 ![](/docs-img/duik/automation/kleaner-effect-general.png)
 
-You can use these general parameters to set the main properties of the object being animated.
+你可以用这些通用参数来设置被动画对象的主要属性。
 
-These are arbitrary, unitless values; if you *feel* the object is not heavy enough, raise a bit its *Weight*, that's all.
+这些是任意的、无单位的值；如果你*感觉*对象不够重，就稍微调高它的*重量*，仅此而已。
 
 <Callout type="info">
-    Duik and the Kleaner can do much for you. But **it can't move keyframes and change the duration of the animation**! If even with these settings your animation is too fast or the object feels too light, it may be because you need to adjust the timing[*](../../misc/glossary) of the animation, move the keyframes and make it longer, and vice versa.
+    Duik 和 Kleaner 能为你做很多事。但**它不能移动关键帧或改变动画的时长**！如果即便用了这些设置，动画还是太快或对象感觉太轻，那可能是因为你需要调整动画的节奏[*](../../misc/glossary)，移动关键帧让动画更长，反之亦然。在应用 Kleaner 之前，尽量把动画的节奏调到最好（用默认的缓入缓出插值比用线性关键帧更容易，选中关键帧并按 `F9`）。
 </Callout>
 
-    Before applying the Kleaner, try to time the animation the best you can (it's easier with the default easy-ease interpolation than linear keyframes, select the keyframes and hit `F9`).
-
-Once you've set these values as best as you can, you can further improve and customize the animation by adjusting the fine tuning parameters.
+一旦你尽可能设置了这些数值，你可以通过调整微调参数来进一步改进和自定义动画。
 
 ![](/docs-img/examples/kleaner-weight.gif)
 
@@ -145,135 +135,134 @@ Once you've set these values as best as you can, you can further improve and cus
 
 ![](/docs-img/examples/kleaner-randomness.gif)
 
-## Fine Tune
+## 微调
 
 ![](/docs-img/illustration/A_galloping_horse_and_rider_Plate_1_Wellcome_L0038057.jpg)  
-*A galloping horse and rider,  
-Eadweard Muybridge, 1887   
-Public domain.*
+*疾驰的马与骑手，  
+Eadweard Muybridge，1887  
+公有领域。*
 
-The Kleaner does a lot of things for you, effectively applying some general animation principles. What it does exactly also depends on the type of property being animated.
+Kleaner 为你做了很多事，实际上应用了一些通用动画原则。它具体做什么，也取决于被动画属性的类型。
 
-- ***Anticipation*** is what happens before the actual movement, to get momentum before moving the object. It's one of the 12 Disney's animation principles[^principles]. The *Will* is shown with the anticipation.
-- The ***Motion Interpolation*** is what happens between the keyframes, it describes how the Kleaner *smoothes* the animation and makes it more dynamic. It's mostly with this interpolation that the *Weight* of the object is shown, and the *Will* of the character, but almost all other general parameters are also used to tweak it.
-- The ***Overlap***, or *drag*, is what makes objects *lag behind* their parents, the other objects they're attached to. The Kleaner is able to add overlapping animation and drag to **spatial properties**.
-- The ***Follow through*** is what happens after the keyframes and the main animation. It is how the object oscillates or bounces on a surface before coming to a full stop.
-- Duik is able to simulate ***Soft bodies*** if the Kleaner is applied on **spatial properties**. In this case, these spatial properties will lag a bit behind the main motion of the layer itself (similarly to the *overlap*), thus creating this *soft body* simulation. This works especially well on After Effects puppet pins, or any other effect deforming the layer.
-- You can use the ***Limits*** to bound the values and make sure they don't go above or under specific values.
+- ***预备（Anticipation）***是实际运动之前发生的事，在移动对象前获取动量。它是迪士尼 12 条动画原则之一[^principles]。*意志*通过预备来表现。
+- ***运动插值（Motion Interpolation）***是关键帧之间发生的事，它描述 Kleaner 如何*平滑*动画并让它更有动感。对象的*重量*和角色的*意志*主要通过这种插值来体现，但几乎所有其他通用参数也用于微调它。
+- ***重叠（Overlap）***，或*拖拽*，是让对象*滞后于*它们的父级（它们所依附的其他对象）的原因。Kleaner 能够为**空间属性**添加重叠动画和拖拽。
+- ***跟随（Follow through）***是关键帧和主动画之后发生的事。它是对象在完全停下来之前，在表面上振荡或弹跳的方式。
+- 如果 Kleaner 应用于**空间属性**，Duik 能够模拟***软体（Soft bodies）***。在这种情况下，这些空间属性会稍微滞后于图层自身的主运动（类似于*重叠*），从而产生这种*软体*模拟。这在 After Effects 木偶图钉或任何其他使图层变形的效果上效果尤其好。
+- 你可以用***限制（Limits）***来限定数值，确保它们不会超过或低于特定值。
 
-[^principles]: Disney's twelve basic principles of animation were introduced by the Disney animators Ollie Johnston and Frank Thomas in their 1981 book *The Illusion of Life: Disney Animation*. The principles are based on the work of Disney animators from the 1930s onwards, in their quest to produce more realistic animation. The main purpose of these principles was to produce an illusion that cartoon characters adhered to the basic laws of physics, but they also dealt with more abstract issues, such as emotional timing and character appeal. *cf.* [*Wikipedia*](https://en.wikipedia.org/wiki/Twelve_basic_principles_of_animation): [en.wikipedia.org/wiki/Twelve_basic_principles_of_animation](https://en.wikipedia.org/wiki/Twelve_basic_principles_of_animation)
+[^principles]: 迪士尼的十二条基本动画原则，由迪士尼动画师 Ollie Johnston 和 Frank Thomas 在 1981 年出版的《The Illusion of Life: Disney Animation》一书中提出。这些原则基于 1930 年代以来迪士尼动画师为制作更写实的动画所做的努力。这些原则的主要目的是制造一种让卡通角色遵循基本物理定律的错觉，但同时也涉及更抽象的问题，如情感节奏和角色吸引力。*参见* [*Wikipedia*](https://en.wikipedia.org/wiki/Twelve_basic_principles_of_animation)。
 
-### Anticipation
+### 预备
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F10_Kleaner__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F10_Kleaner__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-Anticipation[*](../../misc/glossary) is used to prepare the audience for an action, and to make the action appear more realistic. A dancer jumping off the floor has to bend the knees first; a golfer making a swing has to swing the club back first.
+预备[*](../../misc/glossary)用来让观众为一个动作做准备，并让动作看起来更真实。舞者从地板上跳起，得先弯曲膝盖；高尔夫球手挥杆，得先把球杆向后挥。
 
-In a more technical way, it's the fact that *before* the actual movement, the object takes the opposite direction to get momentum.
+从更技术的角度说，它指的是*在实际运动之前*，对象先朝相反方向运动以获得动量。
 
 ![](/docs-img/duik/automation/kleaner-anticipation.png)  
-*Anticipation generated by the Kleaner around a linear keyframe.*
+*Kleaner 在一个线性关键帧周围生成的预备。*
 
 ![](/docs-img/duik/automation/kleaner-effect-anticipation.png)
 
-First, the anticipation is computed according to the general parameters. You can then tweak it with these two simple values:
+首先，预备根据通用参数计算。然后你可以用这两个简单的数值来调整它：
 
-- ***Anticipation*** controls the amplitude of the anticipation.
-- ***Duration*** changes how long before the first keyframe the anticipation starts.
+- ***预备***控制预备的幅度。
+- ***时长***改变预备在第一个关键帧之前提前多久开始。
 
-### Motion interpolation
+### 运动插值
 
-The Kleaner automatically interpolates[*](../../misc/glossary) the motion between keyframes, according to the general parameters.
+Kleaner 会根据通用参数，自动在关键帧之间对运动进行插值[*](../../misc/glossary)。
 
-For a more dynamic and realistic interpolation, it uses a function based on the Gaussian function which generates nice, asymmetrical and dynamic curves, where the acceleration is faster than the deceleration, which better mimics a natural movement than what can be achieved with Bézier curve.
+为了获得更有动感、更真实的插值，它使用一个基于高斯函数的函数，能生成漂亮、非对称且动态的曲线，其中加速比减速更快，比用 Bézier 曲线所能达到的效果更好地模仿自然运动。
 
 ![](/docs-img/duik/automation/kleaner-interpolation.png)  
-*Interpolation generated by the Kleaner between two linear keyframes*
+*Kleaner 在两个线性关键帧之间生成的插值*
 
-The Kleaner automatically generates the best curve possible going through all the keyframes, automatically detecting where the motion stops, slows down, accelerates or changes direction.
+Kleaner 自动生成经过所有关键帧的最佳曲线，自动检测运动在哪里停止、减速、加速或改变方向。
 
 ![](/docs-img/duik/automation/kleaner-effect-interpolation.png)
 
-Use the ***Motion interpolation*** value to blend the result of the Kleaner with the actual After Effects interpolation; this way you can use your own Bézier interpolation if needed. You can animate this value to deactivate the Kleaner interpolation only for some part of the animation.
+使用***运动插值***数值来混合 Kleaner 的结果与 After Effects 实际的插值；这样你就能在需要时使用自己的 Bézier 插值。你可以为这个数值制作动画，只对动画的某一部分停用 Kleaner 插值。
 
-For spatial properties, if the ***Use Ae spatial trajectory*** box is checked, the Kleaner will not affect the spatial interpolation. This works very well if you just **set the first and last keyframe to linear interpolation, and all in-between keyframes to *rove across time***. In this case you just have to adjust the trajectory with the Bézier pen in the viewport, and let the Kleaner do the temporal interpolation; this is the recommended way of using it, but you can also disable this option, and let the Kleaner do all the work for you (spatial and temporal). In this case, the Kleaner will treat each axis separately as if the dimensions were separated.
+对于空间属性，如果勾选了***使用 AE 空间轨迹***框，Kleaner 就不会影响空间插值。如果你**把第一个和最后一个关键帧设为线性插值，并把中间所有关键帧设为*跨越时间***，这效果非常好。这种情况下，你只需在视口中用 Bézier 钢笔调整轨迹，让 Kleaner 处理时间插值；这是推荐的使用方式，但你也可以禁用这个选项，让 Kleaner 替你完成所有工作（空间和时间插值）。这种情况下，Kleaner 会把每个轴当作独立维度分别处理。
 
-### Overlap
+### 重叠
 
-*Overlapping action*[*](../../misc/glossary) is the tendency for parts of the body to move at different rates (an arm will move on different timing of the head and so on). A related technique is *drag*, where a character starts to move and parts of them take a few frames to catch up. These parts can be inanimate objects like clothing or the antenna on a car, or parts of the body, such as arms or hair. On the human body, the torso is the core, with arms, legs, head and hair appendices that normally follow the torso's movement. Body parts with much tissue, such as large stomachs and breasts, or the loose skin on a dog, are more prone to independent movement than bonier body parts.
+*重叠动作*[*](../../misc/glossary)是指身体各部分以不同速率运动的倾向（手臂会与头部在不同的节奏上移动，等等）。一个相关的技巧是*拖拽*，即角色开始移动时，他们身体的一些部分需要几帧才能跟上。这些部分可以是衣物、汽车天线这样的无生命物体，也可以是手臂、头发这样的身体部位。在人体上，躯干是核心，手臂、腿、头和头发作为附属部分，通常跟随躯干的运动。带有大量组织的身体部位，比如大肚子、胸部，或狗松弛的皮肤，比骨骼分明的身体部位更倾向于独立运动。
 
-The Kleaner helps you with this animation **when applied in spatial properties**. It checks the motion of all the parents of layer containing the spatial property to automatically delay it a bit and let it drag, according to the general parameters (weight, flexibility...).
+当你**在空间属性上应用**时，Kleaner 会帮你处理这种动画。它检查包含该空间属性的图层所有父级的运动，根据通用参数（重量、柔韧性……）自动让它稍微延迟并产生拖拽。
 
-This is considered a *simulation* and may reduce the performance of After Effects; it is deactivated when simulations are disabled in the *Advanced* parameters.
+这被视为一种*模拟*，可能会降低 After Effects 的性能；当在*高级*参数中禁用模拟时，它会被停用。
 
 ![](/docs-img/duik/automation/kleaner-effect-overlap.png)
 
-You can adjust the overlap by changing this value; set it to `0 %` to completely disable it (and improve performance).
+你可以通过改变这个数值来调整重叠；把它设为 `0 %` 可完全禁用（并提升性能）。
 
 <Callout type="info">
-    There's no need to disable it on non-spatial properties where this value is not used at all.
+    没有必要在非空间属性上禁用它，因为那里根本不会用到这个数值。
 </Callout>
 
-### Follow through
+### 跟随
 
-*Follow through*[*](../../misc/glossary) means that loosely tied parts of a body should continue moving after the character has stopped and the parts should keep moving beyond the point where the character stopped only to be subsequently "pulled back" towards the center of mass or exhibiting various degrees of oscillation damping.
+*跟随*[*](../../misc/glossary)指的是身体上松散相连的部分，应该在角色停止后继续移动，并且这些部分应该在角色停止点之后继续移动，随后才被"拉回"到质心方向，或表现出不同程度的振荡衰减。
 
 ![](/docs-img/duik/automation/kleaner-effect-followthrough.png)
 
-- The ***Flexibility*** controls both the amplitude and the frequency of the oscillation (which are closely tied in real life): with more flexibility, the frequency gets lower and the amplitude gets higher.
-- The ***Duration*** controls the damping of the oscillation, how long it lasts before coming to a full stop.
-- If the ***Bounce*** box is checked, instead of oscillating, the property will bounce on the last value, like a ball bouncing on a surface.
-- The Kleaner generates accurate follow through, but sometimes you may prefer to ***amplify*** it a bit and make it more visible. This will adjust the height (the amplitude) of bounces. If you set the ***Amplification*** to `0 %`, you can also deactivate the follow through.
+- ***柔韧性***同时控制振荡的幅度和频率（在现实中两者紧密相关）：柔韧性越高，频率越低、幅度越高。
+- ***时长***控制振荡的衰减，即完全停下来之前持续多久。
+- 如果勾选了***弹跳***框，属性不会振荡，而是像球在表面上弹跳一样在最后一个值上弹跳。
+- Kleaner 生成精确的跟随，但有时你可能更希望把它稍微***放大***一些，让它更明显。这会调整弹跳的高度（幅度）。如果你把***放大***设为 `0 %`，也可以停用跟随。
 
 ![](/docs-img/duik/automation/kleaner-folllowthrough.png)  
-*An oscillating follow through generated by the Kleaner.*
+*Kleaner 生成的振荡跟随。*
 
 ![](/docs-img/duik/automation/kleaner-bounce.png)  
-*An bouncing follow through generated by the Kleaner.*
+*Kleaner 生成的弹跳跟随。*
 
 <Callout type="info">
-    When oscillating, the frequency is stable and doesn't change until the object stops. When bouncing, the frequency raises (the bounces get shorter and shorter).
+    振荡时，频率是稳定的，直到对象停下来才改变。弹跳时，频率会升高（弹跳变得越来越短）。
 </Callout>
 
-    The Kleaner being a tool for animators made by animators, it is not physically accurate; if it were, some bounces would happen *between* actual frames of the composition, which would be bad because there would be no frame where the contact between the object and the surface is visible. But the Kleaner makes sure all contacts happen exactly on actual frames of the composition, as an animator would do.
+<Callout type="info">
+    Kleaner 是动画师为动画师打造的工具，它并不追求物理精确；如果追求物理精确，有些弹跳就会发生在合成*帧与帧之间*，这会很糟糕，因为那样就没有任何一帧能看到对象与表面接触。但 Kleaner 会确保所有接触都恰好发生在合成的实际帧上，就像动画师会做的那样。
+</Callout>
 
-### Soft body
+### 软体
 
-The *Soft body* *simulation* is very similar to the overlap, but specific for spatial properties other than the position of the layer, like After Effects puppet pins for example. The result is that the layer will appear flexible, soft, elastic, what's called a *soft body* in opposition to *rigid bodies*.
+*软体**模拟*与重叠非常相似，但专门用于图层位置之外的空间属性，比如 After Effects 木偶图钉。结果是图层会显得灵活、柔软、有弹性，即相对于*刚体*而言所谓的*软体*。
 
-This is considered a *simulation* and may reduce the performance of After Effects; it is deactivated when simulations are disabled in the *Advanced* parameters.
+这被视为一种*模拟*，可能会降低 After Effects 的性能；当在*高级*参数中禁用模拟时，它会被停用。
 
 ![](/docs-img/duik/automation/kleaner-effect-softbody.png)
 
-You can adjust the soft body by changing this value; set it to `0 %` to completely disable it (and improve performance).
+你可以通过改变这个数值来调整软体；把它设为 `0 %` 可完全禁用（并提升性能）。
 
-### Limits
+### 限制
 
 ![](/docs-img/duik/automation/kleaner-effect-limits.png)
 
-You can use the limits to make sure that even during the anticipation or final oscillation (follow through) the property with the Kleaner is bounded between this maximum and minimum limit.
+你可以用限制来确保，即使在预备或最终振荡（跟随）期间，带有 Kleaner 的属性也被限制在这个最大值和最小值之间。
 
-Use the ***softness*** to make the motion slow down before hitting the limit.
+使用***柔度***让运动在触碰到限制之前慢下来。
 
 <Callout type="info">
-    When limits are used, they're also applied to the value of keyframes, effectively limiting the actual value no matter if it comes from the Kleaner or the keyframes.  
-    It may be useful to apply the Kleaner on some property just to benefit from the limits, and a preset has been made just for this.
+    使用限制时，它们也会应用于关键帧的数值，实际上会限制真实数值，无论它来自 Kleaner 还是关键帧。在某些属性上应用 Kleaner 仅仅是为了利用限制功能，这样做可能很有用，而且已经有一个预设专为此而设。
 </Callout>
 
-## Advanced Parameters
+## 高级参数
 
 ![](/docs-img/duik/automation/kleaner-advanced.png)
 
-### Randomness
+### 随机性
 
-The Kleaner adds some randomness to some values to make sure that even if it's the same Kleaner controlling multiple properties, they will not be perfectly synchronized. This makes the animation feel much more natural. You can adjust this randomness, and set it to `0 %` to completely deactivate it.
+Kleaner 会为一些数值添加一些随机性，以确保即使是同一个 Kleaner 控制多个属性，它们也不会完全同步。这让动画感觉自然得多。你可以调整这个随机性，把它设为 `0 %` 可完全停用。
 
-### Performance
+### 性能
 
-As a complete and complex tool, the Kleaner may reduce the performance of After Effects, especially when used on spatial properties.
+作为一个完整而复杂的工具，Kleaner 可能会降低 After Effects 的性能，尤其是在空间属性上使用时。
 
-You can use these settings to improve the performance by disabling the simulations or the general parameters if you don't need them.
+如果不需要，你可以通过禁用模拟或通用参数来使用这些设置提升性能。
 
-If you notice artifacts in the motion blur or imprecision with some interpolations and follow through, you can raise a bit the  ***Time precision*** or ***Value precision***, but be careful as this may slow down the evaluation of the expressions.
-
-
+如果你注意到运动模糊出现伪影，或某些插值和跟随不精确，你可以稍微提高一下***时间精度***或***数值精度***，但要小心，这可能会减慢表达式的求值。

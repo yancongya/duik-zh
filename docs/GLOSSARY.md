@@ -106,5 +106,18 @@
 | layer marker | 图层标记 | ✅ | AE 官方译名 |
 | precomposition | 预合成 | ✅ | AE 官方译名（预合成/嵌套合成） |
 | null object (null) | 空对象 | ✅ | AE 官方译名 |
+| anticipation | 预备 | ✅ | 迪士尼动画原则，预备动作 |
+| follow through | 跟随 | ✅ | 迪士尼动画原则，跟随动作 |
+| overlap / overlapping action | 重叠 | ✅ | 迪士尼动画原则，重叠动作 |
+| drag | 拖拽 | ✅ | 动画原则之一 |
+| timing | 节奏 | ✅ | 动画时机/节奏 |
+| extrapolation | 外推 | ✅ | 关键帧外推 |
+| procedural animation | 程序化动画 | ✅ | |
+| preset | 预设 | ✅ | |
+| soft body | 软体 | ✅ | 相对刚体 |
+| slave property | 从属属性 | ✅ | Effector 语境 |
+| random seed | 随机种子 | ✅ | |
+| time remap / time remapping | 时间重映射 | ✅ | AE 官方 |
+| framerate | 帧率 | ✅ | |
 
 （Phase 2+ 按翻译进度继续补录，目标 150+ 条）

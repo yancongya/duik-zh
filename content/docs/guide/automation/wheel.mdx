@@ -1,52 +1,53 @@
 ---
-title: "![](/docs-img/duik/icons/wheel.svg) Wheel"
+title: "Wheel"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/wheel.svg) Wheel
+# <img src="/docs-img/duik/icons/wheel.svg" style={{width: '1em'}}/> Wheel
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F06_Wheel__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F06_Wheel__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-The *Wheel* automates the rotation of layers according to their translation[^formula].
+*Wheel* 会根据图层的平移来自动化图层的旋转[^formula]。
 
 ![](/docs-img/illustration/Design_for_Four_Wheel_Dog_Cart,_no._3928_MET_DP882482.jpg)  
-*Design for Four Wheel Dog Cart, no. 3928,  
-Brewster & Co., Herman Stahmer, 1884   
-Public domain.*
+*四轮狗车设计，第 3928 号，  
+Brewster & Co.，Herman Stahmer，1884  
+公有领域。*
 
-1. **Select** the layers.
-2. Click the ![](/docs-img/duik/icons/wheel.svg) ***Wheel*** button
+1. **选择**图层。
+2. 点击 ![](/docs-img/duik/icons/wheel.svg) ***Wheel*** 按钮
 
-## Effect
+## 效果
 
-The Wheel can be adjusted in the effects of the layer.
+Wheel 可以在图层的效果中调整。
 
 ![](/docs-img/duik/automation/wheel-effect.png)
 
-The ***Radius*** is automatically set by Duik, but in some specific cases Duik may not be able to measure it accurately. In this case, you'll have to set te correct value for the wheel to rotate at the right speed.
+***半径***由 Duik 自动设置，但在某些特殊情况下，Duik 可能无法准确测量它。这种情况下，你必须设置正确的数值，轮子才能以正确的速度旋转。
 
 <Callout type="success">
-    You can use the [*Measure Distance*](../constraints/tools/measure) [^measure] tool to measure the distance between the anchor points of two layers. Use a null layer to measure the radius of the wheel.
+    你可以用[*测量距离*](../constraints/tools/measure)[^measure]工具测量两个图层锚点之间的距离。用一个空对象图层来测量轮子的半径。
 </Callout>
 
-If ever you need to animate a wheel rolling on the ceiling instead of the floor, check the ***Reverse*** option...
+如果你需要制作一个在天花板上而不是地板上滚动的轮子动画，请勾选***反向***选项……
 
-Set the ***Trajectory*** according to the type of trajectory followed by the wheel. Be careful, this can greatly reduce the performance.
+根据轮子所遵循的轨迹类型设置***轨迹***。要小心，这会大幅降低性能。
 
-- *Horizontal* works only if the wheel rolls on a (almost) horizontal plane.  
-    In this case, Duik just uses the X Position of the layer to get the traveled distance. This has the best performance as it's a simple subtraction.
-- *Straight* works if the wheel follows a (almost) straight line.  
-    In this case, Duik gets the length of the segment between the starting and ending points as the traveled distance. This is a bit slower than the *Horizontal* option but the difference should not be noticeable in most cases.
-- *Curved* works in all cases.  
-    This has the worst performance: for each frame of the composition, Duik adds the traveled distance from the previous frame; it's a *cumulative expression*. On long compositions, it can be very slow to compute[^slow].
+- *水平*只在轮子沿（几乎）水平面滚动时有效。  
+    这种情况下，Duik 只使用图层的 X 位置来获取行进距离。这是性能最好的方式，因为只是一个简单的减法。
+- *直线*在轮子沿（几乎）直线移动时有效。  
+    这种情况下，Duik 把起点和终点之间线段的长度作为行进距离。这比*水平*选项稍慢，但在大多数情况下差异应该察觉不到。
+- *曲线*在所有情况下都有效。  
+    这是性能最差的方式：对于合成的每一帧，Duik 都会累加上一帧的行进距离；这是一个*累积表达式*。在长合成中，计算可能会非常慢[^slow]。
 
-When using the *curved* mode and you need motion blur, you may increase a bit the *Motion Blur Precision* value to fix motion blur artifacts, but be careful as this will make the performance drop drastically[^slow2].
+使用*曲线*模式并且需要运动模糊时，你可以稍微提高*运动模糊精度*数值来修复运动模糊伪影，但要小心，这会让性能大幅下降[^slow2]。
 
-[^formula]: The formula to automate the rotation of a wheel is actually pretty simple: `distance / radius` gives the rotation angle in radians, `(distance / radius) x 180 / π` gives it in degrees.
+[^formula]: 自动化轮子旋转的公式其实很简单：`distance / radius` 给出以弧度为单位的旋转角度，`(distance / radius) x 180 / π` 给出以度为单位的旋转角度。
 
-[^measure]: *cf. [Links and Constraints](../constraints) / Tools / [Measure Distance](../constraints/tools/measure)*.
+[^measure]: 参见[*链接与约束*](../constraints) / 工具 / [*测量距离*](../constraints/tools/measure)。
 
-[^slow]: Because there's no way to reliably store any data with expressions in After Effects, Duik actually has to re-compute everything for each frame of the composition. This means that for each frame, it needs to add up all previous frame values. The total number of values to be computed for a given composition is a [*triangular number*](http://en.wikipedia.org/wiki/Triangular_number) (see [en.wikipedia.org/wiki/Triangular_number](http://en.wikipedia.org/wiki/Triangular_number)) given by the formula `(f² + f) / 2` where `f` is the number of frames in the composition. Because of the `f²` in the formula, this number grows very fast with the duration of the composition.
+[^slow]: 因为在 After Effects 中无法用表达式可靠地存储任何数据，Duik 实际上必须在合成的每一帧重新计算所有内容。这意味着对于每一帧，它都需要累加之前所有帧的数值。对于给定合成，需要计算的数值总数是一个[*三角数*](http://en.wikipedia.org/wiki/Triangular_number)，由公式 `(f² + f) / 2` 给出，其中 `f` 是合成的帧数。由于公式中的 `f²`，这个数字会随着合成时长的增加而飞速增长。
 
-[^slow2]: As stated above, the number of values to compute with a cumulative expression like the curved-trajectory wheel is a triangular number which grows fast with the number of frames in the composition. When you change the *Motion Blur Precision*, it's the same as doubling, tripling, etc. the number of frames of the composition (the expression has to sub-sample the frames). When set to `2`, that means the total number of values to be computed is `( (2f)² + 2f ) / 2` which is more than the double, `3`, `( (3f)² + 3f ) / 2` is even worse, etc.
-
-
+[^slow2]: 如上所述，使用像曲线轨迹轮子这样的累积表达式需要计算的数值数量是一个三角数，它会随合成帧数的增加而快速增长。当你改变*运动模糊精度*时，就像把合成的帧数翻倍、翻三倍等（表达式必须对帧进行二次采样）。当设为 `2` 时，需要计算的总数值数量是 `( (2f)² + 2f ) / 2`，这超过了原来的两倍；设为 `3` 时，`( (3f)² + 3f ) / 2` 更糟，以此类推。

@@ -1,37 +1,40 @@
 ---
-title: "![](/docs-img/duik/icons/expression_baker.svg) Bake Expressions"
+title: "烘焙表达式"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/expression_baker.svg) Bake Expressions
+# <img src="/docs-img/duik/icons/expression_baker.svg" style={{width: '1em'}}/> 烘焙表达式
 
-You can easily *Bake*[*](../../../misc/glossary) the expressions to replace them by keyframes and improve the performance.
+你可以轻松*烘焙*[*](../../../misc/glossary)表达式，用关键帧替换它们以提升性能。
 
-1. **Select the properties** with the expressions.
-2. Click the ![](/docs-img/duik/icons/expression_baker.svg) ***Bake Expressions*** button.
+1. **选择带表达式的属性**。
+2. 点击 ![](/docs-img/duik/icons/expression_baker.svg) ***烘焙表达式***按钮。
 
-You can `[Shift] + [Click]` the ![](/docs-img/duik/icons/expression_baker.svg) *Bake Expressions* button to adjust the options.
+你可以`[Shift] + [Click]`点击 ![](/docs-img/duik/icons/expression_baker.svg) *烘焙表达式*按钮来调整选项。
 
 ![](/docs-img/duik/automation/bake-expressions.png)
 
-- The ![](/docs-img/duik/icons/autorig.svg) ***Smart Mode*** creates less keyframes and uses Bézier interpolation[*](../../../misc/glossary) to generate an animation as close as possible of the original animation as computed by the expression.  
-    The resulting animation may be a bit different compared to the expression, but its much easier to edit and customize later. It's also much lighter once exported to HTML/JS/CSS animation, like Lottie/Bodymovin for example.
-- The ![](/docs-img/duik/icons/quick.svg) ***Precise Mode*** (a.k.a. *dumb mode*) creates much more keyframes, up to one per frame, but generates the exact same animation as the original one as computed by the expression.
+- ![](/docs-img/duik/icons/autorig.svg) ***智能模式***创建较少的关键帧，并使用 Bézier 插值[*](../../../misc/glossary)来生成尽可能接近表达式计算出的原始动画。  
+    生成的动画可能与表达式略有不同，但之后更容易编辑和自定义。一旦导出为 HTML/JS/CSS 动画（例如 Lottie/Bodymovin），它也会轻得多。
+- ![](/docs-img/duik/icons/quick.svg) ***精确模式***（又名*傻瓜模式*）创建多得多的关键帧，最多每帧一个，但会生成与表达式计算出的原始动画完全相同的动画。
 
 <Callout type="info">
-    After Effects can natively bake expressions, with the `Animation / Keyframe Assistant / Conver expression to keyframes` tool, but it always adds one keyframe per frame.
+    After Effects 可以用 `Animation / Keyframe Assistant / Conver expression to keyframes`（动画 / 关键帧助手 / 将表达式转换为关键帧）工具原生烘焙表达式，但它总是每帧添加一个关键帧。
 </Callout>
 
-    Even with the *Precise Mode*, Duik is a bit smarter than that, as it only adds *necessary* keyframes (it adds keyframes if and only if there's an actual movement). Duik can also optionaly create more keyframes than that, which may be needed for a cleaner motion blur, or less, if it's fine for you to use interpolations in between.
+<Callout type="info">
+    即使是*精确模式*，Duik 也比这更智能，因为它只添加*必要*的关键帧（当且仅当确实有运动时才添加关键帧）。Duik 也可以选择创建比这更多的关键帧（可能需要用于更干净的运动模糊），或更少（如果你觉得用中间插值没问题的话）。
+</Callout>
 
-With both modes, you can adjust the ***Precision*** value to change the number of resulting keyframes.  
-A higher value will create more keyframes (adding keyframes in between actual frames with the *Precise* mode, useful for a cleaner motion blur) and increase the precision and fidelity of the animation compared to the original expression.
+两种模式下，你都可以调整***精度***数值来改变生成关键帧的数量。  
+数值越高，创建的关键帧越多（*精确*模式下会在实际帧之间添加关键帧，对更干净的运动模糊有用），并提高动画相对于原始表达式的精度和保真度。
 
 <Callout type="warning">
-    Be careful, the *Precision* is a sensitive value. Don't raise it too much!
+    要小心，*精度*是一个敏感数值。不要调得过高！
 </Callout>
 
 <Callout type="success">
-    With the *Precise* mode, a value lower than `1.0` will create less keyframes than one per frame.
+    使用*精确*模式时，低于 `1.0` 的数值创建的关键帧会比每帧一个更少。
 </Callout>
-
-

@@ -1,56 +1,56 @@
 ---
-title: "![](/docs-img/duik/icons/swink.svg) Swink"
+title: "Swink"
+license: GFDL-1.3
+authors: 'Nicolas "Duduf" Dufresne'
+copyright: 2022-2023
 ---
 
-# ![](/docs-img/duik/icons/swink.svg) Swink
+# <img src="/docs-img/duik/icons/swink.svg" style={{width: '1em'}}/> Swink
 
-<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F05_Swink__EN_720.mp4" caption={"This video is part of [__the official comprehensive video course about Duik Ángela__](https://rxlaboratory.org/product/the-official-comprehensive-video-course-about-duik-angela/)"} />
+<Video src="https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F05_Swink__EN_720.mp4" caption="本视频是 Duik Ángela 官方完整视频课程的一部分" />
 
-*Swink* stands for *swing or blink*[^pun]. It can be used to make a property oscillate between two values, with many options to control the interpolation[*](../../misc/glossary) between these values. For example, it makes it easy to animate a pendulum or a light blinking.
+*Swink* 代表 *swing or blink（摆动或闪烁）*[^pun]。它可以让一个属性在两个数值之间振荡，并提供许多选项来控制这两个数值之间的插值[*](../../misc/glossary)。例如，它可以轻松制作钟摆或灯光闪烁的动画。
 
-[^pun]: We've had a hard time translating this term in other languages, but we've found *Clignancement* for "Clignottement ou balancement" in French, and *Parpalancear* for "Parpadear o balancear" in Spanish. If you'd like to play with us and help translate Duik, come to  [translate.rxlab.io](http://translate.rxlab.io)!
+[^pun]: 我们在把这个词翻译成其他语言时费了不少劲，但我们在法语里为 "Clignottement ou balancement" 找到了 *Clignancement*，在西班牙语里为 "Parpadear o balancear" 找到了 *Parpalancear*。如果你想和我们一起玩并帮助翻译 Duik，欢迎来到 [translate.rxlab.io](http://translate.rxlab.io)！
 
 ![](/docs-img/illustration/Huygens_first_pendulum_clock.png)  
-*The first pendulum clock, drawing from Horologium,  
-Christiaan Huygens, 1658   
-Public domain.*
+*第一座摆钟，出自 Horologium 的绘图，  
+Christiaan Huygens，1658  
+公有领域。*
 
-1. **Select** the properties
-2. Click the ![](/docs-img/duik/icons/swink.svg) ***Swink*** button  
+1. **选择**属性
+2. 点击 ![](/docs-img/duik/icons/swink.svg) ***Swink*** 按钮  
     ![](/docs-img/duik/automation/swink-select.png)
-3. **Choose** one of the presets
+3. **选择**其中一个预设
 
-The choice between *Swing* or *Blink* just change the default values, the same effect is created in both cases.
+*Swing（摆动）*或 *Blink（闪烁）*之间的选择只是改变了默认数值，两种情况创建的效果是相同的。
 
-!!! Tip
-```text
-When you’ve applied the Swink on some properties and then want to use the same Swink on other properties, you can just copy and paste the expression in the new properties.
-```
+<Callout type="success">
+    当你把 Swink 应用在某些属性上，之后想在其他属性上使用同样的 Swink 时，你只需在新的属性里复制并粘贴表达式即可。
+</Callout>
 
-## Effect
+## 效果
 
-The Swink can be adjusted in the effects of the first selected layer.
+Swink 可以在第一个选中图层的效果中调整。
 
 ![](/docs-img/duik/automation/swink-effect.png)
 
-Duik automatically sets the two values ***A*** and ***B*** to oscillate around the current value of the selected property. You can adjust these values as you wish, or even **animate them**.
+Duik 会自动设置***A***和***B***两个数值，让它们围绕选中属性的当前值振荡。你可以按自己的意愿调整这些数值，甚至可以**为它们制作动画**。
 
-While the ***frequency*** changes the speed of the oscillation, the ***Cycle offset*** moves the whole oscillation in time to let you adjust exactly the  value from which it starts at the beginning of the composition. This offset is set as a percentage of a complete cycle.
+***频率***改变振荡的速度，而***循环偏移***在时间上移动整个振荡，让你能精确调整它在合成开始时从哪个数值出发。这个偏移以完整循环的百分比表示。
 
-You can use the ***A/B ratio*** to let the oscillation spend more time on one or the other value. A ratio higher than `50 %` makes the time spent on the *A* value longer than on the *B* value, and vice versa.
+你可以使用***A/B 比率***让振荡在其中一个数值上停留更长时间。比率高于 `50 %` 会让在 *A* 值上停留的时间比 *B* 值更长，反之亦然。
 
-When the ***Plateau*** is set to `0 %`, the oscillation never stops; with a higher value, the oscillation will stop some time on both values.
+当***平台***设为 `0 %` 时，振荡从不停止；数值更高时，振荡会在两个数值上都停留一段时间。
 
-Finally, you can adjust the ***interpolation***[*](../../misc/glossary) between the *A* and *B* values:
+最后，你可以调整 *A* 和 *B* 数值之间的***插值***[*](../../misc/glossary)：
 
-- *Hold (square)* disables interpolation. The value will *blink*.
-- *Linear* will result in a very simple interpoation without easing (a triangle).
-- *Smooth (sigmoid)* is the smoothest interpolation, similar to a sine function but with the ability to change the *easing* with the *Rate* value.  
-    This interpolation is symmetrical, like a sine function.
-- *Natural (gaussian)* interpolates the value using the gaussian (*bell*) function, which results in an asymmetrical acceleration and deceleration. With this interpolation, the motion is more dynamic, and the object looks alive; it is great for the arms swinging during a walk cycle for example.
-- *Slow down (logarithmic)* makes the motion start as fast as possible and quickly slow down when getting to the other value.
-- *Speed up (exponential)*  does the opposite of *Slow down*, making the motion start very slowly and speeding up as much as possible.
+- *保持（方形）*停用插值。数值会*闪烁*。
+- *线性*会产生一个非常简单的、没有缓动的插值（三角形）。
+- *平滑（sigmoid）*是最平滑的插值，类似于正弦函数，但可以用*速率*数值改变*缓动*。  
+    这种插值是对称的，就像正弦函数一样。
+- *自然（高斯）*使用高斯（*钟形*）函数对数值进行插值，产生非对称的加速和减速。使用这种插值，运动更有动感，对象看起来更有生命；例如非常适合行走循环中手臂的摆动。
+- *减速（对数）*让运动以尽可能快的速度开始，并在接近另一个数值时迅速慢下来。
+- *加速（指数）*与*减速*相反，让运动以非常慢的速度开始，然后尽可能快地加速。
 
-With the *Smooth*, *Natural*, *Slow down* and *Speed up* interpolations, you can use the ***Rate*** value to adjust the easing (acceleration and deceleration rate) of the motion.
-
-
+对于*平滑*、*自然*、*减速*和*加速*插值，你可以使用***速率***数值来调整运动的缓动（加速和减速速率）。
