@@ -11,21 +11,23 @@
     "lint": "next lint",
     "sync": "node scripts/sync-upstream.mjs",
     "nav": "node scripts/mkdocs-to-nextra.mjs",
-    "convert": "node scripts/md-convert.mjs"
+    "convert": "node scripts/md-convert.mjs",
+    "postinstall": "patch-package"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "next": "^15.1.0",
     "nextra": "^4.2.0",
     "nextra-theme-docs": "^4.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "gray-matter": "^4.0.3",
     "yaml": "^2.6.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "patch-package": "^8.0.1",
     "typescript": "^5.7.0"
   }
 }
