@@ -1,0 +1,1 @@
+import{e as o,c as r,H as n,o as s}from"./entry.d2ea4a745e1ba64aecc76bbf680458929795d2d8.js";const a=["href"],m=o({__name:"NuxtLinkCustom",props:{to:{},href:{}},setup(e){return(t,c)=>(s(),r("a",{href:e.to||e.href},[n(t.$slots,"default")],8,a))}});export{m as _};
