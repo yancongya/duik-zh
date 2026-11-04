@@ -5,6 +5,21 @@ import assets from './asset-map.json'
 
 export async function GET(request: NextRequest) {
   const requested = request.nextUrl.searchParams
+  const localImage = requested.get('url')
+  const localPrefix = ['/duik-preview-assets/', '/duik-landing-assets/', '/duik-experience/previews/', '/duik-experience/official/', '/duik-experience/wall/', '/duik-experience/icons/'].find(prefix => localImage?.startsWith(prefix))
+  if (localImage && localPrefix) {
+    const filename = path.resolve(process.cwd(), 'public', `.${localImage}`)
+    const assetRoot = path.resolve(process.cwd(), 'public', `.${localPrefix}`)
+    const types: Record<string, string> = { '.svg': 'image/svg+xml', '.webp': 'image/webp', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg' }
+    const type = types[path.extname(filename).toLowerCase()]
+    if (!filename.startsWith(`${assetRoot}${path.sep}`) || !type) return new NextResponse('Invalid local image path', { status: 400 })
+    try {
+      const body = await readFile(filename)
+      return new NextResponse(body, { headers: { 'Content-Type': type, 'Cache-Control': 'public, max-age=3600', 'X-Content-Type-Options': 'nosniff' } })
+    } catch {
+      return new NextResponse('Local image not found', { status: 404 })
+    }
+  }
   const entries = Object.entries(assets as Record<string, { file: string; type: string }>)
   const asset = entries.find(([query]) => {
     const recorded = new URLSearchParams(query)

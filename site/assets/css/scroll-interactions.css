@@ -1,0 +1,19 @@
+:root { --clone-hero-progress: 0; }
+.clone-scroll-ready .kp-home-hero-thumbnails-list::before {
+  content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  opacity: calc(var(--clone-hero-progress) * .9);
+  background: radial-gradient(circle at 12% 50%, rgba(230, 75, 141, .42), transparent 36%),
+              radial-gradient(circle at 85% 20%, rgba(176, 226, 0, .34), transparent 34%),
+              radial-gradient(circle at 50% 90%, rgba(0, 185, 204, .26), transparent 38%);
+  transition: opacity .1s linear;
+}
+.clone-motion-enabled .kp-home-hero-thumbnails-list > div {
+  transition: transform .18s cubic-bezier(.2,.75,.25,1), opacity .18s ease;
+  will-change: transform, opacity;
+}
+.clone-scroll-ready .home-how-it-works-kp .swiper-slide { opacity: .38; transition: opacity .35s ease, transform .35s ease; }
+.clone-scroll-ready .home-how-it-works-kp .swiper-slide.clone-scroll-active { opacity: 1; transform: translateX(0); }
+@media (prefers-reduced-motion: reduce) {
+  .clone-scroll-ready .kp-home-hero-thumbnails-list::before { display: none; }
+  .clone-scroll-ready .home-how-it-works-kp .swiper-slide { opacity: 1; }
+}

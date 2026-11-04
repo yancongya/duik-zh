@@ -6,11 +6,15 @@
   "getting-started/first-look": "初识 Duik",
   "getting-started/be-annoying": "要敢于较真",
   "getting-started/troubleshoot": "故障排除",
+  "guide": "使用指南",
   "guide/bones": "骨骼",
+  "guide/bones/index": "骨骼简介",
+  "guide/bones/tools": "骨骼工具",
   "guide/bones/create-bones": "创建骨骼",
   "guide/bones/envelops": "骨骼包络",
   "guide/bones/noodles": "面条骨",
   "guide/bones/autorig": "自动绑定",
+  "guide/bones/autorig/index": "自动绑定简介",
   "guide/bones/autorig/leg": "手臂与腿",
   "guide/bones/autorig/spine": "脊柱",
   "guide/bones/autorig/tail": "尾巴与毛发",
@@ -149,5 +153,5 @@
   "faq": "常见问题",
   "tutorials": "教程",
   "printed-user-guide": "纸质用户指南",
-  "index": "首页"
+  "index": "文档首页"
 }

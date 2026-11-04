@@ -9,25 +9,33 @@
  */
 import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from 'node:fs'
 import { join, relative, sep } from 'node:path'
+import { execFileSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
 import YAML from 'yaml'
 
-const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')
+const ROOT = fileURLToPath(new URL('..', import.meta.url))
 const MKDOCS = join(ROOT, 'upstream', 'mkdocs.yml')
 const CONTENT = join(ROOT, 'content', 'docs')
 const OUT_CN = join(ROOT, 'content', '_meta.cn.json')
 
-if (!existsSync(MKDOCS)) {
-  console.error('[nav] upstream/mkdocs.yml not found')
-  process.exit(1)
+// A sparse checkout may intentionally omit these tracked inputs. Read that
+// exact snapshot without materializing or modifying upstream/.
+function readInput(path) {
+  if (existsSync(path)) return readFileSync(path, 'utf8')
+  const trackedPath = relative(ROOT, path).split(sep).join('/')
+  return execFileSync('git', ['show', `HEAD:${trackedPath}`], { cwd: ROOT, encoding: 'utf8' })
 }
 
-const cfg = YAML.parse(readFileSync(MKDOCS, 'utf8'))
+const cfg = YAML.parse(readInput(MKDOCS))
 const nav = cfg.nav || []
 
 /** 页面标题：relPath（无扩展名）-> 标题；index.md 用 'path/index' */
 const pageTitle = new Map()
 /** 文件夹标题：relDir -> 标题 */
 const folderTitle = new Map()
+const pageOrder = new Map()
+const folderOrder = new Map()
+let position = 0
 
 function pathToKey(mdPath) {
   return mdPath.replace(/\.md$/, '').replace(/^\/+/, '')
@@ -61,20 +69,28 @@ function walkNav(items) {
     if (typeof item !== 'object' || item === null) continue
     for (const [key, val] of Object.entries(item)) {
       if (Array.isArray(val)) {
+        const groupPosition = position
         walkNav(val)
         const c = commonDir(collectLeafPaths(val))
         if (c && !folderTitle.has(c)) folderTitle.set(c, key)
+        // Explicit groups outrank an early cross-reference from another group
+        // (e.g. the license linked from Getting Started must not move all Misc).
+        if (c && !folderOrder.has(c)) folderOrder.set(c, groupPosition)
       } else if (typeof val === 'string' && !/^https?:/.test(val)) {
         pageTitle.set(pathToKey(val), key)
+        if (!pageOrder.has(pathToKey(val))) pageOrder.set(pathToKey(val), position++)
       }
     }
   }
 }
 walkNav(nav)
 
-const cn = existsSync(OUT_CN) ? JSON.parse(readFileSync(OUT_CN, 'utf8')) : {}
+const cn = JSON.parse(readInput(OUT_CN))
 const pageT = (rel) => cn[rel] || pageTitle.get(rel) || null
 const folderT = (rel) => cn[rel] || folderTitle.get(rel) || null
+const orderOf = (rel) => folderOrder.get(rel) ?? pageOrder.get(rel) ?? Math.min(
+  ...[...pageOrder].filter(([path]) => path.startsWith(`${rel}/`)).map(([, order]) => order),
+)
 
 function walkDirs(dir, out = []) {
   for (const name of readdirSync(dir)) {
@@ -92,7 +108,10 @@ const dirs = [CONTENT, ...walkDirs(CONTENT)]
 for (const dir of dirs) {
   const relDir = dir === CONTENT ? '' : relative(CONTENT, dir).split(sep).join('/')
   const entries = {}
-  for (const name of readdirSync(dir)) {
+  for (const name of readdirSync(dir).sort((a, b) => {
+    const key = (name) => [relDir, name.replace(/\.mdx$/, '')].filter(Boolean).join('/')
+    return orderOf(key(a)) - orderOf(key(b)) || a.localeCompare(b)
+  })) {
     const p = join(dir, name)
     if (statSync(p).isDirectory()) {
       const rel = relDir ? `${relDir}/${name}` : name

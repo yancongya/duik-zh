@@ -1,0 +1,285 @@
+{
+  "base": "http://127.0.0.1:3017/rig-test.html",
+  "profile": "/var/folders/z2/gz8wlslx35d1yqy6yr6h5g6m0000gn/T/duik-rig-chrome-BWnIqT",
+  "checks": [
+    "26 distinct PNG textures loaded; actual source SHA-256 verified; finite vertices",
+    "browser rest canvas aligns with original",
+    "actual mouse drag: both IK hands, head and waist",
+    "12 reference-style controllers exist; all new drag targets change pose AND canvas pixels",
+    "keyboard focus persists across frames; pose export/import round-trip and wrong-character rejection pass",
+    "hiding a real layer changes canvas pixels",
+    "blink, gaze and continuous wave animation render; pause works",
+    "100 bounded pose samples preserve bone length and finite vertices",
+    "1280 desktop viewport loads without horizontal overflow"
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "restRenderComparison": {
+    "meanPremultipliedError": 2.1429972398814403,
+    "significantPixels": 5431,
+    "visiblePixels": 153716,
+    "maxError": 84.56666666666668
+  },
+  "leftDrag": {
+    "rootX": 0,
+    "rootY": 0,
+    "body": 0,
+    "head": 0,
+    "wristL": 0,
+    "wristR": 0,
+    "blink": 0,
+    "gaze": 0,
+    "brow": 0,
+    "smile": 0,
+    "hair": 0,
+    "hairL": 0,
+    "hairR": 0,
+    "handL": [
+      62.641791044776255,
+      -66.81791044776128
+    ],
+    "handR": [
+      0,
+      0
+    ]
+  },
+  "multiDrag": {
+    "rootX": 31.320895522388128,
+    "rootY": -16.70447761194032,
+    "body": 0,
+    "head": 6.562473347547991,
+    "wristL": 0,
+    "wristR": 0,
+    "blink": 0,
+    "gaze": 0,
+    "brow": 0,
+    "smile": 0,
+    "hair": 0,
+    "hairL": 0,
+    "hairR": 0,
+    "handL": [
+      62.641791044776255,
+      -66.81791044776128
+    ],
+    "handR": [
+      -52.20149253731347,
+      -41.761194029850685
+    ]
+  },
+  "controllerChecks": [
+    {
+      "name": "hairL",
+      "key": "hairL",
+      "value": 1.9389125799573645
+    },
+    {
+      "name": "hairR",
+      "key": "hairR",
+      "value": -1.9389125799573645
+    },
+    {
+      "name": "smile",
+      "key": "smile",
+      "value": 0.5568159203980081
+    },
+    {
+      "name": "gaze",
+      "key": "gaze",
+      "value": 0.5568159203980106
+    },
+    {
+      "name": "gaze",
+      "key": "blink",
+      "value": 0.417611940298508
+    },
+    {
+      "name": "direction",
+      "key": "head",
+      "value": 3.5795309168443543
+    },
+    {
+      "name": "bodyGlobal",
+      "key": "body",
+      "value": -1.566044776119405
+    },
+    {
+      "name": "body",
+      "key": "body",
+      "value": -1.5660447761193979
+    },
+    {
+      "name": "globalMove",
+      "key": "rootX",
+      "value": 25.05671641791048
+    }
+  ],
+  "stress": {
+    "samples": 100,
+    "maxBoneLengthError": 2.2737367544323206e-13
+  },
+  "final": {
+    "ready": true,
+    "version": 3,
+    "controllerStyle": "reference-duik-2d",
+    "source": "http://127.0.0.1:3017/riglab-project/source.png",
+    "sourceSha256": "fdd21eb55d65074815cf1c7620cc7fbc65f90e226052f5219a16bd57d4d2249a",
+    "motionLimits": {
+      "headDegrees": 8,
+      "bodyDegrees": 4,
+      "handTargetRadius": 105,
+      "wristDegrees": 18,
+      "hairDegrees": 3,
+      "rootX": 100,
+      "rootY": 65
+    },
+    "profile": "upper-body-2d-v1",
+    "partCount": 26,
+    "visibleParts": [
+      "torso",
+      "waist",
+      "hair-back",
+      "neck",
+      "face",
+      "ear-r",
+      "ear-l",
+      "hair-front",
+      "hair-side-r",
+      "hair-side-l",
+      "sleeve-r",
+      "upper-r",
+      "fore-r",
+      "hand-r",
+      "sleeve-l",
+      "upper-l",
+      "fore-l",
+      "hand-l",
+      "brow-r",
+      "brow-l",
+      "eye-r",
+      "eye-l",
+      "iris-r",
+      "iris-l",
+      "nose",
+      "mouth"
+    ],
+    "mode": "assembled",
+    "playing": false,
+    "pose": {
+      "rootX": 0,
+      "rootY": 0,
+      "body": 0,
+      "head": 0,
+      "wristL": 0,
+      "wristR": 0,
+      "blink": 0,
+      "gaze": 0,
+      "brow": 0,
+      "smile": 0,
+      "hair": 0,
+      "hairL": 0,
+      "hairR": 0,
+      "handL": [
+        0,
+        0
+      ],
+      "handR": [
+        0,
+        0
+      ]
+    },
+    "arms": {
+      "r": {
+        "shoulder": [
+          332,
+          664
+        ],
+        "elbow": [
+          278,
+          1030
+        ],
+        "wrist": [
+          674,
+          1053
+        ],
+        "requested": [
+          674,
+          1053
+        ],
+        "clamped": false,
+        "targetError": 0,
+        "lengthError": 0
+      },
+      "l": {
+        "shoulder": [
+          767,
+          670
+        ],
+        "elbow": [
+          977,
+          983
+        ],
+        "wrist": [
+          1050,
+          655
+        ],
+        "requested": [
+          1050,
+          655
+        ],
+        "clamped": false,
+        "targetError": 0,
+        "lengthError": 0
+      }
+    },
+    "finiteVertices": true,
+    "restValidation": {
+      "restPixelExact": true,
+      "parts": 26,
+      "missingPixels": 0,
+      "visiblePixels": 663714,
+      "sourceUnchanged": true
+    },
+    "frames": 390,
+    "camera": [
+      -311.815671641791,
+      -80,
+      1935.631343283582,
+      1399
+    ],
+    "textureSources": [
+      "http://127.0.0.1:3017/riglab-project/torso.png",
+      "http://127.0.0.1:3017/riglab-project/waist.png",
+      "http://127.0.0.1:3017/riglab-project/hair-back.png",
+      "http://127.0.0.1:3017/riglab-project/neck.png",
+      "http://127.0.0.1:3017/riglab-project/face.png",
+      "http://127.0.0.1:3017/riglab-project/ear-r.png",
+      "http://127.0.0.1:3017/riglab-project/ear-l.png",
+      "http://127.0.0.1:3017/riglab-project/hair-front.png",
+      "http://127.0.0.1:3017/riglab-project/hair-side-r.png",
+      "http://127.0.0.1:3017/riglab-project/hair-side-l.png",
+      "http://127.0.0.1:3017/riglab-project/sleeve-r.png",
+      "http://127.0.0.1:3017/riglab-project/upper-r.png",
+      "http://127.0.0.1:3017/riglab-project/fore-r.png",
+      "http://127.0.0.1:3017/riglab-project/hand-r.png",
+      "http://127.0.0.1:3017/riglab-project/sleeve-l.png",
+      "http://127.0.0.1:3017/riglab-project/upper-l.png",
+      "http://127.0.0.1:3017/riglab-project/fore-l.png",
+      "http://127.0.0.1:3017/riglab-project/hand-l.png",
+      "http://127.0.0.1:3017/riglab-project/brow-r.png",
+      "http://127.0.0.1:3017/riglab-project/brow-l.png",
+      "http://127.0.0.1:3017/riglab-project/eye-r.png",
+      "http://127.0.0.1:3017/riglab-project/eye-l.png",
+      "http://127.0.0.1:3017/riglab-project/iris-r.png",
+      "http://127.0.0.1:3017/riglab-project/iris-l.png",
+      "http://127.0.0.1:3017/riglab-project/nose.png",
+      "http://127.0.0.1:3017/riglab-project/mouth.png"
+    ],
+    "supportSources": [
+      "http://127.0.0.1:3017/riglab-project/face-support.png",
+      "http://127.0.0.1:3017/riglab-project/eye-support-r.png",
+      "http://127.0.0.1:3017/riglab-project/eye-support-l.png"
+    ],
+    "webglError": 0
+  },
+  "passed": true
+}

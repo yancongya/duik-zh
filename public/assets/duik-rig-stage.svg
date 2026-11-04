@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">Duik Ángela rigging stage</title>
+  <desc id="desc">Abstract character rig made of joints, bones and controller curves.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#191816"/><stop offset="1" stop-color="#312014"/></linearGradient>
+    <radialGradient id="halo"><stop stop-color="#ff8a3c" stop-opacity=".8"/><stop offset="1" stop-color="#ff5c1a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="960" height="620" rx="32" fill="url(#bg)"/>
+  <circle cx="610" cy="260" r="250" fill="url(#halo)" opacity=".5"/>
+  <g fill="none" stroke="#f7ede7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M468 108 470 205 405 286 462 374 430 500" stroke-width="18"/>
+    <path d="m470 205 109 65 91-72M462 374l122 50 88 104M405 286l-112 63-71 103" stroke-width="14"/>
+    <path d="M470 205 398 145M462 374l-86 77" stroke-width="11"/>
+  </g>
+  <g fill="#ff6b24" stroke="#fff3ed" stroke-width="7">
+    <circle cx="468" cy="108" r="18"/><circle cx="470" cy="205" r="18"/><circle cx="405" cy="286" r="18"/>
+    <circle cx="462" cy="374" r="18"/><circle cx="430" cy="500" r="18"/><circle cx="579" cy="270" r="18"/>
+    <circle cx="670" cy="198" r="18"/><circle cx="584" cy="424" r="18"/><circle cx="672" cy="528" r="18"/>
+    <circle cx="293" cy="349" r="18"/><circle cx="222" cy="452" r="18"/><circle cx="398" cy="145" r="18"/><circle cx="376" cy="451" r="18"/>
+  </g>
+  <g fill="none" stroke="#ffb27c" stroke-width="3" opacity=".8">
+    <path d="M128 112h186v82H128zM650 80h165v64H650zM690 380h154v88H690z"/>
+    <path d="M128 153h186M732 80v64M690 424h154"/>
+  </g>
+  <text x="78" y="555" fill="#fff3ed" font-family="system-ui, sans-serif" font-size="24" letter-spacing="4">DUIK · RIGGING SYSTEM</text>
+</svg>

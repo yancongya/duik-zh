@@ -1,0 +1,12 @@
+[hidden]{display:none!important}
+.static-menu{position:absolute;top:calc(100% + 1rem);left:0;z-index:1000;display:flex;flex-direction:column;gap:.75rem;min-width:12rem;max-height:65vh;overflow:auto;padding:1.25rem;background:#171717;border:1px solid #ffffff26;border-radius:1rem;box-shadow:0 16px 40px #0008;color:#fff}
+.static-menu a{display:block;white-space:nowrap}.static-menu a:hover,.static-menu a:focus-visible{color:#ff794d}.static-menu-mobile{position:fixed;top:6rem;left:1rem;right:1rem;max-height:75vh;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.static-menu-mobile a{white-space:normal}
+.static-pill-active{box-shadow:0 0 0 2px currentColor;filter:brightness(1.3)}
+.static-status{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);max-width:calc(100% - 2rem);width:max-content;z-index:2000;background:#242424;color:#fff;border:1px solid #ffffff40;border-radius:1rem;padding:1rem 1.5rem;box-shadow:0 8px 30px #0008}
+.static-video{width:min(850px,90vw);max-height:85vh;background:#151515;border:1px solid #ffffff40;border-radius:1rem;padding:3rem 1rem 1rem;color:white}.static-video::backdrop{background:#000c}.static-video>button{position:absolute;right:1rem;top:.25rem;font-size:2rem}.static-video img{width:100%;max-height:65vh;object-fit:contain}
+.static-slide-active{background:linear-gradient(#ffffff0a,#ffffff05)!important;border-color:#ffffff40!important}
+.static-carousel{scroll-snap-type:x mandatory}.static-carousel>.swiper-slide{scroll-snap-align:start}
+.static-footer-open{grid-template-rows:1fr!important}.static-footer-more{display:list-item!important}
+button:focus-visible,[role=button]:focus-visible,.static-menu a:focus-visible,.swiper:focus-visible{outline:2px solid #ff794d!important;outline-offset:4px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+.static-capability-controls{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:30}.static-capability-controls button{width:2rem;height:2rem;border:1px solid #ffffff40;border-radius:50%;background:#171717;color:white}.static-capability-controls button[aria-pressed=true]{background:#fff;color:#111}

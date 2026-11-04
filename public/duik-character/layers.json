@@ -1,0 +1,295 @@
+{
+  "version": 3,
+  "assets": [
+    {
+      "name": "hair-back",
+      "src": "/duik-character/layers/hair-back.png",
+      "atlas": "face-atlas.png",
+      "bbox": [
+        20,
+        92,
+        475,
+        461
+      ],
+      "area_px": 116628,
+      "size": [
+        475,
+        389
+      ]
+    },
+    {
+      "name": "face-base",
+      "src": "/duik-character/layers/face-base.png",
+      "atlas": "face-atlas.png",
+      "bbox": [
+        495,
+        137,
+        824,
+        430
+      ],
+      "area_px": 63409,
+      "size": [
+        349,
+        313
+      ]
+    },
+    {
+      "name": "hair-front",
+      "src": "/duik-character/layers/hair-front.png",
+      "atlas": "face-atlas.png",
+      "bbox": [
+        837,
+        99,
+        1294,
+        457
+      ],
+      "area_px": 74015,
+      "size": [
+        477,
+        378
+      ]
+    },
+    {
+      "name": "eye-left",
+      "src": "/duik-character/layers/eye-left.png",
+      "atlas": "face-atlas.png",
+      "bbox": [
+        100,
+        585,
+        360,
+        770
+      ],
+      "area_px": 32744,
+      "size": [
+        280,
+        205
+      ]
+    },
+    {
+      "name": "eye-right",
+      "src": "/duik-character/layers/eye-right.png",
+      "atlas": "face-atlas.png",
+      "bbox": [
+        544,
+        585,
+        795,
+        767
+      ],
+      "area_px": 31679,
+      "size": [
+        271,
+        202
+      ]
+    },
+    {
+      "name": "brow-left",
+      "src": "/duik-character/layers/brow-left.png",
+      "atlas": "face-atlas.png",
+      "bbox": [
+        960,
+        608,
+        1212,
+        709
+      ],
+      "area_px": 10553,
+      "size": [
+        272,
+        121
+      ]
+    },
+    {
+      "name": "brow-right",
+      "src": "/duik-character/layers/brow-right.png",
+      "atlas": "face-atlas.png",
+      "bbox": [
+        101,
+        925,
+        349,
+        1025
+      ],
+      "area_px": 10521,
+      "size": [
+        268,
+        120
+      ]
+    },
+    {
+      "name": "mouth-smile",
+      "src": "/duik-character/layers/mouth-smile.png",
+      "atlas": "face-atlas.png",
+      "bbox": [
+        541,
+        947,
+        787,
+        1039
+      ],
+      "area_px": 8527,
+      "size": [
+        266,
+        112
+      ]
+    },
+    {
+      "name": "mouth-open",
+      "src": "/duik-character/layers/mouth-open.png",
+      "atlas": "face-atlas.png",
+      "bbox": [
+        960,
+        942,
+        1207,
+        1054
+      ],
+      "area_px": 14218,
+      "size": [
+        267,
+        132
+      ]
+    },
+    {
+      "name": "neck",
+      "src": "/duik-character/layers/neck.png",
+      "atlas": "body-atlas.png",
+      "bbox": [
+        69,
+        137,
+        379,
+        357
+      ],
+      "area_px": 39707,
+      "size": [
+        330,
+        240
+      ]
+    },
+    {
+      "name": "torso",
+      "src": "/duik-character/layers/torso.png",
+      "atlas": "body-atlas.png",
+      "bbox": [
+        149,
+        176,
+        1321,
+        775
+      ],
+      "area_px": 91953,
+      "size": [
+        1172,
+        599
+      ],
+      "source": "torso-full.png"
+    },
+    {
+      "name": "waist",
+      "src": "/duik-character/layers/waist.png",
+      "atlas": "body-atlas.png",
+      "bbox": [
+        149,
+        687,
+        1321,
+        969
+      ],
+      "area_px": 49569,
+      "size": [
+        1172,
+        282
+      ],
+      "source": "torso-full.png"
+    },
+    {
+      "name": "arm-raised-upper",
+      "src": "/duik-character/layers/arm-raised-upper.png",
+      "atlas": "body-atlas.png",
+      "bbox": [
+        131,
+        415,
+        350,
+        763
+      ],
+      "area_px": 44683,
+      "size": [
+        239,
+        368
+      ]
+    },
+    {
+      "name": "arm-raised-forearm",
+      "src": "/duik-character/layers/arm-raised-forearm.png",
+      "atlas": "body-atlas.png",
+      "bbox": [
+        570,
+        482,
+        795,
+        770
+      ],
+      "area_px": 30786,
+      "size": [
+        245,
+        308
+      ]
+    },
+    {
+      "name": "arm-raised-hand",
+      "src": "/duik-character/layers/arm-raised-hand.png",
+      "atlas": "body-atlas.png",
+      "bbox": [
+        978,
+        519,
+        1259,
+        728
+      ],
+      "area_px": 29579,
+      "size": [
+        301,
+        229
+      ]
+    },
+    {
+      "name": "arm-rest-upper",
+      "src": "/duik-character/layers/arm-rest-upper.png",
+      "atlas": "body-atlas.png",
+      "bbox": [
+        68,
+        807,
+        348,
+        1142
+      ],
+      "area_px": 51511,
+      "size": [
+        300,
+        355
+      ]
+    },
+    {
+      "name": "arm-rest-forearm",
+      "src": "/duik-character/layers/arm-rest-forearm.png",
+      "atlas": "body-atlas.png",
+      "bbox": [
+        479,
+        922,
+        849,
+        1093
+      ],
+      "area_px": 34929,
+      "size": [
+        390,
+        191
+      ]
+    },
+    {
+      "name": "arm-rest-hand",
+      "src": "/duik-character/layers/arm-rest-hand.png",
+      "atlas": "body-atlas.png",
+      "bbox": [
+        997,
+        953,
+        1241,
+        1123
+      ],
+      "area_px": 22993,
+      "size": [
+        264,
+        190
+      ]
+    }
+  ]
+}

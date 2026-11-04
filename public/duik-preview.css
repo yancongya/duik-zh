@@ -1,0 +1,21 @@
+header ._logo_wl6s2_43 { opacity: 0 !important; }
+header a[aria-label="Home"] { position: relative; min-width: 8.5rem; }
+header a[aria-label="Home"]::after {
+  content: "Duik Ángela";
+  position: absolute;
+  inset: 50% auto auto 0;
+  translate: 0 -50%;
+  color: #fff;
+  font-size: 1.12rem;
+  font-weight: 650;
+  letter-spacing: -.035em;
+  white-space: nowrap;
+}
+main > section:first-of-type img[src^="/images/logos/"] { opacity: 0 !important; }
+main > section:first-of-type .kp-glass-border { --duik-accent: #ff6b2b; }
+main > section:first-of-type .hero-word-el { color: #ffb274; }
+main > section:first-of-type h1,
+main > section:first-of-type .kp-org-headline { text-wrap: balance; }
+@media (min-width: 1024px) {
+  header a[aria-label="Home"] { min-width: 9rem; }
+}

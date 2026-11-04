@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>角色组件 · 嵌入示例</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f2eb;color:#302f2c;font:14px/1.65 system-ui,"PingFang SC",sans-serif}main{max-width:1160px;margin:auto;padding:36px 28px}header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}a{color:#495e43}h1{font-size:29px;line-height:1.3;margin:8px 0}h2{font-size:17px;margin:0}p{margin:8px 0;color:#68665f}.eyebrow{font:11px ui-monospace,monospace;letter-spacing:2px}.cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}.card{background:#fffdf8;border:1px solid #dcd8ce;border-radius:16px;overflow:hidden}.caption{padding:18px 22px;border-top:1px solid #e8e2d6;min-height:108px}.scene{background:#faebc6}character-rig{height:460px;aspect-ratio:auto}.card:nth-child(2) .scene{background:#e7eddf}button{border:1px solid #a8b49e;background:transparent;color:#42513d;padding:6px 12px;border-radius:6px;cursor:pointer;font:inherit}button:focus-visible,a:focus-visible{outline:2px solid #738c5b;outline-offset:4px}.examples{padding:24px 0}pre{white-space:pre-wrap;padding:18px;background:#ebe7de;border-radius:10px;font:12px/1.7 ui-monospace,monospace}#status{font-size:12px;color:#546a43}@media(max-width:780px){.cards{grid-template-columns:1fr}character-rig{height:400px}main{padding:24px 16px}header{align-items:flex-start;gap:16px}}
+</style></head><body><main>
+<header><div><div class="eyebrow">CHARACTER RIG / EMBEDDABLE</div><h1>工作台之外，只嵌入角色。</h1><p>同一套透明图层与绑定数据，两个独立实例，不携带编辑侧栏。</p></div><a href="./rig-test.html">返回工作台 ↗</a></header>
+<div class="cards"><section class="card"><div class="scene"><character-rig id="dragRig" interaction="drag" controls="visible"></character-rig></div><div class="caption"><h2>控制器拖拽</h2><p>拖动红色端点与细环，进行有限幅度的姿态调整。</p><button id="resetDrag">恢复姿态</button></div></section>
+<section class="card"><div class="scene"><character-rig id="hoverRig" interaction="hover" controls="hidden"></character-rig></div><div class="caption"><h2>Hover 轻交互</h2><p>移入并移动鼠标，视线与头部轻微响应；移出后回到原姿态。</p><span id="status" role="status">正在加载两个独立角色…</span></div></section></div>
+<section class="examples"><h2>其他网页中的最小接入</h2><pre>&lt;script type="module" src="./character/character-rig.js"&gt;&lt;/script&gt;
+&lt;character-rig src="./character/rig/rig.json"
+  interaction="both" controls="hover"
+  style="width:480px;height:420px"&gt;&lt;/character-rig&gt;</pre><p>透明背景；样式隔离；可同时放多个实例。工作台负责制作，导出的组件负责展示与交互。</p></section>
+</main><script type="module">
+import './character-rig.js';
+try{
+const configURL=new URL('./rig-project.json',location.href),response=await fetch(configURL);if(!response.ok)throw Error('配置加载失败');const config=await response.json(),src=new URL(config.manifest,configURL).href;
+const elements=[document.querySelector('#dragRig'),document.querySelector('#hoverRig')];for(const element of elements)element.setAttribute('src',src);await Promise.all(elements.map(e=>e.ready));
+document.querySelector('#status').textContent='已就绪 · 与左侧角色状态互不影响';document.querySelector('#resetDrag').onclick=()=>elements[0].rig.reset();
+}catch(error){document.querySelector('#status').textContent=error.message;console.error(error);}
+</script></body></html>

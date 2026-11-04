@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "source": "public/duik-character/source/character-selected-v1.png",
+  "sourceSha256": "fdd21eb55d65074815cf1c7620cc7fbc65f90e226052f5219a16bd57d4d2249a",
+  "generatedAt": "2026-11-01T09:24:29.040Z",
+  "generator": "scripts/capture-duik-landing-scenes.mjs",
+  "provenance": "Local WebGL rendering of approved 26-layer rig plus its actual SVG control overlay; no AI regeneration.",
+  "rigValidation": {
+    "partCount": 26,
+    "sourceSha256": "fdd21eb55d65074815cf1c7620cc7fbc65f90e226052f5219a16bd57d4d2249a",
+    "actualSourceSha256": "fdd21eb55d65074815cf1c7620cc7fbc65f90e226052f5219a16bd57d4d2249a",
+    "restValidation": {
+      "restPixelExact": true,
+      "parts": 26,
+      "missingPixels": 0,
+      "visiblePixels": 663714,
+      "sourceUnchanged": true
+    }
+  },
+  "scenes": [
+    {
+      "id": "character-rest",
+      "title": "同一个角色，从原图出发",
+      "alt": "已确认角色由 26 张独立透明图层在原坐标精确拼接",
+      "controls": false,
+      "mode": "assembled",
+      "pose": {
+        "rootX": 0,
+        "rootY": 0,
+        "body": 0,
+        "head": 0,
+        "wristL": 0,
+        "wristR": 0,
+        "blink": 0,
+        "gaze": 0,
+        "brow": 0,
+        "smile": 0,
+        "hair": 0,
+        "hairL": 0,
+        "hairR": 0,
+        "handL": [
+          0,
+          0
+        ],
+        "handR": [
+          0,
+          0
+        ]
+      },
+      "url": "/duik-landing-assets/character-rest.webp",
+      "width": 1400,
+      "height": 1200,
+      "visiblePixels": 490694,
+      "transparentPixels": 1189306,
+      "sourceSha256": "fdd21eb55d65074815cf1c7620cc7fbc65f90e226052f5219a16bd57d4d2249a",
+      "partCount": 26,
+      "finiteVertices": true,
+      "webglError": 0,
+      "restPixelExact": true,
+      "controlCount": 0,
+      "maxBoneLengthError": 0,
+      "camera": [
+        -160.08333333333337,
+        -80,
+        1632.1666666666667,
+        1399
+      ]
+    },
+    {
+      "id": "layers-exploded",
+      "title": "拆分清楚，绑定才有依据",
+      "alt": "角色的头发、五官、身体和双臂等 26 张真实透明图层分开展示",
+      "controls": false,
+      "mode": "exploded",
+      "pose": {
+        "rootX": 0,
+        "rootY": 0,
+        "body": 0,
+        "head": 0,
+        "wristL": 0,
+        "wristR": 0,
+        "blink": 0,
+        "gaze": 0,
+        "brow": 0,
+        "smile": 0,
+        "hair": 0,
+        "hairL": 0,
+        "hairR": 0,
+        "handL": [
+          0,
+          0
+        ],
+        "handR": [
+          0,
+          0
+        ]
+      },
+      "url": "/duik-landing-assets/layers-exploded.webp",
+      "width": 1400,
+      "height": 1200,
+      "visiblePixels": 237311,
+      "transparentPixels": 1442689,
+      "sourceSha256": "fdd21eb55d65074815cf1c7620cc7fbc65f90e226052f5219a16bd57d4d2249a",
+      "partCount": 26,
+      "finiteVertices": true,
+      "webglError": 0,
+      "restPixelExact": true,
+      "controlCount": 0,
+      "maxBoneLengthError": 0,
+      "camera": [
+        -160.08333333333337,
+        -80,
+        1632.1666666666667,
+        1399
+      ]
+    },
+    {
+      "id": "bones-controls",
+      "title": "让骨骼和控制器各司其职",
+      "alt": "同一个角色显示参考风格的彩色骨骼与 12 个姿态控制器",
+      "controls": true,
+      "mode": "assembled",
+      "pose": {
+        "rootX": 0,
+        "rootY": 0,
+        "body": 0,
+        "head": 0,
+        "wristL": 0,
+        "wristR": 0,
+        "blink": 0,
+        "gaze": 0,
+        "brow": 0,
+        "smile": 0,
+        "hair": 0,
+        "hairL": 0,
+        "hairR": 0,
+        "handL": [
+          0,
+          0
+        ],
+        "handR": [
+          0,
+          0
+        ]
+      },
+      "url": "/duik-landing-assets/bones-controls.webp",
+      "width": 1400,
+      "height": 1200,
+      "visiblePixels": 492688,
+      "transparentPixels": 1187312,
+      "sourceSha256": "fdd21eb55d65074815cf1c7620cc7fbc65f90e226052f5219a16bd57d4d2249a",
+      "partCount": 26,
+      "finiteVertices": true,
+      "webglError": 0,
+      "restPixelExact": true,
+      "controlCount": 12,
+      "maxBoneLengthError": 0,
+      "camera": [
+        -160.08333333333337,
+        -80,
+        1632.1666666666667,
+        1399
+      ]
+    },
+    {
+      "id": "ik-pose",
+      "title": "移动手部，理解 IK",
+      "alt": "左手目标改变后，上臂与前臂通过 IK 联动的角色姿态",
+      "controls": true,
+      "mode": "assembled",
+      "pose": {
+        "rootX": 0,
+        "rootY": 0,
+        "body": 1.2,
+        "head": -3,
+        "wristL": 8,
+        "wristR": 0,
+        "blink": 0,
+        "gaze": 0,
+        "brow": 0,
+        "smile": 0,
+        "hair": 0,
+        "hairL": 0,
+        "hairR": 0,
+        "handL": [
+          -40,
+          -70
+        ],
+        "handR": [
+          20,
+          -15
+        ]
+      },
+      "url": "/duik-landing-assets/ik-pose.webp",
+      "width": 1400,
+      "height": 1200,
+      "visiblePixels": 490334,
+      "transparentPixels": 1189666,
+      "sourceSha256": "fdd21eb55d65074815cf1c7620cc7fbc65f90e226052f5219a16bd57d4d2249a",
+      "partCount": 26,
+      "finiteVertices": true,
+      "webglError": 0,
+      "restPixelExact": true,
+      "controlCount": 12,
+      "maxBoneLengthError": 5.684341886080802e-14,
+      "camera": [
+        -160.08333333333337,
+        -80,
+        1632.1666666666667,
+        1399
+      ]
+    },
+    {
+      "id": "expression-detail",
+      "title": "头部、表情与发梢",
+      "alt": "同一个角色的头部、表情、视线和发梢控制细节",
+      "controls": true,
+      "mode": "assembled",
+      "pose": {
+        "rootX": 0,
+        "rootY": 0,
+        "body": 0,
+        "head": 3,
+        "wristL": 0,
+        "wristR": 0,
+        "blink": 0,
+        "gaze": 0.5,
+        "brow": 0.35,
+        "smile": 0.6,
+        "hair": 0,
+        "hairL": 1.6,
+        "hairR": -1.2,
+        "handL": [
+          0,
+          0
+        ],
+        "handR": [
+          0,
+          0
+        ]
+      },
+      "crop": [
+        170,
+        -50,
+        900,
+        800
+      ],
+      "url": "/duik-landing-assets/expression-detail.webp",
+      "width": 1050,
+      "height": 933,
+      "visiblePixels": 509276,
+      "transparentPixels": 470374,
+      "sourceSha256": "fdd21eb55d65074815cf1c7620cc7fbc65f90e226052f5219a16bd57d4d2249a",
+      "partCount": 26,
+      "finiteVertices": true,
+      "webglError": 0,
+      "restPixelExact": true,
+      "controlCount": 12,
+      "maxBoneLengthError": 0,
+      "camera": [
+        -160.08333333333337,
+        -80,
+        1632.1666666666667,
+        1399
+      ]
+    },
+    {
+      "id": "animation-pose",
+      "title": "从一个姿态开始动画",
+      "alt": "保持同一角色造型的轻微侧身抬手姿态，展现绑定后的表达能力",
+      "controls": false,
+      "mode": "assembled",
+      "pose": {
+        "rootX": 0,
+        "rootY": 0,
+        "body": -1.5,
+        "head": 4,
+        "wristL": -10,
+        "wristR": 0,
+        "blink": 0,
+        "gaze": 0.4,
+        "brow": 0,
+        "smile": 0.45,
+        "hair": 0,
+        "hairL": -1.5,
+        "hairR": 1.2,
+        "handL": [
+          40,
+          -45
+        ],
+        "handR": [
+          -8,
+          12
+        ]
+      },
+      "url": "/duik-landing-assets/animation-pose.webp",
+      "width": 1400,
+      "height": 1200,
+      "visiblePixels": 498595,
+      "transparentPixels": 1181405,
+      "sourceSha256": "fdd21eb55d65074815cf1c7620cc7fbc65f90e226052f5219a16bd57d4d2249a",
+      "partCount": 26,
+      "finiteVertices": true,
+      "webglError": 0,
+      "restPixelExact": true,
+      "controlCount": 0,
+      "maxBoneLengthError": 5.684341886080802e-14,
+      "camera": [
+        -160.08333333333337,
+        -80,
+        1632.1666666666667,
+        1399
+      ]
+    }
+  ],
+  "browserErrors": [],
+  "resourceFailures": []
+}

@@ -1,0 +1,52 @@
+/* Original HomeCapabilitiesTestimonialKP camera, geometry and scroll ownership. */
+.duik-orbit-section{position:relative;min-width:0;isolation:isolate;color:var(--duik-ink);scroll-margin-top:84px}
+.duik-orbit-section .home-testimonial-capabilities-kp{background:transparent}
+.duik-orbit-section .home-testimonial-capabilities-kp img{object-fit:cover;border-radius:12px}
+.duik-orbit-section .home-testimonial-capabilities-kp img:not([src*="controller.svg"]){width:100%;max-width:100%;height:100%}
+.duik-orbit-section .home-testimonial-capabilities-kp img[src*="controller.svg"]{object-fit:contain;border-radius:0;opacity:.8}
+.duik-orbit-section .home-testimonial-capabilities-kp [class*="border-[#E2E2E21A]"]{border-color:#bec8ad}
+.duik-orbit-section .home-testimonial-capabilities-kp svg circle{stroke:#778b68;stroke-opacity:.5}
+.duik-orbit-section .home-testimonial-capabilities-kp .dot-group>div{background:#778b68}
+.duik-orbit-section .home-testimonial-capabilities-kp .dot-group>div.bg-white{background:var(--duik-accent)}
+.duik-orbit-section .home-testimonial-capabilities-kp [class*="bg-white/"]{background:#e8eadf}
+.duik-orbit-section .home-testimonial-capabilities-kp [class*="border-white/"]{border-color:#bec8ad}
+.duik-orbit-section .home-testimonial-capabilities-kp .h2{font-size:clamp(30px,3.6vw,54px);letter-spacing:-.03em}
+.duik-orbit-section .home-testimonial-capabilities-kp .label-text{display:none}
+.duik-orbit-section .home-testimonial-capabilities-kp .word-container-3d{min-width:3em}
+/* yPercent measures the word itself, not its margin. Equal line boxes keep the
+   second Chinese word entirely outside the original clipped grid. */
+.duik-orbit-section .home-testimonial-capabilities-kp .word-el-3d{line-height:1.2!important;margin-bottom:0}
+.duik-orbit-icon{display:block;flex:none;width:1.5rem;height:1.5rem;background:var(--duik-ink);-webkit-mask:var(--duik-orbit-icon) center/contain no-repeat;mask:var(--duik-orbit-icon) center/contain no-repeat;mask-mode:alpha}
+.duik-orbit-section [data-duik-orbit-step][aria-pressed="true"] .duik-orbit-icon{background:var(--duik-accent)}
+.duik-orbit-section [data-duik-orbit-step] svg{filter:none}
+.duik-orbit-section [data-duik-orbit-step] svg rect{stroke:var(--duik-accent)}
+.duik-orbit-section [data-duik-orbit-step]:focus-visible{outline:2px solid var(--duik-accent);outline-offset:3px}
+.duik-orbit-doc{display:inline-flex;align-items:center;min-height:44px;margin-top:20px;color:var(--duik-ink);font-size:14px;font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.duik-orbit-doc:hover{color:var(--duik-accent)}
+.duik-orbit-doc:focus-visible{outline:2px solid var(--duik-accent);outline-offset:4px;border-radius:4px}
+.duik-orbit-details{position:absolute;z-index:30;right:max(32px,4vw);bottom:28px;color:var(--duik-ink);font-size:13px}
+.duik-orbit-details>summary{cursor:pointer;text-decoration:underline;text-underline-offset:5px;padding:12px 0;min-height:44px}
+.duik-orbit-details>summary:focus-visible{outline:2px solid var(--duik-accent);outline-offset:4px}
+.duik-orbit-details[open]{inset:84px max(24px,4vw) 24px;background:var(--duik-paper);padding:8px 24px 20px;overflow:auto;overscroll-behavior:contain;border-radius:12px;box-shadow:0 20px 64px #27292020}
+.duik-orbit-details[open]>summary{position:sticky;top:0;background:var(--duik-paper);z-index:4}
+.duik-orbit-workbench .duik-reuse-workbench{width:100%;max-width:1200px}
+.duik-orbit-section:has(>.duik-orbit-details[open])>.home-testimonial-capabilities-kp{visibility:hidden}
+@media(max-width:1023px){
+  .duik-orbit-section .swiper-slide .duik-orbit-icon{opacity:.5}
+  .duik-orbit-section .swiper-slide-active .duik-orbit-icon{opacity:1;background:var(--duik-accent)}
+  .duik-orbit-section>.home-testimonial-capabilities-kp{height:auto!important;min-height:0}
+  .duik-orbit-details{position:relative;inset:auto!important;padding:12px 24px}
+  .duik-orbit-details[open]{max-height:none;overflow:visible}
+  .duik-orbit-section:has(>.duik-orbit-details[open])>.home-testimonial-capabilities-kp{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .kp-home-capabilities-wrap>div:first-child{display:none!important}
+  .kp-home-capabilities-wrap>.kp-home-capabilities{position:relative!important;height:auto!important;padding-block:48px}
+  .kp-home-capabilities-inner{grid-column:1/-1!important;margin:0!important}
+  .kp-home-capabilities-content,.kp-home-capabilities-content-list{transform:none!important;display:flex!important;flex-direction:column!important;gap:80px!important;width:100%}
+  .kp-home-capabilities-content>svg{display:none}
+  .duik-capability-card{width:100%}
+  .duik-orbit-section{width:100%}
+  .duik-orbit-section .home-testimonial-capabilities-kp{height:800px!important;width:100%}
+  .duik-orbit-section *{transition:none!important;animation:none!important}
+}

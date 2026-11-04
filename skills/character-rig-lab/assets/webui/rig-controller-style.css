@@ -1,0 +1,3 @@
+.stage{background:#faebc6}.stage svg .controller-label{font-size:17px;fill:#5e5060;stroke:#fff8e5;stroke-width:4px;paint-order:stroke}.stage svg .controller-label.on-hover{display:none}.stage svg .handle:hover .controller-label.on-hover,.stage svg .handle:focus .controller-label.on-hover{display:block}.stage .reference-control:focus{outline:none}.stage .reference-control:focus .hit-target{stroke:#b83c7a;stroke-width:1;stroke-dasharray:3 4}.stage-tip{background:#fffaf0dd;color:#806a62;border:1px solid #dec9ab}.stage-label{color:#756357}
+
+#importPose{display:block;width:100%;font-size:11px;margin-top:8px}

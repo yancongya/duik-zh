@@ -1,11 +1,13 @@
 import { generateStaticParamsFor, importPage } from 'nextra/pages'
-import { useMDXComponents as getMDXComponents } from '../../mdx-components'
+import { getPageMap } from 'nextra/page-map'
+import { getPageMDXComponents, useMDXComponents as getMDXComponents } from '../../mdx-components'
 
 /**
  * 标准 Nextra 文档路由（必填 catch-all）。
  *
- * 配合 next.config 中的 `contentDirBasePath: '/docs'`，
- * 该 catch-all 把 `/docs/**` 映射到 `content/docs/**`。
+ * 配合 next.config 中的 `contentDirBasePath: '/'`，
+ * 内容树的 docs 目录直接把 `/docs/**` 映射到 `content/docs/**`，
+ * 不再额外给导航加一次 /docs 前缀。
  * `params.mdxPath` 为完整内容路径（含 `docs` 前缀，与
  * `RouteToFilepath` 的 key 语义一致），`generateStaticParamsFor`
  * 与 `importPage` 直接使用同一份 pathSegments。
@@ -33,9 +35,10 @@ export default async function Page(props: {
   const { default: MDXContent, toc, metadata, sourceCode } = await importPage(
     params.mdxPath,
   )
+  const components = getPageMDXComponents(metadata.filePath, await getPageMap('/docs'))
   return (
     <Wrapper toc={toc} metadata={metadata} sourceCode={sourceCode}>
-      <MDXContent {...props} params={params} />
+      <MDXContent {...props} params={params} components={components} />
     </Wrapper>
   )
 }

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 760" role="img" aria-label="Duik 角色绑定流程示意 20">
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#25211f"/><stop offset="1" stop-color="#0d1015"/></linearGradient><radialGradient id="glow"><stop stop-color="#ffb457" stop-opacity=".28"/><stop offset="1" stop-color="#ffb457" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="760" fill="url(#bg)"/><circle cx="340" cy="330" r="315" fill="url(#glow)"/>
+  <g opacity=".22" stroke="#ffb457" fill="none"><path d="M0 640h640M0 560h640M0 480h640M0 400h640M80 0v760M160 0v760M240 0v760M320 0v760M400 0v760M480 0v760M560 0v760"/></g>
+  <rect x="43" y="48" width="554" height="664" rx="22" fill="#11141a" fill-opacity=".54" stroke="#ffffff" stroke-opacity=".24"/>
+  <text x="70" y="100" fill="#f6efe9" font-family="Arial,sans-serif" font-size="20" letter-spacing="4">DUIK ÁNGELA</text>
+  <text x="70" y="130" fill="#ffb457" font-family="Arial,sans-serif" font-size="13" letter-spacing="3">RIG STUDY / 20</text>
+  <g transform="translate(-18 0) rotate(-8 325 405)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M318 255q-61 7-72 74l-15 123q6 37 95 37t95-37l-16-123q-13-65-87-74" fill="#ffb457" stroke="#f8e8d9" stroke-width="5"/>
+    <path d="M275 290q49 30 100 1M267 443q54 24 117 0" stroke="#291e1b" stroke-opacity=".38" stroke-width="8" fill="none"/>
+    <circle cx="326" cy="203" r="62" fill="#f1c5a3" stroke="#f8e8d9" stroke-width="5"/>
+    <path d="M267 196q-2-80 54-82 77-6 68 84-20-23-31-48-33 38-91 46" fill="#342723"/>
+    <circle cx="304" cy="211" r="4" fill="#2f2728"/><circle cx="348" cy="211" r="4" fill="#2f2728"/><path d="M312 235q15 12 29 0" fill="none" stroke="#9a5e55" stroke-width="4"/>
+    <g transform="rotate(-18 255 321)"><path d="M252 321 201 416 178 488" fill="none" stroke="#ffb457" stroke-width="48"/><circle cx="201" cy="416" r="24" fill="#eeb79a"/><circle cx="178" cy="488" r="22" fill="#eeb79a"/></g>
+    <g transform="rotate(18 396 321)"><path d="M397 321 450 416 473 489" fill="none" stroke="#ffb457" stroke-width="48"/><circle cx="450" cy="416" r="24" fill="#eeb79a"/><circle cx="473" cy="489" r="22" fill="#eeb79a"/></g>
+    <path d="M292 477 278 584 258 649M358 477 372 584 392 649" fill="none" stroke="#34414d" stroke-width="55"/><path d="M258 649h-42M392 649h42" stroke="#e9b8a0" stroke-width="30"/>
+  </g>
+  <g stroke="#ffb274" stroke-width="4" fill="none" stroke-linecap="round"><path d="M326 204 326 356 326 467M326 356 222 419 177 489M326 356 435 417 473 489M326 467 281 585 257 647M326 467 370 585 392 647"/></g>
+  <g fill="#ff6b2b" stroke="#fff0df" stroke-width="3"><circle cx="326" cy="204" r="9"/><circle cx="326" cy="356" r="9"/><circle cx="326" cy="467" r="9"/><circle cx="222" cy="419" r="9"/><circle cx="177" cy="489" r="9"/><circle cx="435" cy="417" r="9"/><circle cx="473" cy="489" r="9"/><circle cx="281" cy="585" r="9"/><circle cx="257" cy="647" r="9"/><circle cx="370" cy="585" r="9"/><circle cx="392" cy="647" r="9"/></g>
+  <rect x="70" y="669" width="500" height="1" fill="#fff" opacity=".25"/><text x="70" y="694" fill="#faf2eb" font-family="Arial,sans-serif" font-size="16" letter-spacing="2">CHARACTER • BONES • MOTION</text>
+  </svg>

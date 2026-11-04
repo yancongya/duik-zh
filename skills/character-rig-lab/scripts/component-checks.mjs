@@ -1,0 +1,64 @@
+import assert from 'node:assert/strict';
+
+export async function verifyEmbedding({url,send,evaluate,screenshot,settle}){
+  const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+  const waitFor=async(expression,message)=>{for(let i=0;i<100;i++){if(await evaluate(expression))return;await delay(100);}throw Error(message);};
+  const state=id=>evaluate('document.getElementById('+JSON.stringify(id)+').rig.getState()');
+  const move=async(x,y)=>{await send('Input.dispatchMouseEvent',{type:'mouseMoved',x,y});await settle();};
+  const drag=async(id,name,dx,dy)=>{
+    const p=await evaluate(`(()=>{const h=document.getElementById(${JSON.stringify(id)}).shadowRoot.querySelector('[data-control="${name}"]');const p=new DOMPoint(0,0).matrixTransform(h.getScreenCTM());return {x:p.x,y:p.y};})()`);
+    await move(p.x,p.y);await send('Input.dispatchMouseEvent',{type:'mousePressed',button:'left',buttons:1,clickCount:1,...p});
+    for(let i=1;i<=10;i++){await send('Input.dispatchMouseEvent',{type:'mouseMoved',button:'left',buttons:1,x:p.x+dx*i/10,y:p.y+dy*i/10});await settle();}
+    await send('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',clickCount:1,x:p.x+dx,y:p.y+dy});await settle();
+  };
+  const result={url,checks:[]};
+  await send('Page.navigate',{url});
+  await waitFor('Boolean(document.querySelector("#dragRig")?.rig?.getState().ready&&document.querySelector("#hoverRig")?.rig?.getState().ready)','both component instances must load');
+  assert.equal(await evaluate('document.querySelectorAll("iframe,.layers,.properties").length'),0);
+  assert.equal(await evaluate('document.querySelector("#dragRig").shadowRoot.querySelectorAll("[data-control]").length'),12);
+  assert.equal(await evaluate('document.querySelector("#hoverRig").shadowRoot.querySelectorAll("[data-control]").length'),0);
+  assert.equal((await state('dragRig')).partCount,26);
+  result.checks.push('two shadow-DOM components load without iframe or editor sidebars');
+  await screenshot('11-embed-rest');
+  const leftRest=(await state('dragRig')).pose;
+  const box=await evaluate('(()=>{const r=document.querySelector("#hoverRig").getBoundingClientRect();return {x:r.x+r.width*.85,y:r.y+r.height*.4};})()');
+  const beforeHover=await evaluate('document.querySelector("#hoverRig").rig.capture()');
+  await move(box.x,box.y);
+  await waitFor('document.querySelector("#hoverRig").rig.getState().pose.head>1','hover must move head');
+  assert((await state('hoverRig')).pose.gaze>.2);
+  assert.notEqual(await evaluate('document.querySelector("#hoverRig").rig.capture()'),beforeHover);
+  assert.deepEqual((await state('dragRig')).pose,leftRest);
+  await screenshot('12-embed-hover');
+  await move(8,8);
+  await waitFor('Math.abs(document.querySelector("#hoverRig").rig.getState().pose.head)<.005&&!document.querySelector("#hoverRig").rig.getState().rafScheduled','hover must return and stop scheduling frames');
+  result.checks.push('real pointer hover changes head/gaze and pixels; leave restores pose without idle RAF loop');
+  const otherBefore=(await state('hoverRig')).pose;
+  const beforeDrag=await evaluate('document.querySelector("#dragRig").rig.capture()');
+  await drag('dragRig','handL',24,-20);
+  assert(Math.hypot(...(await state('dragRig')).pose.handL)>10);
+  assert.notEqual(await evaluate('document.querySelector("#dragRig").rig.capture()'),beforeDrag);
+  assert.deepEqual((await state('hoverRig')).pose,otherBefore);
+  await screenshot('13-embed-drag');
+  result.checks.push('real controller drag changes only its own instance');
+  await evaluate('document.querySelector("#dragRig").setAttribute("interaction","none")');
+  const locked=(await state('dragRig')).pose;await drag('dragRig','handL',20,0);assert.deepEqual((await state('dragRig')).pose,locked);
+  await evaluate('document.querySelector("#dragRig").setAttribute("interaction","drag");document.querySelector("#hoverRig").rig.importPose(document.querySelector("#dragRig").rig.exportPose())');
+  assert.deepEqual((await state('hoverRig')).pose.handL,(await state('dragRig')).pose.handL);
+  result.checks.push('interaction attributes take effect; exported pose transfers between same-character instances');
+  await evaluate('window.removedElement=document.querySelector("#dragRig");window.removedParent=removedElement.parentElement;window.removedRig=removedElement.rig;removedElement.remove()');
+  assert(await evaluate('removedRig.getState().destroyed'));
+  const stoppedFrames=await evaluate('removedRig.getState().frames');await delay(300);assert.equal(await evaluate('removedRig.getState().frames'),stoppedFrames);
+  await evaluate('removedParent.append(removedElement)');
+  await waitFor('Boolean(document.querySelector("#dragRig")?.rig?.getState().ready)','reconnected component must initialize');
+  assert.deepEqual((await state('dragRig')).pose.handL,[0,0]);
+  await evaluate('(()=>{const e=document.createElement("character-rig");e.setAttribute("src",document.querySelector("#dragRig").getAttribute("src"));document.body.append(e);e.remove();})()');
+  result.checks.push('unmount destroys GPU/observer/RAF lifecycle; reconnect and removal during loading are safe');
+  await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
+  await evaluate('document.querySelector("#hoverRig").rig.reset();document.querySelector("#hoverRig").rig.play("wave")');
+  await move(box.x,box.y);await settle();
+  const reduced=await state('hoverRig');assert(reduced.reducedMotion);assert.equal(reduced.playing,false);assert.equal(reduced.pose.head,0);
+  result.checks.push('reduced-motion preference suppresses autoplay and animated hover tilt');
+  await send('Emulation.setEmulatedMedia',{features:[]});await move(8,8);
+  await evaluate('document.querySelector("#dragRig").rig.reset();document.querySelector("#hoverRig").rig.reset()');
+  await screenshot('14-embed-final');result.passed=true;return result;
+}

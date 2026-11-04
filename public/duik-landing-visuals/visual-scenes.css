@@ -1,0 +1,43 @@
+/* Internal visual slots only. Never changes the template's section, pin or scroll geometry. */
+.duik-workflow-visual,.duik-capability-visual{color:#26382e;font-family:inherit;box-sizing:border-box;position:relative}
+.duik-workflow-visual *,.duik-capability-visual *{box-sizing:border-box}
+.duik-visual-topline{display:flex;align-items:center;justify-content:space-between;gap:1rem;position:relative;z-index:2;min-height:1.4rem}
+.duik-visual-label{font-size:.75rem;font-weight:600;letter-spacing:.025em;color:#526f58}
+.duik-visual-note{font-size:.625rem;color:#7b837b;text-align:right}
+.duik-workflow-visual{isolation:isolate;padding:1.5rem 1.75rem 1rem;background:#f5f4e9;border-radius:inherit;overflow:hidden;display:flex;flex-direction:column}
+.duik-workflow-scenes{position:relative;flex:1;min-height:0}
+.duik-workflow-scene{position:absolute;inset:0;display:flex;flex-direction:column;margin:0;opacity:0;transform:translateY(.65rem);transition:opacity .5s ease,transform .5s ease;pointer-events:none}
+.duik-workflow-scene[data-active=true]{opacity:1;transform:translateY(0)}
+.duik-workflow-art{position:relative;flex:1;min-height:0}
+.duik-workflow-art>.duik-scene-image{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.duik-workflow-caption{display:flex;align-items:center;gap:.875rem;min-height:3rem;padding:.6rem 0 .2rem}
+.duik-workflow-caption>span:last-child{display:flex;flex-direction:column;gap:.2rem}
+.duik-workflow-caption strong{font-size:1rem;font-weight:600;line-height:1.3}
+.duik-workflow-caption>span:last-child>span{font-size:.72rem;line-height:1.5;color:#707b71}
+.duik-scene-index{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:1.875rem;height:1.875rem;border-radius:50%;background:#e3e9d9;color:#526b50;font-size:.68rem;font-weight:600;font-variant-numeric:tabular-nums}
+.duik-workflow-dots{display:flex;gap:.3rem;align-items:center;justify-content:flex-end;position:absolute;right:1.75rem;bottom:1.4rem}
+.duik-workflow-dots>span{width:.35rem;height:.35rem;border-radius:1rem;background:#cbd3c4;transition:width .4s ease,background .4s ease}
+.duik-workflow-dots>span[data-active=true]{width:1.1rem;background:#66865d}
+.duik-workflow-alternate{opacity:0}
+.duik-workflow-visual[data-playing=true] .duik-workflow-scene[data-active=true] .duik-workflow-primary{animation:duik-scene-base 5.2s ease-in-out infinite}
+.duik-workflow-visual[data-playing=true] .duik-workflow-scene[data-active=true] .duik-workflow-alternate{animation:duik-scene-pose 5.2s ease-in-out infinite}
+@keyframes duik-scene-base{0%,20%,100%{opacity:1}45%,70%{opacity:0}}
+@keyframes duik-scene-pose{0%,20%,100%{opacity:0}45%,70%{opacity:1}}
+.duik-capability-visual{flex:none;max-width:100%;padding:1.25rem;border:1px solid #dce2d2;border-radius:1.25rem;background:#f7f7ee;box-shadow:0 .6rem 2rem #344b2610}
+.duik-capability-scenes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.25rem}
+.duik-scene-figure{position:relative;min-width:0;margin:0;border:1px solid #e0e5d8;border-radius:.75rem;overflow:hidden;background:#fffef9;outline-offset:4px}
+.duik-scene-figure:focus-visible{outline:2px solid #779369}
+.duik-scene-art{height:25rem;position:relative;overflow:hidden;background:#f0f1e5}
+.duik-scene-image{display:block;max-width:100%}
+.duik-scene-art>.duik-scene-image{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:.4rem}
+.duik-scene-default,.duik-scene-alternate{transition:opacity .55s ease}
+.duik-scene-alternate{opacity:0}
+.duik-scene-figure:hover .duik-scene-default,.duik-scene-figure:focus .duik-scene-default{opacity:0}
+.duik-scene-figure:hover .duik-scene-alternate,.duik-scene-figure:focus .duik-scene-alternate{opacity:1}
+.duik-scene-caption{display:flex;align-items:center;gap:.65rem;padding:1rem .875rem;min-height:5rem}
+.duik-scene-caption-copy{display:flex;flex-direction:column;gap:.3rem;min-width:0}
+.duik-scene-caption-copy strong{font-size:.88rem;font-weight:600;line-height:1.35}
+.duik-scene-caption-copy>span{font-size:.68rem;color:#6f7c70;line-height:1.5}
+.duik-capability-footnote{display:flex;justify-content:space-between;gap:1rem;margin-top:1rem;font-size:.62rem;color:#77836e;line-height:1.5}
+@media(max-width:1023px){.duik-capability-visual{width:100%!important;padding:.75rem;border:0;box-shadow:none;background:transparent}.duik-capability-scenes{gap:.75rem;margin-top:.75rem}.duik-scene-art{height:auto;aspect-ratio:1/1.15}.duik-scene-caption{padding:.65rem;gap:.4rem;min-height:4.5rem}.duik-scene-caption-copy strong{font-size:.75rem}.duik-scene-caption-copy>span{font-size:.6rem}.duik-visual-label{font-size:.65rem}.duik-visual-note{font-size:.54rem}.duik-capability-footnote{font-size:.55rem}.duik-workflow-visual{padding:.875rem}.duik-workflow-caption strong{font-size:.875rem}.duik-workflow-caption>span:last-child>span{font-size:.6rem}.duik-workflow-dots{right:.875rem;bottom:1.1rem}}
+@media(prefers-reduced-motion:reduce){.duik-workflow-scene,.duik-workflow-dots>span,.duik-scene-default,.duik-scene-alternate{transition:none}.duik-workflow-visual[data-playing=true] .duik-workflow-alternate,.duik-workflow-visual[data-playing=true] .duik-workflow-primary{animation:none!important}}

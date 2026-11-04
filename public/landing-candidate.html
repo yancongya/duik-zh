@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f8f6f0">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/duik-experience/icons/controller.svg" type="image/svg+xml">
+  <title>让角色动起来 — Duik 中文站 · 设计候选</title>
+  <link rel="stylesheet" href="/duik-candidate/style.css">
+  <script type="module" src="/duik-candidate/story.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到内容</a>
+  <header class="site-header">
+    <a class="wordmark" href="/" aria-label="Duik 中文站当前首页">Duik<span>中文站</span></a>
+    <nav aria-label="主导航">
+      <a href="/docs/getting-started/first-look">认识 Duik</a>
+      <a href="/rig-test.html">角色工作台</a>
+      <a class="primary-link" href="/docs">阅读中文文档 <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="sequence" aria-label="从插画到可控制的角色">
+      <div class="story-viewport">
+        <div class="story-copy">
+          <div class="copy-beat is-current" data-copy="0">
+            <h1>让角色<span>动起来。</span></h1>
+            <p>用 Duik 绑定角色、设计动作，省下那些重复劳动。<br>你的 After Effects 动画搭档。</p>
+          </div>
+          <div class="copy-beat" data-copy="1" hidden>
+            <h2>每一层，<span>都有戏。</span></h2>
+            <p>头发、眼神、手势。一个角色，从这些细节开始。</p>
+          </div>
+          <div class="copy-beat" data-copy="2" hidden>
+            <h2>连起来，<span>就有了默契。</span></h2>
+            <p>骨骼串起图层，控制器带动姿态。</p>
+          </div>
+          <div class="copy-beat" data-copy="3" hidden>
+            <h2>接下来，<span>你来导演。</span></h2>
+            <p>拖一拖手腕或头部的控制器，换一个姿态。</p>
+          </div>
+        </div>
+        <div class="scene" data-ui aria-label="角色动态演示">
+          <div class="scene-side scene-side-left"><span id="scene-label">插画 → 角色</span><span class="scene-note">同一个角色<br>26 个透明图层</span></div>
+          <div class="composition">
+            <div id="layer-stack" aria-hidden="true"></div>
+            <character-rig id="character" src="/riglab-project/rig.json" interaction="drag" controls="visible"></character-rig>
+          </div>
+          <div class="scene-side scene-side-right">
+            <button type="button" id="play" disabled aria-pressed="false">播放动作 <span aria-hidden="true">▷</span></button>
+            <button type="button" id="reset" disabled>还原姿态 <span aria-hidden="true">↶</span></button>
+          </div>
+          <p id="scene-status" role="status">正在载入角色图层…</p>
+        </div>
+        <div class="story-bottom" data-ui>
+          <div class="beat-controls" role="group" aria-label="演示章节">
+            <button type="button" data-beat="0" aria-pressed="true">角色</button>
+            <button type="button" data-beat="1" aria-pressed="false">拆开图层</button>
+            <button type="button" data-beat="2" aria-pressed="false">重新组装</button>
+            <button type="button" data-beat="3" aria-pressed="false">拖动控制器</button>
+          </div>
+          <p class="scroll-hint">向下滚动，看它如何动起来 <span aria-hidden="true">↓</span></p>
+        </div>
+      </div>
+    </section>
+    <section class="continuation" aria-labelledby="next-title">
+      <h2 id="next-title">不止于<span>角色绑定。</span></h2>
+      <div class="continuation-copy">
+        <p>给动作节奏，让镜头叙事，<br>把日常工作留给工具。</p>
+        <a href="/docs/getting-started/first-look">看看 Duik 还能做什么 <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+    <footer>
+      <p>Duik Ángela 非官方中文站</p>
+      <p>本页为设计候选 · 网页绑定演示，不在浏览器执行 AE。</p>
+      <a href="/">返回当前首页 ↗</a>
+    </footer>
+  </main>
+  <noscript><p>请启用 JavaScript 体验角色交互。你仍可直接阅读<a href="/docs">中文文档</a>。</p></noscript>
+</body>
+</html>

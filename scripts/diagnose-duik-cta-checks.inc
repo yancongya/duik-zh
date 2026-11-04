@@ -1,0 +1,25 @@
+  const snapshot=()=>evaluate('(()=>{const a=document.querySelector(".duik-nav-cta"),h=a?.closest("header"),l=window.lenis;const node=e=>e?{tag:e.tagName,class:e.className,href:e.getAttribute("href"),rect:e.getBoundingClientRect().toJSON(),transform:getComputedStyle(e).transform,visibility:getComputedStyle(e).visibility,pointerEvents:getComputedStyle(e).pointerEvents}:null;const r=a?.getBoundingClientRect(),p=r?{x:r.x+r.width/2,y:r.y+r.height/2}:null;return {path:location.pathname,scrollY,lenis:l?{scroll:l.scroll,actualScroll:l.actualScroll,animatedScroll:l.animatedScroll,targetScroll:l.targetScroll,velocity:l.velocity,isScrolling:l.isScrolling,isStopped:l.isStopped}:null,header:node(h),cta:node(a),point:p,hit:p?document.elementsFromPoint(p.x,p.y).slice(0,5).map(node):[],validHit:!!(p&&a?.contains(document.elementFromPoint(p.x,p.y)))}})()');
+  report.ctaScroll={initial:await snapshot()};
+  assert(report.ctaScroll.initial.lenis,'Original window.lenis instance exists');
+  await evaluate('window.lenis.scrollTo(document.querySelector(".duik-journey"),{immediate:true,force:true})');
+  await delay(700);
+  report.ctaScroll.atJourney=await snapshot();
+  await evaluate('window.scrollTo({top:0,behavior:"instant"})');
+  await delay(500);
+  report.ctaScroll.nativeReturn=await snapshot();
+  await evaluate('window.lenis.scrollTo(0,{immediate:true,force:true});new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))');
+  report.ctaScroll.lenisReturn=await snapshot();
+  report.ctaScroll.stability=await evaluate('(async()=>{const a=document.querySelector(".duik-nav-cta");let last=null,stable=0;for(let frame=0;frame<90;frame++){await new Promise(requestAnimationFrame);const r=a.getBoundingClientRect(),p={x:r.x+r.width/2,y:r.y+r.height/2};const hit=a.contains(document.elementFromPoint(p.x,p.y));stable=last&&Math.abs(r.x-last.x)<.1&&Math.abs(r.y-last.y)<.1?stable+1:0;if(stable>=2&&hit)return {frame,stable,hit};last={x:r.x,y:r.y};}return {stable,hit:false}})()');
+  report.ctaScroll.beforeClick=await snapshot();
+  await screenshot('02-cta-hit-target');
+  assert(report.ctaScroll.beforeClick.validHit,'Real CTA point must hit the link, not an overlapping layer');
+  const point=report.ctaScroll.beforeClick.point;
+  await send('Input.dispatchMouseEvent',{type:'mouseMoved',...point});
+  await send('Input.dispatchMouseEvent',{type:'mousePressed',button:'left',clickCount:1,...point});
+  await send('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',clickCount:1,...point});
+  for(let i=0;i<60;i++){try{if(await evaluate('location.pathname==="/docs"&&!!document.querySelector("main h1")'))break;}catch{}await delay(250);}
+  report.ctaScroll.afterClick=await evaluate('({path:location.pathname,title:document.title,heading:document.querySelector("main h1")?.innerText})');
+  assert.equal(report.ctaScroll.afterClick.path,'/docs');
+  assert(report.ctaScroll.afterClick.heading);
+  report.ctaScroll.passed=true;
+  checks.push('After long scroll, original Lenis return and stable real hit navigate the header CTA to /docs');

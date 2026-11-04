@@ -1,0 +1,141 @@
+{
+  "width": 1536,
+  "height": 1024,
+  "parts": [
+    {
+      "id": 1,
+      "file": "part-01.png",
+      "x": 497,
+      "y": 29,
+      "width": 567,
+      "height": 468,
+      "area": 92352
+    },
+    {
+      "id": 2,
+      "file": "part-02.png",
+      "x": 16,
+      "y": 44,
+      "width": 484,
+      "height": 423,
+      "area": 142432
+    },
+    {
+      "id": 3,
+      "file": "part-03.png",
+      "x": 1126,
+      "y": 58,
+      "width": 134,
+      "height": 99,
+      "area": 7907
+    },
+    {
+      "id": 4,
+      "file": "part-04.png",
+      "x": 1334,
+      "y": 59,
+      "width": 125,
+      "height": 96,
+      "area": 7010
+    },
+    {
+      "id": 5,
+      "file": "part-05.png",
+      "x": 1164,
+      "y": 169,
+      "width": 89,
+      "height": 94,
+      "area": 5484
+    },
+    {
+      "id": 6,
+      "file": "part-06.png",
+      "x": 1338,
+      "y": 171,
+      "width": 88,
+      "height": 94,
+      "area": 5381
+    },
+    {
+      "id": 7,
+      "file": "part-07.png",
+      "x": 495,
+      "y": 243,
+      "width": 564,
+      "height": 732,
+      "area": 209817
+    },
+    {
+      "id": 8,
+      "file": "part-08.png",
+      "x": 1143,
+      "y": 290,
+      "width": 115,
+      "height": 49,
+      "area": 2237
+    },
+    {
+      "id": 9,
+      "file": "part-09.png",
+      "x": 1335,
+      "y": 291,
+      "width": 116,
+      "height": 45,
+      "area": 2277
+    },
+    {
+      "id": 10,
+      "file": "part-10.png",
+      "x": 1268,
+      "y": 354,
+      "width": 59,
+      "height": 60,
+      "area": 1634
+    },
+    {
+      "id": 11,
+      "file": "part-11.png",
+      "x": 1209,
+      "y": 422,
+      "width": 160,
+      "height": 66,
+      "area": 3986
+    },
+    {
+      "id": 12,
+      "file": "part-12.png",
+      "x": 1053,
+      "y": 482,
+      "width": 207,
+      "height": 496,
+      "area": 60781
+    },
+    {
+      "id": 13,
+      "file": "part-13.png",
+      "x": 43,
+      "y": 483,
+      "width": 232,
+      "height": 490,
+      "area": 64985
+    },
+    {
+      "id": 14,
+      "file": "part-14.png",
+      "x": 284,
+      "y": 515,
+      "width": 306,
+      "height": 483,
+      "area": 55800
+    },
+    {
+      "id": 15,
+      "file": "part-15.png",
+      "x": 1308,
+      "y": 533,
+      "width": 211,
+      "height": 460,
+      "area": 42144
+    }
+  ]
+}

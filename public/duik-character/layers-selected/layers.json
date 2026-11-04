@@ -1,0 +1,85 @@
+{
+  "source": "/duik-character/source/character-selected-v1.png",
+  "canvas": [
+    1312,
+    1199
+  ],
+  "layers": [
+    {
+      "name": "upper-body",
+      "src": "/duik-character/layers-selected/upper-body.png",
+      "canvasSrc": "/duik-character/layers-selected/upper-body-canvas.png",
+      "bbox": [
+        0,
+        227,
+        1262,
+        970
+      ],
+      "size": [
+        1262,
+        743
+      ]
+    },
+    {
+      "name": "waist",
+      "src": "/duik-character/layers-selected/waist.png",
+      "canvasSrc": "/duik-character/layers-selected/waist-canvas.png",
+      "bbox": [
+        431,
+        970,
+        1112,
+        1165
+      ],
+      "size": [
+        681,
+        195
+      ]
+    },
+    {
+      "name": "raised-arm",
+      "src": "/duik-character/layers-selected/raised-arm.png",
+      "canvasSrc": "/duik-character/layers-selected/raised-arm-canvas.png",
+      "bbox": [
+        770,
+        494,
+        1262,
+        1049
+      ],
+      "size": [
+        492,
+        555
+      ]
+    },
+    {
+      "name": "resting-arm",
+      "src": "/duik-character/layers-selected/resting-arm.png",
+      "canvasSrc": "/duik-character/layers-selected/resting-arm-canvas.png",
+      "bbox": [
+        191,
+        632,
+        880,
+        1183
+      ],
+      "size": [
+        689,
+        551
+      ]
+    },
+    {
+      "name": "head-neck",
+      "src": "/duik-character/layers-selected/head-neck.png",
+      "canvasSrc": "/duik-character/layers-selected/head-neck-canvas.png",
+      "bbox": [
+        152,
+        22,
+        922,
+        691
+      ],
+      "size": [
+        770,
+        669
+      ]
+    }
+  ],
+  "staticAssemblyPixelExact": true
+}

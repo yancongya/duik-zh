@@ -1,0 +1,216 @@
+{
+  "revision": "718e6e282d1ae91dc9678bb1a202ce08e862a28d",
+  "checked": "2026-11-01",
+  "kind": "Unmodified official documentation screenshots; not generated mockups or current AE-session captures",
+  "attribution": "Nicolas “Duduf” Dufresne / RxLaboratory and contributors",
+  "licenseContext": "Upstream documentation GFDL 1.3; retain original attribution, see NOTICE.md and LICENSE-GFDL-1.3.md",
+  "assets": [
+    {
+      "file": "duik/home.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/home.png",
+      "guide": "/docs/getting-started/first-look",
+      "width": 292,
+      "height": 529,
+      "bytes": 16368,
+      "sha256": "a861592e2b0f7a7bf604020511462dcdc1a8bb3f22b96d0a1fdf04aacd59368f"
+    },
+    {
+      "file": "duik/top-bar.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/top-bar.png",
+      "guide": "/docs/getting-started/first-look",
+      "width": 259,
+      "height": 54,
+      "bytes": 2956,
+      "sha256": "02c54dee7bd3cd8d95687d9a2f84925b35431dfd790a8b44af77ec91f522b5c6"
+    },
+    {
+      "file": "duik/individual-panels.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/individual-panels.png",
+      "guide": "/docs/getting-started/first-look",
+      "width": 1265,
+      "height": 567,
+      "bytes": 98586,
+      "sha256": "1f7467cfbf60dafe0701b4bb0989ad7531b895eddf9adb8af98a7ec019c439e8"
+    },
+    {
+      "file": "duik/bones/bones_panel.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/bones/bones_panel.png",
+      "guide": "/docs/guide/bones",
+      "width": 286,
+      "height": 486,
+      "bytes": 20010,
+      "sha256": "3adb5fb927df60743ba990d5ff8e0d39e09edd986c674832c056a055d6b0bc1a"
+    },
+    {
+      "file": "duik/bones/toolbar.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/bones/toolbar.png",
+      "guide": "/docs/guide/bones",
+      "width": 299,
+      "height": 99,
+      "bytes": 5429,
+      "sha256": "7fa5d3e005380d0f4aaf994395356a013cda4a98e48533fbdc2e098de9456355"
+    },
+    {
+      "file": "duik/constraints/constraints-panel.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/constraints/constraints-panel.png",
+      "guide": "/docs/guide/constraints",
+      "width": 269,
+      "height": 405,
+      "bytes": 22762,
+      "sha256": "42a5733474d6bac5f7bfdc24148e11d09b8c0c10a85e326a19f730fa92c989c2"
+    },
+    {
+      "file": "duik/controllers/panel.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/controllers/panel.png",
+      "guide": "/docs/guide/controllers",
+      "width": 393,
+      "height": 460,
+      "bytes": 26865,
+      "sha256": "3e6df2c1874940d1d0935e8823c796b289905657ded682f6bdd829ccc89019ed"
+    },
+    {
+      "file": "duik/animation/animation-panel.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/animation/animation-panel.png",
+      "guide": "/docs/guide/animation",
+      "width": 415,
+      "height": 818,
+      "bytes": 44777,
+      "sha256": "4545056477cae571b26de376f6b23cd2674061346b505241777f92459700f4bd"
+    },
+    {
+      "file": "duik/animation/temporal-interpolation.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/animation/temporal-interpolation.png",
+      "guide": "/docs/guide/animation/interpolation",
+      "width": 418,
+      "height": 206,
+      "bytes": 13444,
+      "sha256": "7fa7b84daaaf74e95c98e6cc197e8c96aebbd26a007b6d8fefbd2879ab89fb1f"
+    },
+    {
+      "file": "duik/automation/panel.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/automation/panel.png",
+      "guide": "/docs/guide/automation",
+      "width": 374,
+      "height": 659,
+      "bytes": 36402,
+      "sha256": "e79b05d591c15a510012c9311754767b1c953cc70e0bb7d0113695edcba4b98f"
+    },
+    {
+      "file": "duik/automation/wiggle-effect.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/automation/wiggle-effect.png",
+      "guide": "/docs/guide/automation/wiggle",
+      "width": 392,
+      "height": 255,
+      "bytes": 20647,
+      "sha256": "a824cae779a0a9a9e483837d424e2ef92b8a83eaae70404a60b38d12d888ceea"
+    },
+    {
+      "file": "duik/cameras/camera-panel.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/cameras/camera-panel.png",
+      "guide": "/docs/guide/camera",
+      "width": 318,
+      "height": 193,
+      "bytes": 8732,
+      "sha256": "9fc160138df87277c3aa873d8852c0a441ecafd5375d34693db584ece8d6bb80"
+    },
+    {
+      "file": "duik/cameras/2d-camera-effect.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/cameras/2d-camera-effect.png",
+      "guide": "/docs/guide/camera/camera-2d",
+      "width": 405,
+      "height": 537,
+      "bytes": 34845,
+      "sha256": "2ffb8d1a04ba8c5bc30661e3509aadd428f6a914264d8459060830c1485039ee"
+    },
+    {
+      "file": "duik/tools/comp-tools.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/tools/comp-tools.png",
+      "guide": "/docs/guide/tools",
+      "width": 423,
+      "height": 197,
+      "bytes": 11253,
+      "sha256": "02404c34d568a16071076f6c1f229a971c862f2fe6d0c987568b0b342f91dbf8"
+    },
+    {
+      "file": "duik/tools/layer-tools.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/tools/layer-tools.png",
+      "guide": "/docs/guide/tools",
+      "width": 421,
+      "height": 370,
+      "bytes": 23959,
+      "sha256": "b6ede3053c76f7cedfc925cc55d1405cbe5770d4760d162988fd25d84ccb8d9f"
+    },
+    {
+      "file": "duik/tools/text-tools.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/tools/text-tools.png",
+      "guide": "/docs/guide/tools",
+      "width": 418,
+      "height": 177,
+      "bytes": 9883,
+      "sha256": "1fbb3aa146664bdf9d642095185c3afc3e16a01e3146899540b220062a780b35"
+    },
+    {
+      "file": "duik/tools/script-tools.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/tools/script-tools.png",
+      "guide": "/docs/guide/tools",
+      "width": 421,
+      "height": 222,
+      "bytes": 13317,
+      "sha256": "d44740fb5706ef956b4392b21172f0522b6c8e37786ee5e4dd7a844ad5905573"
+    },
+    {
+      "file": "duik/tools/rename.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/tools/rename.png",
+      "guide": "/docs/guide/tools/text/rename",
+      "width": 418,
+      "height": 268,
+      "bytes": 14210,
+      "sha256": "c421fb0d29a7eb4b75570f0d71b62dc5d9ce3ce05eff8ffa2509b68189efd511"
+    },
+    {
+      "file": "duik/tools/script-editor.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/tools/script-editor.png",
+      "guide": "/docs/guide/tools/scripting/script-editor",
+      "width": 481,
+      "height": 535,
+      "bytes": 22588,
+      "sha256": "2b5bcd248e779232e6d7c1ac8d6e5aa443b52b54b9bb3870a287c5a662763723"
+    },
+    {
+      "file": "duik/cmd.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/cmd.png",
+      "guide": "/docs/guide/cmd",
+      "width": 478,
+      "height": 434,
+      "bytes": 16890,
+      "sha256": "8185b9164d8ba7966f6538340357e19fcd94f0313c7f86cb1f78be5fef161c4b"
+    },
+    {
+      "file": "duik/oco/oco_panel.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/oco/oco_panel.png",
+      "guide": "/docs/guide/oco",
+      "width": 292,
+      "height": 470,
+      "bytes": 20269,
+      "sha256": "545e841c248197957f954a10599787a64c62063110999c6db378a84eb15325a8"
+    },
+    {
+      "file": "duik/animation/anim-library.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/animation/anim-library.png",
+      "guide": "/docs/guide/animation/anim-library",
+      "width": 297,
+      "height": 380,
+      "bytes": 13442,
+      "sha256": "8f6aeedaabe91417b52bc73f38c6641adcf1cde8fd98462e3ff0c5d393756a3c"
+    },
+    {
+      "file": "duik/tools/script-lib.png",
+      "source": "https://raw.githubusercontent.com/RxLaboratory/Duik/718e6e282d1ae91dc9678bb1a202ce08e862a28d/src-docs/docs/img/duik/tools/script-lib.png",
+      "guide": "/docs/guide/tools/scripting/library",
+      "width": 424,
+      "height": 535,
+      "bytes": 21868,
+      "sha256": "ebc21ce3cd53c20759d2604a518a9f98faf5f813b5d117dc1155dd8b04aa8479"
+    }
+  ]
+}

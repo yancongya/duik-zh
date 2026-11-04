@@ -1,0 +1,102 @@
+/* Light-only landing surface. The original layout/motion classes remain intact. */
+.duik-wall-link{display:block;cursor:pointer;color:inherit;text-decoration:none;outline-offset:6px}
+.duik-wall-link:focus-visible{outline:3px solid var(--duik-accent,#c4512e)}
+.kp-home-hero-inner-scale-target:focus-within>div:first-child{opacity:1!important;transform:translateY(0)!important}
+html.theme-kp[data-duik-theme=light],html[data-duik-theme=light]{color-scheme:light;--duik-paper:#f8f6f0;--duik-card:#fffdf8;--duik-ink:#272920;--duik-muted:#686b5e;--duik-line:#deded3;--duik-accent:#c4512e;--duik-soft:#efe9dc;--color-page-background:#f8f6f0!important;background:var(--duik-paper)!important;color:var(--duik-ink)!important}
+html[data-duik-theme=light] body,html[data-duik-theme=light] .theme-kp{background:var(--duik-paper)!important;color:var(--duik-ink)!important;--color-page-background:#f8f6f0;--color-text:#272920;font-family:Inter,-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+html[data-duik-theme=light] :is(.text-white,[class*="text-white/"],.kp-org-headline__claim,.kp-org-headline__word){color:var(--duik-ink)!important}
+html[data-duik-theme=light] :is([class*="bg-black"],[class*="bg-[#000"],[class*="bg-[#0A"],[class*="bg-[#111"],[class*="bg-[#191"]){background-color:var(--duik-paper)!important}
+html[data-duik-theme=light] :is([class*="border-white"],.kp-glass-border){border-color:var(--duik-line)!important}
+/* Pigment is now computed on paper inside the original shader. Preserve its
+   fade-in rather than forcing the formerly dark canvas to 5.5% opacity. */
+html[data-duik-theme=light] .tres-canvas-container{background:var(--duik-paper)!important;pointer-events:none}
+html[data-duik-theme=light] .tres-canvas-container.opacity-100{opacity:.78!important}
+html[data-duik-theme=light] .tres-canvas-container canvas{pointer-events:none!important}
+html[data-duik-theme=light] .tres-canvas-placeholder{opacity:1;background:radial-gradient(ellipse at 12% 42%,#b2c9ac66,transparent 55%),radial-gradient(ellipse at 87% 66%,#e4a68477,transparent 56%),var(--duik-paper)!important}
+html[data-duik-theme=light] .glow-wrapper{opacity:.28!important}
+html[data-duik-theme=light] .text-opacity-gradient{background:none;-webkit-text-fill-color:var(--duik-muted);color:var(--duik-muted);animation:none}
+html[data-duik-theme=light] .kp-home-capabilities-content>svg path{stroke:#8ca97d;opacity:.65}
+html[data-duik-theme=light] .btn-group{box-shadow:none!important;border:1px solid var(--duik-line);color:var(--duik-ink)!important}
+html[data-duik-theme=light] .btn-group-primary{background:var(--duik-accent)!important;color:var(--duik-card)!important}
+html[data-duik-theme=light] .btn-group-glass{background:var(--duik-card)!important}
+html[data-duik-theme=light] .btn-group-primary .text-white{color:var(--duik-card)!important}
+html[data-duik-theme=light] .home-testimonial-capabilities-kp img[src*=logo_testi]{visibility:hidden}
+/* The retained Vue header rewrites its class while scrolling; its data marker is stable. */
+html[data-duik-theme=light] header[data-duik-ready=true]{color:var(--duik-ink)!important;background:#f8f6f0ed!important;border-bottom:1px solid var(--duik-line)}
+html[data-duik-theme=light] header[data-duik-ready=true]>:not(.duik-site-nav){display:none!important}
+.duik-site-nav{width:min(1400px,100%);margin:auto;display:flex;align-items:center;gap:36px;padding:16px 36px;min-height:76px}
+.duik-wordmark{display:flex;gap:6px;align-items:baseline;white-space:nowrap;color:var(--duik-ink)!important;text-decoration:none;font-size:24px;font-weight:750;letter-spacing:-1px}
+.duik-wordmark span{font-weight:450}.duik-wordmark small{font-size:10px;letter-spacing:.05em;margin-left:7px;color:var(--duik-muted)}
+.duik-nav-links{display:flex;gap:26px;margin-left:auto;align-items:center;font-size:13px;color:var(--duik-muted)}.duik-nav-links a{white-space:nowrap}.duik-nav-links a:hover{color:var(--duik-accent)}
+.duik-site-nav .duik-nav-cta{padding:9px 14px;font-size:12px;white-space:nowrap}.duik-menu-toggle{display:none}
+.duik-learning{padding:110px 32px;background:#eeefe5;position:relative;z-index:10;color:var(--duik-ink)}
+.duik-section-intro{max-width:760px;margin:0 auto 48px;text-align:center}.duik-eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--duik-accent);margin-bottom:20px}.duik-section-intro h2{font-size:clamp(28px,3vw,44px);font-weight:550;letter-spacing:-.035em;line-height:1.3;margin-bottom:20px}.duik-section-intro>p:last-child{color:var(--duik-muted);font-size:15px;line-height:1.8}
+.duik-path-cards{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.duik-path-card{display:flex;flex-direction:column;background:var(--duik-card);padding:32px;border-radius:16px;border:1px solid var(--duik-line);text-align:left;transition:transform .25s,border-color .25s;text-decoration:none!important}.duik-path-card:hover{transform:translateY(-6px);border-color:#9d9f81}.duik-step{font-size:12px;color:var(--duik-accent);letter-spacing:.08em}.duik-path-card h3{font-size:23px;line-height:1.4;margin:28px 0 18px;font-weight:550;letter-spacing:-.03em}.duik-path-card p,.duik-path-card li{font-size:13px;line-height:1.9;color:var(--duik-muted)}.duik-path-card ul{margin:24px 0 40px;padding-left:16px;list-style:disc}.duik-card-link{margin-top:auto;font-size:13px;font-weight:600;padding-top:18px;border-top:1px solid var(--duik-line)}
+html[data-duik-theme=light] footer[data-duik-ready=true]{padding:84px 36px 28px!important;background:#ede9df!important;color:var(--duik-ink)!important}
+.duik-footer-content{max-width:1240px;margin:auto;display:grid;grid-template-columns:2fr 1fr;gap:54px}.duik-footer-content h2{font-size:clamp(32px,4vw,56px);line-height:1.35;font-weight:500;letter-spacing:-.04em}.duik-footer-actions{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}.duik-footer-links{display:flex;flex-direction:column;gap:16px;align-items:flex-start;justify-content:center;font-size:14px}.duik-legal{grid-column:1/-1;padding-top:28px;border-top:1px solid #d6d3c7;color:var(--duik-muted);font-size:11px;line-height:1.9;position:relative}.duik-legal>a{display:inline-block;margin-top:16px}.duik-legal p a{text-decoration:underline}
+html[data-duik-theme=light] .kp-org-headline{font-family:inherit;line-height:1.2;font-size:clamp(22px,2.2vw,34px);margin-bottom:16px!important}
+html[data-duik-theme=light] .kp-org-headline__claim{font-size:1.25em}
+html[data-duik-theme=light] .kp-home-hero-main{gap:12px!important}
+html[data-duik-theme=light] .kp-home-hero-main>div:first-child{min-height:76px!important;flex:.3}
+html[data-duik-theme=light] .kp-pill{color:var(--duik-ink)!important;background:#ede7da!important;box-shadow:none!important;border:1px solid var(--duik-line)}
+.duik-input-slot{position:relative;z-index:20;width:100%;max-width:640px;margin-inline:auto}
+.duik-character-stage{position:relative;border:1px solid var(--duik-line);border-radius:20px;background:#f1ead8;overflow:hidden;box-shadow:0 8px 32px #40401e08}
+.duik-stage-heading,.duik-rig-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 18px;font-size:11px;color:var(--duik-muted)}
+.duik-stage-heading{border-bottom:1px solid #ddd6c5;text-align:left;letter-spacing:.04em}
+.duik-stage-heading i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#8f9b64;margin-right:7px}
+.duik-rig-viewport{height:clamp(230px,36svh,370px)}
+.duik-character-stage .duik-rig-viewport>character-rig,.duik-rig-viewport>img{display:block;width:100%;height:100%;object-fit:contain;margin:auto}
+.duik-rig-toolbar{border-top:1px solid #ddd6c5;font-size:11px;flex-wrap:wrap}
+.duik-rig-toolbar span{margin-right:auto}
+.duik-rig-toolbar button{border:1px solid #c9c9b8;background:#fffdf8;border-radius:5px;color:var(--duik-ink);padding:5px 9px;cursor:pointer}
+.duik-rig-toolbar button[hidden]{display:none}
+.duik-rig-toolbar button:disabled{opacity:.55;cursor:default}
+.duik-character-stage[data-rig-state=error] [data-rig-status]{color:var(--duik-ink)}
+.duik-rig-diagnostics{padding:12px;text-align:left;background:var(--duik-card);color:var(--duik-ink);font:12px/1.5 system-ui}
+.duik-rig-diagnostics summary{cursor:pointer}.duik-rig-diagnostics p{margin-block:8px}
+.duik-rig-diagnostics button{border:1px solid var(--duik-line);padding:6px 10px;margin:6px 8px 6px 0;border-radius:6px;cursor:pointer}
+.duik-rig-diagnostics pre{max-height:200px;overflow:auto;white-space:pre-wrap}
+.duik-rig-diagnostics img{width:100%;max-height:280px;object-fit:contain}.duik-rig-diagnostics img[hidden]{display:none}
+.duik-demo-note{margin:8px 0;font-size:10px;color:var(--duik-muted)}
+.duik-pose-slot{position:relative;width:clamp(280px,30vw,428px);padding:18px;border:1px solid var(--duik-line);border-radius:20px;background:var(--duik-card);text-align:center}
+.duik-pose-label{font-size:12px;color:var(--duik-muted);padding-bottom:10px}.duik-pose-slot character-rig{display:block;height:390px;width:100%}.duik-pose-slot button{border:1px solid var(--duik-line);border-radius:7px;padding:6px 12px;background:var(--duik-paper);font-size:12px}
+/* The original bottom strip stays in the Hero so its scroll exit is inherited. */
+.duik-hero-ribbon{display:grid!important;grid-template-columns:minmax(170px,1fr) minmax(0,2.7fr) minmax(100px,1fr);gap:24px!important;min-height:76px;text-align:left}
+.duik-hero-ribbon>.h-line{background:var(--duik-line)!important}
+.duik-hero-ribbon-guide{display:flex;align-items:center;gap:10px;color:var(--duik-muted);font-size:13px;text-decoration:none;white-space:nowrap}
+.duik-hero-ribbon-guide img{flex:none;width:22px;height:22px}
+.duik-hero-ribbon-window{min-width:0;align-self:center;margin-block:0!important}
+.duik-hero-ribbon-toggle{justify-self:end;padding:9px 12px;font-size:12px;white-space:nowrap;color:var(--duik-muted);border:1px solid var(--duik-line);border-radius:999px;cursor:pointer}
+.duik-hero-ribbon :focus-visible{outline:2px solid var(--duik-accent);outline-offset:4px}
+@media(hover:hover) and (pointer:fine){.duik-hero-ribbon-guide:hover,.duik-hero-ribbon-toggle:hover{color:var(--duik-accent)}}
+@media(max-width:767px){.duik-hero-ribbon{grid-template-columns:minmax(0,1fr) auto;gap:6px 12px!important;padding-block:10px}.duik-hero-ribbon-window{grid-column:1/-1;grid-row:2}.duik-hero-ribbon-guide{font-size:12px}.duik-hero-ribbon-toggle{padding:6px 10px}}
+html[data-duik-theme=light] .kp-home-hero-main-input-wrap>p{font-size:13px;line-height:1.8;max-width:580px;margin:16px auto;color:var(--duik-muted)!important}
+html[data-duik-theme=light] .kp-home-hero-thumbnail img,html[data-duik-theme=light] .kp-home-hero-thumbnails-img img{object-fit:cover!important;background:transparent}
+.duik-hero-actions{display:flex;gap:12px;justify-content:center;margin-top:12px}
+.duik-primary,.duik-secondary{display:inline-flex;align-items:center;justify-content:center;gap:25px;padding:12px 20px;border-radius:7px;font-size:13px;font-weight:550;text-decoration:none!important;border:1px solid var(--duik-line);transition:background .2s,transform .2s}
+.duik-primary{background:var(--duik-accent)!important;color:#fffdf8!important;border-color:var(--duik-accent)}
+.duik-secondary{background:var(--duik-card);color:var(--duik-ink)!important}
+.duik-primary:hover{background:#a84023!important}.duik-secondary:hover{background:#eee9de}
+.duik-input-slot :focus-visible{outline:2px solid var(--duik-accent);outline-offset:4px}
+.duik-journey{padding:24px;border:1px solid var(--duik-line);background:var(--duik-card);border-radius:16px;color:var(--duik-ink)}
+.duik-journey [role=tablist]{display:flex;gap:8px;flex-wrap:wrap}.duik-journey [role=tab]{padding:10px;border:1px solid var(--duik-line);border-radius:6px;color:var(--duik-muted);font-size:13px}.duik-journey [aria-selected=true]{background:#e9eddb;color:#39432b}.duik-journey p{margin:24px 0;font-size:15px;line-height:1.8}
+@media(max-width:767px){.duik-input-slot{max-width:calc(100vw - 36px)}.duik-rig-viewport{height:260px}.duik-rig-toolbar{gap:6px;padding:8px}.duik-rig-toolbar span{width:100%;text-align:center}.duik-stage-heading{font-size:10px;padding:9px}.duik-hero-actions a{padding:10px 14px;font-size:12px}.duik-demo-note{font-size:9px}.duik-hero-actions{margin-top:8px}}
+@media(prefers-reduced-motion:reduce){.duik-input-slot *{scroll-behavior:auto!important;transition:none!important}}
+@media(max-width:1050px){.duik-site-nav{gap:20px;padding-inline:24px}.duik-nav-links{gap:16px}.duik-wordmark small{display:none}}
+@media(max-width:767px){.duik-site-nav{padding:12px 18px;gap:14px;min-height:64px}.duik-wordmark{font-size:21px}.duik-nav-links{display:none;position:absolute;left:0;right:0;top:64px;background:var(--duik-card);padding:20px;border-bottom:1px solid var(--duik-line)}.duik-menu-open .duik-nav-links{display:flex;flex-direction:column;align-items:stretch}.duik-site-nav .duik-nav-cta{margin-left:auto;padding:7px 10px;font-size:11px}.duik-menu-toggle{display:block;color:var(--duik-ink);font-size:12px}.duik-learning{padding:72px 20px}.duik-path-cards{grid-template-columns:1fr;gap:16px}.duik-path-card{padding:26px}.duik-path-card ul{margin-bottom:24px}.duik-footer-content{grid-template-columns:1fr;gap:36px}html[data-duik-theme=light] footer[data-duik-ready=true]{padding-inline:24px!important}.duik-legal{grid-column:1}.duik-footer-links{display:grid;grid-template-columns:1fr 1fr}}
+/* A single playback control serves all functional motion covers. */
+.duik-wall-playback{position:fixed;inset-block-end:24px;inset-inline-end:24px;z-index:40;padding:10px 16px;border:1px solid var(--duik-line,#deded3);border-radius:999px;background:var(--duik-paper,#f3f1e8);color:var(--duik-ink,#202724);font-size:12px;line-height:1.4;cursor:pointer}
+.duik-wall-playback[hidden]{display:none}
+.duik-wall-playback:focus-visible{outline:2px solid var(--duik-accent,#bd582f);outline-offset:4px}
+.duik-wall-playback:disabled{cursor:default}
+/* Keep reading text outside the cover, independent of legacy hover/color utilities. */
+.duik-wall-caption{position:absolute;inset:calc(100% + 12px) 0 auto;display:grid;gap:4px;opacity:1!important;transform:none!important;pointer-events:none;color:var(--duik-ink,#272920);text-align:left;font-size:16px;line-height:1.45}
+.duik-wall-caption>span{display:block;white-space:normal;overflow-wrap:anywhere}
+.duik-wall-title{font-weight:600}
+.duik-wall-summary{font-size:13px;line-height:1.6;color:var(--duik-muted,#686b5e);font-weight:400}
+/* The phase itself is the headline: no redundant kicker or empty label row.
+   Retain the original phase nodes for the template's GSAP lifecycle. */
+.kp-home-hero-intro>div:has(>.kp-hero-label-item){display:none}
+html[data-duik-theme=light] .kp-home-hero-intro h2 svg path{stroke:var(--duik-accent)}
+html[data-duik-theme=light] .kp-hero-pagination>span{background:var(--duik-muted);opacity:.35}
+html[data-duik-theme=light] .kp-hero-pagination>span.bg-white{background:var(--duik-accent);opacity:1}

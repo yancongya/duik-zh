@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09090b">
+  <title>角色部件自动提取候选</title>
+  <link rel="stylesheet" href="/rig-test.css">
+  <style>
+    .candidate-board{display:grid;grid-template-columns:minmax(300px,.8fr) minmax(440px,1.2fr);gap:14px;align-items:stretch}
+    .candidate-card{min-width:0;padding:18px;border:1px solid #ffffff16;border-radius:16px;background:linear-gradient(145deg,#ffffff0b,#ffffff04)}
+    .candidate-canvas{height:520px;display:grid;place-items:center;overflow:hidden;border:1px solid #ffffff0d;border-radius:11px;background-color:#171617;background-image:linear-gradient(45deg,#ffffff08 25%,transparent 25%),linear-gradient(-45deg,#ffffff08 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#ffffff08 75%),linear-gradient(-45deg,transparent 75%,#ffffff08 75%);background-size:18px 18px;background-position:0 0,0 9px,9px -9px,-9px 0}
+    .candidate-canvas svg{width:min(100%,680px);height:auto;display:block}
+    .parts-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+    .parts-grid .layer-tile{height:118px}
+    .source-note{margin-top:13px;padding:11px 12px;border:1px solid #dca17b44;border-radius:9px;background:#dca17b0b;color:#c8b6a9;font-size:10px;line-height:1.6}
+    @media(max-width:900px){.candidate-board{grid-template-columns:1fr}.candidate-canvas{height:450px}}
+    @media(max-width:560px){.candidate-card{padding:13px}.candidate-canvas{height:340px}.parts-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  </style>
+</head>
+<body>
+  <main class="test-page">
+    <header class="test-header"><a class="back-link" href="/rig-test.html">← 返回原拼接测试</a><span class="test-tag">候选素材 · 不覆盖已确认角色</span></header>
+    <section class="intro-block">
+      <p class="eyebrow">GENERATED CHARACTER PARTS · AUTO EXTRACTION</p>
+      <h1>生成稿的透明部件提取</h1>
+      <p>从原角色参考生成部件排布图，再按洋红底色自动提取透明区域。这里展示实际提取结果；此版本只用于评估生成与切分质量，尚未替换原角色。</p>
+    </section>
+    <section class="candidate-board">
+      <section class="candidate-card">
+        <div class="section-heading"><div><h2>自动识别的独立区域</h2><p>颜色键控 + 连通区域提取</p></div><span class="count-badge" id="partCount">透明图层</span></div>
+        <div class="parts-grid" id="partsGrid"></div>
+        <div class="source-note">提取结果仍包含头部与颈肩相连等合并区域，不能直接作为最终绑定层。当前没有对原角色或 /rig-test.html 做替换。</div>
+      </section>
+      <section class="candidate-card">
+        <div class="section-heading"><div><h2>透明层回放</h2><p>提取层按生成稿中的原位置叠放</p></div><span class="preview-badge"><i></i>候选层叠</span></div>
+        <div class="candidate-canvas"><svg id="partsAssembly" viewBox="0 0 1536 1024" role="img" aria-label="由自动提取的透明区域按原坐标叠放的候选部件排布"></svg></div>
+        <div class="assembly-footer"><span>同画布坐标 / 透明 PNG</span><span>候选部件排布，不是最终角色合成</span></div>
+      </section>
+    </section>
+  </main>
+  <script>
+    const grid=document.querySelector('#partsGrid');
+    const svg=document.querySelector('#partsAssembly');
+    fetch('/duik-character/candidates/rig-parts-v1/parts.json').then(r=>r.json()).then(data=>{
+    svg.setAttribute('viewBox',`0 0 ${data.width} ${data.height}`);
+    document.querySelector('#partCount').textContent=`${data.parts.length} 个区域`;
+    for(const part of data.parts){
+      const tile=document.createElement('div');tile.className='layer-tile';
+      const url=`/duik-character/candidates/rig-parts-v1/${part.file}`;
+      const img=document.createElement('img');img.src=url;img.alt=`自动提取区域 ${part.id}`;
+      const caption=document.createElement('span');caption.textContent=`提取区域 ${String(part.id).padStart(2,'0')}`;
+      tile.append(img,caption);grid.append(tile);
+      const layer=document.createElementNS('http://www.w3.org/2000/svg','image');
+      layer.setAttribute('href',url);layer.setAttribute('x',part.x);layer.setAttribute('y',part.y);layer.setAttribute('width',part.width);layer.setAttribute('height',part.height);svg.append(layer);
+    }
+    }).catch(()=>{document.querySelector('#partCount').textContent='素材未加载';});
+  </script>
+</body>
+</html>

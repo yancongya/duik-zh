@@ -1,0 +1,26 @@
+{
+  "expectations": [
+    {
+      "text": "新图不自动继承示例多边形与枢轴",
+      "passed": true,
+      "evidence": "new-source 的 26 个 polygon 为空、pivot 为 null；没有套用示例坐标"
+    },
+    {
+      "text": "缺少标注时构建失败而非输出假绑定",
+      "passed": true,
+      "evidence": "missing/invalid semantic polygon or pivot: torso; annotate this source, do not borrow demo coordinates"
+    },
+    {
+      "text": "源图发生改变时构建拒绝",
+      "passed": true,
+      "evidence": "source SHA-256 changed; keep the approved character locked"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1
+  },
+  "evaluation_mode": "deterministic inline regression; no independent agent or baseline comparison"
+}

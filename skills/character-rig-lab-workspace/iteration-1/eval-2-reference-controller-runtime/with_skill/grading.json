@@ -1,0 +1,31 @@
+{
+  "expectations": [
+    {
+      "text": "新增控件实际改变姿态和 canvas 像素",
+      "passed": true,
+      "evidence": "9 个新增拖拽测试逐项断言姿态和画面改变；原有双手/头/腰也通过"
+    },
+    {
+      "text": "骨长保持且顶点有限",
+      "passed": true,
+      "evidence": "100 姿态样本，最大骨长误差 2.2737367544323206e-13"
+    },
+    {
+      "text": "错误角色姿态被拒绝",
+      "passed": true,
+      "evidence": "浏览器已验证姿态往返，以及 sourceSha256 不匹配拒绝"
+    },
+    {
+      "text": "本地浏览器无异常和资源失败",
+      "passed": true,
+      "evidence": "report.errors=[]，report.failedRequests=[]；使用实际 Chrome 输入事件"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "evaluation_mode": "deterministic inline regression; no independent agent or baseline comparison"
+}

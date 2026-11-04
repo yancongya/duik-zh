@@ -1,0 +1,80 @@
+/* Interactive explanations lead; authentic Duik panels remain one action away. */
+.duik-motion-demo{--motion-paper:#fffdf8;--motion-stage:#eeeee4;--motion-ink:#26382e;--motion-muted:#58664f;--motion-line:#c9cebd;--motion-accent:#c4512e;position:relative;container-type:inline-size;width:100%;min-width:0;color:var(--motion-ink);font-family:inherit;text-align:left;isolation:isolate}
+.duik-motion-demo *{box-sizing:border-box}
+.duik-motion-demo [hidden]{display:none!important}
+.duik-motion-demo .duik-motion-view-switch{display:flex;align-items:center}
+.duik-motion-demo .duik-motion-view-switch button{border:0;border-radius:0;padding:6px 0;background:transparent;font-size:12px;color:var(--motion-muted);text-decoration:underline;text-underline-offset:4px}
+.duik-motion-demo .duik-motion-viewport{min-height:0}
+.duik-motion-demo .duik-motion-scene{position:relative;background:var(--motion-stage);padding:0;border-radius:14px;overflow:hidden}
+.duik-motion-demo .duik-motion-scene>svg{height:auto;aspect-ratio:5/3}
+.duik-motion-demo [data-motion-drag]{cursor:grab;touch-action:pan-y;outline-offset:4px}
+.duik-motion-demo [data-motion-drag][data-dragging=true]{cursor:grabbing}
+.duik-motion-demo [data-motion-drag]:focus-visible{outline:2px solid var(--motion-accent)}
+.duik-motion-demo [data-motion-drag] svg{pointer-events:none}
+.duik-motion-demo svg{display:block;width:100%;height:auto;overflow:hidden;user-select:none}
+.duik-motion-demo svg text{font-family:inherit;font-size:11px;fill:var(--motion-muted);font-weight:400}
+.duik-motion-demo svg .duik-motion-svg-label{font-size:12px;fill:var(--motion-ink)}
+.duik-motion-demo svg .duik-motion-svg-value{font-size:24px;font-weight:450;font-variant-numeric:tabular-nums;fill:var(--motion-ink);letter-spacing:-.7px}
+.duik-motion-demo .duik-motion-graph{padding:8px 0}
+.duik-motion-demo .duik-motion-controls{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 24px;padding:12px 0 0}
+.duik-motion-demo .duik-motion-controls>.duik-motion-adjust{margin-left:auto}
+.duik-motion-demo .duik-camera-stage{position:relative;aspect-ratio:5/3;background:#eeeee4;overflow:hidden;border-radius:14px;perspective:1000px;cursor:grab;touch-action:none}
+.duik-motion-demo .duik-camera-stage:active{cursor:grabbing}
+.duik-motion-demo .duik-camera-space{position:absolute;inset:0;transform-style:preserve-3d;transition:transform 400ms cubic-bezier(.77,0,.175,1)}
+.duik-motion-demo .duik-camera-plane{position:absolute;inset:0;transition:transform 400ms cubic-bezier(.77,0,.175,1);transform-style:preserve-3d;backface-visibility:hidden}
+.duik-motion-demo .duik-camera-plane svg{width:100%;height:100%;overflow:hidden}
+.duik-motion-demo .duik-plane-label{position:absolute;left:12px;top:8px;color:#26382e;background:#fffdf8;padding:5px 9px;font-size:12px;opacity:0;transition:opacity 200ms ease}
+.duik-motion-demo [data-depth-view=exploded] .duik-camera-space{transform:translate(1%,20%) rotateX(42deg) rotateZ(-18deg) scale(.64)}
+.duik-motion-demo [data-depth-view=exploded] .duik-camera-plane{outline:1px solid #9ca78e;background:#fffdf818}
+.duik-motion-demo [data-depth-view=exploded] [data-plane="1"]{transform:translateZ(90px)}
+.duik-motion-demo [data-depth-view=exploded] [data-plane="2"]{transform:translateZ(180px)}
+.duik-motion-demo [data-depth-view=exploded] .duik-plane-label{opacity:1}
+.duik-motion-demo .duik-camera-overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;transition:opacity 200ms ease}
+.duik-motion-demo [data-depth-view=exploded] .duik-camera-overlay{opacity:0}
+.duik-motion-demo .duik-camera-hint{position:absolute;left:0;right:0;bottom:17px;text-align:center;font-size:12px;color:var(--motion-paper);margin:0;pointer-events:none;text-shadow:0 1px 5px #26382e88}
+.duik-motion-demo .duik-camera-readout{position:absolute;left:20px;right:20px;top:15px;display:flex;align-items:center;justify-content:space-between;font-size:11px;line-height:1.5;color:#26382e;pointer-events:none}
+.duik-motion-demo .duik-camera-readout output{font-variant-numeric:tabular-nums}
+.duik-motion-demo [data-depth-view=exploded] .duik-camera-hint{color:var(--motion-muted);text-shadow:none}
+.duik-motion-demo .duik-motion-adjust{margin-top:6px;font-size:12px;color:var(--motion-muted)}
+.duik-motion-demo .duik-motion-adjust summary{cursor:pointer;padding:6px 0}
+.duik-motion-demo .duik-motion-adjust summary:focus-visible{outline:2px solid var(--motion-accent);outline-offset:4px}
+/* Precision controls stay within the artwork; no separate playback transport. */
+.duik-motion-demo .duik-motion-adjust-body{position:absolute;inset-inline:12px;top:12px;z-index:4;max-height:min(320px,calc(60cqw - 24px));overflow:auto;overscroll-behavior:contain;padding:18px 20px;background:var(--motion-paper);border:1px solid var(--motion-line);border-radius:10px;box-shadow:0 8px 24px #26382e14}
+.duik-motion-demo .duik-motion-adjust[open]>summary{color:var(--motion-accent)}
+.duik-motion-demo .duik-motion-adjust .duik-motion-parameters{margin-top:12px}
+.duik-motion-demo [data-instant=true] :is(.duik-camera-space,.duik-camera-plane,.duik-camera-overlay,.duik-plane-label){transition:none}
+.duik-motion-demo .duik-motion-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.duik-motion-demo .duik-motion-segment{display:flex;gap:6px;align-items:center}
+.duik-motion-demo button{appearance:none;font:inherit;font-size:12px;font-weight:500;line-height:1.3;color:var(--motion-ink);padding:8px 12px;min-height:34px;background:transparent;border:1px solid #aeb7a1;border-radius:8px;cursor:pointer;transition:background 150ms ease,color 150ms ease,border-color 150ms ease;white-space:nowrap}
+.duik-motion-demo :is(button,input,a):focus-visible{outline:2px solid var(--motion-accent);outline-offset:4px}
+.duik-motion-demo button[aria-pressed=true]{color:var(--motion-paper);background:var(--motion-ink);border-color:var(--motion-ink)}
+.duik-motion-demo button:disabled{color:var(--motion-muted);border-color:var(--motion-line);cursor:default}
+.duik-motion-demo .duik-motion-range{display:flex;flex-direction:column;gap:8px;min-width:0;font-size:12px}
+.duik-motion-demo .duik-motion-range>span{display:flex;justify-content:space-between;gap:12px;line-height:1.4}
+.duik-motion-demo output{font:inherit;font-variant-numeric:tabular-nums}
+.duik-motion-demo .duik-motion-range output{color:var(--motion-muted)}
+.duik-motion-demo input[type=range]{width:100%;height:18px;margin:0;accent-color:var(--motion-accent);cursor:pointer}
+.duik-motion-demo .duik-motion-parameters{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:18px}
+.duik-motion-demo .duik-motion-check{display:inline-flex;gap:8px;align-items:center;font-size:12px;line-height:1.4;cursor:pointer}
+.duik-motion-demo input[type=checkbox]{width:15px;height:15px;margin:0;accent-color:var(--motion-accent)}
+.duik-motion-demo .duik-motion-result{margin:10px 0 0;font-size:11px;line-height:1.6;color:var(--motion-muted)}
+.duik-motion-demo .duik-motion-foot{border-top:1px solid var(--motion-line);margin-top:12px;padding:6px 0 0;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:11px;line-height:1.6;color:var(--motion-muted)}
+.duik-motion-demo .duik-motion-boundary{margin:4px 0 0;font-size:11px;line-height:1.6;color:var(--motion-muted)}
+.duik-motion-demo .duik-motion-foot a{color:#a84124;font-size:13px;text-decoration:underline;text-underline-offset:4px;white-space:nowrap}
+.duik-motion-demo .duik-motion-reference{display:grid;gap:18px;height:clamp(280px,43svh,440px);overflow-y:auto;align-content:start;scrollbar-width:thin;scrollbar-color:var(--motion-line) transparent}
+.duik-motion-demo .duik-motion-official-figure{margin:0;min-width:0;background:var(--motion-stage);border-radius:14px;overflow:hidden}
+.duik-motion-demo .duik-motion-official-images{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;gap:10px}
+.duik-motion-demo .duik-motion-official-images img{display:block;max-width:100%;width:auto;height:auto;max-height:210px;object-fit:contain}
+.duik-motion-demo .duik-motion-official-figure figcaption{font-size:11px;color:var(--motion-muted);padding:0 14px 14px;line-height:1.5;text-align:center}
+.duik-motion-demo .duik-motion-image-link{display:block;max-width:100%;cursor:zoom-in}
+.duik-motion-demo .duik-motion-detail-link{font-size:11px;color:#a84124;text-decoration:underline;text-underline-offset:3px}
+.duik-motion-demo .duik-motion-official-guide>strong{font-size:15px;line-height:1.5;font-weight:550}
+.duik-motion-demo .duik-motion-official-guide ol{padding-left:18px;margin:10px 0;font-size:12px;line-height:1.7;list-style:decimal}
+.duik-motion-demo .duik-motion-official-guide li{padding:2px 0}
+.duik-motion-demo .duik-motion-official-guide>p{font-size:11px;line-height:1.7;color:var(--motion-muted);margin:10px 0 0}
+.duik-motion-demo .duik-motion-attribution{margin-top:14px;font-size:10px;line-height:1.6;color:var(--motion-muted)}
+.duik-motion-demo .duik-motion-attribution a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+@media(hover:hover) and (pointer:fine){.duik-motion-demo button:hover{border-color:#8ba080;background:#e4e5d7}.duik-motion-demo .duik-motion-view-switch button:hover{background:transparent;color:var(--motion-accent)}}
+@container (max-width:600px){.duik-motion-demo .duik-motion-controls{gap:12px}}
+@media(max-width:600px){.duik-motion-demo .duik-motion-controls{gap:12px}.duik-motion-demo .duik-motion-parameters{gap:16px}.duik-motion-demo .duik-motion-foot{align-items:center;gap:12px}.duik-motion-demo button{padding:8px 9px}.duik-motion-demo .duik-motion-reference{height:340px}.duik-motion-demo .duik-motion-official-images img{max-height:180px}}
+@media(prefers-reduced-motion:reduce){.duik-motion-demo button,.duik-motion-demo :is(.duik-camera-space,.duik-camera-plane,.duik-camera-overlay,.duik-plane-label){transition:none}}

@@ -1,0 +1,145 @@
+/* Guide surfaces use the approved light palette and local, attributed official assets. */
+.duik-guide{--guide-paper:var(--duik-paper,#f8f6f0);--guide-card:var(--duik-card,#fffdf8);--guide-ink:var(--duik-ink,#272920);--guide-muted:var(--duik-muted,#686b5e);--guide-accent:var(--duik-accent,#c4512e);--guide-line:var(--duik-line,#deded3);box-sizing:border-box;color:var(--guide-ink);font-family:inherit;text-align:left;width:100%;max-width:1240px;margin:0 auto;padding:96px 32px;background:var(--guide-paper)}
+.duik-guide *{box-sizing:border-box}
+.duik-guide [hidden]{display:none!important}
+.duik-guide a{color:inherit;text-decoration:none}
+.duik-guide button{font:inherit;color:inherit;cursor:pointer}
+.duik-guide :focus-visible{outline:2px solid var(--guide-accent);outline-offset:5px}
+.duik-guide h2,.duik-guide h3,.duik-guide p{margin:0}
+.duik-guide h2{font-size:clamp(32px,3.9vw,54px);line-height:1.25;font-weight:550;letter-spacing:-.03em}
+.duik-guide-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:42px}
+.duik-guide-heading>p{max-width:430px;font-size:14px;line-height:1.9;color:var(--guide-muted);padding-bottom:4px}
+.duik-guide-learning h2{letter-spacing:-.03em}
+.duik-guide-learning .duik-guide-heading{display:block}
+.duik-guide-learning .duik-guide-heading>p{font-size:14px;line-height:1.8;padding:0;max-width:48ch;margin-top:18px}
+.duik-guide-learning-desk{display:block}
+.duik-guide-path-tabs{display:flex;justify-content:space-between;gap:24px;padding:0;border-bottom:1px solid var(--guide-line)}
+.duik-guide-path-tabs button{display:flex;align-items:center;gap:10px;flex:none;min-height:68px;padding:16px 0;min-width:0;border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;text-align:left;color:var(--guide-muted)}
+.duik-guide-task-icon{display:block;flex:none;width:24px;height:24px;object-fit:contain}
+.duik-guide-task-label{display:block;min-width:0}
+.duik-guide-path-tabs strong{display:block;font-size:14px;font-weight:550;line-height:1.6;white-space:nowrap}
+.duik-guide-path-tabs button[aria-selected=true]{background:transparent;border-bottom-color:var(--guide-accent);color:var(--guide-ink)}
+.duik-guide-path-panels{min-width:0;padding:44px 0 0;min-height:0}
+.duik-guide-path-panel{outline-offset:8px}
+.duik-guide-reading-spread{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(36px,6vw,88px);align-items:start}
+.duik-guide-next{display:block;min-width:0;padding:0 0 24px}
+.duik-guide-next-copy{padding:0}
+.duik-guide-next h3{font-size:clamp(28px,3.2vw,42px);line-height:1.3;font-weight:550;letter-spacing:-.03em;text-wrap:balance;max-width:22ch;overflow-wrap:anywhere}
+.duik-guide-next p{font-size:14px;line-height:1.85;color:var(--guide-muted);margin-top:18px;max-width:38ch}
+.duik-guide-next-action{display:inline-flex;align-items:center;gap:14px;margin-top:24px;min-height:44px;font-size:14px;line-height:1.7;font-weight:550;color:var(--guide-accent)}
+.duik-guide-next-action svg{width:21px;height:21px}
+.duik-guide-route{padding:0;border:0}
+.duik-guide-route h4{font-size:12px;font-weight:450;line-height:1.7;color:var(--guide-muted);margin:0 0 8px}
+.duik-guide-reading-list{padding:0 0 0 22px;margin:0;list-style:decimal}
+.duik-guide-reading-list.is-choices{list-style:none;padding-left:0}
+.duik-guide-reading-list li{padding:0 0 0 10px;margin:0;border:0}
+.duik-guide-reading-list li::marker{font-size:12px;line-height:1.5;font-variant-numeric:tabular-nums;color:var(--guide-muted)}
+.duik-guide-reading-list.is-choices li{padding-left:0}
+.duik-guide-reading-list a{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:68px;padding:18px 0;border-bottom:1px solid var(--guide-line)}
+.duik-guide-reading-list li:last-child a{border-bottom:0}
+.duik-guide-route-copy{min-width:0}
+.duik-guide-route-copy strong{display:block;font-size:16px;line-height:1.7;font-weight:500}
+.duik-guide-reading-list svg{width:18px;height:18px;flex:none;color:var(--guide-muted)}
+.duik-guide-route-footnote{margin-top:24px;padding-top:16px;border-top:1px solid var(--guide-line)}
+.duik-guide-path-note{font-size:12px;line-height:1.8;color:var(--guide-muted);max-width:64ch}
+.duik-guide-reference{margin-top:4px;color:var(--guide-muted);font-size:12px;line-height:1.8}
+.duik-guide-reference>summary{cursor:pointer;min-height:44px;padding:11px 0;color:var(--guide-ink)}
+.duik-guide-reference-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(160px,220px);align-items:start;gap:28px;padding:12px 0 4px}
+.duik-guide-reference-body>p{max-width:38ch;line-height:1.9}
+.duik-guide-official-preview{margin:0;width:100%;text-align:left}
+.duik-guide-official-preview>a{display:block}
+.duik-guide-official-preview img{display:block;width:100%;height:auto;object-fit:contain}
+.duik-guide-official-preview figcaption{display:grid;gap:5px;font-size:11px;line-height:1.7;color:var(--guide-muted);margin-top:11px}
+.duik-guide-official-preview figcaption a{text-decoration:underline;text-underline-offset:3px}
+.duik-guide-learning-bottom{display:flex;align-items:center;justify-content:flex-end;gap:24px;padding-top:22px;font-size:12px;line-height:1.8}
+.duik-guide-learning-bottom a{display:flex;align-items:center;gap:12px;white-space:nowrap}
+.duik-guide-learning-bottom svg{width:18px;height:18px}
+.duik-guide-learning :is(a,button):active{color:var(--guide-accent)}
+@media(hover:hover) and (pointer:fine){.duik-guide-path-tabs button:hover,.duik-guide-next:hover h3,.duik-guide-reading-list a:hover,.duik-guide-reference>summary:hover{color:var(--guide-accent)}.duik-guide-next:hover .duik-guide-next-action{text-decoration:underline;text-underline-offset:5px}}
+.duik-guide-faq{display:grid;grid-template-columns:minmax(250px,.8fr) minmax(0,1.4fr);gap:80px;padding-top:104px;padding-bottom:104px}
+.duik-guide-faq-intro>p{font-size:13px;line-height:1.9;color:var(--guide-muted);max-width:270px;margin-top:24px}
+.duik-guide-faq-intro>a{display:inline-flex;gap:14px;align-items:center;font-size:12px;margin-top:25px;border-bottom:1px solid #c5c3b4;padding-bottom:8px}
+.duik-guide-faq-intro>a svg{width:18px;height:18px}
+.duik-guide-faq-index{display:grid;gap:6px;margin-top:44px;max-width:272px}
+.duik-guide-faq-index button{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:11px 14px;border:0;border-left:2px solid transparent;border-radius:0;background:none;text-align:left;font-size:12px;line-height:1.5}
+.duik-guide-faq-index button>span{font-size:10px;color:var(--guide-muted);font-variant-numeric:tabular-nums}
+.duik-guide-faq-index button:hover{background:#f0ede3}
+.duik-guide-faq-index button[aria-pressed=true]{border-left-color:var(--guide-accent);background:#f0e9dc;color:var(--guide-accent)}
+.duik-guide-faq-content{min-width:0}
+.duik-guide-faq-toolbar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:6px 0 18px;border-bottom:1px solid var(--guide-line)}
+.duik-guide-faq-toolbar p{font-size:11px;line-height:1.7;color:var(--guide-muted)}
+.duik-guide-faq-toolbar button{border:0;background:none;font-size:11px;padding:5px 0;flex:none}
+.duik-guide-faq-group{margin-top:28px}
+.duik-guide-faq-group h3{font-size:12px;line-height:1.7;font-weight:550;color:#53634c;display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px 14px;margin-bottom:10px}
+.duik-guide-faq-group h3>span{font-size:10px;font-weight:400;color:var(--guide-muted)}
+.duik-guide-faq-item{border-bottom:1px solid var(--guide-line);margin:0}
+.duik-guide-faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;font-size:14px;line-height:1.7;padding:20px 2px;font-weight:500}
+.duik-guide-faq-item summary::-webkit-details-marker{display:none}
+.duik-guide-faq-item summary::marker{content:''}
+.duik-guide-faq-item summary:hover{color:var(--guide-accent)}
+.duik-guide-faq-toggle{position:relative;display:block;flex:0 0 16px;height:16px}
+.duik-guide-faq-toggle:before,.duik-guide-faq-toggle:after{content:'';position:absolute;background:currentColor;left:2px;top:7px;width:12px;height:1px;transition:transform .18s}
+.duik-guide-faq-toggle:after{transform:rotate(90deg)}
+.duik-guide-faq-item[open] .duik-guide-faq-toggle:after{transform:rotate(0)}
+.duik-guide-faq-answer{padding:0 28px 23px 2px}
+.duik-guide-faq-answer p{font-size:12px;line-height:1.95;color:var(--guide-muted);max-width:66ch}
+.duik-guide-faq-answer a{display:inline-flex;align-items:center;gap:12px;font-size:11px;line-height:1.7;color:var(--guide-accent);margin-top:14px}
+.duik-guide-faq-answer svg{width:17px;height:17px}
+.duik-guide-footer{padding-top:70px;padding-bottom:30px}
+.duik-guide-endplate{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:40px;padding:50px 0 70px;border-top:1px solid var(--guide-line)}
+.duik-guide-endplate h2{font-size:clamp(38px,5.4vw,72px);letter-spacing:-.035em;line-height:1.2}
+.duik-guide-endplate h2+p{font-size:14px;line-height:1.9;color:var(--guide-muted);margin-top:25px}
+.duik-guide-footer-actions{display:flex;gap:23px;align-items:center;flex-wrap:wrap;margin-top:30px}
+.duik-guide-footer-actions a{display:inline-flex;align-items:center;gap:14px;font-size:12px;line-height:1.6}
+.duik-guide-footer-actions svg{width:18px;height:18px}
+.duik-guide-primary-link{background:var(--guide-ink);color:var(--guide-card)!important;padding:13px 18px;border-radius:5px}
+.duik-guide-primary-link:hover{background:#464b3c}
+.duik-guide-footer-directory{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;padding:36px 0 40px;border-top:1px solid var(--guide-line)}
+.duik-guide-footer-brand{align-self:start;display:grid;gap:14px}
+.duik-guide-footer-brand>strong{font-size:38px;line-height:1.1;letter-spacing:-.035em;font-weight:650}
+.duik-guide-footer-brand strong>span{font-size:22px;font-weight:450;letter-spacing:-.02em}
+.duik-guide-footer-brand>span{color:var(--guide-muted);font-size:12px;line-height:1.6}
+.duik-guide-footer-directory nav{display:grid;justify-content:start;align-content:start;gap:12px}
+.duik-guide-footer-directory h3{font-size:11px;font-weight:550;margin:0 0 5px;color:var(--guide-muted)}
+.duik-guide-footer-directory nav a{font-size:12px;line-height:1.6}
+.duik-guide-footer-directory nav a:hover,.duik-guide-legal a:hover{color:var(--guide-accent)}
+.duik-guide-legal{border-top:1px solid var(--guide-line);padding-top:23px;display:flex;align-items:flex-start;justify-content:space-between;gap:40px;color:var(--guide-muted)}
+.duik-guide-legal>div{max-width:820px}
+.duik-guide-legal p{font-size:10px;line-height:1.85;margin-bottom:6px}
+.duik-guide-legal p a{text-decoration:underline;text-underline-offset:3px}
+.duik-guide-legal>a{flex:none;display:flex;align-items:center;gap:10px;font-size:11px;line-height:1.8}
+.duik-guide-legal>a svg{width:18px;height:18px;transform:rotate(-90deg)}
+.duik-guide-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media(max-width:1000px){.duik-guide-faq{gap:40px;grid-template-columns:minmax(220px,.8fr) minmax(0,1.3fr)}.duik-guide-endplate{gap:20px}.duik-guide-footer-actions{gap:18px}.duik-guide-footer-directory{gap:30px}}
+@media(max-width:700px){.duik-guide{padding:60px 20px}.duik-guide-heading{display:block;margin-bottom:28px}.duik-guide-heading>p{margin-top:22px;font-size:13px}.duik-guide-desktop-break{display:none}.duik-guide-faq{grid-template-columns:1fr;gap:30px}.duik-guide-faq-intro>p{max-width:380px}.duik-guide-faq-index{grid-template-columns:repeat(2,minmax(0,1fr));max-width:none;margin-top:26px}.duik-guide-faq-item summary{font-size:13px;padding:18px 0}.duik-guide-faq-answer{padding-left:0;padding-right:20px}.duik-guide-endplate{grid-template-columns:1fr;padding:36px 0 40px}.duik-guide-endplate h2{font-size:44px}.duik-guide-endplate h2+p{font-size:13px}.duik-guide-end-drawing{max-width:360px;justify-self:center}.duik-guide-footer-directory{grid-template-columns:1fr 1fr;gap:28px;padding:28px 0}.duik-guide-footer-brand{grid-column:1/-1;margin-bottom:8px}.duik-guide-footer-brand>strong{font-size:34px}.duik-guide-legal{flex-direction:column;gap:16px}.duik-guide-footer{padding-bottom:28px}}
+@media(prefers-reduced-motion:reduce){.duik-guide *{transition:none!important;animation:none!important;scroll-behavior:auto!important}.duik-guide-endplate:hover .duik-guide-end-pointer{transform:none}}
+/* Task navigation wraps at smaller widths; no selected keyboard tab can move offscreen. */
+@media(max-width:1000px){.duik-guide-path-tabs{justify-content:flex-start;flex-wrap:wrap;gap:0 28px}.duik-guide-path-tabs button{min-height:60px}.duik-guide-path-tabs strong{font-size:13px}.duik-guide-path-panels{padding-top:36px}.duik-guide-reading-spread{gap:36px}.duik-guide-route-copy strong{font-size:15px}.duik-guide-reference-body{gap:18px}}
+@media(max-width:700px){.duik-guide-path-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px}.duik-guide-path-tabs button{min-height:60px;padding:14px 0;gap:8px}.duik-guide-task-icon{width:22px;height:22px}.duik-guide-path-tabs strong{white-space:normal;font-size:13px}.duik-guide-path-panels{padding-top:30px}.duik-guide-reading-spread{grid-template-columns:1fr;gap:24px}.duik-guide-next{padding-bottom:0}.duik-guide-next h3{font-size:30px}.duik-guide-next p{font-size:13px}.duik-guide-next-action{margin-top:18px}.duik-guide-reading-list a{min-height:60px;padding:16px 0;gap:16px}.duik-guide-route-copy strong{font-size:15px}.duik-guide-reference-body{grid-template-columns:1fr;gap:20px}.duik-guide-official-preview{max-width:220px}.duik-guide-learning-bottom{justify-content:flex-start}}
+
+/* Closing chapter: a question index and one clear next action, not another mockup. */
+.duik-faq-section .duik-guide-faq{display:block;padding:0;background:transparent;max-width:none}
+.duik-guide-faq-intro{margin-bottom:28px}
+.duik-guide-faq-intro h2{max-width:20ch;text-wrap:balance}
+.duik-guide-faq-intro>a{margin-top:18px;border:0;padding:0;color:var(--guide-muted)}
+.duik-guide-faq-index{display:flex;flex-wrap:wrap;gap:12px 28px;max-width:none;margin-top:32px;border-bottom:1px solid var(--guide-line)}
+.duik-guide-faq-index button{border:0;background:transparent;gap:10px;padding:12px 0 16px;min-height:48px;font-size:14px}
+.duik-guide-faq-index button[aria-pressed=true]{background:transparent;color:var(--guide-ink);text-decoration:underline;text-decoration-color:var(--guide-accent);text-underline-offset:10px;text-decoration-thickness:2px}
+.duik-guide-faq-index button>span{font-size:12px}
+.duik-guide-faq-toolbar{border:0;padding:0 0 8px}
+.duik-guide-faq-toolbar p{font-size:12px}
+.duik-guide-faq-toolbar button{font-size:12px;min-height:44px}
+.duik-guide-faq-group{margin:0}
+.duik-guide-faq-group h3{display:none}
+.duik-guide-faq[data-faq-active=all] .duik-guide-faq-group h3{display:block;margin:28px 0 10px;font-size:13px;color:var(--guide-muted)}
+.duik-guide-faq-item summary{font-size:17px;padding:24px 0;line-height:1.6}
+.duik-guide-faq-answer{padding:0 40px 24px 0;max-width:76ch}
+.duik-guide-faq-answer p{font-size:14px;line-height:1.9}
+.duik-guide-faq-answer a{font-size:13px}
+.duik-guide-footer .duik-guide-endplate{display:block;padding:30px 0 76px;border-top:0}
+.duik-guide-endplate h2{font-size:clamp(36px,5.4vw,72px);letter-spacing:-.035em;max-width:16ch;text-wrap:balance}
+.duik-guide-endplate h2+p{font-size:15px;line-height:1.8;max-width:45ch;margin-top:24px}
+.duik-guide-footer-actions{margin-top:32px;gap:28px}
+.duik-guide-footer-actions a{font-size:14px;min-height:48px}
+.duik-guide-primary-link{padding:14px 22px}
+@media(max-width:700px){.duik-guide-faq-index{gap:8px 18px}.duik-guide-faq-index button{font-size:13px}.duik-guide-faq-item summary{font-size:15px;padding:20px 0}.duik-guide-faq-answer{padding-right:12px}.duik-guide-footer .duik-guide-endplate{padding:12px 0 48px}.duik-guide-footer-actions{gap:14px 24px}}

@@ -1,0 +1,49 @@
+{
+  "type": "official-documentation-panels",
+  "source": "components/home/landing/preview-scenes.mjs",
+  "notCurrentSessionCaptures": true,
+  "items": [
+    {
+      "id": "bones",
+      "title": "骨骼与结构",
+      "alt": "骨骼与结构 · Duik 官方文档面板原图",
+      "src": "/duik-experience/official/duik/bones/bones_panel.png",
+      "sourceFile": "duik/bones/bones_panel.png"
+    },
+    {
+      "id": "controllers",
+      "title": "控制器",
+      "alt": "控制器 · Duik 官方文档面板原图",
+      "src": "/duik-experience/official/duik/controllers/panel.png",
+      "sourceFile": "duik/controllers/panel.png"
+    },
+    {
+      "id": "animation",
+      "title": "动画与关键帧",
+      "alt": "动画与关键帧 · Duik 官方文档面板原图",
+      "src": "/duik-experience/official/duik/animation/animation-panel.png",
+      "sourceFile": "duik/animation/animation-panel.png"
+    },
+    {
+      "id": "tools",
+      "title": "合成与图层工具",
+      "alt": "合成与图层工具 · Duik 官方文档面板原图",
+      "src": "/duik-experience/official/duik/tools/layer-tools.png",
+      "sourceFile": "duik/tools/layer-tools.png"
+    },
+    {
+      "id": "automation",
+      "title": "自动化与表达式",
+      "alt": "自动化与表达式 · Duik 官方文档面板原图",
+      "src": "/duik-experience/official/duik/automation/panel.png",
+      "sourceFile": "duik/automation/panel.png"
+    },
+    {
+      "id": "scripts",
+      "title": "脚本与 API",
+      "alt": "脚本与 API · Duik 官方文档面板原图",
+      "src": "/duik-experience/official/duik/tools/script-editor.png",
+      "sourceFile": "duik/tools/script-editor.png"
+    }
+  ]
+}

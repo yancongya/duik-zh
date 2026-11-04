@@ -1,11 +1,24 @@
 :root {
-  --accent: #ff5c1a;
+  --accent: #b93c0b;
   --accent-soft: #ff8a5c;
-  --bg: #ffffff;
+  --bg: rgb(var(--nextra-bg, 255, 255, 255));
   --bg-soft: #f7f7f8;
   --fg: #1a1a1c;
   --muted: #6b6b70;
   --border: #e6e6e8;
+  color-scheme: light;
+}
+
+/* The reader theme owns both foregrounds and surfaces. The landing rewrite
+   uses its own standalone stylesheet and does not inherit these tokens. */
+.dark {
+  --accent: #ff9b75;
+  --accent-soft: #e87b50;
+  --bg-soft: #202023;
+  --fg: #f0f0f2;
+  --muted: #b2b2ba;
+  --border: #38383e;
+  color-scheme: dark;
 }
 
 * {

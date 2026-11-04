@@ -1,0 +1,821 @@
+{
+  "schemaVersion": 2,
+  "generator": "components/home/landing/hero-wall-scenes.mjs",
+  "moduleSha256": "c5ee79fbc35d6e1780c8c76dc6ea0421e97afa62b41f3a0aaeae7b3e18c0c278",
+  "artModuleSha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+  "originalCharacterSha256": "fdd21eb55d65074815cf1c7620cc7fbc65f90e226052f5219a16bd57d4d2249a",
+  "officialRevision": "718e6e282d1ae91dc9678bb1a202ce08e862a28d",
+  "canvas": {
+    "width": 800,
+    "height": 800
+  },
+  "counts": {
+    "total": 22,
+    "primaryPanels": 8,
+    "approvedCharacter": 0,
+    "officialDocumentation": 0,
+    "originalMotionStudies": 22,
+    "files": 44
+  },
+  "principles": [
+    "22 original dynamic feature illustrations; original wall geometry and navigation preserved.",
+    "Full-bleed geometric compositions, no screenshots, fake UI, raster illustration, or embedded caption strips.",
+    "No newly generated character. Approved Hero and shared 26 layers remain untouched.",
+    "Self-contained local SVGs and explicit reduced-motion WebP posters.",
+    "Cover imagery is conceptual, not AE execution or official Duik algorithm output."
+  ],
+  "assets": [
+    {
+      "id": "character-paper",
+      "title": "骨骼",
+      "summary": "为分层角色搭建驱动结构。",
+      "guide": "/docs/guide/bones",
+      "alt": "骨骼文档入口：两段骨骼围绕共享关节联动的动态插画",
+      "src": "/duik-experience/wall/character-paper-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/character-paper-illustrated-fullbleed-v2.poster.webp",
+      "description": "两段骨骼围绕共享关节联动。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "两段骨骼围绕共享关节联动"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 2989,
+      "sha256": "73e118b1af0f43269b7ceefef7959861b6b14d0599298af21e7e831ff57a0bc5",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/character-paper-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 11762,
+        "sha256": "ee42f4814b574dd756af361360208c10e67f4272d1e34d150b7da6d419b15df6"
+      },
+      "document": "content/docs/guide/bones/index.mdx"
+    },
+    {
+      "id": "motion-spacing",
+      "title": "动画",
+      "summary": "整理关键帧，调整动作节奏。",
+      "guide": "/docs/guide/animation",
+      "alt": "动画文档入口：时间轨迹上的运动间距发生变化的动态插画",
+      "src": "/duik-experience/wall/motion-spacing-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/motion-spacing-illustrated-fullbleed-v2.poster.webp",
+      "description": "时间轨迹上的运动间距发生变化。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "时间轨迹上的运动间距发生变化"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 2488,
+      "sha256": "565df6ef82fb8b547c8032e2f1cfabd9300d18e7bccfecc42d942b358b9b7415",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/motion-spacing-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 7250,
+        "sha256": "2e97e129053446434d6e41e24d89cf0905b039e708b3878a2faf5fb10b1b00e4"
+      },
+      "document": "content/docs/guide/animation/index.mdx"
+    },
+    {
+      "id": "controller-symbols",
+      "title": "控制器",
+      "summary": "用控制器直接调整角色姿态。",
+      "guide": "/docs/guide/controllers",
+      "alt": "控制器文档入口：目标在控制范围内移动的动态插画",
+      "src": "/duik-experience/wall/controller-symbols-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/controller-symbols-illustrated-fullbleed-v2.poster.webp",
+      "description": "目标在控制范围内移动。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "目标在控制范围内移动"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 1999,
+      "sha256": "6fadcf97687fffa8304a3226ae4b6486b6d9aac0a75cd3c679f445d5dc7146bd",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/controller-symbols-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 12780,
+        "sha256": "d77f5acf75331938e02fa673ee92701f3c6d634371a48abd23b5c49d4015f8b9"
+      },
+      "document": "content/docs/guide/controllers/index.mdx"
+    },
+    {
+      "id": "character-autorig",
+      "title": "自动绑定",
+      "summary": "连接骨骼，建立约束与控制器。",
+      "guide": "/docs/guide/bones/autorig",
+      "alt": "自动绑定文档入口：骨骼与末端目标联动的动态插画",
+      "src": "/duik-experience/wall/character-autorig-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/character-autorig-illustrated-fullbleed-v2.poster.webp",
+      "description": "骨骼与末端目标联动。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "骨骼与末端目标联动"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 3085,
+      "sha256": "22cc3d140b2eafc34350329813a071737753f14e9939a4a699e8260e7f7736c3",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/character-autorig-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 9684,
+        "sha256": "0d670cf590b9887260a0d77e073f105b7bc3a6f73b504061f944a01783ffcdf8"
+      },
+      "document": "content/docs/guide/bones/autorig/index.mdx"
+    },
+    {
+      "id": "interpolation-detail",
+      "title": "插值",
+      "summary": "控制动作的加速、减速与停顿。",
+      "guide": "/docs/guide/animation/interpolation",
+      "alt": "插值文档入口：沿曲线变化的速度与节奏的动态插画",
+      "src": "/duik-experience/wall/interpolation-detail-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/interpolation-detail-illustrated-fullbleed-v2.poster.webp",
+      "description": "沿曲线变化的速度与节奏。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "沿曲线变化的速度与节奏"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 3245,
+      "sha256": "305a5eecd78dff88786653f4055d2d20368fbba4ae8f5f0e15584ed0f5f16418",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/interpolation-detail-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 9966,
+        "sha256": "67769f56cfb924877d4faaf8892e8b7d39dea4a7bb62a002457b467440d4bfaf"
+      },
+      "document": "content/docs/guide/animation/interpolation.mdx"
+    },
+    {
+      "id": "character-ik",
+      "title": "IK / FK",
+      "summary": "通过目标或关节调整肢体运动。",
+      "guide": "/docs/guide/constraints/kinematics",
+      "alt": "IK / FK文档入口：关节链保持连接并改变姿态的动态插画",
+      "src": "/duik-experience/wall/character-ik-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/character-ik-illustrated-fullbleed-v2.poster.webp",
+      "description": "关节链保持连接并改变姿态。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "关节链保持连接并改变姿态"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 2827,
+      "sha256": "2365c3396a9a792f3356e4136efc1ee5db1184d614fc51e0bffe71d29837b4da",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/character-ik-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 11076,
+        "sha256": "0f346a1073d72ba4c0c3d11c78b189889508404182e9b4e43aad83beb6c7f34e"
+      },
+      "document": "content/docs/guide/constraints/kinematics.mdx"
+    },
+    {
+      "id": "layer-detail",
+      "title": "图层",
+      "summary": "创建、命名和标记图层。",
+      "guide": "/docs/guide/tools/layers",
+      "alt": "图层文档入口：多层画面分离后重新叠合的动态插画",
+      "src": "/duik-experience/wall/layer-detail-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/layer-detail-illustrated-fullbleed-v2.poster.webp",
+      "description": "多层画面分离后重新叠合。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "多层画面分离后重新叠合"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 1853,
+      "sha256": "667f4114acc2bced64ba837be89826f1e30d726b806ed4a93b1954200e76a7b7",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/layer-detail-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 11326,
+        "sha256": "5c08796e62dca95f5e118c7a21fc0ae6983e2644297f7ea42bbabe2609d4b5b5"
+      },
+      "document": "content/docs/guide/tools/layers.mdx"
+    },
+    {
+      "id": "camera-detail",
+      "title": "摄像机",
+      "summary": "为平面场景设计镜头运动。",
+      "guide": "/docs/guide/camera",
+      "alt": "摄像机文档入口：取景框中的前中后景相对移动的动态插画",
+      "src": "/duik-experience/wall/camera-detail-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/camera-detail-illustrated-fullbleed-v2.poster.webp",
+      "description": "取景框中的前中后景相对移动。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "取景框中的前中后景相对移动"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 2176,
+      "sha256": "42f487ba235e5d2b1839fd701f44120854aa614b79a2dfad7cb6eccdbd005c27",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/camera-detail-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 7948,
+        "sha256": "85cb2e946511a987d4c653a84cfeb8e4ef1673b3e6a47fa3c1c767389d9a007f"
+      },
+      "document": "content/docs/guide/camera/index.mdx"
+    },
+    {
+      "id": "script-detail",
+      "title": "脚本编辑器",
+      "summary": "在 AE 中编辑常用脚本。",
+      "guide": "/docs/guide/tools/scripting/script-editor",
+      "alt": "脚本编辑器文档入口：调用与返回的抽象流程的动态插画",
+      "src": "/duik-experience/wall/script-detail-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/script-detail-illustrated-fullbleed-v2.poster.webp",
+      "description": "调用与返回的抽象流程。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "调用与返回的抽象流程"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 2203,
+      "sha256": "139a653376918fe9c0a0693b02757cc4c7daa8818832246790136871f30997aa",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/script-detail-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 11080,
+        "sha256": "c63538e6411b1bb458e139a734f65d07ac271f45bd930ac7dcc41ca2d7d2ff03"
+      },
+      "document": "content/docs/guide/tools/scripting/script-editor.mdx"
+    },
+    {
+      "id": "constraints-detail",
+      "title": "约束",
+      "summary": "让图层与属性相互驱动。",
+      "guide": "/docs/guide/constraints",
+      "alt": "约束文档入口：连接关系驱动相邻关节的动态插画",
+      "src": "/duik-experience/wall/constraints-detail-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/constraints-detail-illustrated-fullbleed-v2.poster.webp",
+      "description": "连接关系驱动相邻关节。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "连接关系驱动相邻关节"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 2719,
+      "sha256": "082a4948ae44ee58d636e3c371f7a04c064166b1680c802e3328329a4c851160",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/constraints-detail-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 8070,
+        "sha256": "857f84d1f6131501296c12ba8f347669cbc18a3f7d1ce1ee1feabd5a91379876"
+      },
+      "document": "content/docs/guide/constraints/index.mdx"
+    },
+    {
+      "id": "motion-loop",
+      "title": "自动化",
+      "summary": "用程序化动画减少重复关键帧。",
+      "guide": "/docs/guide/automation",
+      "alt": "自动化文档入口：沿闭合路径连续运动的动态插画",
+      "src": "/duik-experience/wall/motion-loop-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/motion-loop-illustrated-fullbleed-v2.poster.webp",
+      "description": "沿闭合路径连续运动。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "沿闭合路径连续运动"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 1592,
+      "sha256": "89cec42d925a99e391400acd53e52d352ea5c06e6ef6bbb4a8bc7952f4ace44e",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/motion-loop-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 13120,
+        "sha256": "c29b2dbd79ba56b72106d756f43967355cda40328fe3d4a600d582f324064c9b"
+      },
+      "document": "content/docs/guide/automation/index.mdx"
+    },
+    {
+      "id": "bones-detail",
+      "title": "创建骨骼",
+      "summary": "从肢体结构开始创建骨骼。",
+      "guide": "/docs/guide/bones/create-bones",
+      "alt": "创建骨骼文档入口：可连接的关节与骨骼结构的动态插画",
+      "src": "/duik-experience/wall/bones-detail-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/bones-detail-illustrated-fullbleed-v2.poster.webp",
+      "description": "可连接的关节与骨骼结构。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "可连接的关节与骨骼结构"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 2650,
+      "sha256": "acfd46d96f33af6fe6d9b1cc22899d563655ce4ffadd76385b020d781b339ab9",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/bones-detail-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 7018,
+        "sha256": "888fdc9e7135e729a9f686b7a5b7a96d6a5ad383a161c2e23e4cbd80917d4c55"
+      },
+      "document": "content/docs/guide/bones/create-bones.mdx"
+    },
+    {
+      "id": "animation-library",
+      "title": "动画库",
+      "summary": "保存动作片段，下次接着用。",
+      "guide": "/docs/guide/animation/anim-library",
+      "alt": "动画库文档入口：从集合中取出一个动作片段的动态插画",
+      "src": "/duik-experience/wall/animation-library-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/animation-library-illustrated-fullbleed-v2.poster.webp",
+      "description": "从集合中取出一个动作片段。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "从集合中取出一个动作片段"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 2300,
+      "sha256": "16c7ef458ee5e4abdd9cb6672a50935a7b1b250409ee586d075e696d08596cd9",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/animation-library-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 6108,
+        "sha256": "63d832f5e283444752fdc6a6659fef293f98963e13121155d17bb6953482048b"
+      },
+      "document": "content/docs/guide/animation/anim-library.mdx"
+    },
+    {
+      "id": "script-library",
+      "title": "脚本库",
+      "summary": "分类收藏，快速找到常用脚本。",
+      "guide": "/docs/guide/tools/scripting/library",
+      "alt": "脚本库文档入口：从分类中取用一个脚本的动态插画",
+      "src": "/duik-experience/wall/script-library-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/script-library-illustrated-fullbleed-v2.poster.webp",
+      "description": "从分类中取用一个脚本。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "从分类中取用一个脚本"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 2289,
+      "sha256": "8626a50a43bf0a322c936ad8ce3f5a29f02a326b2d1920e28658e5e785479d65",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/script-library-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 6750,
+        "sha256": "26edc9331e4742dfbe19f75361e6c82947923a771aad24e2b9adc57e4c63a9c7"
+      },
+      "document": "content/docs/guide/tools/scripting/library.mdx"
+    },
+    {
+      "id": "motion-depth",
+      "title": "2D 摄像机",
+      "summary": "用景层视差表现镜头深度。",
+      "guide": "/docs/guide/camera/camera-2d",
+      "alt": "2D 摄像机文档入口：不同景层以不同幅度移动的动态插画",
+      "src": "/duik-experience/wall/motion-depth-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/motion-depth-illustrated-fullbleed-v2.poster.webp",
+      "description": "不同景层以不同幅度移动。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "不同景层以不同幅度移动"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 2166,
+      "sha256": "79f2d3057ff4efbb7a9b13b46a482bd7ab3d0bed594dd06446001d0e82d6a750",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/motion-depth-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 7948,
+        "sha256": "85cb2e946511a987d4c653a84cfeb8e4ef1673b3e6a47fa3c1c767389d9a007f"
+      },
+      "document": "content/docs/guide/camera/camera-2d.mdx"
+    },
+    {
+      "id": "tool-spectrum",
+      "title": "通用工具",
+      "summary": "处理合成、图层、文本和脚本。",
+      "guide": "/docs/guide/tools",
+      "alt": "通用工具文档入口：分层素材展开并重新组织的动态插画",
+      "src": "/duik-experience/wall/tool-spectrum-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/tool-spectrum-illustrated-fullbleed-v2.poster.webp",
+      "description": "分层素材展开并重新组织。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "分层素材展开并重新组织"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 2243,
+      "sha256": "afa7c29b21ec889837180478cc552a396175453933e43e59d42558fb15865278",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/tool-spectrum-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 8938,
+        "sha256": "d32ec2b27d0473bb35f4bd6b728a17290f0a244709e17ca6e9641b73ee8d1c3f"
+      },
+      "document": "content/docs/guide/tools/index.mdx"
+    },
+    {
+      "id": "character-controls",
+      "title": "控制器设置",
+      "summary": "调整控制器的外观与显示。",
+      "guide": "/docs/guide/controllers/tools/settings",
+      "alt": "控制器设置文档入口：目标位置与控制范围的关系的动态插画",
+      "src": "/duik-experience/wall/character-controls-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/character-controls-illustrated-fullbleed-v2.poster.webp",
+      "description": "目标位置与控制范围的关系。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "目标位置与控制范围的关系"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 2457,
+      "sha256": "81cac7aeb5012c9b7048445d68d267fe1458442ed6ffac406092ee19cd21c144",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/character-controls-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 7884,
+        "sha256": "3a88bd73ab5b1dbca477dcd111a10d0654f6ecfda65d7e372b83e0a29271a2b2"
+      },
+      "document": "content/docs/guide/controllers/tools/settings.mdx"
+    },
+    {
+      "id": "wiggle-detail",
+      "title": "Wiggle",
+      "summary": "为属性加入可调节的抖动。",
+      "guide": "/docs/guide/automation/wiggle",
+      "alt": "Wiggle文档入口：形状的位置与旋转产生有界抖动的动态插画",
+      "src": "/duik-experience/wall/wiggle-detail-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/wiggle-detail-illustrated-fullbleed-v2.poster.webp",
+      "description": "形状的位置与旋转产生有界抖动。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "形状的位置与旋转产生有界抖动"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 2704,
+      "sha256": "8cb7383e8ffba8b7f3f64bacfbc7626d07be0bd3b49c40874e4f8ebe39af6b3d",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/wiggle-detail-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 11962,
+        "sha256": "03154a43e3a8cfd43574b92b656eda609899d2484719fc80da57f0d6bcd374fb"
+      },
+      "document": "content/docs/guide/automation/wiggle.mdx"
+    },
+    {
+      "id": "composition-detail",
+      "title": "合成",
+      "summary": "收紧预合成边界，保持画面位置。",
+      "guide": "/docs/guide/tools/composition/crop",
+      "alt": "合成文档入口：裁剪边界收紧，画面主体位置不变的动态插画",
+      "src": "/duik-experience/wall/composition-detail-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/composition-detail-illustrated-fullbleed-v2.poster.webp",
+      "description": "裁剪边界收紧，画面主体位置不变。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "裁剪边界收紧，画面主体位置不变"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 1986,
+      "sha256": "1656eab001ebc6f328c68fbb1c027b20a6be5f317bd72c9bb8bac272b13127de",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/composition-detail-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 8170,
+        "sha256": "daff7d7792a1349b471c49866300efbc8a362e9078f173bdc9cc48dda19d7f80"
+      },
+      "document": "content/docs/guide/tools/composition/crop.mdx"
+    },
+    {
+      "id": "motion-rhythm",
+      "title": "序列",
+      "summary": "错开图层和动画的时间顺序。",
+      "guide": "/docs/guide/animation/sequence",
+      "alt": "序列文档入口：五个形状按时间顺序错峰运动的动态插画",
+      "src": "/duik-experience/wall/motion-rhythm-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/motion-rhythm-illustrated-fullbleed-v2.poster.webp",
+      "description": "五个形状按时间顺序错峰运动。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "五个形状按时间顺序错峰运动"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 2787,
+      "sha256": "c9150408c61c3d1dda56416ce508d974413ae046beee5cd28b5f5c2f36bc4c3b",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/motion-rhythm-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 6892,
+        "sha256": "398f109de9ee26f115fafe7b537c63a8f5848e60713370d767569f2dd38e7d8f"
+      },
+      "document": "content/docs/guide/animation/sequence.mdx"
+    },
+    {
+      "id": "text-detail",
+      "title": "文本命名",
+      "summary": "按规则批量整理图层名称。",
+      "guide": "/docs/guide/tools/text/rename",
+      "alt": "文本命名文档入口：同一命名前缀加入多个条目的动态插画",
+      "src": "/duik-experience/wall/text-detail-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/text-detail-illustrated-fullbleed-v2.poster.webp",
+      "description": "同一命名前缀加入多个条目。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "同一命名前缀加入多个条目"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 2910,
+      "sha256": "f51e8c4988f172fc506cc2ff820389bee2f695c4c1c3295f877fb6bb048cda73",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/text-detail-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 7484,
+        "sha256": "04fbd0abed0a2184fc4da31fd7e9e2afaca258b08a73338ec76ce541ff17ca6b"
+      },
+      "document": "content/docs/guide/tools/text/rename.mdx"
+    },
+    {
+      "id": "command-detail",
+      "title": "命令行",
+      "summary": "搜索功能，快速找到工具。",
+      "guide": "/docs/guide/cmd",
+      "alt": "命令行文档入口：从工具入口到调用的抽象表达的动态插画",
+      "src": "/duik-experience/wall/command-detail-illustrated-fullbleed-v2.svg",
+      "reducedMotionSrc": "/duik-experience/wall/command-detail-illustrated-fullbleed-v2.poster.webp",
+      "description": "从工具入口到调用的抽象表达。原创功能原理示意，点击阅读对应的中文文档。",
+      "sourceReferences": [
+        {
+          "kind": "original-vector-principle",
+          "path": "components/home/landing/hero-wall-art.mjs",
+          "attribution": "duik-zh original motion illustration",
+          "note": "原创动态几何插画；不是 AE 面板、Duik 算法或实际执行结果。",
+          "sha256": "e46ab9a1c113e1c8dad41e19eea8608b8b193ae9bc3ba8059660271c926a1274",
+          "meaning": "从工具入口到调用的抽象表达"
+        }
+      ],
+      "kind": "motion",
+      "width": 800,
+      "height": 800,
+      "format": "svg",
+      "bytes": 1915,
+      "sha256": "0f27401954fb75ea8a1b1f6dbbc4468cd4c327218af3abe0870aec4df45cc066",
+      "animated": true,
+      "reducedMotion": {
+        "src": "/duik-experience/wall/command-detail-illustrated-fullbleed-v2.poster.webp",
+        "width": 800,
+        "height": 800,
+        "format": "webp",
+        "bytes": 5312,
+        "sha256": "216f20dc0cee0a1cbccfa6d72a4f8015ed5b1c6ff388466b1aeddfa9a9207ff7"
+      },
+      "document": "content/docs/guide/cmd.mdx"
+    }
+  ]
+}

@@ -1,3 +1,91 @@
+diff --git a/node_modules/nextra-theme-docs/dist/components/copy-page.js b/node_modules/nextra-theme-docs/dist/components/copy-page.js
+index 11a4d45..6f74716 100644
+--- a/node_modules/nextra-theme-docs/dist/components/copy-page.js
++++ b/node_modules/nextra-theme-docs/dist/components/copy-page.js
+@@ -115,7 +115,7 @@ const CopyPage = (t0) => {
+   } else {
+     t3 = $[5];
+   }
+-  const t4 = isCopied ? "Copied" : "Copy page";
++  const t4 = isCopied ? "已复制" : "复制页面";
+   let t5;
+   if ($[6] !== handleCopy || $[7] !== t2 || $[8] !== t4) {
+     t5 = /* @__PURE__ */ jsxs(Button, { className: t2, onClick: handleCopy, children: [
+@@ -143,7 +143,7 @@ const CopyPage = (t0) => {
+   if ($[11] === Symbol.for("react.memo_cache_sentinel")) {
+     t7 = {
+       id: "copy",
+-      name: /* @__PURE__ */ jsx(Item, { icon: CopyIcon, title: "Copy page", description: "Copy page as Markdown for LLMs" })
++      name: /* @__PURE__ */ jsx(Item, { icon: CopyIcon, title: "复制页面", description: "复制为 Markdown，便于提供给 AI" })
+     };
+     $[11] = t7;
+   } else {
+@@ -153,7 +153,7 @@ const CopyPage = (t0) => {
+   if ($[12] === Symbol.for("react.memo_cache_sentinel")) {
+     t8 = {
+       id: "chatgpt",
+-      name: /* @__PURE__ */ jsx(Item, { icon: ChatGPTIcon, title: "Open in ChatGPT", description: "Ask questions about this page", isExternal: true })
++      name: /* @__PURE__ */ jsx(Item, { icon: ChatGPTIcon, title: "在 ChatGPT 中打开", description: "就本页内容提问", isExternal: true })
+     };
+     $[12] = t8;
+   } else {
+@@ -163,7 +163,7 @@ const CopyPage = (t0) => {
+   if ($[13] === Symbol.for("react.memo_cache_sentinel")) {
+     t9 = [t7, t8, {
+       id: "claude",
+-      name: /* @__PURE__ */ jsx(Item, { icon: ClaudeIcon, title: "Open in Claude", description: "Ask questions about this page", isExternal: true })
++      name: /* @__PURE__ */ jsx(Item, { icon: ClaudeIcon, title: "在 Claude 中打开", description: "就本页内容提问", isExternal: true })
+     }];
+     $[13] = t9;
+   } else {
+@@ -178,7 +178,7 @@ const CopyPage = (t0) => {
+   }
+   let t11;
+   if ($[15] !== handleCopy) {
+-    t11 = /* @__PURE__ */ jsx(Select, { anchor: t6, className: "x:rounded-none", options: t9, value: "", selectedOption: t10, onChange: (value) => {
++    t11 = /* @__PURE__ */ jsx(Select, { anchor: t6, title: "更多页面操作", className: "x:rounded-none", options: t9, value: "", selectedOption: t10, onChange: (value) => {
+       if (value === "copy") {
+         handleCopy();
+         return;
+diff --git a/node_modules/nextra-theme-docs/dist/components/navbar/index.client.js b/node_modules/nextra-theme-docs/dist/components/navbar/index.client.js
+index 8598843..ae86845 100644
+--- a/node_modules/nextra-theme-docs/dist/components/navbar/index.client.js
++++ b/node_modules/nextra-theme-docs/dist/components/navbar/index.client.js
+@@ -183,7 +183,7 @@ const ClientNavbar = (t0) => {
+   }
+   let t6;
+   if ($[14] !== t5) {
+-    t6 = /* @__PURE__ */ jsx(Button, { "aria-label": "Menu", className: _temp4, onClick: _temp6, children: /* @__PURE__ */ jsx(MenuIcon, { height: "24", className: t5 }) });
++    t6 = /* @__PURE__ */ jsx(Button, { "aria-label": "导航菜单", className: _temp4, onClick: _temp6, children: /* @__PURE__ */ jsx(MenuIcon, { height: "24", className: t5 }) });
+     $[14] = t5;
+     $[15] = t6;
+   } else {
+diff --git a/node_modules/nextra-theme-docs/dist/components/sidebar.js b/node_modules/nextra-theme-docs/dist/components/sidebar.js
+index b6e7d77..5c8cc9e 100644
+--- a/node_modules/nextra-theme-docs/dist/components/sidebar.js
++++ b/node_modules/nextra-theme-docs/dist/components/sidebar.js
+@@ -557,7 +557,7 @@ const Sidebar = () => {
+     t11 = hasMenu && /* @__PURE__ */ jsxs("div", { className: cn("x:sticky x:bottom-0 x:bg-nextra-bg", classes.footer, !isExpanded && "x:flex-wrap x:justify-center", showToggleAnimation && ["x:*:opacity-0", isExpanded ? "x:*:animate-[fade-in_1s_ease_.2s_forwards]" : "x:*:animate-[fade-in2_1s_ease_.2s_forwards]"]), children: [
+       /* @__PURE__ */ jsx(LocaleSwitch, { lite: !isExpanded, className: isExpanded ? "x:grow" : "" }),
+       /* @__PURE__ */ jsx(ThemeSwitch, { lite: !isExpanded || hasI18n, className: !isExpanded || hasI18n ? "" : "x:grow" }),
+-      themeConfig.sidebar.toggleButton && /* @__PURE__ */ jsx(Button, { "aria-expanded": isExpanded, "aria-controls": sidebarControlsId, title: isExpanded ? "Collapse sidebar" : "Expand sidebar", className: _temp4, onClick: () => {
++      themeConfig.sidebar.toggleButton && /* @__PURE__ */ jsx(Button, { "aria-expanded": isExpanded, "aria-controls": sidebarControlsId, title: isExpanded ? "收起侧栏" : "展开侧栏", className: _temp4, onClick: () => {
+         setIsExpanded(_temp5);
+         setToggleAnimation(true);
+       }, children: /* @__PURE__ */ jsx(ExpandIcon, { height: "12", className: cn(!isExpanded && "x:*:first:origin-[35%] x:*:first:rotate-180") }) })
+diff --git a/node_modules/nextra-theme-docs/dist/components/theme-switch.js b/node_modules/nextra-theme-docs/dist/components/theme-switch.js
+index 2e730eb..64bf1f2 100644
+--- a/node_modules/nextra-theme-docs/dist/components/theme-switch.js
++++ b/node_modules/nextra-theme-docs/dist/components/theme-switch.js
+@@ -102,7 +102,7 @@ const ThemeSwitch = (t0) => {
+   }
+   let t9;
+   if ($[17] !== id || $[18] !== setTheme || $[19] !== t1 || $[20] !== t5 || $[21] !== t8) {
+-    t9 = /* @__PURE__ */ jsx(Select, { className: t1, title: "Change theme", options: t5, onChange: setTheme, value: id, selectedOption: t8 });
++    t9 = /* @__PURE__ */ jsx(Select, { className: t1, title: "切换主题", options: t5, onChange: setTheme, value: id, selectedOption: t8 });
+     $[17] = id;
+     $[18] = setTheme;
+     $[19] = t1;
 diff --git a/node_modules/nextra-theme-docs/dist/schemas.js b/node_modules/nextra-theme-docs/dist/schemas.js
 index 060d0b9..f17054e 100644
 --- a/node_modules/nextra-theme-docs/dist/schemas.js
