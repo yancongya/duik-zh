@@ -52,11 +52,25 @@ npm run convert    # 上游 md → 占位 mdx（跳过已存在文件）
 
 ### 文档壳与路由
 
+- **文档媒体交付（2026-11-06）。** `npm run docs:media` 在 dev/build 前检查真实 MDX 图片引用和文件签名；缺失资源不得 rewrite 为 HTTP 200 占位 SVG。先用 `git ls-files -v` 区分稀疏省略和真实缺失；扩展 sparse 时保留完整 `public/**`、`scripts/**`、`components/docs/**`、`patches/**` 和根配置，不得使现有运行时被重新稀疏移除。媒体问题不通过覆盖译文或上游快照修复。
+- **外部媒体边界。** `components/docs/image-policy.mjs` 仅记录已核实的同素材精确迁移；保留原译文、caption与归属。视频核查仅请求正文已记录的原地址，状态存于 `video-status.json`；403/404/410提供官方入口与重试，超时不当永久失效。课程访问限制不得绕过/镜像；可用提示不等于站内播放恢复。维护命令与证据见 `docs/DOCS_MEDIA_DELIVERY.md`。
 - `content/docs` 已含 `/docs` 层级，根 catch-all 使用 `contentDirBasePath: '/'`，侧栏取 `getPageMap('/docs')`。旧 `/docs/docs/:path*` 仅做永久重定向；不要再重复加前缀。
 - 中文目录走 `content/_meta.cn.json` → 现有导航生成器，顺序取官方 `mkdocs.yml`；稀疏快照用 `git show` 只读获取。正文相对链接通过 `getPageMDXComponents(metadata.filePath, pageMap)` 按源目录解析，只改真实文档目标，保留资源、外链与片内链接。回归见 `scripts/test-docs-{navigation,shell}.mjs`，不修改译文补偿路由错误。
 - 文档主题独立存于 `duik-docs-theme`，默认亮色；切换时背景和文字同时跟随 Nextra token，不能给 body 固定白底。中文内置控件补丁保留在锁定版本的 `patches/`，直接改 node_modules 不算交付。
 
 ## 落地页协作约束（2026-11-01 更新）
+
+**2026-11-06 首屏镜头增量（覆盖下方420 ms淡出版）：** `components/brand/boot.{js,css}`保留1800 ms Logo入场，之后820 ms推镜虚化退场；140 ms后Hero五组子层以70 ms错峰、各900 ms清晰入场。只动画原GSAP宿主的子层，不能给滚动宿主重写transform。`data-duik-entry`只在此次入场存在，结束/输入/后台/reduced/pagehide清理；中断监听必须持续到最后一组结束，不得在资源ready时提前移除。CSS `:is`选择器优先级可能抵消子组delay，须核对浏览器实际0/70/140/210/280 ms，而不只查源码字符串。无JS/深链接/reduced不隐藏Hero；不引入新库或全屏backdrop-filter。
+
+**2026-11-05 正式品牌与首屏性能增量：** A 方案朱红回环/青绿沙漏已获接入授权。`components/brand/logo.mjs` 是 SVG/PNG/ICO 与 metadata 真源，`npm run brand:publish` 输出 `/brand/v1/` 和 `/brand.html`；旧试稿可从 `docs/logo-studies-archive-2026-11-05.tar.gz` 恢复，不再运行旧发布器。普通导航与 favicon 静态，intro 有限，loader 仅等待时循环。**用户随后明确：缓存命中也必须自然过渡。** 首屏 boot 在 Nuxt 根外，无 JS 默认隐藏；普通进入保留 1800 ms 进场＋420 ms 淡出，Hero 并行准备，较慢时继续循环等待。5 s 超时，error/输入/后台放行，深链接/reduced跳过；淡出不切静态图导致沙漏跳帧。此前“160 ms/无最短等待”已被此决定覆盖。Hero 的 SSR/Vue/adapter 共享 `heroStageMarkup` 预留尺寸；不恢复模板隐藏的 200vw “B” 去伪造 LCP。`landing:optimize` 只生成交付副本和 Next 定向映射，原 PNG、rig JSON、sourceSha256 不动；无损须完整 RGBA 一致，PNG effort 会隐式 palette，普通 WebP 会改透明区 RGB，都不能直接使用。浏览器指标用 loopback `?perf=1` 实际 PerformanceObserver；空指标为未测，生产 HTTP 压缩与浏览器暖缓存计时分开记录，不将 dev 数值写成线上通过。
+
+**2026-11-05 最新四项批注优先于下方历史布局约束：** 优化前基线 `0a5e915` 已获用户授权提交；后续不自动 commit/push/deploy。绑定改为物理滚动正向归位、向上倒序，终态可拖拽；纸飞机、悬挂装置、分层风景回到原横向轨道，不再在圆环后重复展示。目录分类上方使用宽幅动态插画，并移除该目录的官方截图区；其他位置的真实素材、文档和归属保留。Hero/22槽墙、工程整理、资产复用圆环及末尾工具/学习/API索引、开始使用/FAQ维持。“一次自动播放”“一幅Motion”“底部更多功能”仅为先前版本，不能覆盖本条。
+
+- **绑定滚动映射。** 首层仅标题、26层舞台、最终控制器、归属/文档链接；不恢复阶段/部位/详情/复位工具栏。`data-workflow-scroll`通过sticky舞台与实际章节几何采样`seek(progress)`，没有计时自动推进或一次性锁。上下滚动共用同一镜头/PNG坐标；离开终态先保存用户pose，往返不能覆盖它。终态同时将组件属性和核心配置切为`drag`。背景恢复仅有界重采样，不能让共享核心的恢复绘制覆盖中间姿态。保留错误回退/重试及卸载代次保护；旧tour只用于兼容入口。
+- **三幅插画回归横向轨道。** 原三slot按纸飞机→悬挂装置→分层风景显示，复用`renderMotion(...,{compact:true})`及原时钟；每卡短标题/用途/文档链接，无播放按钮、进度、参数或截图面板。90%可见循环、实际输入接管、离屏/后台/reduced停止。`#more-features`兼容锚点位于第一横向场景，底部不再重复gallery；共享父级继续真实测量宽度、横移并衔接原圆环。
+- **目录分类横幅。** `catalog-banner.mjs`提供1200×300原创功能示意，八类与全部共九态，分类/搜索/文档结果即时同步，只有当前图形可见并运动。65%可见循环、离屏/后台暂停、reduce静态，切换取消旧动画，卸载和BFCache有守卫。移除的仅是目录官方截图UI，不删除公共官方素材；检索和阅读文字不循环。
+- **曲线投影不改运镜。** 横向背景继续使用原 `.kp-home-capabilities-content > svg` 与描边时间线；投影覆盖 `J + se`，其中 `se` 来自父级已有圆环接近距离。只扩展原 `we()` 的 SVG width/viewBox/path，不改变轨道测量值、ScrollTrigger距离、横移或圆环阶段。发布幂等与真实投影函数回归分开核对；截图前后滚动跳变的帧不得证明滚动稳定。
+- **三场景发布契约（2026-11-05）。** `duik-cinematic-composition-v2`保留父级首行owner和原三项computed列表，每卡仅完整art列，SSR/Vue同源；不能再slice成一卡。重复发布验证三项映射及各自文档目标；v1运行模块定向升级，旧一卡SSR需完整`landing:publish`从baseline重建。曲线仍投影J+se，不改原圆环索引、测量函数或滚动距离常量。代码回归与实际运镜分别验收。
 
 动手前结合 [`docs/LANDING_REDESIGN_PLAN.md`](./docs/LANDING_REDESIGN_PLAN.md) 查看当前完成项与待办；功能层级见 [`docs/LANDING_EXPERIENCE_DESIGN.md`](./docs/LANDING_EXPERIENCE_DESIGN.md)，逐板块文档/截图依据见 [`docs/LANDING_CONTENT_AUDIT.md`](./docs/LANDING_CONTENT_AUDIT.md)。这些记录不能替代实际源码与运行入口检查。
 
@@ -93,7 +107,7 @@ npm run convert    # 上游 md → 占位 mdx（跳过已存在文件）
 - **功能卡片说明常驻。** 22 槽墙每张插画下方始终显示模块名与一句用途，不依赖 hover；`heroWallScenes.title/summary` 是 SSR 与 Vue 的同源数据。发布后核对 22 个入口、22 组说明和本地文档目标，不能把源码数量当视觉验收。
 - **卡片文字层级（2026-11-03）。** 标题/用途用独立 `duik-wall-title` / `duik-wall-summary` 类，SSR 与 Vue 一起发布；移除模板的 `text-white/60` 与 `whitespace-nowrap`，避免亮色全局规则把说明染成标题色或强制单行。图下文字不增加悬停、淡入或循环动效，原封面几何与拖拽钩子保持。
 - **轮换文案与复用状态。** Hero 的连接词、轮换内容和可访问摘要由 `content.mjs` 统一发布到 SSR/Vue，不能只修静态标题；绑定第一阶段展示已准备的透明层，不暗示自动拆图。复用区的待选素材/分镜、已存条目、已取用结果是三个状态；取用保存 `{id, frame}` 快照，后续选择、播放和再次保存不能改变它，只有再次取用或重置才更新结果。分镜控件放在待选侧，接收侧保留结果。
-- **绑定主舞台。** 保留批准角色、阶段/部位选择和按需缩略图。65%可见且26层解码后首次自动演示，完成或中断后交还控制，不重新写入pose。用户手动选阶段/打开详情应保持所选内容。初始化与运行期rig-error保留poster/重试；加载代次及element/rig/cinema身份共同保护所有await后的写回，旧解码与finally不得覆盖新实例。重试按钮的pointerdown/focusin不是手动选阶段；按root幂等挂载。DOM回归不算WebGL/视觉验收。
+- **绑定主舞台。** 生产首层按上述最新增量保持纯舞台与控制器；旧阶段/部位/详情节点仅为可选兼容入口，缺失时仍能完整挂载、自动演示与清理。65%可见且26层解码后首次自动演示，完成或中断后交还控制，不重新写入pose。初始化与运行期rig-error保留poster/重试；加载代次及element/rig/cinema身份共同保护所有await后的写回，旧解码与finally不得覆盖新实例。重试按钮的pointerdown/focusin不是手动选阶段；按root幂等挂载。DOM回归不算WebGL/视觉验收。
 - **绑定可见性队列。** 同批IO消费当前画布最后有效项；已开始演示中出现离屏则取消旧等待，无动画收束到control，返回不重播。尚未开始的离屏不能消耗首次机会；reduce直达终态。卸载后IO/完成回调/syncAuto不得写回同root新实例。回归投递排队旧回调并核对真实opacity/inert，不只断言disconnect。
 - **绑定输入交接。** 接管阶段的控制器、所选部位、网格与关联层同步，但不移动镜头。核心会重建SVG控件并恢复焦点，pointerdown应先聚焦新控件；同部位focusin不得重复render，且只接受核心已捕获的pointerId。关闭拖动、隐藏控件、切模式、重置/导入姿态、播放、离屏与卸载要取消旧拖拽并释放capture；选择部位/显示网格不取消正常拖动。回归同时覆盖旧键盘焦点→新鼠标目标和拒绝第二指针，不能只测单次拖动。
 - **API 与学习首层。** API三条真实调用驱动一个关系舞台；同一figure正常流呈现“选中对象→apiExamples.call→能力结果”，调用不重复/不增代码面板。原4200ms镜头自动往返，切换示例立即演示；无阶段跳转、时间拖动或播放复位，data-api-position仅作内部观测。打开详情暂停，关闭恢复，reduce终态可读；初始化/官方图在关闭详情，不执行AE。学习仍是五任务/五主入口/11后续链接，键盘即时/指针180ms反馈，不循环阅读内容；离屏/后台/reduce/卸载停止反馈。受控测试不写为物理切换标签页实测。
@@ -105,6 +119,7 @@ npm run convert    # 上游 md → 占位 mdx（跳过已存在文件）
 - **避免宿主布局回归。** 懒加载面板图预留真实固有尺寸，不能加载后推偏锚点与横向动画测量；原 Vue 头部会在滚动时更新 class，落地页导航覆盖使用稳定的专属 data 标记，不能靠动态追加 class，也不能用全局 `header` 规则隐藏板块标题。
 - **首帧与接管一致。** 导航 SSR 与 HeaderKP 共用 `navMarkup`，亮色标记在首屏就存在；原暗色遮罩从渲染树移除，不等 mounted 后隐藏。主背景与独立边缘光效分别维护暂停/卸载契约；边缘光保留固定shader与可见时间线，覆盖后台RAF/GSAP、reduced静帧清屏、异步初始化与陈旧回调。VM/WebGL替身测试不代替浏览器视觉验收。
 - **Hero 底部条带。** 保留原LogoMarquee实宽测量、自动横向循环与Hero退场；八主面板共用tool-catalog和本地图标，左右为入门链接和“查找工具”。首份提供键盘入口，副本不重复Tab；透明退场内部暂停并让整条ribbon inert，返回/卸载恢复焦点边界。发布器支持旧按钮版定向升级，SSR/Vue一起发布。
+- **Hero 局部精修（2026-11-05）。** 上下剩余空间以等权flex分配，让标题与角色自然居中，不改角色姿态、镜头或加像素位移。首屏移除“复位/隐藏控制器”的节点和事件，控制器保持可见；错误回退/重试保留，重试成功将焦点交回新控件，不给shadow host设负tabindex阻断内部Tab顺序。八面板条带侧列按内容宽度，中间占剩余空间且解除模板max-width；保留原实宽测量、循环和滚动退出/inert契约。
 - **墙到绑定背景衔接。** 介绍和绑定共用原全页动态亮色色场，不再各自绘制paper/灰绿实底，画布状态条同样透明。不得用不透明遮罩隐藏上一章节动画；保留原父级退场和现有排版几何，截图按用户缩放校准。
 - **工具比较舞台。** 左右构图共用画幅比例、尺度与参考点，首层保留一组结果标题。外围双曲线只消费真实滚动，不拥有工具播放头、用户偏移或全页背景注册；保留原正常流与已修正的宿主边距。组件实现、局部测试与整段视觉验收分开记录，避免因陈旧“待重做”反复替换已完成场景。
 - **组件类名隔离。** 新舞台不能复用旧 `visual-scenes.css` 的状态类；绑定画布使用 `duik-workflow-canvas`，不是旧绝对定位/隐藏的 `duik-workflow-scene`。主画布设置 `flex:none`，避免父级布局将其压成零高度。
@@ -115,5 +130,7 @@ npm run convert    # 上游 md → 占位 mdx（跳过已存在文件）
 - **验证器生命周期。** 将共享头部拼入`data:`模块的专项驱动需先把相对static import解析为原文件的file URL。复用检查按filter独立打开真实二级工作台，失败也必须依次关闭dialog/截图详情/工作台，并恢复媒体偏好；断言使用已取用的`{id,frame}`快照。import和清理替身回归只证明驱动边界，不表示已运行浏览器主体。
 
 ## 验收底线
+
+- **Logo 独立试稿（2026-11-05）。** 用户已选 A，当前朱红回环/青绿沙漏试色；仅改配色，不重画或自动接入正式首页。四版只在`/logo-lab.html`，真源`components/home/landing/logo-lab/`，独立`publish-duik-logo-lab.mjs`发布，不改首页/favicons/角色。各自进场后自动循环，不按早期“结束静止”回退；static/intro/loop/mono同源几何，离屏/后台/reduced静态，返回恢复loop，点击才重看进场。引用上游固定版本，不称最新官方品牌规范；选定方向不等于配色或正式上线获批。
 
 改动后：`npm run build` 通过；不引入死链（首页↔文档跳转）；中文文案无术语冲突；新增文件遵守上述硬规则。

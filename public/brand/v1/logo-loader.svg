@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title"><title id="title">Duik 非官方中文指南</title><style>:root{--ease-out:cubic-bezier(.23,1,.32,1);--ease-in-out:cubic-bezier(.77,0,.175,1)}g,path{transform-box:view-box}
+.ring-entry{transform-origin:128px 137px;animation:ring-in 1450ms var(--ease-out) both}
+.upper-entry{animation:upper-in 1000ms 300ms var(--ease-out) both}.lower-entry{animation:lower-in 1000ms 380ms var(--ease-out) both}
+.ring{transform-origin:128px 137px;animation:ring-answer 4800ms var(--ease-in-out) infinite}
+.hourglass{transform-origin:128px 139.5px;animation:sand-turn 4800ms var(--ease-in-out) infinite}
+@keyframes ring-in{0%{transform:rotate(-145deg) scale(.94);opacity:0}72%{transform:rotate(8deg) scale(1);opacity:1}100%{transform:rotate(0deg);opacity:1}}
+@keyframes upper-in{0%{transform:translate(-26px,-25px) rotate(-16deg);opacity:0}70%{transform:translate(0,3px);opacity:1}100%{transform:none;opacity:1}}
+@keyframes lower-in{0%{transform:translate(26px,25px) rotate(16deg);opacity:0}70%{transform:translate(0,-3px);opacity:1}100%{transform:none;opacity:1}}
+@keyframes ring-answer{0%,12%,48%,62%,98%,100%{transform:rotate(0)}27%,77%{transform:rotate(-12deg)}38%,88%{transform:rotate(5deg)}}
+@keyframes sand-turn{0%,12%{transform:rotate(0)}38%,62%{transform:rotate(180deg)}88%,100%{transform:rotate(360deg)}}.loop{animation-delay:1800ms}@media(prefers-reduced-motion:reduce){g,path{animation:none!important;opacity:1!important;transform:none!important}}</style><g class="ring-entry"><g class="ring loop"><path d="M58 137a70 70 0 1 0 70-70l29-29" fill="none" stroke="#d63d2f" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/></g></g><g class="hourglass loop"><g class="upper-entry"><path d="M104 115h48l-24 24Z" fill="#147d83"/></g><g class="lower-entry"><path d="m128 139 24 25h-48Z" fill="#147d83"/></g></g></svg>

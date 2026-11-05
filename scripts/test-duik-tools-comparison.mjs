@@ -193,7 +193,7 @@ test('comparison mount failure keeps the tools usable and their disposer reachab
   executable=executable.replace('export function mountExperience','function mountExperience');
   const warnings=[];let stopped=0;
   const mount=runInNewContext(executable+';mountExperience',{
-    mountTools:()=>()=>{stopped++;},
+    mountToolsCinema:()=>()=>{stopped++;},
     mountToolsComparisonMotion:()=>{throw new Error('Missing comparison paths');},
   });
   const host={dataset:{},ownerDocument:{defaultView:{console:{warn:(...args)=>warnings.push(args)}}}};

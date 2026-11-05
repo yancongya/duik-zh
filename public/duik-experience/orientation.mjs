@@ -1,8 +1,8 @@
 // Product explanations grounded in the pinned upstream Markdown, not a fake AE UI.
 export const officialRoot='/duik-experience/official/';
 export const panelScreenshots=Object.freeze({bones:'duik/bones/bones_panel.png',constraints:'duik/constraints/constraints-panel.png',controllers:'duik/controllers/panel.png',automation:'duik/automation/panel.png',animation:'duik/animation/animation-panel.png',camera:'duik/cameras/camera-panel.png',tools:'duik/tools/comp-tools.png',command:'duik/cmd.png'});
-export const orientationMarkup=`<section id="inside-ae" class="duik-orientation duik-experience-section" aria-labelledby="duik-inside-title">
- <div class="duik-orientation-heading"><h2 id="duik-inside-title">就在 After Effects 里。</h2><div><p>从绑定到整理工程，把繁琐操作接起来，继续在熟悉的 AE 中创作。</p><a href="/docs/getting-started/first-look">了解 Duik 如何工作</a></div></div>
+export const orientationMarkup=`<section id="inside-ae" class="duik-orientation duik-experience-section" aria-label="认识 Duik">
+ <div class="duik-orientation-heading"><p>Duik Ángela · 就在 After Effects 里</p><a href="/docs/getting-started/first-look">认识 Duik ↗</a></div>
  <details class="duik-orientation-reference" data-orientation-reference><summary>查看 Duik 的真实面板</summary>
   <figure class="duik-official-workspace"><img src="${officialRoot}duik/individual-panels.png" width="1265" height="567" alt="官方文档中的 Duik 独立面板：骨骼、链接与约束、自动化、控制器和动画" loading="lazy" decoding="async"><figcaption><span>可按工作需要独立打开的 Duik 面板</span><span>RxLaboratory 官方文档 / <a href="/docs/misc/doc-license">GFDL 1.3</a></span></figcaption></figure>
  </details>
@@ -25,21 +25,18 @@ export const workflowParts=Object.freeze([
  {id:'face',label:'头部',group:'面部',control:'head'},
  {id:'torso',label:'躯干',group:'躯干',control:'body'},
 ]);
-const viewCopy=view=>`<h3>${view.heading}</h3><p>${view.description}</p>`;
-export const workflowMarkup=`<section id="workflow" class="duik-workflow-chapter duik-experience-section" data-duik-workflow data-workflow-step="0" data-workflow-tour="idle" aria-labelledby="duik-workflow-title">
- <div class="duik-workflow-heading"><h2 id="duik-workflow-title">从分层素材，<br>到一段表演。</h2><p>展开、归位，再用一个控制器带动角色。</p></div>
+const viewCopy=view=>`<p>${view.description}</p>`;
+export const workflowMarkup=`<section id="workflow" class="duik-workflow-chapter duik-experience-section" data-duik-workflow data-workflow-scroll data-workflow-step="0" data-workflow-tour="scroll" aria-labelledby="duik-workflow-title">
+ <div class="duik-workflow-pin" data-workflow-pin>
+ <div class="duik-workflow-heading"><h2 id="duik-workflow-title">从分层素材，<br>到一段表演。</h2></div>
  <div class="duik-workflow-stage">
-  <div class="duik-workflow-toolbar"><p>自动展开与绑定，然后交给你。</p><div><button type="button" data-workflow-reset hidden disabled>复位姿态</button><button type="button" data-workflow-retry hidden>重新加载角色</button></div></div>
+  <div class="duik-workflow-toolbar"><button type="button" data-workflow-retry hidden>重新加载角色</button></div>
   <div class="duik-workflow-canvas">
    <div class="duik-workflow-art" data-workflow-art><div class="duik-workflow-camera" data-workflow-camera><img data-workflow-poster src="/duik-landing-assets/layers-exploded.webp" width="1400" height="1200" alt="已确认角色的 26 张独立透明图层" loading="lazy" decoding="async"><div class="duik-workflow-layer-stack" data-workflow-layer-stack aria-hidden="true"></div><div data-workflow-rig-host></div></div><p data-workflow-status>26 张已准备好的透明图层</p></div>
-   <div class="duik-workflow-parts" data-workflow-parts hidden><div role="group" aria-label="选择关联部位">${workflowParts.map((part,index)=>`<button type="button" data-workflow-part="${part.id}" aria-pressed="${index===0}">${part.label}</button>`).join('')}</div><details class="duik-workflow-linked-detail"><summary>查看关联图层 <span data-workflow-linked-count></span></summary><ul data-workflow-linked aria-label="关联美术图层"></ul></details></div>
-  </div>
-  <div class="duik-workflow-story"><div class="duik-workflow-steps" role="group" aria-label="选择展示阶段">${workflowViews.map((view,index)=>`<button type="button" data-workflow-step="${index}" aria-pressed="${index===0}" aria-controls="duik-workflow-copy"><span aria-hidden="true">${index+1}</span>${view.label}</button>`).join('')}</div>
-   <div id="duik-workflow-copy" class="duik-workflow-copy" data-workflow-copy>${viewCopy(workflowViews[0])}</div>
   </div>
  </div>
- <div class="duik-workflow-footnote"><p class="duik-workflow-boundary">已分层角色的原理示意，不在浏览器中执行 Duik 自动绑定。</p><a href="/docs/guide/rigging">查看完整绑定流程</a></div>
- <details class="duik-workflow-reference"><summary>在 Duik 中如何操作？查看真实面板</summary><div class="duik-workflow-detail" data-workflow-detail>${detail(workflowSteps[0])}</div></details>
+ <div class="duik-workflow-footnote"><p class="duik-workflow-boundary">已分层角色 · 网页原理示意</p><a href="/docs/guide/rigging">了解 Duik 绑定</a></div>
+ </div>
 </section>`;
 
 // The Linearity HomeHowItWorksKP timeline keeps one image stage while its
@@ -73,7 +70,7 @@ export function workflowLayerLayout(manifest,width,height){
   else if(part.group==='面部'){x=35+(index-4)*28;y=-145;z=80+index*13;rotate=2;}
   else{x=-35;y=part.id==='waist'?145:part.id==='neck'?-70:30;z=-60;rotate=-2;}
   return {id:part.id,left:(x0-camera[0])/cw*100,top:(y0-camera[1])/ch*100,width:(x1-x0)/cw*100,height:(y1-y0)/ch*100,
-   exploded:`translate3d(${(x*scale).toFixed(3)}px, ${(y*scale).toFixed(3)}px, ${(z*scale).toFixed(3)}px) rotateY(${rotate}deg)`,assembled:'translate3d(0px, 0px, 0px) rotateY(0deg)'};
+   offsets:[x*scale,y*scale,z*scale,rotate],exploded:`translate3d(${(x*scale).toFixed(3)}px, ${(y*scale).toFixed(3)}px, ${(z*scale).toFixed(3)}px) rotateY(${rotate}deg)`,assembled:'translate3d(0px, 0px, 0px) rotateY(0deg)'};
  });
 }
 
@@ -89,6 +86,7 @@ export function workflowPoseFrame(pose,progress){
 export function createWorkflowCinema({art,camera,stack,rigHost,rig,manifest,reduced}){
  let shot=0,part='fore-l',animations=[],disposed=false,version=0,poseFrame=0,restoringPose=false;
  let layoutWidth=0,layoutHeight=0;
+ let scrollProgress=null,scrollPose=null;
  const settledListeners=new Set();
  const images=manifest.parts.map(part=>{
   const image=document.createElement('img');image.src=new URL(part.src,new URL('/riglab-project/rig.json',document.baseURI)).href;
@@ -151,7 +149,7 @@ export function createWorkflowCinema({art,camera,stack,rigHost,rig,manifest,redu
   return layout;
  }
  function show(next,{animate=false,selected=part,expandFromRest=false}={}){
-  if(disposed)return;cancel();shot=next;part=selected;const token=version;
+  if(disposed)return;scrollProgress=null;scrollPose=null;cancel();shot=next;part=selected;const token=version;
   const motion=animate&&!reduced.matches&&typeof camera.animate==='function'&&images.every(image=>typeof image.animate==='function'),layout=project();
   art.dataset.workflowShot=next===0?'layers':next===1?'link':'control';
   const pose=next===0?'layers':next===1?part:'control';camera.dataset.workflowCameraPose=pose;
@@ -189,15 +187,57 @@ export function createWorkflowCinema({art,camera,stack,rigHost,rig,manifest,redu
   }
   notifySettled();
  }
+ // One physical scroll coordinate is the only playhead. Reversing the page
+ // samples the same PNG transforms and the same saved-pose blend; no reverse
+ // timer, completion callback or fresh neutral character is introduced.
+ function seek(progress,{force=false}={}){
+  if(disposed)return;
+  const p=reduced.matches?1:Math.max(0,Math.min(1,Number.isFinite(progress)?progress:0));
+  if(p===scrollProgress&&!force)return;
+  if(scrollProgress===null){cancel(false);scrollPose=rig.exportPose().pose;}
+  else if(scrollProgress===1&&p<1)scrollPose=rig.exportPose().pose;
+  scrollProgress=p;
+  const layout=project(),sample=workflowScrollFrame(p);
+  art.dataset.workflowProgress=p.toFixed(4);art.dataset.workflowShot=sample.shot;
+  camera.dataset.workflowCameraPose=sample.shot;
+  camera.style.transform=sample.camera;
+  for(const [i,item]of layout.entries()){
+   // A small layer-order offset retains the authored depth without creating
+   // dead scroll holds. Every image is exactly at its source bbox by 0.58.
+   const q=workflowPoseFrame({amount:1},Math.max(0,Math.min(1,(p-i%5*.015)/(.58-i%5*.015)))).amount;
+   const [x,y,z,rotation]=item.offsets.map(value=>value*(1-q));
+   images[i].style.transform=`translate3d(${x.toFixed(3)}px, ${y.toFixed(3)}px, ${z.toFixed(3)}px) rotateY(${rotation.toFixed(3)}deg)`;
+  }
+  const live=p>=.58;
+  stack.style.opacity=live?'0':'1';rigHost.style.opacity=live?'1':'0';
+  rigHost.style.pointerEvents=p===1?'':'none';rigHost.inert=p!==1;
+  if(live){
+   if(p===1)rig.render();else rig.render(workflowPoseFrame(scrollPose,sample.pose));
+  }
+ }
  const observer=new ResizeObserver(()=>{
   if(disposed)return;
   const rect=art.getBoundingClientRect();
   if(Math.max(1,rect.width)===layoutWidth&&Math.max(1,rect.height)===layoutHeight)return;
+  if(scrollProgress!==null){seek(scrollProgress,{force:true});return;}
   // The initial/same-size notification is not a completed shot. A real resize
   // retargets unfinished motion, preserving its pending completion subscriber.
   show(shot,{selected:part,animate:!isSettled()});
  });observer.observe(art);
- return {show,whenSettled(listener){if(disposed)return()=>{};if(isSettled()){listener();return()=>{};}settledListeners.add(listener);return()=>settledListeners.delete(listener);},stop(){cancel();if(shot!==0)exposeRig();notifySettled();},async decode(){await Promise.all(images.map(image=>image.decode?.()));},destroy(){disposed=true;cancel(false);settledListeners.clear();observer.disconnect();stack.replaceChildren();delete art.dataset.workflowLayerCount;delete art.dataset.workflowShot;delete camera.dataset.workflowCameraPose;camera.style.transform='';rigHost.style.opacity='';rigHost.style.pointerEvents='';rigHost.inert=false;stack.style.opacity='';}};
+ return {show,seek,whenSettled(listener){if(disposed)return()=>{};if(isSettled()){listener();return()=>{};}settledListeners.add(listener);return()=>settledListeners.delete(listener);},stop(){cancel();if(shot!==0)exposeRig();notifySettled();},async decode(){await Promise.all(images.map(image=>image.decode?.()));},destroy(){disposed=true;cancel(false);settledListeners.clear();observer.disconnect();stack.replaceChildren();delete art.dataset.workflowLayerCount;delete art.dataset.workflowShot;delete art.dataset.workflowProgress;delete camera.dataset.workflowCameraPose;camera.style.transform='';rigHost.style.opacity='';rigHost.style.pointerEvents='';rigHost.inert=false;stack.style.opacity='';}};
+}
+
+export function workflowScrollFrame(progress){
+ const p=Math.max(0,Math.min(1,Number.isFinite(progress)?progress:0));
+ const ease=value=>workflowPoseFrame({value:1},Math.max(0,Math.min(1,value))).value;
+ const collect=ease(p/.58),depart=ease((p-.72)/.28),focus=ease((p-.4)/.25)*(1-depart);
+ return {shot:p<.58?'layers':p<1?'link':'control',pose:Math.max(0,Math.min(1,(p-.72)/.28)),
+  camera:`perspective(1400px) translate(${(-7*focus).toFixed(4)}%, ${(-focus).toFixed(4)}%) rotateX(${(7*(1-collect)).toFixed(4)}deg) rotateY(${(-12*(1-collect)).toFixed(4)}deg) scale(${(.88+.12*collect+.13*focus).toFixed(5)})`};
+}
+
+export function workflowScrollProgress({top,height},pinHeight,{inset=84,paddingTop=48,paddingBottom=64}={}){
+ const travel=Math.max(1,height-paddingTop-paddingBottom-pinHeight);
+ return Math.max(0,Math.min(1,(inset-top-paddingTop)/(travel*.85)));
 }
 
 // A single introduction: the next shot follows the actual completed movement,
@@ -237,11 +277,102 @@ export function createWorkflowTour({onStep,onState,whenSettled=done=>{done();ret
 }
 
 const workflowMounts=new WeakMap();
+function mountWorkflowScroll(root,{loadCharacter,loadManifest}){
+ const art=root.querySelector('[data-workflow-art]'),pin=root.querySelector('[data-workflow-pin]');
+ const rigHost=root.querySelector('[data-workflow-rig-host]'),camera=root.querySelector('[data-workflow-camera]'),stack=root.querySelector('[data-workflow-layer-stack]');
+ const status=root.querySelector('[data-workflow-status]'),retry=root.querySelector('[data-workflow-retry]');
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)'),life=new AbortController();
+ const win=root.ownerDocument?.defaultView||(typeof window==='undefined'?null:window);
+ let element,rig,cinema,disposed=false,loading=false,version=0,frame=0,forceFrame=false,visible=false,progress=null,mode=null,selected='fore-l';
+ function cancelFrame(){if(frame)cancelAnimationFrame(frame);frame=0;forceFrame=false;}
+ function geometry(){
+  const rootStyle=typeof getComputedStyle==='function'?getComputedStyle(root):null,pinStyle=typeof getComputedStyle==='function'?getComputedStyle(pin):null;
+  const number=(value,fallback)=>Number.isFinite(parseFloat(value))?parseFloat(value):fallback;
+  return workflowScrollProgress(root.getBoundingClientRect(),pin.getBoundingClientRect().height,{inset:number(pinStyle?.top,84),paddingTop:number(rootStyle?.paddingTop,48),paddingBottom:number(rootStyle?.paddingBottom,64)});
+ }
+ function sync(force=false){
+  if(disposed||!rig||art.dataset.ready!=='true'||document.hidden)return;
+  if(!visible&&!reduced.matches)return;
+  const next=reduced.matches?1:geometry();
+  if(next===progress&&!force)return;
+  progress=next;const state=workflowScrollFrame(next),nextMode=next===1?'control':next>=.58?'link':'layers';
+  // During a sampled camera frame this owner renders the mesh directly. A
+  // component visibility wake must not replace that sample with state.pose.
+  rig.setActive?.(next===1);
+  if(nextMode!==mode){
+   mode=nextMode;
+   const interaction=next===1?'drag':'none';element.setAttribute('interaction',interaction);
+   rig.configure({interaction,showControls:next>=.58,showLabels:false,showMesh:next>=.58});
+  }
+  cinema.seek(next,{force});
+  root.dataset.workflowStep=next===1?'2':next>=.58?'1':'0';root.dataset.workflowProgress=next.toFixed(4);
+  root.dataset.workflowTour=reduced.matches?'reduced':next===1?'control':'scroll';
+  status.textContent=next===1?'拖动彩色控制器，试试动作。':state.shot==='link'?'图层归位，连接骨骼与控制器。':'向下滚动，让每一层回到角色中。';
+ }
+ function schedule(force=false){if(force===true)forceFrame=true;if(disposed||frame||document.hidden)return;frame=requestAnimationFrame(()=>{frame=0;const forced=forceFrame;forceFrame=false;sync(forced);});}
+ function fail(){
+  if(disposed)return;version++;loading=false;cancelFrame();cinema?.destroy();cinema=null;rig=null;element?.remove();element=null;progress=null;mode=null;
+  delete art.dataset.ready;root.dataset.workflowReady='error';root.dataset.workflowTour='error';retry.hidden=false;retry.disabled=false;
+  status.textContent='交互未能加载，保留预览。可重新加载角色。';
+ }
+ function rigError(event){if(event.target===element&&!disposed)fail();}
+ async function load(){
+  if(disposed||loading||rig)return;loading=true;retry.disabled=true;const token=++version;root.dataset.workflowReady='loading';
+  status.textContent='正在加载可交互图层…';
+  try{
+   const [,manifest]=await Promise.all([loadCharacter(),loadManifest(life.signal)]);if(disposed||token!==version)return;
+   if(manifest.parts?.length!==26||!Array.isArray(manifest.camera))throw Error('角色分层数据不完整');
+   const instance=document.createElement('character-rig');element=instance;
+   instance.setAttribute('src','/riglab-project/rig.json');instance.setAttribute('interaction','none');instance.setAttribute('controls','visible');
+   instance.setAttribute('aria-label','随滚动展开与绑定的同一角色，完成后可拖动控制器');rigHost.append(instance);
+   const readyRig=await instance.ready;if(disposed||token!==version||element!==instance||!readyRig)return;rig=readyRig;
+   rig.setMode('assembled');
+   const readyCinema=createWorkflowCinema({art,camera,stack,rigHost,rig,manifest,reduced});cinema=readyCinema;
+   await readyCinema.decode();if(disposed||token!==version||element!==instance||rig!==readyRig||cinema!==readyCinema)return;
+   art.dataset.ready='true';root.dataset.workflowReady='true';retry.hidden=true;retry.disabled=false;
+   // A preload outside the viewport still has an authored, fully expanded
+   // starting frame. First entry samples the current physical scroll position.
+   mode=null;progress=null;
+   rig.configure({interaction:'none',showControls:false,showLabels:false,showMesh:false});
+   cinema.seek(reduced.matches?1:0);sync(true);schedule(true);
+  }catch(error){if(!disposed&&token===version)fail();}
+  finally{if(token===version)loading=false;}
+ }
+ function click(event){if(event.target.closest?.('[data-workflow-retry]')===retry){retry.disabled=true;void load();}}
+ function pickControl(event){
+  if(disposed||progress!==1||!rig||event.isPrimary===false)return;
+  const node=event.composedPath().find(item=>item?.dataset?.control);
+  if(event.type==='pointerdown'&&!node?.ownerSVGElement?.hasPointerCapture(event.pointerId))return;
+  if(event.type==='pointerdown')node?.focus?.({preventScroll:true});
+  const part=workflowParts.find(item=>item.control===node?.dataset?.control);
+  if(part&&part.id!==selected){selected=part.id;rig.selectPart(selected);root.dataset.workflowPart=selected;}
+ }
+ function visibility(){cancelFrame();if(!document.hidden){sync(true);schedule(true);}}
+ function motionChange(){cancelFrame();progress=null;mode=null;sync(true);}
+ const observer=new IntersectionObserver(entries=>{if(disposed)return;if(entries.some(entry=>entry.target===root&&entry.isIntersecting)){observer.disconnect();void load();}},{rootMargin:'250px'});observer.observe(root);
+ const sceneObserver=new IntersectionObserver(entries=>{
+  if(disposed)return;let latest;for(const entry of entries)if(entry.target===art)latest=entry;if(!latest)return;
+  visible=latest.isIntersecting;if(!visible){cancelFrame();rig?.setActive?.(false);}else{sync(true);schedule(true);}
+ },{threshold:[0,.65,1]});sceneObserver.observe(art);
+ const resize=new ResizeObserver(()=>{if(disposed)return;schedule();});resize.observe(root);resize.observe(pin);
+ root.addEventListener('click',click);rigHost.addEventListener('pointerdown',pickControl);rigHost.addEventListener('focusin',pickControl);rigHost.addEventListener('rig-error',rigError);
+ document.addEventListener('visibilitychange',visibility);reduced.addEventListener('change',motionChange);
+ win?.addEventListener('scroll',schedule,{passive:true});win?.addEventListener('resize',schedule);win?.addEventListener('pageshow',schedule);
+ const cleanup=()=>{
+  if(disposed)return;disposed=true;version++;loading=false;cancelFrame();life.abort();cinema?.destroy();observer.disconnect();sceneObserver.disconnect();resize.disconnect();element?.remove();
+  root.removeEventListener('click',click);rigHost.removeEventListener('pointerdown',pickControl);rigHost.removeEventListener('focusin',pickControl);rigHost.removeEventListener('rig-error',rigError);
+  document.removeEventListener('visibilitychange',visibility);reduced.removeEventListener('change',motionChange);
+  win?.removeEventListener('scroll',schedule);win?.removeEventListener('resize',schedule);win?.removeEventListener('pageshow',schedule);
+  delete root.dataset.workflowReady;delete root.dataset.workflowProgress;delete art.dataset.ready;workflowMounts.delete(root);
+ };
+ workflowMounts.set(root,cleanup);return cleanup;
+}
 export function mountWorkflow(host,{loadCharacter=()=>import('/character-rig.js'),loadManifest=async signal=>{
  const response=await fetch('/riglab-project/rig.json',{signal});if(!response.ok)throw Error('角色分层数据加载失败');return response.json();
 }}={}){
  const root=host.querySelector('[data-duik-workflow]');if(!root)return ()=>{};
  workflowMounts.get(root)?.();
+ if(root.hasAttribute('data-workflow-scroll'))return mountWorkflowScroll(root,{loadCharacter,loadManifest});
  const buttons=[...root.querySelectorAll('button[data-workflow-step]')];
  const art=root.querySelector('[data-workflow-art]'),poster=root.querySelector('[data-workflow-poster]');
  const rigHost=root.querySelector('[data-workflow-rig-host]'),status=root.querySelector('[data-workflow-status]');
@@ -267,35 +398,39 @@ export function mountWorkflow(host,{loadCharacter=()=>import('/character-rig.js'
  function fail(){
   loadVersion++;loading=false;
   tour.stop('error');transition?.cancel();cinema?.destroy();cinema=null;rig=null;element?.remove();element=null;
-  delete art.dataset.ready;root.dataset.workflowReady='error';reset.disabled=true;retry.hidden=false;
+  delete art.dataset.ready;root.dataset.workflowReady='error';if(reset)reset.disabled=true;retry.hidden=false;
   status.textContent='交互未能加载，保留预览。可重新加载角色。';
  }
  function rigError(event){if(event.target===element&&rig&&!disposed)fail();}
  function showPart(animate=false){
   if(!rig)return;rig.selectPart(selected.id);
-  for(const button of parts.querySelectorAll('button'))button.setAttribute('aria-pressed',String(button.dataset.workflowPart===selected.id));
-  linked.replaceChildren(...rig.getParts().filter(part=>part.group===selected.group).map(part=>{
+  for(const button of parts?.querySelectorAll('button')||[])button.setAttribute('aria-pressed',String(button.dataset.workflowPart===selected.id));
+  linked?.replaceChildren(...rig.getParts().filter(part=>part.group===selected.group).map(part=>{
    const item=document.createElement('li'),img=document.createElement('img'),label=document.createElement('span');
    img.src=part.thumbnail||part.src;img.alt='';img.width=36;img.height=36;label.textContent=part.label;
    item.dataset.workflowLinkedPart=part.id;item.append(img,label);return item;
   }));root.dataset.workflowPart=selected.id;
-  root.querySelector('[data-workflow-linked-count]').textContent=String(linked.childNodes.length);
+  const count=root.querySelector('[data-workflow-linked-count]');if(count&&linked)count.textContent=String(linked.childNodes.length);
   if(animate)cinema?.show(index,{animate:true,selected:selected.id});
  }
  function applyRig(){
   if(!rig)return;const view=workflowViews[index];
-  rig.setMode(view.mode);rig.configure({interaction:index===2&&!tour.running?'drag':'none',showControls:view.controls,showLabels:false,showMesh:index>0});
-  if(index>0)showPart();status.textContent=view.hint;reset.disabled=false;
+  const interaction=index===2&&!tour.running?'drag':'none';
+  // Keep the web component contract in sync with the core at handoff. Any
+  // later attribute refresh must not restore its initial non-interactive mode.
+  element?.setAttribute('interaction',interaction);
+  rig.setMode(view.mode);rig.configure({interaction,showControls:view.controls,showLabels:false,showMesh:index>0});
+  if(index>0)showPart();status.textContent=index===2?'拖动彩色控制器，试试动作。':view.hint;if(reset)reset.disabled=false;
  }
  function select(next,animate=false,expandFromRest=false){
   if(!workflowViews[next])return;index=next;const view=workflowViews[index];
   buttons.forEach((button,i)=>button.setAttribute('aria-pressed',String(index===i)));
-  copy.innerHTML=viewCopy(view);root.dataset.workflowStep=String(index);
-  root.querySelector('[data-workflow-detail]').innerHTML=detail(workflowSteps[index]);
-  parts.hidden=index===0;reset.hidden=index!==2;
+  if(copy)copy.innerHTML=viewCopy(view);root.dataset.workflowStep=String(index);
+  const details=root.querySelector('[data-workflow-detail]');if(details)details.innerHTML=detail(workflowSteps[index]);
+  if(parts)parts.hidden=index===0;if(reset)reset.hidden=index!==2;
   poster.src='/duik-landing-assets/'+view.poster;poster.alt=index===0?'已确认角色的 26 张独立透明图层':'已确认角色与彩色控制器';
   applyRig();cinema?.show(index,{animate:animate&&sceneVisible&&!document.hidden,selected:selected.id,expandFromRest});transition?.cancel();
-  if(animate&&!reduced.matches&&copy.animate)transition=copy.animate([{opacity:.5,transform:'translateY(6px)'},{opacity:1,transform:'translateY(0)'}],{duration:200,easing:'cubic-bezier(0.23, 1, 0.32, 1)'});
+  if(animate&&!reduced.matches&&copy?.animate)transition=copy.animate([{opacity:.5,transform:'translateY(6px)'},{opacity:1,transform:'translateY(0)'}],{duration:200,easing:'cubic-bezier(0.23, 1, 0.32, 1)'});
  }
  async function load(){
   if(loading||disposed||rig)return;loading=true;const token=++loadVersion;status.textContent='正在加载可交互图层…';
@@ -370,6 +505,6 @@ export function mountWorkflow(host,{loadCharacter=()=>import('/character-rig.js'
   if(exited){if(tour.running)finishPresentation('offscreen');cinema?.stop();transition?.cancel();}
   syncAuto();
  },{threshold:[0,.65,1]});sceneObserver.observe(art);
- const cleanup=()=>{if(disposed)return;disposed=true;loadVersion++;loading=false;life.abort();tour.destroy();cinema?.destroy();observer.disconnect();sceneObserver.disconnect();transition?.cancel();root.removeEventListener('click',click);root.removeEventListener('keydown',key);root.removeEventListener('pointerdown',takeover);root.removeEventListener('focusin',takeover);root.removeEventListener('toggle',disclosure,true);document.removeEventListener('visibilitychange',visibility);rigHost.removeEventListener('pointerdown',pickControl);rigHost.removeEventListener('focusin',pickControl);rigHost.removeEventListener('rig-error',rigError);reduced.removeEventListener('change',motionChange);element?.remove();delete root.dataset.workflowReady;delete art.dataset.ready;reset.disabled=true;workflowMounts.delete(root);};
+ const cleanup=()=>{if(disposed)return;disposed=true;loadVersion++;loading=false;life.abort();tour.destroy();cinema?.destroy();observer.disconnect();sceneObserver.disconnect();transition?.cancel();root.removeEventListener('click',click);root.removeEventListener('keydown',key);root.removeEventListener('pointerdown',takeover);root.removeEventListener('focusin',takeover);root.removeEventListener('toggle',disclosure,true);document.removeEventListener('visibilitychange',visibility);rigHost.removeEventListener('pointerdown',pickControl);rigHost.removeEventListener('focusin',pickControl);rigHost.removeEventListener('rig-error',rigError);reduced.removeEventListener('change',motionChange);element?.remove();delete root.dataset.workflowReady;delete art.dataset.ready;if(reset)reset.disabled=true;workflowMounts.delete(root);};
  workflowMounts.set(root,cleanup);return cleanup;
 }

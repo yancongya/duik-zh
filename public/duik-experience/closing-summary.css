@@ -1,0 +1,56 @@
+/* One light reading surface after the immersive chapters. Native disclosures
+   keep the existing learning and API tools available without another chapter. */
+.duik-closing{box-sizing:border-box;width:min(100%,1240px);margin-inline:auto;padding:88px 32px;color:var(--duik-ink,#272920);font-family:inherit;text-align:left;scroll-margin-top:96px}
+.duik-closing *{box-sizing:border-box}
+.duik-closing [hidden]{display:none!important}
+.duik-closing :is(a,button,input,summary):focus-visible{outline:2px solid var(--duik-accent,#c4512e);outline-offset:5px}
+.duik-closing ::selection{background:var(--duik-accent,#c4512e);color:var(--duik-paper,#f8f6f0)}
+.duik-closing a{color:var(--duik-accent,#c4512e);text-decoration:none;text-underline-offset:5px}
+.duik-closing-heading{margin:0 0 36px}
+.duik-closing-heading h2{font-size:clamp(32px,3.8vw,52px);line-height:1.25;letter-spacing:-.03em;font-weight:550;margin:0;text-wrap:balance}
+.duik-closing-heading p{max-width:52ch;margin:16px 0 0;color:var(--duik-muted,#686b5e);font-size:15px;line-height:1.8}
+.duik-closing-index .duik-tool-catalog{max-width:none;margin:0;padding:0;background:transparent}
+.duik-closing-secondary{margin-top:28px}
+.duik-closing-disclosure{border-top:1px solid var(--duik-line,#deded3);scroll-margin-top:96px}
+.duik-closing-disclosure>summary{display:list-item;padding:22px 2px;min-height:64px;cursor:pointer;font-size:16px;line-height:1.7}
+.duik-closing-disclosure>summary::marker{color:var(--duik-accent,#c4512e);font-size:12px}
+.duik-closing-disclosure>summary strong{font-weight:550}
+.duik-closing-disclosure>summary>span{margin-left:20px;color:var(--duik-muted,#686b5e);font-size:13px;font-weight:400}
+.duik-closing-disclosure-body{padding:4px 0 32px}
+.duik-closing .duik-guide-learning{max-width:none;margin:0;padding:0;background:transparent}
+.duik-closing .duik-guide-path-tabs{gap:12px;flex-wrap:wrap;justify-content:flex-start}
+.duik-closing .duik-guide-path-tabs button{padding:12px 14px 12px 0;min-height:56px}
+.duik-closing .duik-guide-path-tabs strong{font-size:13px}
+.duik-closing .duik-guide-path-panels{padding-top:28px}
+.duik-closing .duik-guide-next h3{font-size:clamp(22px,2.5vw,30px);line-height:1.4}
+.duik-closing .duik-guide-next p{margin-top:12px;font-size:13px}
+.duik-closing .duik-guide-next-action{margin-top:14px;font-size:13px}
+.duik-closing .duik-guide-reading-list a{min-height:52px;padding-block:12px}
+.duik-closing .duik-guide-route-copy strong{font-size:14px}
+.duik-closing .duik-guide-route-footnote{margin-top:12px;padding-top:12px}
+.duik-closing .duik-api-cinema{max-width:none;margin:0;padding:0}
+.duik-closing .duik-api-cinema-switch{margin-bottom:20px}
+.duik-closing .duik-api-cinema-art{min-height:0;max-height:480px}
+.duik-closing .duik-api-cinema-caption p{font-size:clamp(20px,2.5vw,30px)}
+.duik-closing .duik-api-cinema-links-row{margin-bottom:18px}
+.duik-closing .duik-api-cinema-links-row .duik-api-cinema-start{padding:8px 0;background:none;border-radius:0;color:var(--duik-accent,#c4512e)}
+.duik-closing-start{padding-top:44px;padding-bottom:72px}
+.duik-closing-start-actions{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin:0 0 36px}
+.duik-closing-start-actions>a{display:inline-flex;align-items:center;min-height:44px;font-size:14px;white-space:nowrap}
+.duik-closing-start-actions .duik-closing-primary{padding:12px 22px;border-radius:999px;background:var(--duik-ink,#272920);color:var(--duik-paper,#f8f6f0)}
+.duik-closing-questions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px;align-items:start}
+.duik-closing-question{min-width:0;border-top:1px solid var(--duik-line,#deded3);scroll-margin-top:96px}
+.duik-closing-question>summary{cursor:pointer;padding:18px 0;font-size:14px;font-weight:500;line-height:1.8}
+.duik-closing-question>summary::marker{color:var(--duik-accent,#c4512e)}
+.duik-closing-answer{padding:0 0 24px}
+.duik-closing-answer p{margin:0;color:var(--duik-muted,#686b5e);font-size:13px;line-height:1.85;max-width:68ch}
+.duik-closing-answer>a{display:inline-flex;align-items:center;min-height:44px;margin-top:8px;font-size:12px}
+.duik-closing-more{margin-top:8px}
+.duik-closing-more>summary{font-size:14px}
+.duik-closing-faq-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 48px;padding:12px 0 20px}
+.duik-closing-faq-groups>section{min-width:0}
+.duik-closing-faq-groups h3{margin:0 0 16px;color:var(--duik-muted,#686b5e);font-size:13px;font-weight:500;line-height:1.8}
+.duik-closing-faq-document{grid-column:1/-1;justify-self:start;display:inline-flex;align-items:center;min-height:44px;font-size:13px}
+@media(hover:hover) and (pointer:fine){.duik-closing a:hover{text-decoration:underline}.duik-closing :is(.duik-closing-disclosure,.duik-closing-question)>summary:hover{color:var(--duik-accent,#c4512e)}.duik-closing-primary:hover{background:#464b3c}}
+@media(max-width:700px){.duik-closing{padding:56px 20px}.duik-closing-heading{margin-bottom:28px}.duik-closing-heading p{font-size:14px}.duik-closing-disclosure>summary>span{display:block;margin-left:0;margin-top:4px;font-size:12px}.duik-closing .duik-guide-reading-spread{grid-template-columns:1fr;gap:12px}.duik-closing .duik-guide-path-tabs{gap:0 12px}.duik-closing .duik-guide-path-tabs button{padding-right:0}.duik-closing .duik-api-cinema-art{max-height:390px}.duik-closing-start{padding-top:24px}.duik-closing-start-actions{gap:18px;margin-bottom:28px}.duik-closing-questions,.duik-closing-faq-groups{grid-template-columns:1fr}.duik-closing-faq-groups{row-gap:28px}.duik-closing-question>summary{padding-block:16px}}
+@media(prefers-reduced-motion:reduce){.duik-closing *{scroll-behavior:auto!important;transition:none!important}}

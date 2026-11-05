@@ -1,0 +1,68 @@
+/* Host choreography only; approved SVG geometry and its entry stay canonical. */
+#duik-boot {
+  --ease-out: cubic-bezier(.23,1,.32,1);
+  --ease-in-out: cubic-bezier(.77,0,.175,1);
+  position: fixed; inset: 0; z-index: 2147483000;
+  display: grid; place-content: center; justify-items: center; gap: 10px;
+  visibility: hidden; pointer-events: none; contain: layout paint; isolation: isolate;
+  color: #263c34; font: 13px/1.5 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;
+}
+#duik-boot::before { content: ""; position: absolute; inset: 0; z-index: -1; background: #f8f6f0; }
+#duik-boot[data-active=true] { visibility: visible; }
+#duik-boot img { display: block; width: 96px; height: 96px; transform-origin: center; }
+#duik-boot p { margin: 0; color: #686b5e; letter-spacing: .06em; }
+#duik-boot[data-state=exiting]::before { animation: duik-boot-veil 820ms var(--ease-in-out) both; }
+#duik-boot[data-state=exiting] img { animation: duik-boot-lens 820ms var(--ease-in-out) both; }
+#duik-boot[data-state=exiting] p { animation: duik-boot-caption 160ms var(--ease-out) both; }
+@keyframes duik-boot-veil { 0%,15% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes duik-boot-lens {
+  0% { transform: scale(1); filter: blur(0); opacity: 1; }
+  30% { opacity: 1; }
+  100% { transform: scale(5.5); filter: blur(10px); opacity: 0; }
+}
+@keyframes duik-boot-caption { to { opacity: 0; transform: translateY(4px); } }
+
+/* Never animate the template's GSAP-owned Hero/scroll wrappers.
+   State outside Vue makes SSR/hydrated children share the same choreography.
+   Removing it releases transforms, filters and transient compositing layers. */
+html[data-duik-entry] :is(
+  .kp-home-hero-main-input-wrap > .kp-org-headline,
+  .kp-home-hero-main-input-wrap > .duik-input-slot,
+  .kp-home-hero-main-input-wrap > p,
+  .kp-home-hero-main-input-wrap > p + div,
+  .kp-home-hero-main > div:last-child
+) {
+  --ease-out: cubic-bezier(.23,1,.32,1);
+}
+html[data-duik-entry=pending] :is(
+  .kp-home-hero-main-input-wrap > .kp-org-headline,
+  .kp-home-hero-main-input-wrap > .duik-input-slot,
+  .kp-home-hero-main-input-wrap > p,
+  .kp-home-hero-main-input-wrap > p + div,
+  .kp-home-hero-main > div:last-child
+) { opacity: 0; }
+html[data-duik-entry=revealing] :is(
+  .kp-home-hero-main-input-wrap > .kp-org-headline,
+  .kp-home-hero-main-input-wrap > .duik-input-slot,
+  .kp-home-hero-main-input-wrap > p,
+  .kp-home-hero-main-input-wrap > p + div,
+  .kp-home-hero-main > div:last-child
+) { animation: duik-hero-focus 900ms var(--ease-out) var(--duik-entry-delay, 0ms) both; }
+html[data-duik-entry] .kp-home-hero-main-input-wrap > .duik-input-slot { --duik-entry-delay: 70ms; }
+html[data-duik-entry] .kp-home-hero-main-input-wrap > p { --duik-entry-delay: 140ms; }
+html[data-duik-entry] .kp-home-hero-main-input-wrap > p + div { --duik-entry-delay: 210ms; }
+html[data-duik-entry] .kp-home-hero-main > div:last-child { --duik-entry-delay: 280ms; }
+@keyframes duik-hero-focus {
+  from { opacity: 0; transform: translateY(22px) scale(.97); filter: blur(6px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #duik-boot { display: none; }
+  html[data-duik-entry] :is(
+    .kp-home-hero-main-input-wrap > .kp-org-headline,
+    .kp-home-hero-main-input-wrap > .duik-input-slot,
+    .kp-home-hero-main-input-wrap > p,
+    .kp-home-hero-main-input-wrap > p + div,
+    .kp-home-hero-main > div:last-child
+  ) { animation: none; opacity: 1; transform: none; filter: none; }
+}

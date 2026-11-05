@@ -10,9 +10,8 @@ import { spawn } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { parseFragment } from 'parse5';
 import { panels, tools, toolGroups, upstream, apiExamples, searchTools, normalizeQuery } from '../components/home/landing/tool-catalog.mjs';
-import { catalogMarkup, apiMarkup, apiScenes, catalogPanelDimensions, mountCatalog, mountApi } from '../components/home/landing/experience-catalog.mjs';
+import { catalogMarkup, apiMarkup, apiScenes, mountCatalog, mountApi } from '../components/home/landing/experience-catalog.mjs';
 import {apiCinemaDuration} from '../components/home/landing/api-cinema.mjs';
-import {panelScreenshots} from '../components/home/landing/orientation.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const sourceRoot = join(root, 'components/home/landing');
@@ -51,16 +50,17 @@ test('taxonomy follows the eight official main panels; API is not a ninth', () =
   assert.equal(tools.find(tool => tool.id === 'command-panel').title, '命令行面板');
 });
 
-test('directory keeps the official evidence closed with exact uncropped intrinsic dimensions',async()=>{
-  const reference=elements(catalogMarkup).find(node=>Object.hasOwn(node.attrs,'data-catalog-reference'));
-  assert.equal(reference.tag,'details');assert(!Object.hasOwn(reference.attrs,'open'));
+test('directory replaces its official screenshot disclosure with one panoramic category drawing',async()=>{
+  const nodes=elements(catalogMarkup);
+  assert(!nodes.some(node=>Object.hasOwn(node.attrs,'data-catalog-reference')));
+  assert(!nodes.some(node=>Object.hasOwn(node.attrs,'data-catalog-image')));
   assert(!catalogMarkup.includes('duik-catalog-sidebar'));assert(!catalogMarkup.includes('duik-catalog-kicker'));
-  const image=elements(catalogMarkup).find(node=>Object.hasOwn(node.attrs,'data-catalog-image'));
-  assert.equal(image.attrs.width,'286');assert.equal(image.attrs.height,'486');
-  for(const [id,file] of [...Object.entries(panelScreenshots),['all','duik/home.png']]){
-    const png=await readFile(join(sourceRoot,'official-media',file));
-    assert.deepEqual(catalogPanelDimensions[id],[png.readUInt32BE(16),png.readUInt32BE(20)]);
-  }
+  assert.equal(nodes.filter(node=>Object.hasOwn(node.attrs,'data-catalog-banner')).length,1);
+  const svg=nodes.find(node=>Object.hasOwn(node.attrs,'data-catalog-banner-svg'));
+  assert.equal(svg.attrs.viewBox,'0 0 1200 300');
+  assert(catalogMarkup.indexOf('data-catalog-banner')<catalogMarkup.indexOf('class="duik-catalog-categories"'));
+  const runtime=await read('components/home/landing/experience-catalog.mjs');
+  assert(!/officialRoot|panelScreenshots|catalogPanelDimensions|data-catalog-image/.test(runtime));
 });
 
 test('search handles Chinese, English, whitespace, full-width input, groups, and misses', () => {
@@ -75,7 +75,7 @@ test('search handles Chinese, English, whitespace, full-width input, groups, and
   assert.equal(searchTools('合成', 'tools').length, 2);
 });
 
-test('directory opens on search and four useful results, without repeating the wall artwork', () => {
+test('directory opens on search and four useful results beneath its purpose-built panoramic artwork', () => {
   const nodes=elements(catalogMarkup);
   const index=nodes.find(node=>Object.hasOwn(node.attrs,'data-catalog-index'));
   assert.equal(index.tag,'div');assert(!Object.hasOwn(index.attrs,'hidden'));
@@ -115,7 +115,7 @@ function catalogFixture() {
     const button=target({tag:'button','data-catalog-panel':id,'aria-pressed':String(id==='bones')});button.dataset.catalogPanel=id;return button;
   });
   const map=new Map();
-  for(const name of ['query','results','clear','index','title','summary','guide','count','image','image-title'])map.set('[data-catalog-'+name+']',target({['data-catalog-'+name]:''}));
+  for(const name of ['query','results','clear','index','title','summary','guide','count'])map.set('[data-catalog-'+name+']',target({['data-catalog-'+name]:''}));
   map.get('[data-catalog-clear]').attrs.tag='button';
   const results=map.get('[data-catalog-results]');
   let markup='',links=[],reset;
@@ -127,7 +127,7 @@ function catalogFixture() {
   results.querySelector=()=>links[0]||null;
   results.querySelectorAll=()=>links;
   results.contains=node=>links.includes(node);
-  const surface={...target(),ownerDocument:doc,matches:()=>true,contains:()=>true,
+  const surface={...target({'data-duik-catalog':''}),ownerDocument:doc,contains:()=>true,
     querySelector(selector){return selector.includes('aria-pressed')?buttons.find(button=>button.attrs['aria-pressed']==='true'):map.get(selector)||null;},
     querySelectorAll(selector){return selector.startsWith('.duik-catalog-categories')?buttons.slice(0,8):buttons;}
   };
@@ -143,7 +143,7 @@ function catalogFixture() {
   };
 }
 
-test('panel selection updates the visible context, results, exact reference dimensions and all-tools state',()=>{
+test('panel selection updates the visible context, results and all-tools state',()=>{
   const context=catalogFixture(),{surface,map}=context;
   const cleanup=mountCatalog(context.host);
   assert.equal(context.links.length,4);
@@ -153,8 +153,6 @@ test('panel selection updates the visible context, results, exact reference dime
     assert.equal(map.get('[data-catalog-title]').textContent,panel.title);
     assert.equal(map.get('[data-catalog-guide]').href,panel.href);
     assert.deepEqual(context.links.map(link=>link.attrs.href),tools.filter(tool=>tool.panel===panel.id).map(tool=>tool.href));
-    const photo=map.get('[data-catalog-image]');
-    assert.deepEqual([photo.width,photo.height],catalogPanelDimensions[panel.id]);
     if(panel.id==='tools')assert.equal(elements(context.results.innerHTML).filter(node=>node.attrs.class==='duik-catalog-group').length,4);
   }
   context.choose(8);
@@ -226,7 +224,7 @@ test('catalog selection is immediate with idempotent mounting and complete event
 
 test('every catalog and API link resolves to a real local MDX route', async () => {
   const routes = new Set([...panels, ...tools, ...apiExamples].map(item => item.href));
-  for (const node of elements(catalogMarkup + apiMarkup)) if (node.attrs.href) routes.add(node.attrs.href);
+  for (const node of elements(catalogMarkup + apiMarkup)) if (node.tag === 'a' && node.attrs.href) routes.add(node.attrs.href);
   for (const route of routes) {
     assert(route.startsWith('/docs/'), 'Unexpected route: ' + route);
     const relative = route.replace(/^\/docs\//, '');
@@ -244,7 +242,8 @@ test('static markup supplies keyboard labels, status feedback, and an AE boundar
   assert(nodes.some(node => node.tag === 'input' && node.attrs.type === 'search'));
   assert(nodes.some(node => node.attrs.role === 'status'));
   assert(nodes.filter(node => node.tag === 'img' && node.attrs.src.startsWith('/duik-experience/icons/')).every(node => node.attrs.alt === ''));
-  assert(nodes.some(node => node.tag === 'img' && node.attrs.src.startsWith('/duik-experience/official/') && node.attrs.alt.includes('官方文档')));
+  assert(!nodes.some(node => node.tag === 'img' && node.attrs.src.startsWith('/duik-experience/official/')));
+  assert(nodes.some(node => node.tag === 'svg' && Object.hasOwn(node.attrs,'data-catalog-banner-svg') && node.attrs['aria-label'].startsWith('骨骼')));
   assert(!nodes.some(node => node.tag === 'header'), 'Do not inherit global landing header replacement rules');
   assert(!catalogMarkup.includes('⌘'), 'Use the local official SVG, not a platform-dependent command glyph');
   assert(nodes.some(node => node.attrs.class === 'duik-catalog-all-icon' && node.attrs['aria-hidden'] === 'true'));
@@ -337,13 +336,13 @@ test('CSS stays locally scoped and respects reduced motion', async () => {
 test('isolated real browser: filtering, keyboard, idempotency, cleanup, copy success and refusal', { skip: process.env.CATALOG_BROWSER_TEST !== '1', timeout: 45000 }, async () => {
   const allowed = new Map([
     ['/duik-experience/experience-catalog.mjs', 'experience-catalog.mjs'],
+    ['/duik-experience/catalog-banner.mjs', 'catalog-banner.mjs'],
     ['/duik-experience/api-cinema.mjs', 'api-cinema.mjs'],
     ['/duik-experience/api-cinema.css', 'api-cinema.css'],
     ['/duik-experience/orientation.mjs', 'orientation.mjs'],
     ['/duik-experience/tool-catalog.mjs', 'tool-catalog.mjs'],
     ['/duik-experience/experience-catalog.css', 'experience-catalog.css'],
     ...panels.map(panel => ['/duik-experience/icons/' + panel.icon + '.svg', 'icons/' + panel.icon + '.svg']),
-    ...Object.values(panelScreenshots).map(file=>['/duik-experience/official/'+file,'official-media/'+file]),
     ['/duik-experience/official/duik/home.png','official-media/duik/home.png'],
     ['/duik-experience/official/duik/tools/script-editor.png','official-media/duik/tools/script-editor.png'],
   ]);

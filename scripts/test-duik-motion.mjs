@@ -4,6 +4,8 @@ import {readFile} from 'node:fs/promises';
 import {setMaxListeners} from 'node:events';
 import {MOTION_KINDS, AUTOMATION_PRESETS, CAMERA_DURATION, animationStagePoint, animationTimeAtX, easing, pathPoint, sampleAnimation, sampleAutomation, cameraTransforms, sampleCameraTour, easePath, automationPath} from '../components/home/landing/motion-model.mjs';
 import {renderMotion,mountMotion} from '../components/home/landing/motion-demo.mjs';
+import {featureGalleryItems,renderFeatureSlide} from '../components/home/landing/feature-gallery.mjs';
+import {renderExperience} from '../components/home/landing/experience-layout.mjs';
 import {capabilityClasses,patchCapabilityLayoutRuntime,patchCapabilityLayoutSSR} from './lib/landing-capability-layout.mjs';
 import {parseFragment} from 'parse5';
 const elements=node=>[node,...(node.childNodes||[]).flatMap(elements)];
@@ -11,7 +13,7 @@ const has=(node,key,value)=>node.attrs?.some(attr=>attr.name===key&&(value===und
 
 // A deliberately small DOM/event substitute for controller-unit tests. It does
 // not render CSS, dispatch trusted browser input, or prove browser acceptance.
-function motionHarness(kind){
+function motionHarness(kind,options){
   const frames=new Map(),events=[];let nextFrame=0,observer,observed;
   const listen=(map,type,fn,options={})=>{const listeners=map.get(type)||new Set();listeners.add(fn);map.set(type,listeners);options.signal?.addEventListener('abort',()=>listeners.delete(fn),{once:true});};
   const docHandlers=new Map(),mediaHandlers=new Map();
@@ -25,7 +27,7 @@ function motionHarness(kind){
     const element={attrs,parent,handlers,ownerDocument:doc,dataset:Object.fromEntries(Object.entries(attrs).filter(([key])=>key.startsWith('data-')).map(([key,value])=>[key.slice(5).replace(/-([a-z])/g,(_,letter)=>letter.toUpperCase()),value])),type:attrs.type,value:attrs.value,checked:Object.hasOwn(attrs,'checked'),hidden:Object.hasOwn(attrs,'hidden'),textContent:(parsed.childNodes||[]).filter(n=>n.nodeName==='#text').map(n=>n.value).join(''),box:{top:100,bottom:460,left:350,right:950,width:600,height:360},getBoundingClientRect(){return this.box;},setAttribute(key,value){this.attrs[key]=String(value);},matches(selector){const match=selector.match(/^(\w+)?(?:\[([^=\]]+)(?:=["']?([^"'\]]+)["']?)?\])?$/);return !!match&&(!match[1]||parsed.tagName===match[1])&&(!match[2]||(Object.hasOwn(this.attrs,match[2])&&(match[3]===undefined||this.attrs[match[2]]===match[3])));},closest(selector){return this.matches(selector)?this:this.parent?.closest(selector)||null;},contains(target){return this===target||this.children.some(child=>child.contains(target));},querySelectorAll(selector){return this.children.flatMap(child=>[...(child.matches(selector)?[child]:[]),...child.querySelectorAll(selector)]);},querySelector(selector){return this.querySelectorAll(selector)[0]||null;},addEventListener(type,fn,options){listen(handlers,type,fn,options);},dispatchEvent(event){events.push(event);for(const fn of handlers.get(event.type)||[])fn(event);return true;},setPointerCapture(id){captures.add(id);},hasPointerCapture(id){return captures.has(id);},releasePointerCapture(id){captures.delete(id);},focus(){emit('focusin',this);}};
     element.children=(parsed.childNodes||[]).filter(child=>child.tagName).map(child=>build(child,element));return element;
   };
-  const root=build(parseFragment(renderMotion(kind)).childNodes.find(node=>node.tagName==='section'));
+  const root=build(parseFragment(renderMotion(kind,options)).childNodes.find(node=>node.tagName==='section'));
   const emit=(type,target,extra={})=>{const event={type,target,detail:type==='click'?1:0,preventDefault(){this.defaultPrevented=true;},...extra};for(let node=target;node;node=node.parent)node.dispatchEvent(event);return event;};
   const cleanup=mountMotion(root,kind);
   return {root,events,cleanup,control:selector=>root.querySelector(selector),emit,documentEvent(type,extra={}){for(const fn of docHandlers.get(type)||[])fn({type,...extra});},preview(){observer([{target:observed,isIntersecting:true,intersectionRatio:1}]);},intersect(ratio){observer([{target:observed,isIntersecting:ratio>0,intersectionRatio:ratio}]);},visible(value){observer([{target:observed,isIntersecting:value,intersectionRatio:value?1:0}]);},background(hidden){doc.hidden=hidden;for(const fn of docHandlers.get('visibilitychange')||[])fn();},reduced(matches){media.matches=matches;for(const fn of mediaHandlers.get('change')||[])fn({matches});},tick(now){const callbacks=[...frames.values()];frames.clear();callbacks.forEach(fn=>fn(now));},get observed(){return observed;},get pendingFrames(){return frames.size;}};
@@ -39,6 +41,36 @@ test('first view exposes the live scene while keeping authentic references secon
     assert(has(nodes.find(n=>has(n,'data-motion-view','demo')),'aria-pressed','true'));
     assert(nodes.some(n=>n.tagName==='img'&&has(n,'width')&&has(n,'height')&&n.attrs.some(a=>a.name==='src'&&a.value.includes('/official/'))));
   }
+});
+
+test('restored compact illustrations have no player or detail UI and retain independent autoplay and gestures',()=>{
+  for(const kind of MOTION_KINDS){
+    const nodes=elements(parseFragment(renderMotion(kind,{compact:true})));
+    assert(!nodes.some(n=>['button','input','details'].includes(n.tagName)));
+    assert.equal(nodes.filter(n=>has(n,'data-motion-stage')).length,1);
+    const h=motionHarness(kind,{compact:true}),stage=h.control('[data-motion-stage]');
+    h.preview();h.tick(0);const time=h.root.dataset.time;h.tick(100);assert.notEqual(h.root.dataset.time,time);assert.equal(h.root.dataset.playing,'true');
+    h.emit('pointerdown',stage,{button:0,pointerId:3,isPrimary:true,clientX:620,clientY:230});assert.equal(h.root.dataset.playing,'false');assert(stage.hasPointerCapture(3));
+    h.emit('pointerup',stage,{pointerId:3});assert.equal(h.root.dataset.playing,'true');
+    h.background(true);assert.equal(h.pendingFrames,0);h.background(false);assert.equal(h.root.dataset.playing,'true');
+    h.reduced(true);assert.equal(h.pendingFrames,0);h.reduced(false);assert.equal(h.root.dataset.playing,'true');
+    h.visible(false);assert.equal(h.pendingFrames,0);h.cleanup();assert.equal(h.pendingFrames,0);
+  }
+});
+
+test('the three restored illustrations live in motion slots, not a duplicate bottom gallery',async()=>{
+  const html=renderExperience('catalog'),nodes=elements(parseFragment(html));
+  assert.equal(nodes.filter(n=>has(n,'data-feature-kind')).length,0);
+  assert.equal(nodes.filter(n=>has(n,'data-feature-gallery')).length,0);
+  for(const item of featureGalleryItems){
+    const slot=elements(parseFragment(renderExperience(item.kind)));
+    assert.equal(slot.filter(n=>has(n,'data-feature-kind',item.kind)).length,1);
+    assert.equal(slot.filter(n=>has(n,'data-motion-demo',item.kind)).length,1);
+    assert.equal(slot.filter(n=>n.tagName==='a'&&has(n,'href',item.href)).length,1);
+    assert(!slot.some(n=>['button','input','details'].includes(n.tagName)));
+    await readFile(new URL('../content'+item.href+'.mdx',import.meta.url));
+  }
+  assert.throws(()=>renderFeatureSlide('unknown'),/Unknown feature/);
 });
 
 test('all three demos render on the server without DOM globals',()=>{

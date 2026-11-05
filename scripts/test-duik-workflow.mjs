@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {parseFragment} from 'parse5';
-import {createWorkflowTour, mountWorkflow, workflowLayerLayout, workflowPoseFrame, workflowMarkup, workflowViews} from '../components/home/landing/orientation.mjs';
+import {createWorkflowTour, mountWorkflow, workflowLayerLayout, workflowPoseFrame, workflowMarkup, workflowViews, workflowScrollFrame, workflowScrollProgress} from '../components/home/landing/orientation.mjs';
 const approvedManifest=JSON.parse(readFileSync(new URL('../public/riglab-project/rig.json',import.meta.url),'utf8'));
 
 function clock(){
@@ -154,8 +154,9 @@ for(const name of ['src','alt','width','height'])Object.defineProperty(LocalElem
 for(const name of ['hidden','disabled'])Object.defineProperty(LocalElement.prototype,name,{get(){return this.hasAttribute(name);},set(value){if(value)this.setAttribute(name,'');else this.removeAttribute(name);}});
 function fromParsed(node,document){const result=new LocalElement(node.tagName||'#text',document,node.attrs||[]);if(node.nodeName==='#text')result._text=node.value;result.append(...(node.childNodes||[]).map(child=>fromParsed(child,document)));return result;}
 const flush=()=>new Promise(resolve=>setImmediate(resolve));
-function harness(t,{loadCharacter,ready,loadManifest,decode,waapi=true,animationDelay=0}={}){
-  const time=clock(),document=new LocalTarget(),preference=new LocalTarget(),observers=[],resizes=[],instances=[],cleanups=[],globals=new Map();
+function harness(t,{loadCharacter,ready,loadManifest,decode,waapi=true,animationDelay=0,minimal=false}={}){
+  const time=clock(),document=new LocalTarget(),preference=new LocalTarget(),observers=[],resizes=[],instances=[],cleanups=[],globals=new Map(),window=new LocalTarget();
+  document.defaultView=window;
   document.hidden=false;document.animations=[];document.motionClock=time;document.animationDelay=animationDelay;document.waapi=waapi;document.baseURI='http://127.0.0.1:3017/';preference.matches=false;
   const rigParts=[{id:'upper-l',group:'左臂',label:'左上臂'},{id:'fore-l',group:'左臂',label:'左前臂'},{id:'fore-r',group:'右臂',label:'右前臂'},{id:'face',group:'面部',label:'面部底层'}].map(part=>({...part,thumbnail:'/fixture/'+part.id+'.png'}));
   document.createElement=tag=>{
@@ -168,6 +169,10 @@ function harness(t,{loadCharacter,ready,loadManifest,decode,waapi=true,animation
     return element;
   };
   const host=document.createElement('div');host.innerHTML=workflowMarkup;
+  if(!minimal)host.querySelector('[data-duik-workflow]').removeAttribute('data-workflow-scroll');
+  // Legacy workbench adapters remain supported, but are not shipped in the
+  // simplified landing markup. Keep their lifecycle coverage explicit.
+  if(!minimal){const legacy=document.createElement('div');legacy.innerHTML=`<div data-workflow-copy></div><button data-workflow-reset hidden disabled>复位姿态</button><div data-workflow-parts hidden>${['fore-l','fore-r','face','torso'].map(id=>`<button data-workflow-part="${id}"></button>`).join('')}<details><summary>查看关联图层 <span data-workflow-linked-count></span></summary><ul data-workflow-linked></ul></details></div><details class="duik-workflow-reference">${workflowViews.map((view,index)=>`<button data-workflow-step="${index}">${index+1}${view.label}</button>`).join('')}<div data-workflow-detail></div></details>`;host.querySelector('[data-duik-workflow]').append(legacy);}
   for(const [key,value]of Object.entries({document,matchMedia:()=>preference,setTimeout:time.setTimer,clearTimeout:time.clearTimer,requestAnimationFrame:run=>time.setTimer(()=>run(time.now),16),cancelAnimationFrame:time.clearTimer,ResizeObserver:class{
     constructor(callback){this.callback=callback;this.disconnected=false;resizes.push(this);}
     observe(element){this.element=element;}
@@ -184,21 +189,137 @@ function harness(t,{loadCharacter,ready,loadManifest,decode,waapi=true,animation
   const mount=()=>{const cleanup=mountWorkflow(host,{loadCharacter:async()=>{loads++;await loadCharacter?.();},loadManifest:loadManifest||(async()=>approvedManifest)});cleanups.push(cleanup);return cleanup;};
   t.after(()=>{for(const cleanup of cleanups)cleanup();for(const [key,descriptor]of globals)if(descriptor)Object.defineProperty(globalThis,key,descriptor);else delete globalThis[key];});
   const root=host.querySelector('[data-duik-workflow]');
-  return {...time,host,root,document,preference,observers,resizes,instances,mount,get loads(){return loads;},control:selector=>root.querySelector(selector),async load({visible=true}={}){observers.find(observer=>observer.element===root&&!observer.disconnected).notify(true);observers.find(observer=>observer.element===root.querySelector('[data-workflow-art]')&&!observer.disconnected).notify(visible);await flush();assert.equal(root.dataset.workflowReady,'true');}};
+  root.rect={top:36,width:1100,height:2200};root.querySelector('[data-workflow-pin]').rect={top:84,width:1100,height:800};
+  return {...time,host,root,document,window,preference,observers,resizes,instances,mount,get loads(){return loads;},control:selector=>root.querySelector(selector),seek(progress){root.rect.top=36-progress*(2200-48-64-800)*.85;window.fire('scroll');time.advance(16);},async load({visible=true}={}){observers.find(observer=>observer.element===root&&!observer.disconnected).notify(true);observers.find(observer=>observer.element===root.querySelector('[data-workflow-art]')&&!observer.disconnected).notify(visible);await flush();assert.equal(root.dataset.workflowReady,'true');}};
 }
 
-test('SSR keeps one complete stage and separates three step controls from the root state',()=>{
+test('SSR keeps only the title, character and hidden error recovery; no workbench UI',()=>{
   const document={};const host=fromParsed(parseFragment(workflowMarkup),document);
   assert.equal(host.querySelectorAll('[data-workflow-art]').length,1);
   assert.equal(host.querySelectorAll('[data-workflow-rig-host]').length,1);
   const buttons=host.querySelectorAll('button[data-workflow-step]');
-  assert.equal(buttons.length,3);assert.equal(host.querySelectorAll('[data-workflow-step]').length,4);
-  assert.deepEqual(buttons.map(button=>button.getAttribute('aria-pressed')),['true','false','false']);
-  assert.deepEqual(buttons.map(button=>button.textContent.slice(1)),workflowViews.map(view=>view.label));
+  assert.equal(buttons.length,0);assert.equal(host.querySelectorAll('[data-workflow-step]').length,1);
   assert.equal(host.querySelector('[data-workflow-tour-toggle]'),null);
   assert(host.querySelectorAll('button').every(button=>!/播放|暂停|重播|重新演示/.test(button.textContent)));
-  assert.equal(host.querySelectorAll('details').length,2);assert(host.querySelectorAll('details').every(detail=>!detail.hasAttribute('open')));
-  assert.match(workflowMarkup,/已准备好的透明图层/);assert.match(workflowMarkup,/不在浏览器中执行 Duik 自动绑定/);
+  assert.equal(host.querySelectorAll('details').length,0);
+  for(const selector of ['[data-workflow-parts]','[data-workflow-copy]','[data-workflow-reset]','[data-workflow-detail]'])assert.equal(host.querySelector(selector),null);
+  assert.match(workflowMarkup,/已准备好的透明图层/);assert.match(workflowMarkup,/网页原理示意/);
+});
+
+test('minimal production markup scrubs forward and reverse without optional workbench nodes',async t=>{
+  const env=harness(t,{minimal:true});env.mount();await env.load();const rig=env.instances[0].rig,pose=structuredClone(rig.pose);
+  env.advance(5000);assert.equal(env.root.dataset.workflowTour,'scroll');assert.equal(env.root.dataset.workflowStep,'0');
+  env.seek(1.001);assert.equal(env.root.dataset.workflowTour,'control');assert.equal(rig.options.interaction,'drag');assert.equal(rig.options.showControls,true);assert.deepEqual(rig.pose,pose);
+  env.seek(.7);assert.equal(env.root.dataset.workflowStep,'1');assert.equal(rig.options.interaction,'none');
+  env.seek(0);assert.equal(env.root.dataset.workflowStep,'0');assert.equal(env.control('[data-workflow-layer-stack]').style.opacity,'1');
+  env.preference.matches=true;env.preference.fire('change');assert.equal(rig.options.interaction,'drag');
+});
+
+test('scroll projection has exact clamped endpoints and reserves the final runway for interaction',()=>{
+  const height=2200,pinHeight=800,travel=height-48-64-pinHeight;
+  assert.equal(workflowScrollProgress({top:300,height},pinHeight),0);
+  assert.equal(workflowScrollProgress({top:36,height},pinHeight),0);
+  assert.equal(workflowScrollProgress({top:36-travel*.85,height},pinHeight),1);
+  assert.equal(workflowScrollProgress({top:36-travel,height},pinHeight),1);
+  assert.equal(workflowScrollProgress({top:36-travel*.425,height},pinHeight),.5);
+  assert.deepEqual(workflowScrollFrame(-1),workflowScrollFrame(0));
+  assert.deepEqual(workflowScrollFrame(3),workflowScrollFrame(1));
+  assert.deepEqual(workflowScrollFrame(NaN),workflowScrollFrame(0));
+  assert.equal(workflowScrollFrame(.579).shot,'layers');assert.equal(workflowScrollFrame(.58).shot,'link');
+  assert.equal(workflowScrollFrame(1).shot,'control');
+});
+
+test('physical scroll samples the same 26 PNG transforms and camera in either direction',async t=>{
+  const env=harness(t,{minimal:true,waapi:false});env.mount();await env.load();
+  const snapshot=()=>({camera:env.control('[data-workflow-camera]').style.transform,transforms:env.root.querySelectorAll('[data-workflow-layer]').map(image=>image.style.transform),pose:env.instances[0].rig.renderedPose});
+  const forward=new Map();
+  for(const p of [0,.2,.5,.58,.72,.9,1]){env.seek(p);forward.set(p,snapshot());}
+  for(const p of [1,.9,.72,.58,.5,.2,0]){env.seek(p);assert.deepEqual(snapshot(),forward.get(p),`same frame at ${p}`);}
+  assert.equal(forward.get(.5).transforms.length,26);assert.notDeepEqual(forward.get(0).transforms,forward.get(.5).transforms);
+  assert.equal(env.document.animations.length,0);assert.equal(env.motionTimers.size,0);assert.equal(env.timers.size,0);
+});
+
+test('reverse scroll preserves user-owned pose and blends back into that exact endpoint',async t=>{
+  const env=harness(t,{minimal:true});env.mount();await env.load();const rig=env.instances[0].rig;
+  env.seek(1);rig.pose={handL:[31,-17],torso:.4};rig.render();const pose=structuredClone(rig.pose);
+  env.seek(.86);assert.deepEqual(rig.pose,pose);assert.deepEqual(rig.renderedPose,workflowPoseFrame(pose,.5));
+  env.seek(.65);assert.deepEqual(rig.pose,pose);assert.deepEqual(rig.renderedPose,workflowPoseFrame(pose,0));
+  env.seek(0);env.seek(.86);assert.deepEqual(rig.renderedPose,workflowPoseFrame(pose,.5));
+  env.seek(1);assert.deepEqual(rig.renderedPose,pose);assert.deepEqual(rig.pose,pose);assert.deepEqual(rig.resets,[]);
+  assert.equal(env.instances[0].getAttribute('interaction'),'drag');assert.equal(rig.options.interaction,'drag');
+  assert.equal(env.control('[data-workflow-rig-host]').inert,false);
+  env.seek(.99);assert.equal(env.instances[0].getAttribute('interaction'),'none');assert.equal(rig.options.interaction,'none');
+  assert.equal(env.control('[data-workflow-rig-host]').inert,true);
+});
+
+test('scroll bursts coalesce into one frame and stationary elapsed time never advances the production scene',async t=>{
+  const env=harness(t,{minimal:true});env.mount();await env.load();env.seek(.35);
+  const rig=env.instances[0].rig,before=env.control('[data-workflow-camera]').style.transform;
+  for(let i=0;i<20;i++)env.window.fire('scroll');assert.equal(env.timers.size,1);
+  env.advance(16);assert.equal(env.timers.size,0);const renders=rig.renderedFrames.length;
+  env.advance(30000);assert.equal(env.control('[data-workflow-camera]').style.transform,before);
+  assert.equal(rig.renderedFrames.length,renders);assert.equal(env.root.dataset.workflowProgress,'0.3500');
+});
+
+test('scroll resumes from physical geometry after background and offscreen without resetting progress',async t=>{
+  const env=harness(t,{minimal:true});env.mount();await env.load();env.seek(.2);
+  env.window.fire('scroll');env.document.hidden=true;env.document.fire('visibilitychange');assert.equal(env.timers.size,0);
+  env.seek(.8);assert.equal(env.root.dataset.workflowProgress,'0.2000');
+  env.document.hidden=false;env.document.fire('visibilitychange');assert.equal(env.root.dataset.workflowProgress,'0.8000');
+  const observer=env.observers.find(item=>item.element===env.control('[data-workflow-art]'));
+  observer.notify(false);env.seek(.1);assert.equal(env.root.dataset.workflowProgress,'0.8000');
+  observer.notify(true);assert.equal(env.root.dataset.workflowProgress,'0.1000');
+});
+
+test('component visibility wake cannot replace a sampled pose with its own saved-pose frame',async t=>{
+  const env=harness(t,{minimal:true});env.mount();await env.load();const rig=env.instances[0].rig;
+  let componentFrame=0;rig.setActive=active=>{if(componentFrame)env.clearTimer(componentFrame);componentFrame=active?env.setTimer(()=>{componentFrame=0;rig.render();},16):0;};
+  env.seek(1);rig.pose={handL:[40,-20]};rig.render();env.seek(.86);const blend=structuredClone(rig.renderedPose);
+  env.document.hidden=true;env.document.fire('visibilitychange');rig.setActive(false);
+  env.document.hidden=false;env.document.fire('visibilitychange');rig.setActive(true);env.advance(16);
+  assert.deepEqual(rig.renderedPose,blend);assert.equal(componentFrame,0);assert.equal(env.timers.size,0);
+  const observer=env.observers.find(item=>item.element===env.control('[data-workflow-art]'));
+  observer.notify(false);observer.notify(true);rig.setActive(true);env.advance(16);
+  assert.deepEqual(rig.renderedPose,blend);assert.equal(componentFrame,0);assert.equal(env.timers.size,0);
+});
+
+test('reduced preference exposes final controls and restoration resamples the current scroll coordinate',async t=>{
+  const env=harness(t,{minimal:true});env.mount();await env.load();env.seek(.4);
+  env.preference.matches=true;env.preference.fire('change');assert.equal(env.root.dataset.workflowProgress,'1.0000');
+  assert.equal(env.root.dataset.workflowTour,'reduced');assert.equal(env.instances[0].rig.options.interaction,'drag');
+  env.seek(.6);env.advance(30000);assert.equal(env.root.dataset.workflowProgress,'1.0000');assert.equal(env.timers.size,0);
+  env.preference.matches=false;env.preference.fire('change');assert.equal(env.root.dataset.workflowProgress,'0.6000');
+  assert.equal(env.instances[0].rig.options.interaction,'none');assert.equal(env.root.dataset.workflowTour,'scroll');
+});
+
+test('production layer decode and runtime failure recover at the current scroll coordinate',async t=>{
+  let broken=true;const env=harness(t,{minimal:true,decode:()=>broken?Promise.reject(Error('fixture decode')):Promise.resolve()});
+  env.mount();env.observers[0].notify(true);env.observers[1].notify(true);await flush();assert.equal(env.root.dataset.workflowReady,'error');
+  assert.equal(env.control('[data-workflow-retry]').hidden,false);broken=false;env.seek(.8);env.control('[data-workflow-retry]').fire('click');await flush();
+  assert.equal(env.root.dataset.workflowReady,'true');assert.equal(env.root.dataset.workflowProgress,'0.8000');
+  const old=env.instances.at(-1);env.control('[data-workflow-rig-host]').fire('rig-error',{target:old});assert.equal(env.root.dataset.workflowReady,'error');
+  env.seek(1);env.control('[data-workflow-retry]').fire('click');await flush();assert.equal(env.root.dataset.workflowProgress,'1.0000');
+  assert.equal(env.instances.at(-1).rig.options.interaction,'drag');assert.equal(env.control('[data-workflow-retry]').hidden,true);
+});
+
+test('old decode and queued scroll callbacks cannot overwrite a same-root production remount',async t=>{
+  let resolve,waiting=true;const pending=new Promise(done=>{resolve=done;});
+  const env=harness(t,{minimal:true,decode:()=>waiting?pending:Promise.resolve()});
+  const cleanup=env.mount();env.observers[0].notify(true);env.observers[1].notify(true);await flush();
+  const oldObservers=[...env.observers],oldListeners=env.window.listeners.map(item=>item.listener);cleanup();waiting=false;
+  env.mount();await env.load();env.seek(.7);const current=env.instances.at(-1),camera=env.control('[data-workflow-camera]').style.transform;
+  resolve();await flush();for(const observer of oldObservers)observer.callback([{target:env.control('[data-workflow-art]'),isIntersecting:false}]);for(const listener of oldListeners)listener();env.advance(1000);
+  assert.equal(env.instances.at(-1),current);assert.equal(env.root.dataset.workflowReady,'true');assert.equal(env.root.dataset.workflowProgress,'0.7000');
+  assert.equal(env.control('[data-workflow-camera]').style.transform,camera);assert.equal(env.root.querySelectorAll('[data-workflow-layer]').length,26);
+});
+
+test('production resize reprojects the transparent layers at the same progress without writing pose',async t=>{
+  const env=harness(t,{minimal:true});env.mount();await env.load();env.seek(.35);
+  const rig=env.instances[0].rig,pose=structuredClone(rig.pose),art=env.control('[data-workflow-art]');
+  const before=env.root.querySelectorAll('[data-workflow-layer]').map(image=>image.style.transform);
+  art.rect={width:800,height:440};env.resizes.find(observer=>observer.element===art).callback([]);
+  assert.notDeepEqual(env.root.querySelectorAll('[data-workflow-layer]').map(image=>image.style.transform),before);
+  assert.equal(env.root.dataset.workflowProgress,'0.3500');assert.deepEqual(rig.pose,pose);assert.equal(env.timers.size,0);
 });
 
 test('the live stage does not inherit the legacy hidden slideshow container',()=>{

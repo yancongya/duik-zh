@@ -56,7 +56,7 @@ export function patchCapabilityLinksSSR(html) {
     for(const child of node.childNodes||[])visit(child,owner);
   }
   visit(parse(html,{sourceCodeLocationInfo:true}));
-  assert.equal(motionCards,3,'Expected the three existing motion cards');
+  assert.equal(motionCards,3,'Expected all three motion cards');
   assert.equal(orbitRoots,1,'Expected the original orbit root');
   // A second publication must leave the already adapted markup untouched.
   assert([0,4].includes(edits.length),'Partially adapted capability CTAs');

@@ -36,15 +36,9 @@
   }
   checks.push('Hero head and waist controllers respond to keyboard input');
   await screenshot('03-hero-keyboard');
-  await click('[data-rig-reset]');
-  const reset=await pose();
-  assert.equal(reset.head,0);assert.equal(reset.rootX,0);assert.deepEqual(reset.handL,[0,0]);
-  await click('[data-rig-controls]');
-  assert.equal(await controls(),0,'Hidden controllers leave no hit targets');
-  assert.equal(await evaluate('document.querySelector("[data-rig-controls]").getAttribute("aria-pressed")'),'false');
-  await click('[data-rig-controls]');
+  assert.equal(await evaluate('document.querySelectorAll("[data-rig-reset],[data-rig-controls]").length'),0);
   assert.equal(await controls(),12);
-  checks.push('Reset restores pose; controls can be hidden and shown again');
+  checks.push('Hero keeps twelve controllers visible without reset or hide buttons');
   const box=await evaluate(character+'.getBoundingClientRect().toJSON()');
   await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:box.x+box.width*.83,y:box.y+box.height*.2});
   await delay(500);

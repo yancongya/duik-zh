@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import {parse} from 'parse5';
+import {isCinematicComposition} from './landing-cinematic-composition.mjs';
 
 // Keep the original measured GSAP track. These markers own only its composition.
 export const capabilityClasses = Object.freeze([
@@ -20,6 +21,7 @@ export function patchCapabilityLayoutRuntime(source) {
 }
 
 export function patchCapabilityLayoutSSR(html,titles) {
+  const cinematic=isCinematicComposition(html);
   const patches=[],counts=new Map(capabilityClasses.map(([,marker])=>[marker,0]));
   let titleIndex=0;
   const escape=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
@@ -40,15 +42,15 @@ export function patchCapabilityLayoutSSR(html,titles) {
     for(const [original,marker] of capabilityClasses){
       if(value!==original&&value!==original+' '+marker)continue;
       counts.set(marker,counts.get(marker)+1);
-      if(titles&&marker==='duik-capability-card')patchTitle(node);
+      if(titles&&!cinematic&&marker==='duik-capability-card')patchTitle(node);
       if(value===original){const loc=node.sourceCodeLocation.attrs.class;patches.push({start:loc.startOffset,end:loc.endOffset,value:'class="'+original+' '+marker+'"'});}
     }
     for(const child of node.childNodes||[])visit(child);
   }
   visit(parse(html,{sourceCodeLocationInfo:true}));
   assert.equal(counts.get('duik-capability-track'),1,'Expected one measured desktop track');
-  assert.equal(counts.get('duik-capability-card'),3,'Expected three desktop motion cards');
-  if(titles)assert.equal(titleIndex,3,'Expected three complete capability headings');
+  assert.equal(counts.get('duik-capability-card'),3,'Expected the three desktop motion-card contract');
+  if(titles)assert.equal(titleIndex,cinematic?0:3,'Expected the explicit capability-heading contract');
   // The mobile branch is mounted by Vue, and is absent in captured desktop SSR.
   assert([0,3].includes(counts.get('duik-capability-mobile-art')),'Unexpected mobile scene wrappers');
   for(const patch of patches.sort((a,b)=>b.start-a.start))html=html.slice(0,patch.start)+patch.value+html.slice(patch.end);

@@ -80,10 +80,10 @@ test('published SSR retains motion guides and the initial Hero install link is c
   const dom=parse(await read('public/landing.html'));
   const cards=all(dom,node=>(attrs(node).class||'').split(/\s+/).includes('duik-capability-card'));
   assert.equal(cards.length,3);
-  for(const [i,card] of cards.entries()){
+  for(const [index,card]of cards.entries()){
     const links=all(card,node=>node.tagName==='a');
     assert(!links.some(a=>['/docs','/docs/getting-started/install'].includes(attrs(a).href)));
-    assert(links.some(a=>attrs(a).href===['/docs/guide/animation/interpolation','/docs/guide/automation/wiggle','/docs/guide/camera/camera-2d'][i]));
+    assert(links.some(a=>attrs(a).href===['/docs/guide/animation/interpolation','/docs/guide/automation/wiggle','/docs/guide/camera/camera-2d'][index]));
   }
   const hero=all(dom,node=>(attrs(node).class||'').split(/\s+/).includes('kp-home-hero-main'))[0];
   assert(hero);

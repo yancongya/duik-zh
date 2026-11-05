@@ -5,16 +5,23 @@
   "type": "module",
   "description": "Duik Ángela 中文文档站与产品首页（非官方）",
   "scripts": {
+    "predev": "npm run docs:media",
     "dev": "next dev",
+    "prebuild": "npm run docs:media",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "sync": "node scripts/sync-upstream.mjs",
     "nav": "node scripts/mkdocs-to-nextra.mjs",
     "convert": "node scripts/md-convert.mjs",
-    "landing:publish": "node scripts/publish-duik-landing.mjs && node scripts/patch-duik-landing-visuals.mjs && node scripts/publish-duik-experience.mjs",
+    "brand:publish": "node scripts/publish-duik-brand.mjs",
+    "brand:test": "node --test scripts/test-duik-brand.mjs",
+    "docs:media": "node scripts/audit-docs-media.mjs",
+    "docs:media:test": "node --test scripts/test-docs-media.mjs",
+    "landing:optimize": "node scripts/optimize-duik-media.mjs",
+    "landing:publish": "npm run brand:publish && node scripts/publish-duik-landing.mjs && node scripts/patch-duik-landing-visuals.mjs && node scripts/publish-duik-experience.mjs && npm run landing:optimize",
     "landing:candidate": "node scripts/publish-duik-candidate.mjs",
-    "landing:test": "node --test scripts/test-duik-landing.mjs scripts/test-duik-catalog.mjs scripts/test-duik-motion.mjs scripts/test-duik-tools.mjs scripts/test-duik-tools-comparison.mjs scripts/test-duik-guide.mjs scripts/test-duik-reuse.mjs scripts/test-duik-hero-wall.mjs scripts/test-duik-workflow.mjs scripts/test-character-input-cancel.mjs scripts/test-character-render-lifecycle.mjs scripts/test-duik-hero-lifecycle.mjs scripts/test-duik-rig-diagnostics.mjs scripts/test-duik-validation-harness.mjs scripts/test-duik-navigation.mjs scripts/test-duik-background.mjs scripts/test-duik-glow.mjs scripts/test-duik-hero-ribbon.mjs scripts/test-duik-hero-marquee.mjs scripts/test-duik-api-cinema.mjs scripts/test-duik-capability-links.mjs scripts/test-duik-capability-resize.mjs scripts/test-duik-capability-keyboard.mjs scripts/test-duik-capability-selection.mjs scripts/test-duik-orbit-presentation.mjs scripts/test-duik-orbit-preference.mjs",
+    "landing:test": "node --test scripts/test-duik-landing.mjs scripts/test-duik-catalog.mjs scripts/test-duik-motion.mjs scripts/test-duik-tools.mjs scripts/test-duik-tools-comparison.mjs scripts/test-duik-guide.mjs scripts/test-duik-reuse.mjs scripts/test-duik-hero-wall.mjs scripts/test-duik-workflow.mjs scripts/test-character-input-cancel.mjs scripts/test-character-render-lifecycle.mjs scripts/test-duik-hero-lifecycle.mjs scripts/test-duik-rig-diagnostics.mjs scripts/test-duik-validation-harness.mjs scripts/test-duik-navigation.mjs scripts/test-duik-background.mjs scripts/test-duik-glow.mjs scripts/test-duik-hero-ribbon.mjs scripts/test-duik-hero-marquee.mjs scripts/test-duik-api-cinema.mjs scripts/test-duik-capability-links.mjs scripts/test-duik-capability-resize.mjs scripts/test-duik-capability-keyboard.mjs scripts/test-duik-capability-selection.mjs scripts/test-duik-orbit-presentation.mjs scripts/test-duik-orbit-preference.mjs scripts/test-duik-tools-cinema.mjs scripts/test-duik-motion-cinema.mjs scripts/test-duik-closing-summary.mjs scripts/test-duik-cinematic-composition.mjs scripts/test-duik-catalog-banner.mjs",
     "landing:verify": "node scripts/validate-duik-experience.mjs",
     "postinstall": "patch-package"
   },
@@ -33,6 +40,9 @@
     "@types/react-dom": "^19.0.0",
     "patch-package": "^8.0.1",
     "parse5": "7.3.0",
+    "remark-mdx": "3.1.1",
+    "remark-parse": "11.0.0",
+    "unified": "11.0.5",
     "typescript": "^5.7.0"
   }
 }

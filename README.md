@@ -53,6 +53,19 @@ npm run nav        # 官方 mkdocs 顺序 + 中文映射 → content/docs/**/_me
 npm run convert    # 把上游未处理的 md 转为 content/docs 占位（永不覆盖已存在文件）
 ```
 
+## 文档图片与视频
+
+文档入口为 `/docs`。图片从本地 `public/docs-img/` 提供；`predev` / `prebuild` 自动核对全部 MDX 图片引用，缺图会直接失败，不再用 HTTP 200 的 SVG 占位掩盖。稀疏检出恢复与外链状态见 [文档媒体交付](docs/DOCS_MEDIA_DELIVERY.md)。
+
+```bash
+npm run docs:media                  # 本地引用、实际文件及图像签名
+npm run docs:media:test             # 图片映射和 Video 渲染回归
+npm run docs:media -- --origin=http://127.0.0.1:3017
+npm run docs:media -- --check-external-images --check-videos --output=output/docs-media-audit.json
+```
+
+2026-11-06 已恢复 739 个仓库图片文件，132 篇文档的 531 个本地图片引用完整。53 个官方旧 MP4 地址实测失效，本站显示来源说明、官方课程入口及重试；**不代表站内视频播放已恢复**，不镜像或绕过课程访问限制。两张 Wikimedia 旧缩略图在渲染层精确映射至同一素材的有效原图，保留译文与归属。
+
 ## 落地页开发（当前根首页）
 
 当前落地页 `/` 由 Next.js rewrite 到本地 `public/landing.html`；Nextra 文档继续位于 `/docs/*`。页面沿用已复制的交互运行时，不依赖线上镜像。修改源文件后必须发布，不能只改 `app/page.tsx`。
@@ -74,13 +87,24 @@ npm run build                           # 构建前停止同仓库 dev，完成�
 
 - 可编辑真源：`components/home/landing/`；发布脚本：`scripts/publish-duik-landing.mjs`、`patch-duik-landing-visuals.mjs`、`publish-duik-experience.mjs`。
 - 官方素材：`components/home/landing/official-media/`，来源、提交、尺寸、摘要及归属见 `sources.json`。使用官方文档截图说明真实面板，网页交互仅解释原理，不代表在浏览器执行 AE。
-- 页面实际顺序为“认识 AE 中的 Duik → 绑定流程 → 通用工具 → 动画/自动化/摄像机 → 复用 → API → 工具目录与学习 → FAQ → Footer”，保留已确认角色。官方八主面板、Tools 四类、三类库和进阶 API 分层说明，截图按需展开，不用假 AE 面板冒充功能。
+- 页面实际顺序为“Hero/功能墙 → 滚动绑定 → 工程整理 → 三幅横向动态场景 → 资产复用圆环 → 工具/学习/API 索引 → 开始使用/FAQ → Footer”，保留已确认角色。目录分类上方新增横向动态示意，不再显示目录官方截图区；其他素材与文档入口保留，不用假 AE 面板冒充功能。
 - 实施状态与剩余工作见 [落地页 Plan](docs/LANDING_REDESIGN_PLAN.md)，功能层级见 [产品叙事依据](docs/LANDING_EXPERIENCE_DESIGN.md)，各板块的文档和截图来源见 [全页内容对照](docs/LANDING_CONTENT_AUDIT.md)。后续改造应同时更新对应记录，不沿用旧版本的验收结论。
 - 角色制作与验证：`/rig-test.html`；可嵌入组件演示：`/rig-embed.html`。这两页不替代落地页，也不是 AE 插件运行环境。
+- 正式 Logo 规范：`/brand.html`。已选 A（朱红回环＋青绿沙漏），双色/单色/反白、16～1024 px、静态/进场/加载 SVG 统一从 `components/brand/logo.mjs` 生成。`npm run brand:publish` / `npm run brand:test`；首页与文档导航、favicon 和 manifest 已同源接入。旧 `/logo-lab.html` 重定向至规范页，四案文件可从 `docs/logo-studies-archive-2026-11-05.tar.gz` 恢复。见 [品牌规范](docs/BRAND_GUIDE.md)。
+- 首屏 loading（2026-11-06）：缓存命中也播放1800 ms Logo进场，接820 ms推镜虚化消散；Hero标题、角色、说明、CTA、条带在退场期间以70 ms错峰清晰入场。资源并行加载，交互/后台/reduced随时取消并恢复可用内容，不改原滚动宿主。`npm run brand:test`覆盖完整入场与中途中断。`npm run landing:publish`包含品牌发布与`landing:optimize`：原母图与透明层不动，逐像素验证交付副本，再由Next定向映射请求。压缩可用本地`cwebp -lossless -exact`，缺少时回退PNG。
+- 性能诊断：本机 `/?perf=1` 启用只读观测，默认首页没有遥测请求。构建后用 `next start` 运行 3017，再执行 `node scripts/audit-duik-performance.mjs` 复用已安装 web-perf 静态检查并核对实际 HTTP；详细证据见 [本轮验收](docs/BRAND_PERFORMANCE_ACCEPTANCE.md)。
 - 默认只改落地页，不修改文档译文、上游快照或发布到远端。构建通过、浏览器检查与真正的 AE 宿主验证分别记录。
 - 定向桌面验收输出 `output/duik-experience-check/report.json`，分别记录首页交互与资源、Nextra 导航、文档媒体请求；`--inspect` 仅用于诊断。首页本地资源通过不代表文档区全部离线，也不代表手机或 AE 实机已验收。
 
 ### 当前交付：整页 Duik 叙事与视觉升级
+
+**最新四项批注（2026-11-05）：** 绑定区由滚动逐帧驱动，向下归位、向上倒序，终态交还控制器并保留用户姿态。纸飞机、悬挂装置和分层风景已回到原横向穿梭三slot，底部不重复；`/#more-features`兼容锚点随第一场景迁移。目录增加4:1分类动态插画，移除该处官方截图，搜索/八分类/33文档入口保留。根预览`http://127.0.0.1:3017/`与真源`components/home/landing/`不变，执行`npm run landing:publish`同步。验收与构建结果见 [Plan §0](docs/LANDING_REDESIGN_PLAN.md)；以下同日“一次播放/底部插画/单幅场景”为历史记录，不覆盖当前决定。
+
+**Hero 局部精修（2026-11-05）：** 主内容通过上下等权空余空间居中，移除首屏“复位/隐藏控制器”按钮，12个控制器与错误重试保留。底部八面板条带扩满两端链接之间的空间；当前1331×1086桌面可视窗口约539→1004px，原循环和滚动隐藏不变。17项定向回归通过，真实拖拽、Tab切换与退场恢复已核对；证据及本轮构建状态见 [Plan §0](docs/LANDING_REDESIGN_PLAN.md)。真源、`npm run landing:publish` 和根预览 `http://127.0.0.1:3017/` 不变。
+
+**最新增量（2026-11-05）：** 绑定区只保留滚入一次的26层映射和最终控制器，移除外围阶段/部位/详情工具栏；横向穿梭恢复原曲线并扩展到圆环衔接；旧悬挂装置、纸飞机与分层风景恢复为底部“更多功能”插画，自动循环、可直接拖拽，没有播放按钮或进度条。根预览仍为 `http://127.0.0.1:3017/`，新增位置 `/#more-features`；真源与发布命令不变。当前定向159项通过，桌面控制器接管与插画可见循环已实测；完整证据及构建状态见 [本次恢复验收](./output/restoration-acceptance-2026-11-05.md)。
+
+**前批（2026-11-05，核心章节精简）：** 优化前基线为 `0a5e915`；后续改造保留工作区、未再次提交或推送。中段已合并为绑定、工程整理、动作表现、资产复用四个核心场景，末尾只保留功能/学习/API 索引及开始使用/FAQ。真实面板与 API 进入详情，入口和归属不删。沿用 `/`、3017、26 层角色和原圆环；真源仍为 `components/home/landing/`，通过 `npm run landing:publish` 同步。新设计全套 534 项中 533 通过、1 可选跳过；最后语义修正相关 39 项、可见门槛修正相关 20 项通过。最终构建成功（137 页），3017 已恢复。1500×1086 和 1280×800 桌面画面、实际拖拽/循环与文档跳转已定向验收；独立复核唯一修复项判定 resolved / ship。证据见 [前批验收](./output/cinematic-acceptance-2026-11-05.md) 与 Plan §0；不外推手机、AE 或系统级减少动态效果。
 
 **最新交互决定（2026-11-04）：** 展示区移除播放进度滑杆、播放/暂停/重播及纯播放复位，自动演示无需点击，被动悬停/聚焦也不停止。绑定区仍只连续演示一次后交还控制器；工具、Motion、API、复用、墙与条带可见自动循环。幅度/频率/视点等真实参数按需展开，动画库以三个分镜按钮选择待存动作，保存/取用快照不被循环覆盖。实际拖拽与详情阅读优先，离屏/后台/reduced停止；原模板运镜、批准角色和亮色不变。真源 `components/home/landing/`，同步命令 `npm run landing:publish`，预览 `/`；独立角色工作台不受影响。当前结果见 Plan §0“去除播放进度界面”。
 

@@ -1,0 +1,270 @@
+{
+  "kind": "Approved A derivative for this unofficial Chinese guide; not an official RxLaboratory identity",
+  "upstream": {
+    "repository": "RxLaboratory/Duik",
+    "revision": "718e6e282d1ae91dc9678bb1a202ce08e862a28d",
+    "paths": [
+      "src-docs/home-html/duik.png",
+      "src-docs/aep/jissse/Duik parenting/(Footage)/DUIK_logo_full_dark-300x300.png"
+    ],
+    "credit": "RxLaboratory and contributors"
+  },
+  "canonical": "components/brand/logo.mjs",
+  "assets": [
+    {
+      "file": "logo.svg",
+      "bytes": 520,
+      "sha256": "1ac08dbeff1af02777ff1c8fef77fbc2883d101b717e917e071a11658c02fd48"
+    },
+    {
+      "file": "logo-16.png",
+      "bytes": 374,
+      "sha256": "bd6b7bc3634b0653efa779f4fbdd7ce88256940cabbf5bf59940dea8d619cce4"
+    },
+    {
+      "file": "logo-20.png",
+      "bytes": 418,
+      "sha256": "9c5c3b6a64e38a2fec92504cb30419cf7a2ac83c62232cc11de1c3b7c41311ec"
+    },
+    {
+      "file": "logo-24.png",
+      "bytes": 529,
+      "sha256": "2d03de90f1ef48c4fa4df1ed04022569adce4f4fc70587c2cb3bef358e0fc7af"
+    },
+    {
+      "file": "logo-32.png",
+      "bytes": 657,
+      "sha256": "7668cbac5c25d1da555163211479382d9e30bfbee8daa3e2b86007500e40d7c9"
+    },
+    {
+      "file": "logo-40.png",
+      "bytes": 785,
+      "sha256": "fccf1da317368eb7d7b4c66936a02104f721462e48ec61c59c65ddd6c25483bf"
+    },
+    {
+      "file": "logo-48.png",
+      "bytes": 932,
+      "sha256": "370f749db016377b6eb7d1f43fcf9c29ec61766de19c79e6b9ef18667f1b9696"
+    },
+    {
+      "file": "logo-64.png",
+      "bytes": 1185,
+      "sha256": "639346466442e6bc5fecf551f1e66c9f9ab04e3547a1011a212858e34bffe878"
+    },
+    {
+      "file": "logo-96.png",
+      "bytes": 1759,
+      "sha256": "eb3c0c16d79cee6d61a0fe2378b7722d46383cd8571e54b955cc6f14101e06ea"
+    },
+    {
+      "file": "logo-128.png",
+      "bytes": 2204,
+      "sha256": "747cb15ca520b29d4dd715b24e5e6f7d673ed754028cf9b6174b1ca23563db71"
+    },
+    {
+      "file": "logo-180.png",
+      "bytes": 3265,
+      "sha256": "74e93e1d9c8c6aab72ed0947fcfd18dab24ec75b16bcb5e34519a7a8cfa114ee"
+    },
+    {
+      "file": "logo-192.png",
+      "bytes": 3480,
+      "sha256": "c740b7fef558d878e13efb179dfff57f821190f130e85ac20efbb5d141b151ff"
+    },
+    {
+      "file": "logo-256.png",
+      "bytes": 4565,
+      "sha256": "345c2240d12636f7b42431f4895989df1e47118bcf05eaf42b92795270564d0b"
+    },
+    {
+      "file": "logo-512.png",
+      "bytes": 10360,
+      "sha256": "321687f020b478f48940068ed2613d6523767f8b7943593db0565ae629967a33"
+    },
+    {
+      "file": "logo-1024.png",
+      "bytes": 24565,
+      "sha256": "6e7d3c4c3e9b385a93030e32f5f25c5bb3c2c452bd833f04558d0bbc0b9a3308"
+    },
+    {
+      "file": "logo-mono.svg",
+      "bytes": 520,
+      "sha256": "8798371c365c752c24d859d38d3e1d7476f4950b622dba21d4fe93296a579525"
+    },
+    {
+      "file": "logo-mono-16.png",
+      "bytes": 355,
+      "sha256": "228bbaf1e1e5c7c1f0668b82d52958fe766040d43961d1ef113fac99bd8a8b3c"
+    },
+    {
+      "file": "logo-mono-20.png",
+      "bytes": 395,
+      "sha256": "af5aca34a7abed873fb2c93088edfb720d08906a05568ecd7b645f55761f1a61"
+    },
+    {
+      "file": "logo-mono-24.png",
+      "bytes": 499,
+      "sha256": "26a696a2bb220dcead1c5ffb627e9af33d6a61f64e4b489204cd4d34fb8d49ab"
+    },
+    {
+      "file": "logo-mono-32.png",
+      "bytes": 630,
+      "sha256": "82cc094e6df89729f5d6fb4b27d9c3db1a0481720cfc3ec39002de7f88d0a3e2"
+    },
+    {
+      "file": "logo-mono-40.png",
+      "bytes": 756,
+      "sha256": "28724b2ffc62d1b70fe82c99ba4704b530ddb1a8b5da9e5949b0dd4e0880e941"
+    },
+    {
+      "file": "logo-mono-48.png",
+      "bytes": 887,
+      "sha256": "9f5a8ad4355bdbf0239bc626125f6c04b84d381753927e52c68c7cc49ef97320"
+    },
+    {
+      "file": "logo-mono-64.png",
+      "bytes": 1134,
+      "sha256": "6f651b807374035b10655bdaaaff18c4268cc3b442b1bb1483084b575ea9c4b4"
+    },
+    {
+      "file": "logo-mono-96.png",
+      "bytes": 1660,
+      "sha256": "70fd86b356c9ffe255ed887a97eb29d69faea8a7bd2006f76fa509b37a248777"
+    },
+    {
+      "file": "logo-mono-128.png",
+      "bytes": 2112,
+      "sha256": "908f89acc6ea6709a2d9c0c49b264fb2309f9156e53c1161b5d0f2b2c6c70ca9"
+    },
+    {
+      "file": "logo-mono-180.png",
+      "bytes": 3087,
+      "sha256": "c6604ac7d1f30b8f5e6c7f7071dff09e5e443edc3e6a2e727c2f1ee3148677e7"
+    },
+    {
+      "file": "logo-mono-192.png",
+      "bytes": 3321,
+      "sha256": "237155003ecefa98bf78460e7ff7fff5fc40951744f468bab0b97d9bfe819754"
+    },
+    {
+      "file": "logo-mono-256.png",
+      "bytes": 4373,
+      "sha256": "233cc399e76079afce2fae06bddeff45b8198cb4537fb799e0de9bdfc2832625"
+    },
+    {
+      "file": "logo-mono-512.png",
+      "bytes": 9964,
+      "sha256": "803f630093491a239ec19339b36bf04ebaaa431b9f1d827a9bc0b7a8a69a0f1d"
+    },
+    {
+      "file": "logo-mono-1024.png",
+      "bytes": 23850,
+      "sha256": "78b71435341440e0c55313fcba9f60670a4a68e7008b72c4a45c50aa7485221a"
+    },
+    {
+      "file": "logo-reverse.svg",
+      "bytes": 520,
+      "sha256": "754549c8969a75e519028aed65e7d93db54b3ad3670b5f1fc56343eb2ae09d75"
+    },
+    {
+      "file": "logo-reverse-16.png",
+      "bytes": 272,
+      "sha256": "9576cd438b7a33f6bbfba68266958b45d0a8e8b6f3143390113497c8c2a2f17b"
+    },
+    {
+      "file": "logo-reverse-20.png",
+      "bytes": 310,
+      "sha256": "baff3eb8930a5ff5272c66eed2348169a03c00724d36e0fb670b24407df46634"
+    },
+    {
+      "file": "logo-reverse-24.png",
+      "bytes": 384,
+      "sha256": "b8ea144ae4c09b0e7a18c783074b1493ecb7ade124b71622eab5334bd4450d00"
+    },
+    {
+      "file": "logo-reverse-32.png",
+      "bytes": 482,
+      "sha256": "f059d406508262fad7632330711f75a1004fbdeb63532d182620ba9dfdd4635c"
+    },
+    {
+      "file": "logo-reverse-40.png",
+      "bytes": 576,
+      "sha256": "7a267657d9d0c51718081144bd8991a2f34981fc415c8dc04aeb9073eeab6468"
+    },
+    {
+      "file": "logo-reverse-48.png",
+      "bytes": 692,
+      "sha256": "6cf0699ed063470cc8baa6c1d1244126d41dea5eb0da873af3e65bc635f0fa1b"
+    },
+    {
+      "file": "logo-reverse-64.png",
+      "bytes": 906,
+      "sha256": "1c8ca9c32311085dbc40e7d9b270545f5088b37cb08f7f9ab26640df6591f1b9"
+    },
+    {
+      "file": "logo-reverse-96.png",
+      "bytes": 1348,
+      "sha256": "11b7afe83c8fb43890f458f59d38a9d9844d52c56d7762ffc35e7f03c963f580"
+    },
+    {
+      "file": "logo-reverse-128.png",
+      "bytes": 1727,
+      "sha256": "b264b4750621711c40f470a2b3a5232dccb743cce03c476115730d911021f501"
+    },
+    {
+      "file": "logo-reverse-180.png",
+      "bytes": 2470,
+      "sha256": "c2179bfc90d06f09450465303c9fc5c3f0b9b2736822aafad444a16f9c73b327"
+    },
+    {
+      "file": "logo-reverse-192.png",
+      "bytes": 2685,
+      "sha256": "88053b976d1fe1dc402ad7e75220e9ba4aaae279e3cd813a98bd99b12a9d554e"
+    },
+    {
+      "file": "logo-reverse-256.png",
+      "bytes": 3577,
+      "sha256": "3b06bc702dca887d55d9684f1395a1da815548fc5acf9b039333f84c15b37df2"
+    },
+    {
+      "file": "logo-reverse-512.png",
+      "bytes": 7905,
+      "sha256": "3c2c97178fb2cc3a4f92fb4aa0b3063574b6c77c6d87ce44cea96acfe6d95630"
+    },
+    {
+      "file": "logo-reverse-1024.png",
+      "bytes": 18515,
+      "sha256": "eb83206c3e1bdd1bdc219489fa0329c439c412fcc14ade38db6ea92e1e9d6698"
+    },
+    {
+      "file": "logo-intro.svg",
+      "bytes": 1938,
+      "sha256": "654875bf61c60226db096b5c87f3ee69ac75142f4880d1c6ea0a5649470b6647"
+    },
+    {
+      "file": "logo-loader.svg",
+      "bytes": 1917,
+      "sha256": "2002602bb7b0c6f596fff15787ca04de77a1c9608dccebdb1d3b432527c5151c"
+    },
+    {
+      "file": "logo-loop.svg",
+      "bytes": 1946,
+      "sha256": "d829fe62a9e5e97176552a91226678a78b1784fd8916c2d6b673aa289229ad24"
+    },
+    {
+      "file": "maskable-512.png",
+      "bytes": 9869,
+      "sha256": "9b775e1945083f331b946944c1a26a75a14952610147b2c866ac1d1bda296baa"
+    },
+    {
+      "file": "apple-touch-icon.png",
+      "bytes": 3261,
+      "sha256": "3476bcd68abd17393434a7d92562d03b880b6916ac9365e7efc425cdc7d3dfc4"
+    },
+    {
+      "file": "favicon.ico",
+      "bytes": 2017,
+      "sha256": "e1917d684e4e0fd107f741d338f028ef7ea6c3bedb21734fd10be62dad98ee31"
+    }
+  ]
+}

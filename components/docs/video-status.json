@@ -1,0 +1,378 @@
+{
+  "checkedAt": "2026-11-05T16:21:00.741Z",
+  "source": "Exact video sources from content/docs; HEAD checks, no media downloads",
+  "officialCourse": "https://rxlaboratorio.org/rx-tutorial/duik-17/",
+  "videos": [
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_B04_Shortcuts__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_B04_Shortcuts__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_B01_Install__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_B01_Install__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J07_AnimLib__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J07_AnimLib__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J11_Cel__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J11_Cel__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J06_Interpo__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J06_Interpo__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_M01_Intro__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_M01_Intro__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_M02_Usage__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_M02_Usage__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J09_Sequence__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J09_Sequence__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J01_AnimTools01__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J01_AnimTools01__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J03_AnimTools02__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J03_AnimTools02__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J02_Interpolator__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J02_Interpolator__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J04_Tweening__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J04_Tweening__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_G01B_Connector2__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_G01B_Connector2__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F10_Kleaner__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F10_Kleaner__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F07_MoveAwayMotionTrail__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F07_MoveAwayMotionTrail__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F08_Random__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F08_Random__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F05_Swink__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F05_Swink__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F06_Wheel__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F06_Wheel__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F04_Wiggle__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_F04_Wiggle__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J10_XSheet__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_J10_XSheet__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E09_Fish__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E09_Fish__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E01_Autorig__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E01_Autorig__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E02_RigOptions__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E02_RigOptions__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E06_Leg__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E06_Leg__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E08_Tails__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E08_Tails__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E07_Wings__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E07_Wings__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C01_CreateBones__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C01_CreateBones__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C03_boneEffect__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C03_boneEffect__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C04_Envelops__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C04_Envelops__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C07_Tools__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C07_Tools__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C05_Noodles__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C05_Noodles__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_N03_2DCam__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_N03_2DCam__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_N02_3DCam__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_N02_3DCam__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_N01_FramingGuides__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_N01_FramingGuides__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_G01A_Connector1__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_G01A_Connector1__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_G01C_Connector3__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_G01C_Connector3__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_H01_KeyMorph01__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_H01_KeyMorph01__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_H02_KeyMorph02__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_H02_KeyMorph02__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E04_Arm__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E04_Arm__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_G07_CnnctrArmPAC__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_G07_CnnctrArmPAC__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_D02_SpaPins__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_D02_SpaPins__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_D04_BezPins__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_D04_BezPins__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E03_Ctrls__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_E03_Ctrls__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_B03_Notes__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_B03_Notes__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C08_OCO__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_C08_OCO__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_A01-Bones__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_A01-Bones__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_A02-Parent__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_A02-Parent__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_A03-Autorig__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_A03-Autorig__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_O05_DuSan__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_O05_DuSan__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_B02_Settings__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_B02_Settings__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_O01_CompTools__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_O01_CompTools__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_O02_LayerTools__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_O02_LayerTools__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    },
+    {
+      "url": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_O03_TextTools__EN_720.mp4",
+      "status": 404,
+      "finalUrl": "https://rxlaboratory.org/wp-content/uploads/rx-videos/Duik17_O03_TextTools__EN_720.mp4",
+      "type": "text/html; charset=iso-8859-1",
+      "ok": false
+    }
+  ]
+}

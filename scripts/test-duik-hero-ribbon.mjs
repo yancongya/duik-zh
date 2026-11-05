@@ -4,6 +4,12 @@ import {readFile} from 'node:fs/promises';
 import {parse} from 'parse5';
 import {patchHeroRibbonSSR,patchHeroRibbonRuntime} from './lib/landing-hero-ribbon.mjs';
 const baseline=new URL('../components/home/landing/baseline/',import.meta.url);
+test('Hero balances vertical free space and gives the marquee all width between its links',async()=>{
+  const css=await readFile(new URL('../components/home/landing/theme.css',import.meta.url),'utf8');
+  assert.match(css,/\.kp-home-hero-main>div:first-child\{[^}]*flex:1(?:;|\})/);
+  assert.match(css,/\.duik-hero-ribbon\{[^}]*grid-template-columns:auto minmax\(0,1fr\) auto;/);
+  assert.match(css,/\.duik-hero-ribbon-window\{[^}]*max-width:none!important;/);
+});
 test('ribbon stays inside the original Hero exit track and replaces borrowed credibility',async()=>{
   const html=patchHeroRibbonSSR(await readFile(new URL('landing.html',baseline),'utf8'),'<div data-test-marquee></div>');
   let ribbon;

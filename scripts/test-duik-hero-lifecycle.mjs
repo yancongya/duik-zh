@@ -4,10 +4,11 @@ import {readFile} from 'node:fs/promises';
 import {runInNewContext} from 'node:vm';
 import {parseFragment} from 'parse5';
 import ts from 'typescript';
+import {heroStageMarkup} from '../components/home/landing/content.mjs';
 
 const source = await readFile(new URL('../components/home/landing/adapter.js', import.meta.url), 'utf8');
 const diagnostic = process.env.DUIK_HERO_TEST_ORIGINAL === '1';
-const approvedPoster = '/riglab-project/source.png';
+const approvedPoster = '/riglab-project/source-optimized-v1.png';
 
 // Captured before the lifecycle fix. Diagnostic mode runs the same behavioral
 // assertions against the original mountSlot and must fail on recovery checks.
@@ -147,6 +148,11 @@ function fixture(t) {
   document.createElement = tag => {
     const element = new Element(tag, document);
     if (tag === 'character-rig') {
+      element.shadowRoot = new Element('shadow-root', document);
+      element.firstControl = new Element('g', document);
+      element.firstControl.setAttribute('data-control', 'handL');
+      element.firstControl.setAttribute('tabindex', '0');
+      element.shadowRoot.append(element.firstControl);
       element.disconnections = 0; element.rig = null;
       element.api = {resets: 0, reset() { this.resets++; }};
       let resolve, reject; element.ready = new Promise((yes, no) => { resolve = yes; reject = no; });
@@ -163,7 +169,7 @@ function fixture(t) {
   const wrap = document.createElement('div'); wrap.className = 'kp-home-hero-main-input-wrap';
   const host = document.createElement('div'); wrap.append(host); document.body.append(wrap);
   const frames = new Map(); let nextFrame = 0;
-  const adapter = runInNewContext(executable(), {document, AbortController, navMarkup: '',
+  const adapter = runInNewContext(executable(), {document, AbortController, navMarkup: '',heroStageMarkup,
     requestAnimationFrame: callback => { const id = ++nextFrame; frames.set(id, callback); return id; },
     cancelAnimationFrame: id => frames.delete(id), console, URL, location: {href: 'http://127.0.0.1/'}});
   const dispose = adapter.mountSlot(host); t.after(() => dispose());
@@ -189,13 +195,14 @@ function assertRecoverable(f) {
   assert.equal(f.control('.duik-character-stage').dataset.rigState, 'error');
 }
 
-test('healthy Hero retains its approved source, reset and controller toggle', async t => {
+test('healthy Hero retains its approved source and visible controllers without toolbar actions', async t => {
   const f = fixture(t), character = await f.ready();
   assert.equal(character.getAttribute('src'), '/riglab-project/rig.json');
   assert.equal(character.getAttribute('interaction'), 'both');
-  f.control('[data-rig-reset]').click(); assert.equal(character.api.resets, 1);
-  f.control('[data-rig-controls]').click(); assert.equal(character.getAttribute('controls'), 'hidden');
-  f.control('[data-rig-controls]').click(); assert.equal(character.getAttribute('controls'), 'visible');
+  assert.equal(f.control('[data-rig-reset]'), null);
+  assert.equal(f.control('[data-rig-controls]'), null);
+  assert.equal(character.getAttribute('controls'), 'visible');
+  assert.equal(character.getAttribute('tabindex'), null, 'The shadow host must not exclude controllers from sequential keyboard focus');
   assert.equal(f.posters().length, 0);
 });
 
@@ -208,18 +215,21 @@ test('runtime rig-error after ready falls back to the approved poster and offers
 
 test('retry mounts one fresh character and success restores interactive controls', async t => {
   const f = fixture(t), first = await f.ready(); await f.error(first); assertRecoverable(f);
-  const retry = f.retry(); retry.click(); retry.click();
+  const retry = f.retry(); retry.focus(); retry.click(); retry.click();
   assert.equal(f.instances.length, 2, 'Repeated retry activation cannot mount concurrent characters');
   assert.equal(f.control('.duik-character-stage').dataset.rigState, 'loading');
-  assert(f.control('[data-rig-reset]').disabled); assert(f.control('[data-rig-controls]').disabled);
+  assert(retry.disabled);
   const second = f.instances[1]; assert(second.isConnected); assert.notEqual(second, first);
   assert.equal(second.getAttribute('src'), '/riglab-project/rig.json');
   await f.ready(second);
   assert.equal(f.control('.duik-character-stage').dataset.rigState, 'ready');
   assert.equal(f.host.querySelectorAll('character-rig').length, 1); assert.equal(f.posters().length, 0);
   assert(!f.retry() || f.retry().hidden, 'Successful recovery clears the retry state');
-  assert(!f.control('[data-rig-reset]').disabled); assert(!f.control('[data-rig-controls]').disabled);
-  f.control('[data-rig-reset]').click(); assert.equal(second.api.resets, 1); assert.equal(first.api.resets, 0);
+  assert.equal(second.getAttribute('controls'), 'visible');
+  assert.equal(second.getAttribute('interaction'), 'both');
+  assert.equal(f.document.activeElement, second.firstControl, 'Recovery returns focus from the hidden retry to a new controller');
+  assert.equal(f.control('[data-rig-reset]'), null);
+  assert.equal(f.control('[data-rig-controls]'), null);
   await f.error(first); assert.equal(f.host.querySelector('character-rig'), second); assert.equal(f.posters().length, 0);
 });
 
@@ -248,12 +258,12 @@ for (const settlement of ['resolve', 'reject']) {
 for (const readyFirst of [false, true]) {
   test(`unmount ${readyFirst ? 'after' : 'before'} ready clears owned listeners and rejects stale work`, async t => {
     const f = fixture(t), character = f.instances[0]; if (readyFirst) await f.ready(character);
-    const reset = f.control('[data-rig-reset]'); f.dispose();
+    const retry = f.retry(); f.dispose();
     assert.equal(f.host.childNodes.length, 0); assert.equal(character.disconnections, 1);
     assert.equal(f.document.elements.reduce((sum, element) => sum + element.listenerCount(), 0), 0,
       'The slot must release its element listeners on unmount');
-    character.resolve(); character.fail(); reset.click(); await flush();
+    character.resolve(); character.fail(); retry.click(); await flush();
     assert.equal(f.host.childNodes.length, 0); assert.equal(f.instances.length, 1);
-    assert.equal(character.api.resets, 0, 'Detached toolbar callbacks must not operate the old rig');
+    assert.equal(character.api.resets, 0, 'Unmount must not change the old pose');
   });
 }

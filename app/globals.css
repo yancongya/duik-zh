@@ -43,3 +43,20 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+/* Reader media: native playback, honest unavailable states, both reader themes. */
+.duik-video { margin: 1.5rem 0; }
+.duik-video-frame { position: relative; aspect-ratio: 16 / 9; background: var(--bg-soft); border-radius: 8px; overflow: hidden; }
+.duik-video-frame video { display: block; width: 100%; height: 100%; }
+.duik-video-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); border: 1px solid var(--border); border-radius: 999px; padding: .65rem 1.2rem; background: var(--bg); color: var(--fg); cursor: pointer; }
+.duik-video-unavailable { border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; background: var(--bg-soft); }
+.duik-video-unavailable strong { color: var(--fg); }
+.duik-video-unavailable p { margin: .5rem 0 1rem; color: var(--muted); font-size: .9rem; line-height: 1.7; }
+.duik-video-links { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; font-size: .9rem; }
+.duik-video-links button { color: var(--muted); text-decoration: underline; cursor: pointer; }
+.duik-video figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; margin-top: .6rem; font-size: .8rem; line-height: 1.7; color: var(--muted); }
+.duik-video-original { flex-shrink: 0; }
+.duik-video-source { width: 100%; }
+.duik-video-source summary { cursor: pointer; }
+.duik-video-source code { display: block; overflow-wrap: anywhere; margin: .5rem 0; }
+.duik-video button:focus-visible, .duik-video a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }

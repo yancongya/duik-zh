@@ -84,10 +84,15 @@ function cameraMarkup() {
     <details class="duik-motion-adjust" data-motion-adjust><summary>用滑杆精确调整</summary><div class="duik-motion-adjust-body"><div class="duik-motion-parameters">${range('viewX','水平视点',-100,100,0)}${range('viewY','垂直视点',-70,70,0)}</div><label class="duik-motion-check"><input type="checkbox" data-input="grid" checked>构图辅助线</label></div></details></div>`;
 }
 
-export function renderMotion(kind = 'animation') {
+export function renderMotion(kind = 'animation', {compact = false} = {}) {
   if (!MOTION_KINDS.includes(kind)) throw new TypeError(`Unknown motion demo: ${kind}`);
   const [category, title, href, link] = copy[kind];
   const content = kind === 'animation' ? animationMarkup() : kind === 'automation' ? automationMarkup() : cameraMarkup();
+  if(compact){
+    // Same authored artwork and player, minus the explanatory workbench.
+    const stage=content.split('<div class="duik-motion-controls">')[0].trim();
+    return `<section class="duik-motion-demo" data-motion-demo="${kind}" data-motion-presentation="compact" data-playing="false" data-view="demo" aria-label="${category}：${title}"><div class="duik-motion-viewport"><div data-motion-interactive>${stage}</div></div></section>`;
+  }
   return `<section class="duik-motion-demo" data-motion-demo="${kind}" data-playing="false" data-view="demo" aria-label="${category}：${title}"><div class="duik-motion-viewport">${officialMotionMarkup(kind).replace('data-motion-reference>','data-motion-reference hidden>')}<div data-motion-interactive>${content}</div></div><div class="duik-motion-foot"><div class="duik-motion-view-switch" role="group" aria-label="切换交互演示与真实面板"><button type="button" data-motion-view="reference" aria-pressed="false">查看真实面板</button><button type="button" data-motion-view="demo" aria-pressed="true" hidden>返回演示</button></div><a href="${href}">${link}</a></div><p class="duik-motion-boundary" data-motion-boundary>网页原理示意 · 非 AE / Duik 面板</p><div class="duik-motion-attribution" data-motion-attribution hidden>界面原图：Nicolas “Duduf” Dufresne / RxLaboratory · <a href="/docs/misc/doc-license">GFDL 1.3</a></div></section>`;
 }
 
@@ -169,7 +174,7 @@ export function mountMotion(host, kind = 'animation') {
       setAttr('[data-art=view-target]','transform',`translate(${number(300+state.viewX*.28)} ${number(180+state.viewY*.22)})`);
       setAttr('[data-art=composition-grid]','visibility',state.grid?'visible':'hidden');
       q('[data-camera-drag]').dataset.depthView=state.depthOpen?'exploded':'flat';
-      const depthButton=q('[data-action=depth]');depthButton.textContent=state.depthOpen?'合回画面':'拆开景层';depthButton.setAttribute('aria-pressed',String(state.depthOpen));
+      const depthButton=q('[data-action=depth]');if(depthButton){depthButton.textContent=state.depthOpen?'合回画面':'拆开景层';depthButton.setAttribute('aria-pressed',String(state.depthOpen));}
       output('viewX',String(Math.round(state.viewX)));output('viewY',String(Math.round(state.viewY)));
       output('camera-position',`X ${Math.round(state.viewX)} / Y ${Math.round(state.viewY)}`);
       root.dataset.viewX=number(state.viewX);root.dataset.viewY=number(state.viewY);
@@ -183,9 +188,10 @@ export function mountMotion(host, kind = 'animation') {
   function stop(){generation++;state.playing=false;if(raf)win.cancelAnimationFrame(raf);raf=0;last=null;}
   function selectView(next, notify = false){
     view=next;root.dataset.view=view;
-    q('[data-motion-reference]').hidden=view!=='reference';q('[data-motion-interactive]').hidden=view!=='demo';
-    q('[data-motion-attribution]').hidden=view!=='reference';
-    q('[data-motion-boundary]').textContent=view==='demo'?'网页原理示意 · 非 AE / Duik 面板':'在 After Effects 中使用 Duik';
+    const reference=q('[data-motion-reference]'),attribution=q('[data-motion-attribution]'),boundary=q('[data-motion-boundary]');
+    if(reference)reference.hidden=view!=='reference';q('[data-motion-interactive]').hidden=view!=='demo';
+    if(attribution)attribution.hidden=view!=='reference';
+    if(boundary)boundary.textContent=view==='demo'?'网页原理示意 · 非 AE / Duik 面板':'在 After Effects 中使用 Duik';
     all('[data-motion-view]').forEach(item=>{item.setAttribute('aria-pressed',String(item.dataset.motionView===view));item.hidden=item.dataset.motionView===view;});
     if(view!=='demo')stop();
     paint(notify);syncFrame();

@@ -9,6 +9,7 @@ import {patchCapabilityLinksRuntime,patchOrbitLinksRuntime} from './lib/landing-
 import {patchCapabilityResizeRuntime} from './lib/landing-capability-resize.mjs';
 import {patchCapabilitySelectionRuntime} from './lib/landing-capability-selection.mjs';
 import {patchCapabilityKeyboardRuntime} from './lib/landing-capability-keyboard.mjs';
+import {patchCinematicCompositionRuntime} from './lib/landing-cinematic-composition.mjs';
 import {orbitDocumentationFor} from '../components/home/landing/orbit.mjs';
 
 const hash='d2ea4a745e1ba64aecc76bbf680458929795d2d8';
@@ -244,13 +245,13 @@ test('unknown, duplicate and mixed selection mappings fail closed',()=>{
   assert.throws(()=>patchCapabilitySelectionRuntime(fixed+'\n'+priorProduction),/Mixed capability selection mappings/);
 });
 
-test('the published parent is byte-identical to all five production transformations',{
+test('the published parent is byte-identical to all six production transformations',{
   skip:diagnostic?'Negative control intentionally omits the selection fix; publication is not its failure signal':false,
 },async()=>{
   const published=await readFile(new URL('../public/_nuxt/'+parentName,import.meta.url));
-  const expected=Buffer.from(patchCapabilityKeyboardRuntime(parentCode),'utf8');
+  const expected=Buffer.from(patchCinematicCompositionRuntime(patchCapabilityKeyboardRuntime(parentCode)),'utf8');
   assert.equal(published.equals(expected),true,
-    'The actual public parent must contain the exact layout, links, resize, selection and keyboard transformations; run the normal landing publisher');
+    'The actual public parent must contain the exact layout, links, resize, selection, keyboard and cinematic transformations; run the normal landing publisher');
   assert.equal(await readFile(new URL('../public/duik-experience/capability-keyboard.mjs',import.meta.url),'utf8'),
     await readFile(new URL('../components/home/landing/capability-keyboard.mjs',import.meta.url),'utf8'));
 });

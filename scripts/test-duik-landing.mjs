@@ -7,7 +7,7 @@ import {fileURLToPath} from 'node:url';
 import {join} from 'node:path';
 import {runInNewContext} from 'node:vm';
 import {createHash} from 'node:crypto';
-import {textSlots,headlineActors,headlineTools,headlineWords,headlineSummary} from '../components/home/landing/content.mjs';
+import {textSlots,headlineActors,headlineTools,headlineWords,headlineSummary,heroStageMarkup} from '../components/home/landing/content.mjs';
 import {renderExperience} from '../components/home/landing/experience-layout.mjs';
 import {heroPreviews} from '../components/home/landing/preview-scenes.mjs';
 import {workflowSteps} from '../components/home/landing/orientation.mjs';
@@ -113,13 +113,13 @@ test('translated copy cannot rename runtime script or stylesheet assets',async()
   assert.deepEqual(missing,[],'Every runtime preload/module/style must exist locally');
 });
 
-test('Hero keeps its mount slot while the second prompt becomes the API workbench',()=>{
-  const slots=[...html.matchAll(/<div\b[^>]*class="duik-input-slot(?:\s[^"]*)?"[^>]*><\/div>/g)];
+test('Hero keeps its mount slot while API is a secondary disclosure and Tools loads on demand',()=>{
+  const slots=[...html.matchAll(/<div\b[^>]*class="duik-input-slot(?:\s[^"]*)?"[^>]*>/g)];
   assert.equal(slots.length,1,'Only Hero should use the character mount slot');
-  assert.match(html,/<section id="api"/);
+  assert(html.includes(heroStageMarkup),'SSR must reserve the same shell as the mounted character');
+  assert.match(html,/<details id="api"/);
   const textareas=[...html.matchAll(/<textarea\b[^>]*>/g)];
-  assert.equal(textareas.length,1,'Only the real scripting demo may have a textarea');
-  assert.match(textareas[0][0],/data-script-code/);
+  assert.equal(textareas.length,0,'Tools scripting is not mounted before its secondary workbench opens');
 });
 
 test('Hero static sentence words match its client component',async()=>{
@@ -154,8 +154,8 @@ test('source adapters match the published browser assets byte for byte',async()=
   for(const [source,target] of pairs)assert.equal(await read('public/'+target),await read('components/home/landing/'+source),'Unpublished source '+source);
 });
 
-test('the nine adapted roots and retained orbit share SSR and client contracts',async()=>{
-  for(const kind of ['workflow','faq','footer','tools','catalog','api','animation','automation','camera']){
+test('four core chapters and two closing surfaces share SSR and client contracts',async()=>{
+  for(const kind of ['workflow','faq','footer','tools','catalog','closing-empty','animation']){
     const rendered=renderExperience(kind);
     assert(html.includes(rendered),'Missing current shared markup: '+kind);
     assert.equal(html.split(rendered).length-1,1,'Duplicate section '+kind);
@@ -164,15 +164,16 @@ test('the nine adapted roots and retained orbit share SSR and client contracts',
   assert(html.includes(orbitDetailsMarkup),'Reuse workbench is secondary to the original orbit');
   assert(html.includes('id="reuse" class="duik-orbit-section w-screen flex-none"'));
   const files=['experience-layout.mjs','experience-vue.mjs','experience-mount.mjs','experience-shell.css','experience-catalog.mjs','experience-catalog.css','tool-catalog.mjs','tools-demo.mjs','tools-demo.css','tools-model.mjs','motion-demo.mjs','motion-demo.css','motion-model.mjs','content.mjs','orientation.mjs','orientation.css','guide-experience.mjs','guide-experience.css','reuse-demo.mjs','reuse-demo.css','orbit.mjs','orbit-vue.mjs','orbit.css','api-cinema.mjs','api-cinema.css'];
-  for(const file of [...files,'tools-comparison-motion.mjs'])assert.equal(await read('components/home/landing/'+file),await read('public/duik-experience/'+file),'Unpublished experience '+file);
+  for(const file of [...files,'tools-comparison-motion.mjs','tools-cinema.mjs','tools-cinema.css','motion-cinema.mjs','motion-cinema.css','closing-summary.mjs','closing-summary.css'])assert.equal(await read('components/home/landing/'+file),await read('public/duik-experience/'+file),'Unpublished experience '+file);
   const catalog=await read('public/_nuxt/HomeFaqKP.'+hash+'.js');
-  assert.match(catalog,/makeExperience\("catalog"\)/);
+  assert.match(catalog,/makeExperience\("faq"\)/);
   assert.match(catalog,/view as default/);
   const api=await read('public/_nuxt/HomePricingKP.'+hash+'.js');
-  assert.match(api,/makeExperience\("api"\)/);assert.match(api,/view as default/);
+  assert.match(api,/makeExperience\("catalog"\)/);assert.match(api,/view as default/);
   const faq=await read('public/_nuxt/HomeContactKP.vue_vue_type_script_setup_true_lang.'+hash+'.js');
-  assert.match(faq,/makeExperience\("faq"\)/);assert.match(faq,/view as _/);
-  assert(html.indexOf(renderExperience('api'))<html.indexOf(renderExperience('catalog')));
+  assert.match(faq,/makeExperience\("closing-empty"\)/);assert.match(faq,/view as _/);
+  assert(!html.includes(renderExperience('api')),'API is no longer a first-layer chapter');
+  for(const kind of ['animation','automation','camera'])assert.equal(html.split(renderExperience(kind)).length-1,1,'Latest user decision restores one of each scene to the horizontal track');
   assert(html.indexOf(renderExperience('catalog'))<html.indexOf(renderExperience('faq')));
 });
 
@@ -189,7 +190,7 @@ test('orientation is a quiet bridge with the real workspace available on request
     for(const c of n.childNodes||[])visit(c,reference);
   }
   visit(parseFragment(orientationMarkup));
-  assert.equal(headings.length,1);assert.equal(details.length,1);
+  assert.equal(headings.length,0,'Intro is a compact bridge, not a repeated chapter');assert.equal(details.length,1);
   assert(!Object.hasOwn(details[0],'open'),'References do not occupy the first reading layer');
   assert.equal(images.length,1);assert(images.every(image=>image.reference));
   const image=images[0].attrs;
@@ -203,16 +204,15 @@ test('orientation is a quiet bridge with the real workspace available on request
   assert(!workflowMarkup.includes('从一张角色'));
 });
 
-test('binding panels reserve their real PNG dimensions before lazy loading',async()=>{
+test('retained source panels and the visible binding poster keep their actual dimensions',async()=>{
   for(const step of workflowSteps){
     const png=await readFile(join(root,'components/home/landing/official-media',step.image));
     assert.equal(step.width,png.readUInt32BE(16),step.id+' width');
     assert.equal(step.height,png.readUInt32BE(20),step.id+' height');
   }
-  const first=workflowSteps[0];
-  assert(renderExperience('workflow').includes('width="'+first.width+'" height="'+first.height+'"'),'Reserve image geometry before anchor positioning');
+  assert.match(renderExperience('workflow'),/<img data-workflow-poster[^>]*width="1400" height="1200"[^>]*loading="lazy"/);
   const css=await read('components/home/landing/orientation.css');
-  assert(css.includes('.duik-workflow-panel{min-height:475px;'),'Width/height attributes alone do not reserve space when the image CSS sets both to auto');
+  assert(css.includes('.duik-workflow-camera>'),'Poster, layer stack and rig share the reserved camera');
 });
 
 test('legacy preview assets retain six pinned official panels for compatibility',async()=>{
@@ -263,7 +263,7 @@ test('local identity and restored orbit retain the original progress consumer',a
   assert(!html.includes('href="/favicon-32x32.png'));
   const manifest=JSON.parse(await read('public/duik-experience/site.webmanifest'));
   assert(manifest.name.includes('非官方'));
-  assert.equal(manifest.icons[0].src,'/duik-experience/icons/controller.svg');
+  assert.equal(manifest.icons[0].src,'/brand/v1/logo-192.png');
   const parent=await read('public/_nuxt/HomeCapabilitiesKP.'+hash+'.js');
   assert(parent.includes('capabilities-master-trigger'),'Preserve the original horizontal driver');
   assert(parent.includes('se=Math.max(0,ye-ie+xe+K(420,"rem"))'));
@@ -317,10 +317,10 @@ test('binding narrative mounts the approved rig and keeps official instructions 
   assert(workflowMarkup.includes('data-workflow-camera'));
   assert.equal(workflowParts.length,4);
   assert(workflowMarkup.includes('data-workflow-rig-host'));
-  assert(workflowMarkup.includes('<details class="duik-workflow-reference">'));
-  assert(!workflowMarkup.includes('<details open'));
+  assert(!workflowMarkup.includes('duik-workflow-reference'),'Latest compact stage does not restore the removed panel');
+  assert(workflowMarkup.includes('/docs/guide/rigging'),'Real binding guide remains reachable');
   const source=await readFile(new URL('../components/home/landing/orientation.mjs',import.meta.url),'utf8');
-  assert(source.includes("element.setAttribute('src','/riglab-project/rig.json')"));
+  assert(source.includes("instance.setAttribute('src','/riglab-project/rig.json')"));
   assert(source.includes('rig.getParts()'));
   assert(source.includes('rig.setMode(view.mode)'));
 });

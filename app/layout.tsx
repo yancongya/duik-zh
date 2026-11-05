@@ -2,8 +2,10 @@ import type { ReactNode } from 'react'
 import './globals.css'
 import { Head } from 'nextra/components'
 import 'nextra-theme-docs/style.css'
+import { brandMetadata } from '../components/brand/logo.mjs'
 
 export const metadata = {
+  ...brandMetadata,
   title: {
     default: 'Duik 中文站',
     template: '%s | Duik 中文站',

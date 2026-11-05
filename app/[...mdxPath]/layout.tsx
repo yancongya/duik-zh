@@ -15,7 +15,7 @@ export default async function DocsLayout({ children }: { children: ReactNode }) 
       navbar={
         <Navbar
           logoLink={false}
-          logo={<Link href="/docs" aria-label="Duik 中文文档首页"><b>Duik 中文站</b></Link>}
+          logo={<Link href="/docs" aria-label="Duik 中文文档首页" style={{display:'inline-flex',alignItems:'center',gap:8}}><img src="/brand/v1/logo.svg" width="32" height="32" alt="" /><b>Duik 中文站</b></Link>}
           projectLink="https://github.com/yancongya/duik-zh"
           projectIcon={<GitHubIcon height="24" aria-label="项目仓库" />}
         >

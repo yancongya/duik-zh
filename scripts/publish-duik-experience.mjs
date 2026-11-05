@@ -4,12 +4,14 @@ import {readFile,writeFile,mkdir,copyFile,cp,access} from 'node:fs/promises';
 import {join,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {parse} from 'parse5';
+import {brandManifest} from '../components/brand/logo.mjs';
 import {renderExperience} from '../components/home/landing/experience-layout.mjs';
 import {patchCapabilityLayoutRuntime,patchCapabilityLayoutSSR} from './lib/landing-capability-layout.mjs';
 import {patchCapabilityLinksRuntime,patchOrbitLinksRuntime,patchCapabilityLinksSSR} from './lib/landing-capability-links.mjs';
 import {patchCapabilityResizeRuntime,patchCapabilityResizeSSR} from './lib/landing-capability-resize.mjs';
 import {patchCapabilitySelectionRuntime} from './lib/landing-capability-selection.mjs';
 import {patchCapabilityKeyboardRuntime} from './lib/landing-capability-keyboard.mjs';
+import {patchCinematicCompositionRuntime,patchCinematicCompositionSSR} from './lib/landing-cinematic-composition.mjs';
 import {wrapOrbitSSR,orbitDecorativeAlt} from '../components/home/landing/orbit.mjs';
 import {patchOrbitIconsRuntime,patchOrbitIconsSSR,patchOrbitImageAltsRuntime} from './lib/landing-orbit-presentation.mjs';
 
@@ -18,20 +20,24 @@ const source=join(root,'components/home/landing'),pub=join(root,'public'),destin
 const hash='d2ea4a745e1ba64aecc76bbf680458929795d2d8';
 const files=['experience-layout.mjs','experience-vue.mjs','experience-mount.mjs','experience-shell.css','experience-catalog.mjs','experience-catalog.css','tool-catalog.mjs','tools-demo.mjs','tools-demo.css','tools-model.mjs','motion-demo.mjs','motion-demo.css','motion-model.mjs','content.mjs','guide-experience.mjs','guide-experience.css','reuse-demo.mjs','reuse-demo.css','orientation.mjs','orientation.css','orbit.mjs','orbit-vue.mjs','orbit.css','api-cinema.mjs','api-cinema.css','hero-marquee.mjs','hero-marquee.css'];
 files.push('tools-comparison-motion.mjs','rig-diagnostics.mjs','capability-keyboard.mjs');
+files.push('closing-summary.mjs','closing-summary.css');
+files.push('feature-gallery.mjs','feature-gallery.css');
+files.push('catalog-banner.mjs');
+files.push('tools-cinema.mjs','tools-cinema.css','motion-cinema.mjs','motion-cinema.css');
 for(const file of files)await access(join(source,file));
 await mkdir(destination,{recursive:true});
 for(const file of files)await copyFile(join(source,file),join(destination,file));
 await cp(join(source,'icons'),join(destination,'icons'),{recursive:true});
 await cp(join(source,'official-media'),join(destination,'official'),{recursive:true});
-await writeFile(join(destination,'site.webmanifest'),JSON.stringify({name:'Duik Ángela 非官方中文指南',short_name:'Duik 中文',start_url:'/',display:'browser',background_color:'#f8f6f0',theme_color:'#f8f6f0',icons:[{src:'/duik-experience/icons/controller.svg',sizes:'any',type:'image/svg+xml'}]},null,2)+'\n');
+await writeFile(join(destination,'site.webmanifest'),JSON.stringify(brandManifest)+'\n');
 const modules=[
   ['HomeHowItWorksKP.scss_vue_type_style_index_0_src_true_lang.'+hash+'.js','workflow','_'],
-  ['HomeFaqKP.'+hash+'.js','catalog','default'],
+  ['HomeFaqKP.'+hash+'.js','faq','default'],
   ['FooterKP.'+hash+'.js','footer','default'],
   ['HomeDifferenceKP.'+hash+'.js','tools','default'],
   ['HomeCapabilitiesTestimonialKP.'+hash+'.js','libraries','default'],
-  ['HomePricingKP.'+hash+'.js','api','default'],
-  ['HomeContactKP.vue_vue_type_script_setup_true_lang.'+hash+'.js','faq','_'],
+  ['HomePricingKP.'+hash+'.js','catalog','default'],
+  ['HomeContactKP.vue_vue_type_script_setup_true_lang.'+hash+'.js','closing-empty','_'],
   ['HomeCapabilitiesDiagramKP.vue_vue_type_script_setup_true_lang.'+hash+'.js','animation','_'],
   ['HomeCapabilitiesDiagramKP2.vue_vue_type_script_setup_true_lang.'+hash+'.js','automation','_'],
   ['HomeCapabilitiesDiagramKP3.vue_vue_type_script_setup_true_lang.'+hash+'.js','camera','_'],
@@ -72,7 +78,7 @@ const parentBaseline=join(source,'baseline/_nuxt',parentFile);
 try{await access(parentBaseline);}catch{await copyFile(join(pub,'_nuxt',parentFile),parentBaseline);}
 const parentCode=await readFile(parentBaseline,'utf8');
 for(const anchor of ['se=Math.max(0,ye-ie+xe+K(420,"rem"))','f*1.6+w','D=1.8,W='])assert(parentCode.includes(anchor),'Missing original orbit phase: '+anchor);
-await writeFile(join(pub,'_nuxt',parentFile),patchCapabilityKeyboardRuntime(patchCapabilitySelectionRuntime(patchCapabilityResizeRuntime(patchCapabilityLinksRuntime(patchCapabilityLayoutRuntime(parentCode))))));
+await writeFile(join(pub,'_nuxt',parentFile),patchCinematicCompositionRuntime(patchCapabilityKeyboardRuntime(patchCapabilitySelectionRuntime(patchCapabilityResizeRuntime(patchCapabilityLinksRuntime(patchCapabilityLayoutRuntime(parentCode)))))));
 let html=patchCapabilityResizeSSR(await readFile(join(pub,'landing.html'),'utf8'));
 const payload=JSON.parse(await readFile(join(pub,'_payload.json'),'utf8'));
 const orbitAssets=[{src:'/duik-experience/icons/controller.svg',alt:'Duik 控制器'},...payload[366].map((index,i)=>({src:payload[payload[index].filename],alt:i<5?payload[payload[payload[405][i]].title]:orbitDecorativeAlt}))];
@@ -109,7 +115,8 @@ const attrs=n=>Object.fromEntries((n.attrs||[]).map(x=>[x.name,x.value]));
 function contains(node,className){return (attrs(node).class||'').split(/\s+/).includes(className)||(node.childNodes||[]).some(c=>contains(c,className));}
 function visit(node){
   const a=attrs(node),classes=(a.class||'').split(/\s+/);let kind;
-  if(a['data-duik-motion'])kind=a['data-duik-motion'];
+  if(a['data-duik-closing-host'])kind=a['data-duik-closing-host'];
+  else if(a['data-duik-motion'])kind=a['data-duik-motion'];
   else if(a['data-duik-capability-visual'])kind={structure:'animation',controls:'automation',animation:'camera'}[a['data-duik-capability-visual']];
   else if(node.tagName==='footer'&&(a.id==='about'||Object.hasOwn(a,'data-v-4e708f7f')))kind='footer';
   else if(classes.includes('duik-product-orientation'))kind='workflow';
@@ -140,16 +147,19 @@ function visit(node){
   for(const child of node.childNodes||[])visit(child);
 }
 visit(parse(html,{sourceCodeLocationInfo:true}));
-for(const kind of ['workflow','faq','footer','tools','libraries','catalog','api','animation','automation','camera'])assert.equal(counts[kind],1,'Expected one '+kind+' owned slot');
-// Keep the original three host positions, but finish the story before reading:
-// API demonstration -> tool directory / learning -> FAQ. Sorting makes direct
-// republishing idempotent even when the input already uses the new order.
-const closingOrder=['api','catalog','faq'];
-patches.filter(patch=>closingOrder.includes(patch.kind)).sort((a,b)=>a.start-b.start).forEach((patch,index)=>{patch.html=renderExperience(closingOrder[index]);});
+for(const kind of ['workflow','faq','footer','tools','libraries','catalog','animation'])assert.equal(counts[kind],1,'Expected one '+kind+' owned slot');
+for(const kind of ['automation','camera'])assert.equal(counts[kind]||0,1,'Expected explicit scene count for '+kind);
+assert.equal((counts.api||0)+(counts['closing-empty']||0),1,'Expected one legacy or retired closing host, not both');
+// Two reading surfaces replace three large chapters. The last captured host is
+// intentionally empty in both SSR and Vue, so it cannot return after hydration.
+const closingOrder=['catalog','faq','closing-empty'];
+patches.filter(patch=>['api',...closingOrder].includes(patch.kind)).sort((a,b)=>a.start-b.start).forEach((patch,index)=>{patch.html=renderExperience(closingOrder[index]);});
 for(const patch of patches.sort((a,b)=>b.start-a.start))html=html.slice(0,patch.start)+patch.html+html.slice(patch.end);
 html=html.replace(/<link\b[^>]*data-duik-experience-style[^>]*>/g,'');
-const styles=['experience-shell.css','experience-catalog.css','tools-demo.css','motion-demo.css','guide-experience.css','reuse-demo.css','orientation.css','orbit.css','api-cinema.css','hero-marquee.css'];
+const styles=['experience-shell.css','experience-catalog.css','tools-demo.css','motion-demo.css','guide-experience.css','reuse-demo.css','orientation.css','orbit.css','api-cinema.css','hero-marquee.css','closing-summary.css'];
+styles.push('tools-cinema.css','motion-cinema.css');
+styles.push('feature-gallery.css');
 html=html.replace('</head>',styles.map(file=>'<link rel="stylesheet" href="/duik-experience/'+file+'" data-duik-experience-style>').join('')+'</head>');
 html=patchCapabilityLayoutSSR(html,payload[payload[337].listItems].map(index=>payload[payload[index].title]));
-await writeFile(join(pub,'landing.html'),patchOrbitIconsSSR(patchCapabilityLinksSSR(html)));
+await writeFile(join(pub,'landing.html'),patchCinematicCompositionSSR(patchOrbitIconsSSR(patchCapabilityLinksSSR(html))));
 console.log(JSON.stringify({published:true,source:'components/home/landing',sections:counts,files:files.length,rootRoute:'/',character:'preserved'}));

@@ -1,5 +1,5 @@
 import '/character-rig.js';
-import {navMarkup} from '/duik-landing-content.js';
+import {navMarkup,heroStageMarkup} from '/duik-landing-content.js';
 
 const guide = '/docs/guide/';
 let landingMounted = false;
@@ -10,22 +10,17 @@ export function mountSlot(host) {
   if (!host.closest('.kp-home-hero-main-input-wrap')) return mountJourney(host);
   if (heroMounts.has(host)) return heroMounts.get(host);
   const lifetime = new AbortController();
-  host.innerHTML = `<div class="duik-character-stage" aria-label="角色绑定交互演示">
-    <div class="duik-stage-heading"><span><i></i> 角色结构预览</span><span>IK · 双臂 · 表情</span></div>
-    <div class="duik-rig-viewport"></div>
-    <div class="duik-rig-toolbar"><span data-rig-status role="status">正在加载角色…</span><button type="button" data-rig-retry hidden>重新加载角色</button><button type="button" data-rig-reset disabled>复位</button><button type="button" data-rig-controls aria-pressed="true" disabled>隐藏控制器</button></div>
-  </div><p class="duik-demo-note">网页交互示意 · 实际角色绑定请在 After Effects 中使用 Duik</p>`;
+  host.innerHTML = heroStageMarkup;
   const stage = host.querySelector('.duik-character-stage'), viewport = host.querySelector('.duik-rig-viewport');
-  const status = host.querySelector('[data-rig-status]'), reset = host.querySelector('[data-rig-reset]');
-  const controls = host.querySelector('[data-rig-controls]'), retry = host.querySelector('[data-rig-retry]');
+  const status = host.querySelector('[data-rig-status]'), retry = host.querySelector('[data-rig-retry]');
   let character, generation = 0, attemptLife, disposed = false;
   function loadCharacter() {
     if (disposed) return;
     const version = ++generation;
     attemptLife?.abort(); attemptLife = new AbortController();
-    stage.dataset.rigState = 'loading'; reset.disabled = controls.disabled = true;
+    stage.dataset.rigState = 'loading';
     retry.disabled = true; status.textContent = '正在加载角色…';
-    viewport.innerHTML = '<character-rig id="duik-hero-character" src="/riglab-project/rig.json" interaction="both" controls="visible"></character-rig>';
+    viewport.innerHTML = '<character-rig id="duik-hero-character" src="/riglab-project/rig.json" interaction="both" controls="visible" aria-label="拖动控制器调整角色姿态"></character-rig>';
     character = viewport.querySelector('character-rig');
     const current = character;
     const isCurrent = () => !disposed && generation === version && character === current;
@@ -33,10 +28,10 @@ export function mountSlot(host) {
       if (!isCurrent() || stage.dataset.rigState === 'error') return;
       const hadFocus = document.activeElement === current;
       attemptLife.abort();
-      stage.dataset.rigState = 'error'; reset.disabled = controls.disabled = true;
+      stage.dataset.rigState = 'error';
       status.textContent = '角色交互暂不可用，当前显示静态原图。';
       const fallback = document.createElement('img');
-      fallback.src = '/riglab-project/source.png'; fallback.alt = '已确认角色的静态原图，交互暂不可用';
+      fallback.src = '/riglab-project/source-optimized-v1.png'; fallback.alt = '已确认角色的静态原图，交互暂不可用';
       viewport.replaceChildren(fallback); character = null;
       retry.hidden = false; retry.disabled = false;
       if (hadFocus) retry.focus({preventScroll:true});
@@ -45,21 +40,12 @@ export function mountSlot(host) {
     current.ready.then(() => {
       if (!isCurrent() || stage.dataset.rigState === 'error') return;
       const restoreFocus = document.activeElement === retry;
-      stage.dataset.rigState = 'ready'; reset.disabled = controls.disabled = false;
+      stage.dataset.rigState = 'ready';
       status.textContent = '拖动红色端点，试试角色的动作。';
-      controls.setAttribute('aria-pressed', 'true'); controls.textContent = '隐藏控制器';
       retry.hidden = true; retry.disabled = false;
-      if (restoreFocus) reset.focus({preventScroll:true});
+      if (restoreFocus) (current.shadowRoot?.querySelector('[data-control]') || viewport).focus({preventScroll:true});
     }, fail);
   }
-  reset.addEventListener('click', () => character?.rig?.reset(), {signal:lifetime.signal});
-  controls.addEventListener('click', event => {
-    if (!character || stage.dataset.rigState !== 'ready') return;
-    const show = character.getAttribute('controls') !== 'visible';
-    character.setAttribute('controls', show ? 'visible' : 'hidden');
-    event.currentTarget.setAttribute('aria-pressed', String(show));
-    event.currentTarget.textContent = show ? '隐藏控制器' : '显示控制器';
-  }, {signal:lifetime.signal});
   retry.addEventListener('click', loadCharacter, {signal:lifetime.signal});
   const cleanup = () => {
     if (disposed) return;

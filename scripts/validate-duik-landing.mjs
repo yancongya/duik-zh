@@ -37,8 +37,9 @@ try{
     for(let i=1;i<=10;i++){await send('Input.dispatchMouseEvent',{type:'mouseMoved',button:'left',buttons:1,x:point.x+24*i/10,y:point.y-20*i/10});await delay(30);}
     await send('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',clickCount:1,x:point.x+24,y:point.y-20});
     assert.notDeepEqual(await evaluate('document.querySelector("#duik-hero-character").rig.getState().pose.handL'),before.handL);checks.push('Hero uses actual character component with draggable visible controllers');
-    await screenshot('02-hero-drag');await click('[data-rig-reset]');
-    assert.equal(await evaluate('document.querySelector("#duik-hero-character").rig.getState().pose.head'),0);checks.push('Hero reset works');
+    await screenshot('02-hero-drag');
+    assert.equal(await evaluate('document.querySelectorAll("[data-rig-reset],[data-rig-controls]").length'),0);
+    assert.equal(await evaluate('document.querySelector("#duik-hero-character").getAttribute("controls")'),'visible');checks.push('Hero omits reset/hide actions and retains visible controllers');
   }
   for(const [index,section] of report.dom.sections.entries()){if(index===0)continue;await evaluate('window.scrollTo(0,'+Math.max(0,section.top+Math.min(section.height*.25,600))+')');await delay(600);await screenshot('section-'+index);}
   await evaluate('window.scrollTo(0,0)');await delay(400);

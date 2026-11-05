@@ -2,7 +2,7 @@ import {readFile,writeFile,mkdir,copyFile,access} from 'node:fs/promises';
 import path from 'node:path';
 import {parse,parseFragment} from 'parse5';
 import ts from 'typescript';
-import {textSlots,learningMarkup,headlineActors,headlineTools,headlineWords,headlineSummary} from '../components/home/landing/content.mjs';
+import {textSlots,learningMarkup,headlineActors,headlineTools,headlineWords,headlineSummary,heroStageMarkup} from '../components/home/landing/content.mjs';
 import {characterScenes} from '../components/home/landing/scenes.mjs';
 import {heroPreviews} from '../components/home/landing/preview-scenes.mjs';
 import {heroWallScenes,publishHeroWallAssets} from '../components/home/landing/hero-wall-scenes.mjs';
@@ -14,6 +14,7 @@ import {patchNavigationSSR,patchNavigationRuntime} from './lib/landing-navigatio
 import {patchHeroRibbonSSR,patchHeroRibbonRuntime} from './lib/landing-hero-ribbon.mjs';
 import {patchHeroMarqueeRuntime,renderHeroMarqueeSSR} from './lib/landing-hero-marquee.mjs';
 import {cleanTemplateHead} from './lib/landing-template-head.mjs';
+import {brandLinks} from '../components/brand/logo.mjs';
 const root=process.cwd(),pub=path.join(root,'public'),source=path.join(root,'components/home/landing');
 const slot='_nuxt/HeroInputKP.vue_vue_type_script_setup_true_lang.d2ea4a745e1ba64aecc76bbf680458929795d2d8.js';
 const learningSlot='_nuxt/HomePricingKP.d2ea4a745e1ba64aecc76bbf680458929795d2d8.js';
@@ -256,7 +257,7 @@ for(const match of html.matchAll(/<div\b[^>]*>|<\/div>|<textarea\b/g)){
   else if(match[0]==='</div>'){const node=stack.pop();if(node?.input)ranges.push({...node,end:match.index+6});}
   else{const node=stack.findLast(node=>node.tag.includes('max-w-[35.6875rem]'));if(node)node.input=true;}
 }
-for(const r of ranges.reverse()){const tag=r.tag.replace('flex flex-col items-center gap-[1.25rem] w-full max-w-[35.6875rem] mx-auto relative z-20','duik-input-slot');html=html.slice(0,r.start)+tag+'</div>'+html.slice(r.end);}
+for(const r of ranges.reverse()){const tag=r.tag.replace('flex flex-col items-center gap-[1.25rem] w-full max-w-[35.6875rem] mx-auto relative z-20','duik-input-slot');html=html.slice(0,r.start)+tag+heroStageMarkup+'</div>'+html.slice(r.end);}
 html=html.replace(/<html([^>]*)>/,(_,attrs)=>'<html'+attrs.replace(/\s(?:lang|data-duik-theme)="[^"]*"/g,'')+' lang="zh-CN" data-duik-theme="light">');
 html=html.replace(/<link[^>]*href="\/duik-preview.css"[^>]*>/g,'').replace(/<script[^>]*src="\/duik-preview.js"[^>]*><\/script>/g,'');
 html=html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,tag=>/googletagmanager|lemlist|cookiebot/i.test(tag)&&!/__NUXT_DATA__|__NUXT__/.test(tag)?'':tag);
@@ -264,7 +265,7 @@ html=cleanTemplateHead(html);
 html=html.replace(/<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/g,'');
 html=html.replace(/<link\b[^>]*rel="alternate"[^>]*>/g,'');
 html=html.replace(/<link\b[^>]*rel="(?:icon|shortcut icon|apple-touch-icon|manifest)"[^>]*>/g,'');
-html=html.replace('</head>','<link rel="icon" type="image/svg+xml" href="/duik-experience/icons/controller.svg"><link rel="manifest" href="/duik-experience/site.webmanifest"></head>');
+html=html.replace('</head>',brandLinks.map(link=>'<link '+Object.entries(link).map(([key,value])=>`${key}="${value}"`).join(' ')+'>').join('')+'</head>');
 html=html.replace(/(<script>window\.__NUXT__=[\s\S]*?)(<\/script>)/,(_,start,end)=>start+';window.__NUXT__.config.public.SITE_URL=location.origin;window.__NUXT__.config.public.cookiebotId="";window.__NUXT__.config.public.NUXT_PUBLIC_GTM_ID="";window.__NUXT__.config.public.mixpanelToken="";'+end);
 if(!html.includes('window.__NUXT__')){
   const original=await readFile(path.join(baseline,'landing.html'),'utf8');
@@ -290,13 +291,26 @@ replaceBetween('pJ=Tt(()=>{',';var $o={}','pJ=Tt(()=>{})');
 replaceBetween('const Kre=Tt(()=>{','qre=Tt(', 'const Kre=Tt(()=>({provide:{mixpanel:{track(){},identify(){},register(){},reset(){},people:{set(){}}}}})),');
 await writeFile(path.join(pub,runtime),entry);
 let layoutCode=await readFile(path.join(baseline,layout),'utf8');
+// The captured template includes a viewport-sized, near-invisible "B". It has
+// no content purpose and misleadingly wins LCP over the visible page. Remove
+// the exact SSR/client node, not other aria-hidden decoration or SVG titles.
+const sentinelNodes=[];
+const findSentinel=node=>{if(node.tagName==='p'&&node.attrs?.some(a=>a.name==='style'&&a.value.includes('font-size: 200vw'))&&node.childNodes?.some(n=>n.value?.trim()==='B'))sentinelNodes.push(node);for(const child of node.childNodes||[])findSentinel(child);};
+findSentinel(parse(html,{sourceCodeLocationInfo:true}));
+if(sentinelNodes.length!==1)throw Error('Unknown template paint sentinel');
+const sentinelLocation=sentinelNodes[0].sourceCodeLocation;
+html=html.slice(0,sentinelLocation.startOffset)+ '<!---->'+html.slice(sentinelLocation.endOffset);
+const sentinelStart=layoutCode.indexOf('N("p",{"aria-hidden":"true",style:Re(`');
+const sentinelEnd=layoutCode.indexOf(')}," B ",4)',sentinelStart);
+if(sentinelStart<0||sentinelEnd<0||!layoutCode.slice(sentinelStart,sentinelEnd).includes('font-size: 200vw'))throw Error('Unknown client paint sentinel');
+layoutCode=layoutCode.slice(0,sentinelStart)+'te("",!0)'+layoutCode.slice(sentinelEnd+')}," B ",4)'.length);
 layoutCode=layoutCode.replace('lt=" | Linearity"','lt=""').replace('lang:_e,class:"theme-kp"','lang:"zh-CN",class:"theme-kp"');
 const layoutTree=ts.createSourceFile('layout.js',layoutCode,ts.ScriptTarget.Latest,true,ts.ScriptKind.JS),layoutEdits=[];
 const findHead=node=>{
   if(ts.isCallExpression(node)&&node.expression.getText(layoutTree)==='xe'&&ts.isObjectLiteralExpression(node.arguments[0])){
     for(const property of node.arguments[0].properties){
       const name=property.name?.getText(layoutTree);
-      if(name==='link')layoutEdits.push({start:property.getStart(layoutTree),end:property.end,value:'link:[{rel:"canonical",href:r.public.SITE_URL+"/"},{rel:"icon",type:"image/svg+xml",href:"/duik-experience/icons/controller.svg"},{rel:"manifest",href:"/duik-experience/site.webmanifest"}]'});
+      if(name==='link')layoutEdits.push({start:property.getStart(layoutTree),end:property.end,value:'link:[{rel:"canonical",href:r.public.SITE_URL+"/"},...'+JSON.stringify(brandLinks)+']'});
       if(name==='script')layoutEdits.push({start:property.getStart(layoutTree),end:property.end,value:'script:[{type:"application/ld+json",innerHTML:JSON.stringify({"@context":"https://schema.org","@type":"WebSite",name:"Duik Ángela 非官方中文文档",inLanguage:"zh-CN",url:r.public.SITE_URL})}]'});
     }
   }
@@ -311,6 +325,12 @@ await writeFile(path.join(pub,marqueeModule),patchHeroMarqueeRuntime(await readF
 await writeFile(path.join(pub,headerModule),patchNavigationRuntime(await readFile(path.join(baseline,headerModule),'utf8')));
 html=patchNavigationSSR(html);
 html=patchHeroRibbonSSR(html,renderHeroMarqueeSSR());
+const bootStyle=await readFile(path.join(root,'components/brand/boot.css'),'utf8');
+const bootScript=await readFile(path.join(root,'components/brand/boot.js'),'utf8');
+html=html.replace('</head>',`<style data-duik-boot-style>${bootStyle}</style></head>`);
+// A sibling of the hydration root. Never gate Nuxt or steal focus/scroll.
+html=html.replace(/<body\b[^>]*>/,tag=>tag+'<div id="duik-boot" aria-hidden="true"><img src="/brand/v1/logo.svg" width="96" height="96" alt=""><p role="status">正在准备创作舞台</p></div><script data-duik-boot-script>'+bootScript+'</script>');
+html=html.replace('</head>','<script>if(["127.0.0.1","localhost","[::1]"].includes(location.hostname)&&new URLSearchParams(location.search).get("perf")==="1"){const s=document.createElement("script");s.src="/duik-perf-observer.js";document.head.append(s)}</script></head>');
 await writeFile(path.join(pub,'landing.html'),html);
 for(const [from,to] of [['hero-slot.mjs',slot],['learning-slot.mjs',learningSlot],['pose-slot.mjs','_nuxt/duik-pose-slot.js'],['content.mjs','duik-landing-content.js'],['adapter.js','duik-landing.js'],['theme.css','duik-landing.css']])await copyFile(path.join(source,from),path.join(pub,to));
 console.log(JSON.stringify({published:true,replacedInputs:ranges.length,baseline,rootRoute:'/',runtime:'preserved',theme:'light'}));

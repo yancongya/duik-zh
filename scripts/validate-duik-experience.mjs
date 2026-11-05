@@ -74,7 +74,7 @@ try{
       report.brand.manifestData=await evaluate('(async()=>{const response=await fetch(document.querySelector("link[rel=manifest]").href);if(!response.ok)throw Error("Manifest HTTP "+response.status);return response.json()})()');
       assert(report.brand.manifestData.name.includes('Duik'));
     });
-    await step('Hero real control drag changes pose and reset restores it',async()=>{
+    await step('Hero real control drag changes pose with controllers always visible',async()=>{
       await scroll(0);const character='document.querySelector("#duik-hero-character")';
       const before=await evaluate(character+'.rig.getState().pose');
       const point=await evaluate('(()=>{const e='+character+'.shadowRoot.querySelector("[data-control=handL]");const p=new DOMPoint(0,0).matrixTransform(e.getScreenCTM());return {x:p.x,y:p.y}})()');
@@ -83,7 +83,8 @@ try{
       for(let i=1;i<=8;i++){await send('Input.dispatchMouseEvent',{type:'mouseMoved',button:'left',buttons:1,x:point.x+20*i/8,y:point.y-16*i/8});await delay(25);}
       await send('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',clickCount:1,x:point.x+20,y:point.y-16});
       assert.notDeepEqual(await evaluate(character+'.rig.getState().pose.handL'),before.handL);await shot('01-hero-drag');
-      await click('[data-rig-reset]');assert.deepEqual(await evaluate(character+'.rig.getState().pose.handL'),[0,0]);
+      assert.equal(await evaluate('document.querySelectorAll("[data-rig-reset],[data-rig-controls]").length'),0);
+      assert.equal(await evaluate(character+'.getAttribute("controls")'),'visible');
     });
     await step('Header efficiency-tools anchor scrolls through Lenis to the real section',async()=>{
       await scroll(0);report.clickEvidence.toolsNavigation=await click('.duik-site-nav a[href="#tools"]');
@@ -529,20 +530,22 @@ try{
     }finally{await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});}
   });
 }
-    await step('The closing story flows from API to directory and learning, then FAQ and the final action',async()=>{
+    await step('The closing story flows from directory and learning to FAQ and the final action',async()=>{
       report.closingOrder=await evaluate('Array.from(document.querySelectorAll("[data-experience-mounted]")).map(e=>e.dataset.experienceMounted).filter(k=>["api","catalog","faq","footer"].includes(k))');
-      assert.deepEqual(report.closingOrder,['api','catalog','faq','footer']);
-      assert.equal(await evaluate('document.querySelector("[data-catalog-reference]").open'),false);
+      assert.deepEqual(report.closingOrder,['catalog','faq','footer']);
+      assert.equal(await evaluate('document.querySelectorAll("[data-catalog-reference],[data-catalog-image]").length'),0);
       assert.equal(await evaluate('document.querySelectorAll("[data-guide-faq-group]:not([hidden]) [data-guide-faq-item]").length'),4);
       assert.equal(await evaluate('document.querySelectorAll("[data-guide-faq-item][open]").length'),0);
       assert.equal(await evaluate('document.querySelector(".duik-guide-primary-link").getAttribute("href")'),'/docs/getting-started/install');
     });
-    await step('Directory references stay optional and preserve the selected official panel ratio',async()=>{
-      await click('[data-catalog-panel=tools]');await click('[data-catalog-reference]>summary');
-      await waitFor('document.querySelector("[data-catalog-image]").complete&&document.querySelector("[data-catalog-image]").naturalWidth===423','official tools reference');
-      report.catalogReference=await evaluate('(()=>{const p=document.querySelector("[data-catalog-image]"),r=p.getBoundingClientRect();return{width:p.width,height:p.height,naturalWidth:p.naturalWidth,naturalHeight:p.naturalHeight,ratio:r.width/r.height}})()');
-      assert.equal(report.catalogReference.naturalHeight,197);assert(Math.abs(report.catalogReference.ratio-423/197)<.01);
-      await click('[data-catalog-reference]>summary');await click('[data-catalog-panel=bones]');await reveal('[data-duik-catalog]');await shot('12b-directory');
+    await step('Directory categories switch a panoramic illustration without an official screenshot panel',async()=>{
+      report.catalogBanners=[];
+      for(const panel of ['tools','bones']){
+        await click('[data-catalog-panel='+panel+']');
+        const state=await evaluate('(()=>{const banner=document.querySelector("[data-catalog-banner]"),svg=banner.querySelector("svg"),box=svg.getBoundingClientRect();return{active:banner.dataset.catalogBannerActive,visible:[...banner.querySelectorAll("[data-catalog-banner-scene]")].filter(g=>!g.hasAttribute("hidden")).map(g=>g.dataset.catalogBannerScene),ratio:box.width/box.height,guide:document.querySelector("[data-catalog-guide]").getAttribute("href"),screenshots:document.querySelectorAll("[data-catalog-reference],[data-catalog-image]").length}})()');
+        assert.equal(state.active,panel);assert.deepEqual(state.visible,[panel]);assert(Math.abs(state.ratio-4)<.01);assert.equal(state.screenshots,0);assert(state.guide.startsWith('/docs/'));report.catalogBanners.push(state);
+      }
+      await reveal('[data-duik-catalog]');await shot('12b-directory');
     });
     await step('Five learning tasks, grouped FAQ and non-official footer remain operable',async()=>{
       assert.equal(await evaluate('[...document.querySelectorAll("[data-duik-guide=learning] img")].filter(i=>i.getAttribute("src")?.includes("/wall/")).length'),0);

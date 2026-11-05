@@ -1,0 +1,230 @@
+[
+  {
+    "source": "/riglab-project/torso.png",
+    "destination": "/riglab-project/optimized-v1/torso-c5ae09cbf3ee.webp"
+  },
+  {
+    "source": "/riglab-project/torso-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/torso-thumbnail-81895cfe9eeb.webp"
+  },
+  {
+    "source": "/riglab-project/waist.png",
+    "destination": "/riglab-project/optimized-v1/waist-220bd377a230.webp"
+  },
+  {
+    "source": "/riglab-project/waist-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/waist-thumbnail-c4c719e860db.webp"
+  },
+  {
+    "source": "/riglab-project/hair-back.png",
+    "destination": "/riglab-project/optimized-v1/hair-back-d4663318472b.webp"
+  },
+  {
+    "source": "/riglab-project/hair-back-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/hair-back-thumbnail-42ce56333237.webp"
+  },
+  {
+    "source": "/riglab-project/neck.png",
+    "destination": "/riglab-project/optimized-v1/neck-99a00f186fc0.webp"
+  },
+  {
+    "source": "/riglab-project/neck-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/neck-thumbnail-a511bb7aac44.webp"
+  },
+  {
+    "source": "/riglab-project/face.png",
+    "destination": "/riglab-project/optimized-v1/face-8dc6c06b67e9.webp"
+  },
+  {
+    "source": "/riglab-project/face-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/face-thumbnail-523859f24fb7.webp"
+  },
+  {
+    "source": "/riglab-project/ear-r.png",
+    "destination": "/riglab-project/optimized-v1/ear-r-e844649c6ed2.webp"
+  },
+  {
+    "source": "/riglab-project/ear-r-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/ear-r-thumbnail-e844649c6ed2.webp"
+  },
+  {
+    "source": "/riglab-project/ear-l.png",
+    "destination": "/riglab-project/optimized-v1/ear-l-691717f7279e.webp"
+  },
+  {
+    "source": "/riglab-project/ear-l-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/ear-l-thumbnail-691717f7279e.webp"
+  },
+  {
+    "source": "/riglab-project/hair-front.png",
+    "destination": "/riglab-project/optimized-v1/hair-front-2336af237465.webp"
+  },
+  {
+    "source": "/riglab-project/hair-front-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/hair-front-thumbnail-098679a93a8b.webp"
+  },
+  {
+    "source": "/riglab-project/hair-side-r.png",
+    "destination": "/riglab-project/optimized-v1/hair-side-r-9cd19529e003.webp"
+  },
+  {
+    "source": "/riglab-project/hair-side-r-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/hair-side-r-thumbnail-8fc775cad282.webp"
+  },
+  {
+    "source": "/riglab-project/hair-side-l.png",
+    "destination": "/riglab-project/optimized-v1/hair-side-l-b164ac29facd.webp"
+  },
+  {
+    "source": "/riglab-project/hair-side-l-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/hair-side-l-thumbnail-959dc52c86e3.webp"
+  },
+  {
+    "source": "/riglab-project/sleeve-r.png",
+    "destination": "/riglab-project/optimized-v1/sleeve-r-293bc753cac7.webp"
+  },
+  {
+    "source": "/riglab-project/sleeve-r-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/sleeve-r-thumbnail-d69532fa1464.webp"
+  },
+  {
+    "source": "/riglab-project/upper-r.png",
+    "destination": "/riglab-project/optimized-v1/upper-r-da0cb7be45ae.webp"
+  },
+  {
+    "source": "/riglab-project/upper-r-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/upper-r-thumbnail-6ec51d187b4f.webp"
+  },
+  {
+    "source": "/riglab-project/fore-r.png",
+    "destination": "/riglab-project/optimized-v1/fore-r-833445ac96ff.webp"
+  },
+  {
+    "source": "/riglab-project/fore-r-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/fore-r-thumbnail-86b6e189c88f.webp"
+  },
+  {
+    "source": "/riglab-project/hand-r.png",
+    "destination": "/riglab-project/optimized-v1/hand-r-5ee94a30ac48.webp"
+  },
+  {
+    "source": "/riglab-project/hand-r-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/hand-r-thumbnail-da93f0dbf2c1.webp"
+  },
+  {
+    "source": "/riglab-project/sleeve-l.png",
+    "destination": "/riglab-project/optimized-v1/sleeve-l-36a23006ccc0.webp"
+  },
+  {
+    "source": "/riglab-project/sleeve-l-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/sleeve-l-thumbnail-733a9b3b6884.webp"
+  },
+  {
+    "source": "/riglab-project/upper-l.png",
+    "destination": "/riglab-project/optimized-v1/upper-l-feff42def601.webp"
+  },
+  {
+    "source": "/riglab-project/upper-l-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/upper-l-thumbnail-db327b5c9c77.webp"
+  },
+  {
+    "source": "/riglab-project/fore-l.png",
+    "destination": "/riglab-project/optimized-v1/fore-l-ffb61ab2e30d.webp"
+  },
+  {
+    "source": "/riglab-project/fore-l-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/fore-l-thumbnail-c46cee4fbaed.webp"
+  },
+  {
+    "source": "/riglab-project/hand-l.png",
+    "destination": "/riglab-project/optimized-v1/hand-l-9aa367a6a204.webp"
+  },
+  {
+    "source": "/riglab-project/hand-l-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/hand-l-thumbnail-22386aebd5f8.webp"
+  },
+  {
+    "source": "/riglab-project/brow-r.png",
+    "destination": "/riglab-project/optimized-v1/brow-r-8417319f29ee.webp"
+  },
+  {
+    "source": "/riglab-project/brow-r-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/brow-r-thumbnail-8417319f29ee.webp"
+  },
+  {
+    "source": "/riglab-project/brow-l.png",
+    "destination": "/riglab-project/optimized-v1/brow-l-7da0e740cdde.webp"
+  },
+  {
+    "source": "/riglab-project/brow-l-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/brow-l-thumbnail-7da0e740cdde.webp"
+  },
+  {
+    "source": "/riglab-project/eye-r.png",
+    "destination": "/riglab-project/optimized-v1/eye-r-d33dd57ab9be.webp"
+  },
+  {
+    "source": "/riglab-project/eye-r-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/eye-r-thumbnail-d33dd57ab9be.webp"
+  },
+  {
+    "source": "/riglab-project/eye-l.png",
+    "destination": "/riglab-project/optimized-v1/eye-l-67aa0e45d41b.webp"
+  },
+  {
+    "source": "/riglab-project/eye-l-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/eye-l-thumbnail-67aa0e45d41b.webp"
+  },
+  {
+    "source": "/riglab-project/iris-r.png",
+    "destination": "/riglab-project/optimized-v1/iris-r-696287675531.webp"
+  },
+  {
+    "source": "/riglab-project/iris-r-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/iris-r-thumbnail-696287675531.webp"
+  },
+  {
+    "source": "/riglab-project/iris-l.png",
+    "destination": "/riglab-project/optimized-v1/iris-l-4d6d4eb2fbdd.webp"
+  },
+  {
+    "source": "/riglab-project/iris-l-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/iris-l-thumbnail-4d6d4eb2fbdd.webp"
+  },
+  {
+    "source": "/riglab-project/nose.png",
+    "destination": "/riglab-project/optimized-v1/nose-79e31fc410bc.webp"
+  },
+  {
+    "source": "/riglab-project/nose-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/nose-thumbnail-79e31fc410bc.webp"
+  },
+  {
+    "source": "/riglab-project/mouth.png",
+    "destination": "/riglab-project/optimized-v1/mouth-a38e0d2b70f8.webp"
+  },
+  {
+    "source": "/riglab-project/mouth-thumbnail.png",
+    "destination": "/riglab-project/optimized-v1/mouth-thumbnail-a38e0d2b70f8.webp"
+  },
+  {
+    "source": "/riglab-project/face-support.png",
+    "destination": "/riglab-project/optimized-v1/face-support-3db7cf189e56.webp"
+  },
+  {
+    "source": "/riglab-project/eye-support-r.png",
+    "destination": "/riglab-project/optimized-v1/eye-support-r-d4562bd6c486.webp"
+  },
+  {
+    "source": "/riglab-project/eye-support-l.png",
+    "destination": "/riglab-project/optimized-v1/eye-support-l-863d220b2233.webp"
+  },
+  {
+    "source": "/riglab-project/rest-assembled.png",
+    "destination": "/riglab-project/optimized-v1/rest-assembled-df8a039e7b99.webp"
+  },
+  {
+    "source": "/riglab-project/source-optimized-v1.png",
+    "destination": "/riglab-project/optimized-v1/source-optimized-v1-5c815909d23e.webp"
+  }
+]

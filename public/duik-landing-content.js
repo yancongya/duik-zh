@@ -1,5 +1,11 @@
 // Source: local Chinese introduction/install guides and docs/GLOSSARY.md.
 // Only existing string slots are changed; serialized Nuxt references stay intact.
+// Identical SSR/Vue/adapter shell reserves the final character height before JS.
+export const heroStageMarkup=`<div class="duik-character-stage" data-rig-state="loading" aria-label="角色绑定交互演示">
+    <div class="duik-stage-heading"><span><i></i> 角色结构预览</span><span>IK · 双臂 · 表情</span></div>
+    <div class="duik-rig-viewport" tabindex="-1"></div>
+    <div class="duik-rig-toolbar"><span data-rig-status role="status">正在加载角色…</span><button type="button" data-rig-retry hidden>重新加载角色</button></div>
+  </div><p class="duik-demo-note">网页交互示意 · 实际角色绑定请在 After Effects 中使用 Duik</p>`;
 export const headlineActors=['角色动画','动态图形','日常创作'].map(name=>({name,avatar:'/duik-landing-assets/expression-detail.webp'}));
 export const headlineWords=['在','中，用','打磨'];
 export const headlineSummary='在角色动画、动态图形和日常创作中，用 Duik 工具打磨创意与细节。';
@@ -56,7 +62,7 @@ export const learningMarkup=`<div class="duik-section-intro"><p class="duik-eyeb
 <a href="/docs/getting-started/install" class="duik-path-card"><span class="duik-step">01 / 安装</span><h3>先把工具准备好。</h3><p>从官方获取 Duik，安装 ScriptUI 面板，完成首次运行设置。</p><ul><li>官方软件下载入口</li><li>安装与面板停靠</li><li>脚本权限与语言设置</li></ul><span class="duik-card-link">查看安装指南 ↗</span></a>
 <a href="/docs/guide/bones" class="duik-path-card"><span class="duik-step">02 / 绑定</span><h3>让结构能够驱动角色。</h3><p>理解骨骼、自动绑定与约束，再用控制器检验关节的运动。</p><ul><li>骨骼与美术层</li><li>自动绑定与约束</li><li>控制器与姿态调整</li></ul><span class="duik-card-link">开始学习绑定 ↗</span></a>
 <a href="/docs/guide/animation" class="duik-path-card"><span class="duik-step">03 / 动画</span><h3>把姿势连成表演。</h3><p>角色已经完成绑定？从关键帧、插值与动画工具继续推进。</p><ul><li>关键帧与插值</li><li>循环与自动化工具</li><li>摄像机与场景运动</li></ul><span class="duik-card-link">查阅动画工具 ↗</span></a></div>`;
-export const navMarkup=`<nav class="duik-site-nav" aria-label="主导航"><a class="duik-wordmark" href="/">Duik <span>Ángela</span><small>中文指南</small></a><div class="duik-nav-links"><a href="#inside-ae">认识 Duik</a><a href="#workflow">角色绑定</a><a href="#tools">通用工具</a><a href="#toolkit">工具总览</a><a href="#api">脚本 API</a><a href="/docs/getting-started/install">安装指南</a></div><a class="duik-primary duik-nav-cta" href="/docs">阅读中文文档 ↗</a><button class="duik-menu-toggle" type="button" aria-expanded="false" aria-label="展开导航">菜单</button></nav>`;
+export const navMarkup=`<nav class="duik-site-nav" aria-label="主导航"><a class="duik-wordmark" href="/"><img class="duik-brand-mark" src="/brand/v1/logo.svg" width="36" height="36" alt="">Duik <span>Ángela</span><small>中文指南</small></a><div class="duik-nav-links"><a href="#inside-ae">认识 Duik</a><a href="#workflow">角色绑定</a><a href="#tools">通用工具</a><a href="#toolkit">工具总览</a><a href="#api">脚本 API</a><a href="/docs/getting-started/install">安装指南</a></div><a class="duik-primary duik-nav-cta" href="/docs">阅读中文文档 ↗</a><button class="duik-menu-toggle" type="button" aria-expanded="false" aria-label="展开导航">菜单</button></nav>`;
 export const heroRibbon = Object.freeze({
   href:'/docs/getting-started/first-look',
   label:'认识八个主面板',

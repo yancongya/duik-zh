@@ -1,11 +1,11 @@
-import {officialRoot,panelScreenshots} from './orientation.mjs';
 import { panels, tools, toolGroups, searchTools } from './tool-catalog.mjs';
+import {catalogBannerMarkup,mountCatalogBanner} from './catalog-banner.mjs';
 
 const escapeHtml = value => String(value).replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
 const icon = panel => '<img src="/duik-experience/icons/' + panel.icon + '.svg" width="24" height="24" alt="" loading="lazy" decoding="async">';
 const panelCount = panel => tools.filter(tool => tool.panel === panel.id).length;
 const catalogArrow='<svg class="duik-catalog-link-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-// The preceding wall and demonstrations own the artwork. This index owns finding a document.
+// The banner explains the selected category; search results remain a still reading surface.
 export const catalogPanelSummaries = Object.freeze({
   bones:'为分层角色搭建驱动结构。',
   constraints:'让图层与属性相互驱动。',
@@ -32,18 +32,16 @@ function resultMarkup(results) {
 }
 
 const panelLabels={bones:'骨骼',constraints:'链接与约束',controllers:'控制器',automation:'自动化',animation:'动画',camera:'摄像机',tools:'通用工具',command:'命令行'};
-// Dimensions are from the pinned official-media/sources.json; no cropped evidence.
-export const catalogPanelDimensions=Object.freeze({bones:[286,486],constraints:[269,405],controllers:[393,460],automation:[374,659],animation:[415,818],camera:[318,193],tools:[423,197],command:[478,434],all:[292,529]});
 export const catalogMarkup = '<section class="duik-tool-catalog" data-duik-catalog data-catalog-active="bones" data-catalog-input="keyboard" aria-label="Duik 工具目录">' +
   '<div class="duik-catalog-heading"><h2>找到眼前这件事的工具。</h2><p>选一个主面板，或直接搜索工具名称。</p></div>' +
   '<div class="duik-catalog-index" data-catalog-index><div class="duik-catalog-workbench">' +
     '<form class="duik-catalog-search" role="search" aria-label="搜索 Duik 工具文档"><label><span class="duik-catalog-search-label">搜索工具文档</span><input data-catalog-query type="search" placeholder="骨骼、抖动、裁剪，或英文名称" aria-controls="duik-catalog-results" autocomplete="off" spellcheck="false" enterkeyhint="go"></label><button type="button" data-catalog-clear disabled>清空</button></form>' +
+    catalogBannerMarkup() +
     '<div class="duik-catalog-categories" role="group" aria-label="选择主面板">' + panels.map(panel => '<button type="button" data-catalog-panel="' + panel.id + '" aria-label="' + panel.title + '" aria-controls="duik-catalog-results" aria-pressed="' + (panel.id === 'bones') + '" tabindex="' + (panel.id === 'bones' ? '0' : '-1') + '"><span class="duik-catalog-panel-label">' + icon(panel) + '<span>' + panelLabels[panel.id] + '</span></span></button>').join('') + '</div>' +
     '<div class="duik-catalog-main"><div class="duik-catalog-result-heading"><div><h3 data-catalog-title>骨骼</h3><p data-catalog-summary>' + catalogPanelSummaries.bones + '</p></div><a data-catalog-guide href="' + panels[0].href + '">面板指南 ' + catalogArrow + '</a></div>' +
       '<div class="duik-catalog-index-filter"><p data-catalog-count role="status" aria-live="polite">' + panelCount(panels[0]) + ' 个精选入口</p><button type="button" data-catalog-panel="all" aria-controls="duik-catalog-results" aria-pressed="false"><span class="duik-catalog-all-icon" aria-hidden="true"></span>查看全部 ' + tools.length + ' 个</button></div>' +
       '<div class="duik-catalog-results" id="duik-catalog-results" data-catalog-results>' + resultMarkup(searchTools('', 'bones')) + '</div>' +
       '<div class="duik-catalog-bottom"><p class="duik-catalog-search-help"><span>方向键浏览</span><span><kbd>Enter</kbd> 阅读</span><span><kbd>Esc</kbd> 清空</span></p></div>' +
-      '<details class="duik-catalog-reference" data-catalog-reference><summary>查看对应的官方面板</summary><figure class="duik-catalog-panel-photo"><img data-catalog-image src="' + officialRoot + panelScreenshots.bones + '" width="286" height="486" alt="官方文档中的骨骼面板" loading="lazy" decoding="async"><figcaption><strong data-catalog-image-title>骨骼面板</strong><span>RxLaboratory 官方文档 / GFDL 1.3</span><span>原图未重绘；界面随版本和模式有所不同。</span></figcaption></figure></details>' +
     '</div></div></div>' +
   '<div class="duik-catalog-boundary"><p>这里打开本地文档；实际工具请在 After Effects 中使用。</p></div>' +
 '</section>';
@@ -59,6 +57,7 @@ export function mountCatalog(host) {
   const input = root.querySelector('[data-catalog-query]');
   const results = root.querySelector('[data-catalog-results]');
   const clear = root.querySelector('[data-catalog-clear]');
+  const banner = mountCatalogBanner(root);
   let selected = root.querySelector('[data-catalog-panel][aria-pressed="true"]')?.dataset.catalogPanel || 'bones';
   const listeners = [];
   const listen = (target, type, handler) => {
@@ -70,6 +69,7 @@ export function mountCatalog(host) {
     const matches = searchTools(input.value, selected);
     const panel = panels.find(item => item.id === selected);
     root.dataset.catalogActive = selected;
+    banner.select(selected);
     root.querySelectorAll('[data-catalog-panel]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.catalogPanel === selected)));
     root.querySelectorAll('.duik-catalog-categories [data-catalog-panel]').forEach(button => button.setAttribute('tabindex', button.dataset.catalogPanel === (selected === 'all' ? 'bones' : selected) ? '0' : '-1'));
     root.querySelector('[data-catalog-title]').textContent = panel?.title || '全部工具';
@@ -79,14 +79,6 @@ export function mountCatalog(host) {
     guide.innerHTML = (panel ? '面板指南 ' : '认识完整界面 ') + catalogArrow;
     root.querySelector('[data-catalog-count]').textContent = matches.length + ' 个精选入口' + (input.value.trim() ? '，匹配“' + input.value.trim() + '”' : '');
     results.innerHTML = resultMarkup(matches);
-    const photo=root.querySelector('[data-catalog-image]');
-    if(photo){
-      const [width,height]=catalogPanelDimensions[selected]||catalogPanelDimensions.all;
-      photo.width=width;photo.height=height;
-      photo.src=officialRoot+(panelScreenshots[selected]||'duik/home.png');
-      photo.alt='官方文档中的'+(panel?.title||'Duik 首页')+'面板';
-      root.querySelector('[data-catalog-image-title]').textContent=(panel?.title||'Duik 首页')+'面板';
-    }
     clear.disabled = !input.value;
   }
   function onInput(event) {
@@ -150,6 +142,7 @@ export function mountCatalog(host) {
   const cleanup = () => {
     if (disposed) return;
     disposed = true;
+    banner.destroy();
     for (const remove of listeners.splice(0)) remove();
     catalogMounts.delete(root);
   };

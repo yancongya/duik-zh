@@ -7,12 +7,16 @@
 .duik-experience-intro p,.duik-reuse-layout>div>p{font-size:15px;line-height:1.9;color:var(--duik-muted);max-width:650px;margin:0}
 .duik-tools-section{background:rgba(248,246,240,.72);isolation:isolate;overflow:clip}
 .duik-tools-section>.duik-tools-demo{position:relative;z-index:1}
+.duik-tools-section.duik-experience-section{padding:0;background:transparent}
+.duik-tools-section>.duik-tools-cinema{position:relative;z-index:1}
+.duik-guide-footer#about{padding-top:0}
 .duik-tools-comparison-curves{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
 .duik-tools-comparison-curve{position:absolute;width:62.5rem;max-width:100%;height:auto;fill:none}
 .duik-tools-comparison-curve-left{top:0;left:-12.5rem;color:#b8c8aa}
 .duik-tools-comparison-curve-right{top:-25rem;right:-12.5rem;color:#dec1a4}
 @media(max-width:760px){.duik-tools-comparison-curve{width:46rem;max-width:none;opacity:.55}.duik-tools-comparison-curve-left{left:-32rem;top:12rem}.duik-tools-comparison-curve-right{right:-32rem;top:0}}
 .duik-catalog-section{background:var(--duik-card)}
+.duik-closing-host{position:relative;z-index:10;background:var(--duik-paper)}
 .duik-catalog-section .duik-learning-inline{margin-top:80px;padding-top:64px}
 .duik-learning-inline .duik-guide-learning{padding:0;max-width:none;background:transparent}
 .duik-api-section{background:#edece5;border-top:1px solid var(--duik-line)}
@@ -26,6 +30,9 @@
 .duik-capability-card>div:first-child{max-width:none}
 .duik-capability-card :is(h2,.h2){font-size:clamp(28px,2.4vw,38px);line-height:1.3;letter-spacing:-.025em}
 .duik-capability-card .label-text{display:none}
+.duik-capability-card[data-duik-cinematic-card=true]{display:block;width:min(1180px,calc(100vw - 96px),calc((100svh - 240px)*5/3));align-self:center}
+.duik-capability-card[data-duik-cinematic-card=true]>div{width:100%;gap:0}
+.duik-capability-card[data-duik-cinematic-card=true] .h2{font-size:inherit}
 .duik-capability-mobile-art{aspect-ratio:auto;padding:0}
 .duik-motion-slot{width:100%;min-width:0;flex-shrink:0;position:relative;color:var(--duik-ink)}
 .duik-reuse-section{height:100svh;min-height:660px;color:var(--duik-ink);background:#eeeee4;display:flex;align-items:center;justify-content:center;box-sizing:border-box}
