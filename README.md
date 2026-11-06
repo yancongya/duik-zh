@@ -55,6 +55,8 @@ npm run convert    # 把上游未处理的 md 转为 content/docs 占位（永�
 
 ## GitHub Pages
 
+已上线：[产品首页](https://yancongya.github.io/duik-zh/) · [中文文档](https://yancongya.github.io/duik-zh/docs/)。2026-11-06 已完成首次线上验收，详细边界见发布记录。
+
 当前发布目标是本仓库的 GitHub Pages，通过 `.github/workflows/deploy.yml` 在 `main` 推送后构建发布；PR只构建。站点基路径为 `/duik-zh/`，保留完整落地页运行时、角色交互、Nextra文档和中文搜索。
 
 ```bash

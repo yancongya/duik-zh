@@ -56,6 +56,16 @@ npm run preview:pages
 - 原首页在3017和静态3018均有既存 `Hydration completed but contains mismatches` 提示；本次不以静默屏蔽日志方式处理，也不声称首页零警告。文档 `Connection closed` 已在本次静态构建修复。
 - 53个官方旧MP4仍不可用；保持官方入口、来源和重试，不表示恢复播放。
 
+## 线上验收（2026-11-06）
+
+- GitHub Pages API返回`build_type: workflow`，公开首页为 https://yancongya.github.io/duik-zh/ ，文档为 https://yancongya.github.io/duik-zh/docs/ 。
+- [Actions 42138665212](https://github.com/yancongya/duik-zh/actions/runs/42138665212) 构建与部署均成功。发布代码版本`d07b587973cad170ec622e8bdb99a50d4ad1f2ed`，与线上`pages/build-info.json`一致。
+- CI：7项Pages回归通过，132篇文档、1,401个引用、8,130条Flight记录通过。记录数与本地7,998的差异来自CI构建的文档元数据，不把本地数值硬编码成通过条件。
+- HTTP：首页、文档首页、骨骼页、贡献指南、Logo、Pagefind和构建记录均200；26层角色图片均200且Content-Type为图像。
+- 线上浏览器：Hero角色及控制器显示，右手x=674→679；中文检索“骨骼”并进入`/docs/guide/bones/`；正文已完成加载的图片没有失败，返回首页为完整本地运行时落地页。
+- 首页仍出现上述既存Nuxt水合警告；文档未出现本次已修复的客户端异常。未声称整站零警告或所有第三方媒体可用。
+- 本地截图`output/pages-deploy-2026-11-06/live-home.jpg`不提交。部署后的记录提交仅改文档/忽略规则，使用`[skip ci]`避免重复发布；线上应用版本以上述build-info为准。
+
 ## 未推送历史修复与恢复
 
 GitHub 将模板图标文件名误识别为凭据。本次只修改三个未推送提交中的字符串序列化：JS/JSON使用等价Unicode转义，HTML属性使用数字实体；实际文件名与解码URL不变，没有关闭或绕过安全检查。
