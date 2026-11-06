@@ -52,6 +52,8 @@ npm run convert    # 上游 md → 占位 mdx（跳过已存在文件）
 
 ### 文档壳与路由
 
+- **GitHub Pages（2026-11-06）。** 用户选择本仓库 Pages，授权本次修复三个未推送提交、推送与部署；后续仍不自动推送。`build:pages`在临时树编译，`/duik-zh/`为项目基路径，Actions发布`out/`；不要改为`docs/`分支源。素材路径在临时源码编译前适配，禁止替换生成的Next Flight内容（字节长度会损坏）。首页代理仅转为已有本地文件，完整Nuxt/GSAP/26层核心不变；Nextra返回首页用完整导航而非Next Link。Pagefind在导出后索引article，`test:pages`和构建引用/Flight完整性验证为门槛。普通3017运行不变；发布与本地验收边界见`docs/GITHUB_PAGES.md`。只推`main`，不要推保留原误报历史的`codex/pre-pages-20261106`。
+
 - **文档媒体交付（2026-11-06）。** `npm run docs:media` 在 dev/build 前检查真实 MDX 图片引用和文件签名；缺失资源不得 rewrite 为 HTTP 200 占位 SVG。先用 `git ls-files -v` 区分稀疏省略和真实缺失；扩展 sparse 时保留完整 `public/**`、`scripts/**`、`components/docs/**`、`patches/**` 和根配置，不得使现有运行时被重新稀疏移除。媒体问题不通过覆盖译文或上游快照修复。
 - **外部媒体边界。** `components/docs/image-policy.mjs` 仅记录已核实的同素材精确迁移；保留原译文、caption与归属。视频核查仅请求正文已记录的原地址，状态存于 `video-status.json`；403/404/410提供官方入口与重试，超时不当永久失效。课程访问限制不得绕过/镜像；可用提示不等于站内播放恢复。维护命令与证据见 `docs/DOCS_MEDIA_DELIVERY.md`。
 - `content/docs` 已含 `/docs` 层级，根 catch-all 使用 `contentDirBasePath: '/'`，侧栏取 `getPageMap('/docs')`。旧 `/docs/docs/:path*` 仅做永久重定向；不要再重复加前缀。
@@ -60,9 +62,11 @@ npm run convert    # 上游 md → 占位 mdx（跳过已存在文件）
 
 ## 落地页协作约束（2026-11-01 更新）
 
+**2026-11-06 本地归档增量：** 旧独立候选页、其发布/测试脚本和已完成评测副本已撤下；`landing:candidate` 不再可用，旧地址跳回 `/`。历史截图/日志与 Logo 试稿在仓库外，恢复位置及清单见 `docs/LOCAL_ARCHIVE.md`。`baseline/` 仍是发布输入；`output/riglab-demo/` 是当前角色编辑项目，不能把整个 `output/` 当缓存删除或忽略。保留文档媒体、来源/版权、共享角色 Skill 与 Git 历史；独立 `web-clone` 和中央 Skills 不在本次整理范围。历史报告已归档不等于本轮重新验收。本次仅整理，未继续 commit/push/deploy。
+
 **2026-11-06 首屏镜头增量（覆盖下方420 ms淡出版）：** `components/brand/boot.{js,css}`保留1800 ms Logo入场，之后820 ms推镜虚化退场；140 ms后Hero五组子层以70 ms错峰、各900 ms清晰入场。只动画原GSAP宿主的子层，不能给滚动宿主重写transform。`data-duik-entry`只在此次入场存在，结束/输入/后台/reduced/pagehide清理；中断监听必须持续到最后一组结束，不得在资源ready时提前移除。CSS `:is`选择器优先级可能抵消子组delay，须核对浏览器实际0/70/140/210/280 ms，而不只查源码字符串。无JS/深链接/reduced不隐藏Hero；不引入新库或全屏backdrop-filter。
 
-**2026-11-05 正式品牌与首屏性能增量：** A 方案朱红回环/青绿沙漏已获接入授权。`components/brand/logo.mjs` 是 SVG/PNG/ICO 与 metadata 真源，`npm run brand:publish` 输出 `/brand/v1/` 和 `/brand.html`；旧试稿可从 `docs/logo-studies-archive-2026-11-05.tar.gz` 恢复，不再运行旧发布器。普通导航与 favicon 静态，intro 有限，loader 仅等待时循环。**用户随后明确：缓存命中也必须自然过渡。** 首屏 boot 在 Nuxt 根外，无 JS 默认隐藏；普通进入保留 1800 ms 进场＋420 ms 淡出，Hero 并行准备，较慢时继续循环等待。5 s 超时，error/输入/后台放行，深链接/reduced跳过；淡出不切静态图导致沙漏跳帧。此前“160 ms/无最短等待”已被此决定覆盖。Hero 的 SSR/Vue/adapter 共享 `heroStageMarkup` 预留尺寸；不恢复模板隐藏的 200vw “B” 去伪造 LCP。`landing:optimize` 只生成交付副本和 Next 定向映射，原 PNG、rig JSON、sourceSha256 不动；无损须完整 RGBA 一致，PNG effort 会隐式 palette，普通 WebP 会改透明区 RGB，都不能直接使用。浏览器指标用 loopback `?perf=1` 实际 PerformanceObserver；空指标为未测，生产 HTTP 压缩与浏览器暖缓存计时分开记录，不将 dev 数值写成线上通过。
+**2026-11-05 正式品牌与首屏性能增量：** A 方案朱红回环/青绿沙漏已获接入授权。`components/brand/logo.mjs` 是 SVG/PNG/ICO 与 metadata 真源，`npm run brand:publish` 输出 `/brand/v1/` 和 `/brand.html`；旧试稿恢复包已于 2026-11-06 移到仓库外，位置见 `docs/LOCAL_ARCHIVE.md`，不再运行旧发布器。普通导航与 favicon 静态，intro 有限，loader 仅等待时循环。**用户随后明确：缓存命中也必须自然过渡。** 首屏 boot 在 Nuxt 根外，无 JS 默认隐藏；普通进入保留 1800 ms 进场＋420 ms 淡出，Hero 并行准备，较慢时继续循环等待。5 s 超时，error/输入/后台放行，深链接/reduced跳过；淡出不切静态图导致沙漏跳帧。此前“160 ms/无最短等待”已被此决定覆盖。Hero 的 SSR/Vue/adapter 共享 `heroStageMarkup` 预留尺寸；不恢复模板隐藏的 200vw “B” 去伪造 LCP。`landing:optimize` 只生成交付副本和 Next 定向映射，原 PNG、rig JSON、sourceSha256 不动；无损须完整 RGBA 一致，PNG effort 会隐式 palette，普通 WebP 会改透明区 RGB，都不能直接使用。浏览器指标用 loopback `?perf=1` 实际 PerformanceObserver；空指标为未测，生产 HTTP 压缩与浏览器暖缓存计时分开记录，不将 dev 数值写成线上通过。
 
 **2026-11-05 最新四项批注优先于下方历史布局约束：** 优化前基线 `0a5e915` 已获用户授权提交；后续不自动 commit/push/deploy。绑定改为物理滚动正向归位、向上倒序，终态可拖拽；纸飞机、悬挂装置、分层风景回到原横向轨道，不再在圆环后重复展示。目录分类上方使用宽幅动态插画，并移除该目录的官方截图区；其他位置的真实素材、文档和归属保留。Hero/22槽墙、工程整理、资产复用圆环及末尾工具/学习/API索引、开始使用/FAQ维持。“一次自动播放”“一幅Motion”“底部更多功能”仅为先前版本，不能覆盖本条。
 

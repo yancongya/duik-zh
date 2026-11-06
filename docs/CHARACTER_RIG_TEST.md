@@ -111,7 +111,7 @@ SkillDo 登记为 local_copy，sourceRef 指向项目内真源；Codex 入口应
 - 项目测试页、源码独立 WebUI、SkillDo 安装版独立 WebUI 都通过真实 Chrome 验收。安装版从新工作项目构建，验证命令在 /tmp 下执行，未依赖 Nextra。
 - 证据分别在 output/rig-validation/、output/riglab-standalone-validation/、output/riglab-installed-validation/；均无浏览器异常和失败资源。100 个有限幅度姿态的最大骨长误差约 2.3e-13 像素。
 - 导出 PNG 实际合成逐像素一致；浏览器网格与缩放采样并非逐像素同渲染，实测平均预乘通道误差约 2.143/255（阈值 4）。
-- Skill 的三个确定性案例共 10 项断言通过，结果在 skills/character-rig-lab-workspace/iteration-1/；审阅页为 output/character-rig-skill-review.html。未进行独立代理 A/B 或触发率评估。
+- Skill 的三个确定性案例共 10 项断言通过，原结果路径为 skills/character-rig-lab-workspace/iteration-1/，审阅页为 output/character-rig-skill-review.html；2026-11-06 两者已移到[仓库外归档](LOCAL_ARCHIVE.md)，共享 Skill 与当前编辑工程仍在原位。未进行独立代理 A/B 或触发率评估。
 - 项目真源与 SkillDo 中央副本的 21 个文件哈希一致；Codex 入口为实际软链接。工作项目在 output/riglab-demo/ 与 output/riglab-installed-demo/，不写进安装目录。
 - npm run build 通过，生成 137 页；没有改写 content/docs/，也没有提交或推送。
 

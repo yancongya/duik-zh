@@ -8,7 +8,7 @@
 - 生成：`npm run brand:publish`；完整首页发布 `npm run landing:publish` 已包含品牌生成。
 - 资源：`public/brand/v1/`。51 个 SVG / PNG / ICO 文件，另有 `tokens.json` 和带 SHA-256 的 `sources.json`。
 - 规范预览：`/brand.html`；旧 `/logo-lab.html` 永久重定向到这里。
-- 历史四案、脚本、预览与原始参考图已移出公开目录，恢复包为 `docs/logo-studies-archive-2026-11-05.tar.gz`；展开到独立目录后可按原路径检查。不要把归档中的旧发布器接回正式流程。
+- 历史四案、脚本、预览与原始参考图已移出公开目录，恢复包已移入仓库外归档的 `files/docs/`，位置见 [恢复清单](LOCAL_ARCHIVE.md)；展开到独立目录后可按原路径检查。不要把归档中的旧发布器接回正式流程。
 
 ## 颜色与尺寸
 

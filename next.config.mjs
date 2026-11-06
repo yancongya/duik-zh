@@ -9,12 +9,19 @@ const nextra = withNextra({
   staticImage: false,
 })
 
+// Pages builds run in a disposable staging tree; normal local preview is unchanged.
+const pages = process.env.DUIK_PAGES === '1'
+const basePath = pages ? (process.env.DUIK_PAGES_BASE_PATH || '/duik-zh') : ''
+
 export default nextra({
   reactStrictMode: true,
+  ...(pages ? { output: 'export', basePath, trailingSlash: true, outputFileTracingRoot: process.cwd() } : {}),
+  ...(!pages ? {
   async redirects() {
     return [
       { source: '/docs/docs/:path*', destination: '/docs/:path*', permanent: true },
       { source: '/logo-lab.html', destination: '/brand.html', permanent: true },
+      { source: '/landing-candidate.html', destination: '/', permanent: true },
     ]
   },
   async rewrites() {
@@ -26,7 +33,9 @@ export default nextra({
       afterFiles: [],
     }
   },
+  } : {}),
   images: {
     dangerouslyAllowSVG: true,
+    ...(pages ? { unoptimized: true } : {}),
   },
 })

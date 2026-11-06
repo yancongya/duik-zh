@@ -39,7 +39,7 @@
 - 57 个原逻辑 URL 实际请求均 HTTP 200，返回体 hash 与对应交付副本一致，Content-Type 正确。
 - 实际生产 HTTP 已有 gzip：入口 JS 922,381 → 263,220 字节；背景 JS 857,308 → 232,648 字节；rig JSON 445,674 → 64,713 字节。这是核实既有压缩，不冒称本轮新增的收益。
 - favicon.ico、品牌 SVG、manifest、规范页均 HTTP 200。Nextra `/docs` 实际导航成功，head 和文档导航均使用 `/brand/v1/logo.svg`。
-- 原始素材、ZIP 下载、工作台和未访问模块不因单次静态扫描而删除；旧 Logo 四案仅移出公开目录，恢复包在 `docs/logo-studies-archive-2026-11-05.tar.gz`。
+- 原始素材、ZIP 下载、工作台和未访问模块不因单次静态扫描而删除；旧 Logo 四案仅移出公开目录，恢复包已移入仓库外，见 [恢复清单](LOCAL_ARCHIVE.md)。
 
 HTTP 与输入身份记录：`static-http-final.json`、`http-summary-final.json`，包括 HEAD、dirty diff hash、lockfile hash、landing hash、品牌源 hash、Build ID。最终 landing SHA-256 为 `574e7bfabf8598f19a0b0e9c5b892e7265ebd321b38082f94f23931538481eff`。
 

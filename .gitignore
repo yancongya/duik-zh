@@ -16,3 +16,11 @@ next-env.d.ts
 .DS_Store
 .vercel
 *.log
+
+# Local diagnostic output only; do not ignore all of output/:
+# output/riglab-demo contains the active character editing project.
+/.playwright-cli/
+/.impeccable/review/
+/output/brand-perf-2026-11-05/
+/output/docs-media-2026-11-06/
+/output/local-cleanup-2026-11-06/

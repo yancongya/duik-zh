@@ -53,6 +53,18 @@ npm run nav        # 官方 mkdocs 顺序 + 中文映射 → content/docs/**/_me
 npm run convert    # 把上游未处理的 md 转为 content/docs 占位（永不覆盖已存在文件）
 ```
 
+## GitHub Pages
+
+当前发布目标是本仓库的 GitHub Pages，通过 `.github/workflows/deploy.yml` 在 `main` 推送后构建发布；PR只构建。站点基路径为 `/duik-zh/`，保留完整落地页运行时、角色交互、Nextra文档和中文搜索。
+
+```bash
+npm run test:pages
+npm run build:pages    # 独立临时目录构建，生成 out/，不影响3017的.next
+npm run preview:pages  # http://127.0.0.1:3018/duik-zh/
+```
+
+部署机制、验收范围和历史修复备份见 [GitHub Pages 发布](docs/GITHUB_PAGES.md)。文档返回首页使用完整导航，避免 Next 客户端路由打开未启用的 React 首页。
+
 ## 文档图片与视频
 
 文档入口为 `/docs`。图片从本地 `public/docs-img/` 提供；`predev` / `prebuild` 自动核对全部 MDX 图片引用，缺图会直接失败，不再用 HTTP 200 的 SVG 占位掩盖。稀疏检出恢复与外链状态见 [文档媒体交付](docs/DOCS_MEDIA_DELIVERY.md)。
@@ -67,6 +79,8 @@ npm run docs:media -- --check-external-images --check-videos --output=output/doc
 2026-11-06 已恢复 739 个仓库图片文件，132 篇文档的 531 个本地图片引用完整。53 个官方旧 MP4 地址实测失效，本站显示来源说明、官方课程入口及重试；**不代表站内视频播放已恢复**，不镜像或绕过课程访问限制。两张 Wikimedia 旧缩略图在渲染层精确映射至同一素材的有效原图，保留译文与归属。
 
 ## 落地页开发（当前根首页）
+
+2026-11-06 已将过时候选页、试稿和历史验证输出移到仓库外可恢复归档，详见 [本地归档与恢复](docs/LOCAL_ARCHIVE.md)。`landing:candidate` 已移除，旧候选地址跳回 `/`。当前根首页、文档、品牌、绑定工作台及其资源保留；`baseline/` 是发布输入，`output/riglab-demo/` 是编辑项目，不能当作旧文件删除。
 
 当前落地页 `/` 由 Next.js rewrite 到本地 `public/landing.html`；Nextra 文档继续位于 `/docs/*`。页面沿用已复制的交互运行时，不依赖线上镜像。修改源文件后必须发布，不能只改 `app/page.tsx`。
 
@@ -90,7 +104,7 @@ npm run build                           # 构建前停止同仓库 dev，完成�
 - 页面实际顺序为“Hero/功能墙 → 滚动绑定 → 工程整理 → 三幅横向动态场景 → 资产复用圆环 → 工具/学习/API 索引 → 开始使用/FAQ → Footer”，保留已确认角色。目录分类上方新增横向动态示意，不再显示目录官方截图区；其他素材与文档入口保留，不用假 AE 面板冒充功能。
 - 实施状态与剩余工作见 [落地页 Plan](docs/LANDING_REDESIGN_PLAN.md)，功能层级见 [产品叙事依据](docs/LANDING_EXPERIENCE_DESIGN.md)，各板块的文档和截图来源见 [全页内容对照](docs/LANDING_CONTENT_AUDIT.md)。后续改造应同时更新对应记录，不沿用旧版本的验收结论。
 - 角色制作与验证：`/rig-test.html`；可嵌入组件演示：`/rig-embed.html`。这两页不替代落地页，也不是 AE 插件运行环境。
-- 正式 Logo 规范：`/brand.html`。已选 A（朱红回环＋青绿沙漏），双色/单色/反白、16～1024 px、静态/进场/加载 SVG 统一从 `components/brand/logo.mjs` 生成。`npm run brand:publish` / `npm run brand:test`；首页与文档导航、favicon 和 manifest 已同源接入。旧 `/logo-lab.html` 重定向至规范页，四案文件可从 `docs/logo-studies-archive-2026-11-05.tar.gz` 恢复。见 [品牌规范](docs/BRAND_GUIDE.md)。
+- 正式 Logo 规范：`/brand.html`。已选 A（朱红回环＋青绿沙漏），双色/单色/反白、16～1024 px、静态/进场/加载 SVG 统一从 `components/brand/logo.mjs` 生成。`npm run brand:publish` / `npm run brand:test`；首页与文档导航、favicon 和 manifest 已同源接入。旧 `/logo-lab.html` 重定向至规范页，四案恢复包已移到仓库外，见 [本地归档](docs/LOCAL_ARCHIVE.md)。见 [品牌规范](docs/BRAND_GUIDE.md)。
 - 首屏 loading（2026-11-06）：缓存命中也播放1800 ms Logo进场，接820 ms推镜虚化消散；Hero标题、角色、说明、CTA、条带在退场期间以70 ms错峰清晰入场。资源并行加载，交互/后台/reduced随时取消并恢复可用内容，不改原滚动宿主。`npm run brand:test`覆盖完整入场与中途中断。`npm run landing:publish`包含品牌发布与`landing:optimize`：原母图与透明层不动，逐像素验证交付副本，再由Next定向映射请求。压缩可用本地`cwebp -lossless -exact`，缺少时回退PNG。
 - 性能诊断：本机 `/?perf=1` 启用只读观测，默认首页没有遥测请求。构建后用 `next start` 运行 3017，再执行 `node scripts/audit-duik-performance.mjs` 复用已安装 web-perf 静态检查并核对实际 HTTP；详细证据见 [本轮验收](docs/BRAND_PERFORMANCE_ACCEPTANCE.md)。
 - 默认只改落地页，不修改文档译文、上游快照或发布到远端。构建通过、浏览器检查与真正的 AE 宿主验证分别记录。
@@ -140,7 +154,7 @@ npm run landing:publish
 - 保留原布局、滚动错位/缩放、GSAP 时序与拖拽；必须区分点击和拖拽，拖拽释放不能误导航，键盘激活可进入文档。
 - `hero-wall-scenes.mjs` 的同一 `heroWallScenes` 管理封面、模块名、简短用途和文档目标，`hero-wall-art.mjs` 生成动态几何插画；`scripts/lib/landing-hero-wall.mjs` 同步 SSR / payload / 常驻下方说明与链接。资源使用 `-illustrated-fullbleed-v2` 新地址避免旧图缓存。封面可暂停，离屏/后台显示静态图，减少动态效果时直接选用 WebP。
 - **历史方案已替代**：此前“保留点击选中/图片展开并同步弹层”不再适用。22 槽是精选功能入口，不等于 22 个官方主面板，不生成假 AE UI。此前生图 API 返回 403 `Country/region not supported`，未产出新图。
-- `landing-candidate` 是已暂停的误选范围，不引导预览；其 9 项常规桌面检查及未关闭的 reduced-motion 问题仅作历史，不能作为当前入口改造的通过证明。
+- `landing-candidate` 已于 2026-11-06 归档，命令已移除、旧地址跳回首页（见 [恢复清单](docs/LOCAL_ARCHIVE.md)）；其 9 项常规桌面检查及未关闭的 reduced-motion 问题仅作历史，不能作为当前入口改造的通过证明。
 - 旧的“本次只做媒体墙、不推进整页”范围已被本轮授权替代；媒体墙完成后继续整页五段编排，不恢复独立候选路线。分期目标与待验收项以 [Plan §0](docs/LANDING_REDESIGN_PLAN.md) 为准，官方功能与素材依据见 [体验方案](docs/LANDING_EXPERIENCE_DESIGN.md)。
 
 目录使用开放式检索，官方截图按需展开；FAQ默认四个入门问题，另外七个仍可访问；页脚以安装指南为主行动，保留官方获取和完整归属。历史浏览器分批结果与未测项见 [Plan §0](docs/LANDING_REDESIGN_PLAN.md)，不外推为当前版本、手机、AE实机或全站离线验收。

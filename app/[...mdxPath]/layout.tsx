@@ -9,6 +9,8 @@ export default async function DocsLayout({ children }: { children: ReactNode }) 
   // Keep the landing page and the outer docs folder out of the reader navigation.
   // Labels and order come from the existing mkdocs → _meta.js generation flow.
   const pageMap = await getPageMap('/docs')
+  const homeHref = process.env.DUIK_PAGES === '1'
+    ? `${process.env.DUIK_PAGES_BASE_PATH || '/duik-zh'}/` : '/'
 
   return (
     <Layout
@@ -19,7 +21,8 @@ export default async function DocsLayout({ children }: { children: ReactNode }) 
           projectLink="https://github.com/yancongya/duik-zh"
           projectIcon={<GitHubIcon height="24" aria-label="项目仓库" />}
         >
-          <Link href="/">返回首页</Link>
+          {/* The landing uses its own local Nuxt runtime, so leave the Next router. */}
+          <a href={homeHref}>返回首页</a>
         </Navbar>
       }
       footer={<Footer>非官方中文站 · Duik Ángela · GFDL 1.3</Footer>}

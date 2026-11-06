@@ -1,6 +1,6 @@
 # Duik 标志试稿（历史记录，已归档）
 
-2026-11-05 后续决定：A 方案及朱红/青绿正式接入已获授权，以下“待确认/不替换”仅描述试稿阶段。当前真源、资源与用法以 [正式品牌规范](BRAND_GUIDE.md) 为准；四案原始文件可从 `docs/logo-studies-archive-2026-11-05.tar.gz` 恢复，旧公开比较页已撤下。
+2026-11-05 后续决定：A 方案及朱红/青绿正式接入已获授权，以下“待确认/不替换”仅描述试稿阶段。当前真源、资源与用法以 [正式品牌规范](BRAND_GUIDE.md) 为准；四案原始文件的恢复包已移到仓库外，见 [本地归档恢复清单](LOCAL_ARCHIVE.md)，旧公开比较页已撤下。
 
 ## 范围与来源
 
@@ -25,9 +25,9 @@
 
 减少动态效果直接静态；离屏/后台切回静态，回来使用loop版本，避免反复重演进场；被动hover不重播，点击标志或切回动效模式才重新进场。BFCache返回重新观察可见性，最终卸载拒绝旧回调。无GSAP/Canvas或外部请求依赖。SVG文件自身无脚本、滤镜或位图。内嵌几何与大尺寸展示为用户明确要求的Logo SVG例外，不扩展为界面图标系统。
 
-## 维护
+## 历史维护方式（仅适用于恢复后的独立试稿）
 
-真源`components/home/landing/logo-lab/`，执行`node scripts/publish-duik-logo-lab.mjs`同步`public/logo-lab.html`及`public/logo-lab/`。该脚本不触碰落地页发布链。新一轮保留已选方向再改，不擅自把候选当正式Logo。
+归档内原真源为 `components/home/landing/logo-lab/`，旧命令为 `node scripts/publish-duik-logo-lab.mjs`。这些文件不在当前工作区；需要比较旧案时从[恢复包](LOCAL_ARCHIVE.md)展开到独立目录，不向当前 `public/` 恢复旧试稿。正式品牌仅使用 `npm run brand:publish`。
 
 ## 本轮验证（2026-11-05）
 

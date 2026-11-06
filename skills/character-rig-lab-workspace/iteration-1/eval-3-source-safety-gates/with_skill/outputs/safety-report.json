@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "coordinatesCleared": true,
-  "rejections": [
-    "missing/invalid semantic polygon or pivot: torso; annotate this source, do not borrow demo coordinates",
-    "source SHA-256 changed; keep the approved character locked"
-  ],
-  "outputWritten": false
-}
