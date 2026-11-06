@@ -4,78 +4,34 @@
  * 从 upstream/ 快照生成 sync-report，并把上游 md 结构信息写入 manifest 草稿。
  * 上游快照本身由 GitHub Actions sparse checkout 刷新；本脚本只做本地分析。
  */
-import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs'
-import { join, relative, sep } from 'node:path'
-import { createHash } from 'node:crypto'
+import {fileURLToPath} from 'node:url'
+import {join, resolve, relative, sep} from 'node:path'
+import {lstatSync} from 'node:fs'
+import {loadSnapshot, analyzeSnapshot, readJSON, writeJSON, safePath} from './lib/upstream-sync.mjs'
 
-const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')
-const UPSTREAM_DOCS = join(ROOT, 'upstream', 'docs')
-const MANIFEST_PATH = join(ROOT, 'translation-manifest.json')
-
-function walk(dir, out = []) {
-  for (const name of readdirSync(dir)) {
-    const p = join(dir, name)
-    const st = statSync(p)
-    if (st.isDirectory()) walk(p, out)
-    else out.push(p)
-  }
-  return out
-}
-
-function hashFile(p) {
-  // 统一按 LF 归一化后哈希，避免 Windows CRLF / CI LF 造成假 stale
-  const text = readFileSync(p).toString('utf8').replace(/\r\n/g, '\n')
-  return createHash('sha256').update(text).digest('hex').slice(0, 12)
-}
-
-if (!existsSync(UPSTREAM_DOCS)) {
-  console.error('[sync] upstream/docs 不存在，请先运行 git sparse-checkout 或 CI 同步。')
-  process.exit(1)
-}
-
-const files = walk(UPSTREAM_DOCS).filter((p) => p.endsWith('.md'))
-const report = { generatedAt: new Date().toISOString(), mdCount: files.length, files: [] }
-
-let manifest = {}
-if (existsSync(MANIFEST_PATH)) {
-  manifest = JSON.parse(readFileSync(MANIFEST_PATH, 'utf8'))
-}
-
-const seen = new Set()
-for (const abs of files) {
-  const rel = relative(UPSTREAM_DOCS, abs).split(sep).join('/')
-  const hash = hashFile(abs)
-  seen.add(rel)
-  report.files.push({ path: rel, hash })
-  if (!manifest[rel]) {
-    manifest[rel] = {
-      upstreamHashAtSnapshot: hash,
-      status: 'untranslated',
-      lastChecked: report.generatedAt.slice(0, 10),
+const root = fileURLToPath(new URL('../', import.meta.url))
+try {
+  const args = process.argv.slice(2)
+  for (const arg of args) if (arg !== '--check' && !arg.startsWith('--output=')) throw Error('未知参数：' + arg)
+  const outputs = args.filter(a => a.startsWith('--output='))
+  if (outputs.length > 1 || outputs.length && !outputs[0].slice(9)) throw Error('仅接受一个非空--output路径')
+  const output = outputs.length ? resolve(outputs[0].slice(9)) : null
+  if (output) {
+    const path = safePath(relative(root, output).split(sep).join('/'))
+    if (!path.startsWith('output/upstream-sync/') || !path.endsWith('.json')) throw Error('运行报告只能写到output/upstream-sync/内的JSON，不得覆盖正文或登记')
+    let cursor = root
+    for (const part of path.split('/')) {
+      cursor = join(cursor, part)
+      try { if (lstatSync(cursor).isSymbolicLink()) throw Error('报告路径不接受符号链接') }
+      catch (error) { if (error.code !== 'ENOENT') throw error }
     }
-  } else if (manifest[rel].upstreamHashAtSnapshot !== hash) {
-    manifest[rel].stale = true
-    manifest[rel].upstreamHashAtSnapshot = hash
   }
-}
-
-// 移除上游已删除的条目（保留在 manifest 但标记 removed）
-for (const key of Object.keys(manifest)) {
-  if (!seen.has(key)) manifest[key].removedUpstream = true
-}
-
-// 内容无变化时保留旧 generatedAt，避免每次运行产生无意义的空 PR
-const REPORT_PATH = join(ROOT, 'sync-report.json')
-if (existsSync(REPORT_PATH)) {
-  try {
-    const old = JSON.parse(readFileSync(REPORT_PATH, 'utf8'))
-    const same =
-      old.mdCount === report.mdCount &&
-      JSON.stringify(old.files) === JSON.stringify(report.files)
-    if (same) report.generatedAt = old.generatedAt
-  } catch {}
-}
-
-writeFileSync(REPORT_PATH, JSON.stringify(report, null, 2))
-writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + '\n')
-console.log(`[sync] ${files.length} 个 md 已盘点；报告 -> sync-report.json；manifest -> translation-manifest.json`)
+  const result = analyzeSnapshot({root, ...loadSnapshot(root), manifest: readJSON(join(root, 'translation-manifest.json'), {}), previousReport: readJSON(join(root, 'sync-report.json'), {})})
+  if (!args.includes('--check')) {
+    writeJSON(join(root, 'translation-manifest.json'), result.manifest)
+    writeJSON(join(root, 'sync-report.json'), result.report)
+    writeJSON(join(root, 'translation-queue.json'), result.queue)
+  }
+  if (output) writeJSON(output, {...result.run, queue: result.queue})
+  console.log(JSON.stringify({mode: args.includes('--check') ? 'read-only' : 'write-reports', documents: result.report.mdCount, ...result.run}, null, 2))
+} catch (error) { console.error('[sync] ' + error.message); process.exitCode = 1 }

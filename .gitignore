@@ -25,3 +25,6 @@ next-env.d.ts
 /output/docs-media-2026-11-06/
 /output/local-cleanup-2026-11-06/
 /output/pages-deploy-2026-11-06/
+/output/upstream-sync/
+/.upstream-stage-*/
+/upstream-tmp/

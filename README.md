@@ -238,11 +238,20 @@ DOCS_TEST_ORIGIN=http://127.0.0.1:3017 node --test scripts/test-docs-shell.mjs
 
 ## 同步机制（摘要）
 
-1. GitHub Actions 每周定时 / 手动触发，sparse checkout 上游 `src-docs` → 刷新 `upstream/`。
-2. `scripts/sync-upstream.mjs` 对比 hash，更新 `translation-manifest.json`：
-   - **已翻译文件永不被覆盖**，上游变更只标记 `stale`；
-   - 未翻译占位文件可安全刷新。
-3. 详情与冲突处理策略见 `PLAN.md` §3。
+1. 用户已选 **CI只检测与生成任务，本地agent增量翻译和审校**；默认Codex，其他agent软件可按[跨软件交接](docs/UPSTREAM_SYNC.md#21-交给其他-agent-软件)复用同一批次和CLI，不调用CI模型API、不自动合并译文。
+2. 新版工作流支持手动、每周一北京时间10:00及受控`duik-docs-updated`事件；固定官方commit、逐字节校验快照、生成差异和任务包，有变更先构建再提同步PR，无变化保留检查记录而不重复构建。事件接收入口不等于官方仓库已配置推送通知。
+3. **2026-11-06新版随本次授权发布。** 是否实际执行以Actions记录为准；Pages部署不主动触发上游同步，首次新版同步/历史快照恢复仍待单独验收。升级时132篇已译、0篇待更新；6个历史CRLF哈希已通过精确等价验证归一化，保留迁移记录，中文正文未修改。
+4. [上游同步与翻译说明](docs/UPSTREAM_SYNC.md)包含真实运行状态、批次交接和上线待办；[部署后注意事项](docs/GITHUB_PAGES.md#继续开发注意事项)区分预览与发布。
+
+```bash
+npm run sync:check  # 只读本地/Git快照，不联网刷新
+npm run translate:prepare -- --batch=output/upstream-sync/my-batch --limit=5
+# 让本地Codex按批次PROMPT.md生成drafts/并独立审校review.json
+npm run translate:check -- --batch=output/upstream-sync/my-batch
+# 明确确认应用后才运行；随后构建并审查diff
+npm run translate:apply -- --batch=output/upstream-sync/my-batch
+npm run sync:test
+```
 
 ## 参与翻译
 

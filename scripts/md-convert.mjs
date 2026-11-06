@@ -2,22 +2,21 @@
 /**
  * md-convert.mjs
  * 把 upstream/docs 下的 md 适配为 Nextra 可用的 mdx 草稿（英文占位，供后续翻译）。
- * 规则见 PLAN.md §5.2。不覆盖 content/ 下已存在的文件（除非 --force）。
+ * 规则见 PLAN.md §5.2。已有文件一律保留；不提供强制覆盖。
  */
 import {
-  readFileSync,
   writeFileSync,
   mkdirSync,
-  existsSync,
-  readdirSync,
-  statSync,
-  rmSync,
 } from 'node:fs'
-import { join, relative, sep, dirname } from 'node:path'
+import { join, dirname } from 'node:path'
+import {fileURLToPath} from 'node:url'
+import {loadSnapshot, readJSON, translationState} from './lib/upstream-sync.mjs'
 
-const FORCE = process.argv.includes('--force')
-const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')
-const SRC = join(ROOT, 'upstream', 'docs')
+if (process.argv.slice(2).length) {
+  console.error('[convert] 不支持参数或--force；已有译文/占位一律保留，请按增量翻译任务审查修改。')
+  process.exit(1)
+}
+const ROOT = fileURLToPath(new URL('..', import.meta.url))
 const DEST = join(ROOT, 'content', 'docs')
 
 /** 顶层缩进代码块 → 围栏代码（MDX 不支持 indented code）。 */
@@ -76,19 +75,17 @@ function fenceIndentedCode(text) {
   return out.join('\n')
 }
 
-function walk(dir, out = []) {
-  for (const name of readdirSync(dir)) {
-    const p = join(dir, name)
-    if (statSync(p).isDirectory()) walk(p, out)
-    else if (p.endsWith('.md')) out.push(p)
-  }
-  return out
-}
-
 function convert(raw, relPath) {
   let text = raw.replace(/\r\n/g, '\n')
 
-  // META 行：整行删除（归属信息由 NOTICE + frontmatter 承担）
+  const attribution = {}
+  for (const match of text.matchAll(/^!\[META\]\(([^)]*)\)\s*$/gm)) {
+    for (const field of match[1].split(';')) {
+      const at = field.indexOf(':')
+      if (at > 0) attribution[field.slice(0, at).trim()] = field.slice(at + 1).trim()
+    }
+  }
+  // Preserve source metadata in frontmatter, not just a site-wide notice.
   text = text.replace(/^!\[META\]\([^)]*\)\s*$/gm, '')
 
   // RXLAB_VIDEO → 自有 Video 组件（下一行斜体图注保留为 caption）
@@ -200,28 +197,29 @@ function convert(raw, relPath) {
     const h1 = text.match(/^#\s+(.+)$/m)
     const fallback = relPath.replace(/\.md$/, '').split('/').pop()
     const title = h1 ? h1[1].trim() : fallback
-    text = `---\ntitle: ${JSON.stringify(title)}\n---\n\n${text}`
+    const fields = ['authors', 'copyright', 'updated'].filter(key => attribution[key]).map(key => `${key}: ${JSON.stringify(attribution[key])}`).join('\n')
+    text = `---\ntitle: ${JSON.stringify(title)}\nlicense: GFDL-1.3\n${fields ? fields + '\n' : ''}---\n\n${text}`
   }
 
   return text
 }
 
-const files = walk(SRC)
+const files = [...loadSnapshot(ROOT).docs]
+const manifest = readJSON(join(ROOT, 'translation-manifest.json'), {})
 let created = 0
 let skipped = 0
-for (const abs of files) {
-  const rel = relative(SRC, abs).split(sep).join('/')
+for (const [rel, raw] of files) {
   const destRel = rel.replace(/\.md$/, '.mdx')
   const dest = join(DEST, destRel)
-  if (existsSync(dest) && !FORCE) {
+  const current = translationState(ROOT, 'content/docs/' + destRel)
+  if (current.text !== null || current.tracked || manifest[rel] && manifest[rel].status !== 'untranslated') {
     skipped++
     continue
   }
-  if (existsSync(dest) && FORCE) rmSync(dest)
   mkdirSync(dirname(dest), { recursive: true })
-  writeFileSync(dest, convert(readFileSync(abs, 'utf8'), rel))
+  writeFileSync(dest, convert(raw, rel), {flag: 'wx'})
   created++
 }
 console.log(
-  `[convert] 扫描 ${files.length} 篇，新建/覆盖 ${created} 篇，跳过已存在 ${skipped} 篇`,
+  `[convert] 扫描 ${files.length} 篇，新建 ${created} 篇，跳过已存在 ${skipped} 篇`,
 )

@@ -24,6 +24,7 @@
 
 ```bash
 npm ci
+npm run sync:test
 npm run test:pages
 npm run build:pages
 npm run preview:pages
@@ -65,6 +66,20 @@ npm run preview:pages
 - 线上浏览器：Hero角色及控制器显示，右手x=674→679；中文检索“骨骼”并进入`/docs/guide/bones/`；正文已完成加载的图片没有失败，返回首页为完整本地运行时落地页。
 - 首页仍出现上述既存Nuxt水合警告；文档未出现本次已修复的客户端异常。未声称整站零警告或所有第三方媒体可用。
 - 本地截图`output/pages-deploy-2026-11-06/live-home.jpg`不提交。部署后的记录提交仅改文档/忽略规则，使用`[skip ci]`避免重复发布；线上应用版本以上述build-info为准。
+
+## 继续开发注意事项
+
+2026-11-06补充；以下区分已修复的问题与仍待排查的问题，不改变发布方式。
+
+- **先分清服务。** 3017是日常Next开发服务；3018是`npm run preview:pages`启动的临时静态导出预览，查看的是上次`out/`，不是热更新。此次上线验收后3018已主动停止，连接失败不等于代码崩溃或线上下线。结束临时服务要说明端口；用户仍在使用时不要自行关闭。线上版本以`pages/build-info.json`为准。
+- **水合警告仍未修复。** 3017与Pages首页均观察到`Hydration completed but contains mismatches`。它表示初始HTML与Vue接管时的输出不一致；尚未定位到具体节点，不能把某个组件、基路径或Pages认定为已证实根因。当前功能抽查通过不代表警告无害，潜在影响包括闪烁、额外DOM重建与动画测量偏差。
+- **下一次首页结构修改前先定位一致性。** 对同一入口记录Vue接管前后的节点差异，修复`components/home/landing/`的SSR/Vue同源输出及发布过程，发布后复核实际产物。保留既定角色与滚动父级，不通过屏蔽console、跳过水合或更换技术栈消除提示。该项独立于已修复的文档`Connection closed`。
+- **坚持编译边界。** 基路径在临时源码中适配后编译，不改生成的Flight长度编码内容；文档回首页走完整导航。首页改动走真源与`landing:publish`，不要只改`app/page.tsx`或生成HTML。正常构建避免和3017共写`.next`；`build:pages`已有独立临时树。
+- **按改动验证和授权发布。** 运行时代码变更执行构建及对应回归；纯说明文档核对差异、链接即可，无需为了更新说明重启预览。涉及Pages时执行`test:pages`、`build:pages`及静态浏览器验证；推送部署仍需授权。第三方失效视频单列，不用占位或镜像冒充恢复。
+
+上游检查和续译是另一条链路，当前能力与待办见 [UPSTREAM_SYNC](UPSTREAM_SYNC.md)，Pages部署成功不会自动启动翻译。
+
+其他 agent 软件完成翻译后也走本流程：先按 [跨软件交接](UPSTREAM_SYNC.md#21-交给其他-agent-软件)审校和应用，获准后提交明确文件。PR只构建，合入或经授权直接推送main才部署；核对对应SHA的Actions和线上构建记录，不另建发布通道。
 
 ## 未推送历史修复与恢复
 

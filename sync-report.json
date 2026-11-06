@@ -1,6 +1,9 @@
 {
-  "generatedAt": "2026-10-28T07:19:28.041Z",
+  "schemaVersion": 2,
+  "repository": "RxLaboratory/Duik",
+  "sourceCommit": null,
   "mdCount": 132,
+  "navHash": "7714e22c74a8c490e434f8d8688204d6c2f8b5eb1a354799998d4e1ea0f8b9cb",
   "files": [
     {
       "path": "advanced/api/duik-features.md",
@@ -530,5 +533,6 @@
       "path": "tutorials.md",
       "hash": "8b1658813096"
     }
-  ]
+  ],
+  "generatedAt": "2026-11-06T01:09:03.414Z"
 }

@@ -5,11 +5,12 @@ on:
     # 每周一 UTC 02:00
     - cron: '0 2 * * 1'
   workflow_dispatch:
-    inputs:
-      force:
-        description: '强制全量（忽略 hash 缓存）'
-        type: boolean
-        default: false
+  repository_dispatch:
+    types: [duik-docs-updated]
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -23,6 +24,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -35,21 +37,47 @@ jobs:
           repository: RxLaboratory/Duik
           ref: master
           path: upstream-tmp
+          persist-credentials: false
           sparse-checkout: |
             src-docs
 
       - name: Replace upstream/
-        shell: bash
+        # Ignore dispatch payload refs/commands; always pin the actual official master checkout.
+        run: node scripts/refresh-upstream-snapshot.mjs
+
+      - name: Install locked dependencies and test safety
         run: |
-          rm -rf upstream
-          mkdir -p upstream
-          cp -r upstream-tmp/src-docs/. upstream/
-          rm -rf upstream-tmp
+          npm ci
+          npm run sync:test
 
       - name: Analyze + generate report
+        id: analyze
+        env:
+          DUIK_SYNC_COMPLETE_SNAPSHOT: '1'
         run: |
-          npm ci --ignore-scripts || npm install --ignore-scripts
-          npm run sync
+          npm run sync -- --output=output/upstream-sync/check.json
+          npm run translate:prepare -- --batch=output/upstream-sync/batch --limit=20
+          node --input-type=module <<'NODE'
+          import {execFileSync} from 'node:child_process';
+          import {appendFileSync} from 'node:fs';
+          const status = execFileSync('git', ['status', '--porcelain', '--untracked-files=all', '--', 'upstream/', 'upstream-revision.json', 'sync-report.json', 'translation-manifest.json', 'translation-queue.json'], {encoding: 'utf8'});
+          appendFileSync(process.env.GITHUB_OUTPUT, `changed=${Boolean(status.trim())}\n`);
+          NODE
+
+      - name: Validate generated candidate before proposing a PR
+        if: steps.analyze.outputs.changed == 'true'
+        run: |
+          npm run test:pages
+          npm run build:pages
+
+      - name: Retain check result and translation handoff
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: upstream-sync-report
+          path: output/upstream-sync/
+          if-no-files-found: ignore
+          retention-days: 30
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
@@ -57,7 +85,16 @@ jobs:
           commit-message: 'chore(sync): refresh upstream snapshot'
           branch: chore/sync-upstream
           delete-branch: true
+          add-paths: |
+            upstream/**
+            upstream-revision.json
+            sync-report.json
+            translation-manifest.json
+            translation-queue.json
           title: 'chore(sync): 上游文档同步'
           body: |
             自动生成的上游同步 PR。
-            详见 `sync-report.json` 与 `translation-manifest.json` 中的 stale 标记。
+            已在本工作流运行安全回归和 Pages 构建；不依赖机器人 PR 再次触发 CI。
+            详见 `sync-report.json`、`translation-queue.json` 与本次 upstream-sync-report artifact。
+            翻译批次包含原文、历史基线、当前中文及规范，供本地 Codex 增量续译与审校。
+            基线不明的任务必须先核实；本 PR 不覆盖译文、不自动合并或部署。

@@ -1,2 +1,2 @@
-# 上游快照按 LF 存储，避免 Windows/CI 行尾差异造成全量假 diff 与假 stale
-upstream/** text eol=lf
+# 快照保留官方原始字节（含 PNG/GIF/AEP）。正文哈希在同步脚本内单独归一化。
+upstream/** -text

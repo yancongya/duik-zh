@@ -39,7 +39,7 @@ npm install
 npm run dev        # 本地预览
 npm run build      # 构建验证（改完必须跑）
 npm run sync       # 盘点上游 → sync-report.json + translation-manifest.json
-npm run nav        # mkdocs.yml → content/docs/_meta.ts
+npm run nav        # mkdocs.yml + _meta.cn.json → content/docs/**/_meta.js
 npm run convert    # 上游 md → 占位 mdx（跳过已存在文件）
 ```
 
@@ -47,8 +47,10 @@ npm run convert    # 上游 md → 占位 mdx（跳过已存在文件）
 
 - **翻译一页**：确认 `content/docs/<path>.mdx` 不存在或为占位 → `npm run convert` 生成 → 按 GLOSSARY 翻译 → 更新 `translation-manifest.json`（status: translated，记录 upstreamHash）→ `npm run build`。
 - **处理 stale**：manifest 中该页 `stale: true` → 对比 `upstream/docs/<path>.md` 与现译文 → 只重译变更段 → 清 stale。
-- **上游结构变更**：`npm run nav` 后 diff `_meta.ts` → 报告重命名建议，**不要**自动 `git mv` 翻译文件。
+- **上游结构变更**：`npm run nav` 后 diff `content/docs/**/_meta.js` → 报告重命名建议，**不要**自动 `git mv` 翻译文件。
 - **落地页改版**：先确认真实运行入口。当前 `/` 经 Next rewrite 显示 `public/landing.html`，可编辑真源在 `components/home/landing/`，通过 `npm run landing:publish` 同步；仅修改 `app/page.tsx` 不会改变当前落地页。不碰 `content/docs/`，不直接手改生成文件。
+- **同步状态或续译**：先读 [UPSTREAM_SYNC](docs/UPSTREAM_SYNC.md)。CI只检测/生成任务，本地agent续译；Codex或其他软件共用批次CLI，跨软件交接见该文档§2.1。`sync:check`只读，批次经prepare→独立翻译/审校→check→明确apply再构建。已有MDX不经convert覆盖；基线不明先报告，精确CRLF等价迁移保留证据。源码已改不等于远端工作流已执行，快照修复仅由受控CI执行；提交/推送按当前任务授权，不继承先前发布授权。
+- **部署后继续开发**：按 [GITHUB_PAGES](docs/GITHUB_PAGES.md#继续开发注意事项) 区分3017开发服务、3018临时静态预览和线上版本；现存Nuxt水合警告仍待定位，发布成功不表示警告已修复。
 
 ### 文档壳与路由
 
