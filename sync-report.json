@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "repository": "RxLaboratory/Duik",
-  "sourceCommit": null,
+  "sourceCommit": "718e6e282d1ae91dc9678bb1a202ce08e862a28d",
   "mdCount": 132,
   "navHash": "7714e22c74a8c490e434f8d8688204d6c2f8b5eb1a354799998d4e1ea0f8b9cb",
   "files": [
@@ -534,5 +534,5 @@
       "hash": "8b1658813096"
     }
   ],
-  "generatedAt": "2026-11-06T01:09:03.414Z"
+  "generatedAt": "2026-11-09T08:50:13.071Z"
 }
